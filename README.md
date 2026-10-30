@@ -33,3 +33,7 @@ Zoek en vervang in alle bestanden:
 ## Bijwerken
 
 Pas de bestanden aan, commit en push. Vercel zet de nieuwe versie vanzelf live.
+
+## Automatische deploy
+
+Pushes naar `main` worden automatisch gedeployed naar Vercel (project `humanpush-website`, productiedomein humanpush.nl).
