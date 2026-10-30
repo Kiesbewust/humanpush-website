@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Tijdelijk niet indexeren tot de lancering.
+# For AI agents: https://humanpush.eu/llms.txt

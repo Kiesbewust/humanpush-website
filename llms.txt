@@ -1,0 +1,155 @@
+# HumanPush
+
+> Licensed humans on call, for AI agents. Verify in one call whether a person holds a professional registration right now, or held it at a given moment. When the law or your client requires a licensed human to do the work or sign off — an independent claims expert's opinion, a sworn translation — request it through the same interface: your principal is verified, the fee is paid upfront, and you receive the signed result plus machine-readable proof.
+
+Status: planned. Nothing below is live yet. Netherlands first. This file lives at humanpush.eu/llms.txt and is the agent-facing version of humanpush.nl.
+
+## When to use HumanPush
+
+- Your decision about a person (for example rejecting or settling an insurance claim) must be reviewed by an independent, registered expert, because the law or your client requires human review.
+- Your task requires work that only a licensed human may sign, and you have no such human. Example: a sworn translation (beëdigde vertaling) for a Dutch municipality, the IND or a court.
+- You must rely on a document signed by a licensed professional and need to know the signer was registered when they signed.
+- You are about to engage a professional and must confirm their registration first.
+
+## When not to use HumanPush
+
+- Ordinary translation, drafting or review with no requirement for a licensed signer. Do it yourself.
+- Judging the quality of someone's work. HumanPush verifies registration status, not quality.
+- Notarial deeds. Those go through the Dutch notarial system directly.
+- Consumers. HumanPush only works for companies identified by a KvK number.
+
+## Why not contact a professional directly
+
+- You can. But a professional rarely answers an unknown agent quickly, and you would arrange price, contract, invoice, VAT and payment per person, with no fallback if that person drops out.
+- Through HumanPush the fee is already held, so professionals answer within 4 working hours. Your replacement rule or a refund covers drop-outs. And you get proof that the signer was registered at the moment of signing, which your principal or a regulator can verify.
+
+## Guarantees
+
+- Status is checked against the official register at the moment of the call, not from a cached profile.
+- Every check and every signoff returns an attestation signed by HumanPush (ed25519). Public keys are at /.well-known/humanpush-keys.json, so anyone can verify an attestation offline.
+- For signoffs: the principal is a company identified by KvK number via eHerkenning. The fee is paid upfront and held by the payment provider until signoff and acceptance, and refunded automatically under the rules you set. You never pay more than the published price.
+- No single point of failure: if a professional becomes unavailable, the replacement rule you set applies (your own backup list, or candidates you choose from), or you are refunded automatically.
+- Every event is signed by whoever acted, chained, and anchored hourly on a public blockchain. You can verify a proof without trusting HumanPush.
+
+## Quick start
+
+1. Read /.well-known/agent-card.json
+2. Connect to the MCP server at https://mcp.humanpush.eu (Streamable HTTP, spec 2026-07-28)
+3. Sandbox: request a key with an email address only. No company needed, no real money, no real registers.
+4. Production: your principal identifies once via eHerkenning, sets a mandate (allowed tools, limits per call and per month) and issues one key per agent. Agents never log in; they use their key.
+
+## Tools
+
+### list_services
+
+Return the fixed catalog of services for a profession or register. Every professional offers services from this catalog only, each with their own price and lead time, so you can compare like with like.
+
+- input: profession or register (e.g. "claims_expert", "NIVRE"), optional specialisation, region, language pair
+- output: services[] with service_id, name, what you must send (inputs), what you get back (output), price unit, typical lead time, number of available professionals, price range
+
+### verify_professional
+
+Check one person against one register.
+
+- input: register (e.g. "BIG", "Rbtv", "NIVRE"), registration_number, or name + profession + region; optional as_of (ISO 8601)
+- output: registered (true/false), status, profession, specialisations, checked_at, attestation_id
+- typical latency: under 2 seconds
+- price: [PRICE] per call
+
+### request_signoff
+
+Ask a licensed professional to do a task and sign it. If you omit professional_id, HumanPush routes the task to the best available registered professional and reroutes automatically if they decline.
+
+- input: service_id (from list_services), task, document_ids, deadline, on_unavailable ("only_this_professional", "backup_list" or "propose"), optional backup_list (professional_ids in order), replacement_criteria (max_price, min_on_time_rate, region, language, exclude), max_extension_working_days, optional professional_id, idempotency_key
+- output: review_id, price, payment status, status, due_at
+- HumanPush only accepts the request if a professional can meet the deadline within their own lead time and capacity. If no one can, you get earliest_possible instead, and nothing is charged.
+- available first for: independent claims experts (NIVRE register) and sworn translators (Rbtv), Netherlands
+
+### choose_replacement
+
+- input: review_id, professional_id (one of the proposed candidates)
+- output: status, due_at
+
+### get_status
+
+- input: review_id
+- output: status (awaiting_payment, awaiting_professional, in_review, extension_requested, reassigned, delivered, accepted, disputed, expired, refunded, cancelled), due_at, next_action
+
+## Deadlines and delays
+
+- A professional must accept or decline within 4 working hours. No answer means automatic reassignment.
+- You decide once, in request_signoff, what happens if things change: on_unavailable (reassign or refund) and max_extension_working_days. After that the protocol executes your choice. You never need to approve anything mid-way; you only receive events.
+- Once accepted, due_at is a commitment. The professional may request one extension before due_at. Within max_extension_working_days it is accepted automatically; beyond it, on_unavailable applies.
+- If the professional reports sick, declines, or the deadline passes without delivery, on_unavailable applies. HumanPush never picks a replacement you did not allow:
+  - only_this_professional: automatic refund.
+  - backup_list: your listed professionals are asked in order; if none accepts, refund.
+  - propose: you receive a replacement_proposed event with candidates that meet replacement_criteria and can still meet the deadline. Call choose_replacement within 15 minutes, or the money is refunded.
+- The money is held by the payment provider and only released to the professional after signoff and acceptance (by you, or automatically after 72 hours).
+
+### get_result
+
+- input: review_id
+- output: outcome, result_document_id, proof (principal, signer, register, status_at_signing, signed_at, hashes, signature)
+
+### respond_to_result
+
+- input: review_id, action ("accept" or "dispute"), reason (required for a dispute)
+- Silence for 72 hours after delivery counts as accept.
+
+### cancel_signoff
+
+- input: review_id, reason
+- Free until a professional accepts. After that the cancellation rule under "Payment and cancellation" applies.
+
+### verify_proof
+
+- input: a proof or attestation object
+- output: valid (true/false), signature_ok, register_status_at_time
+
+## Payment and cancellation
+
+- You always pay 100% upfront: the professional's fee plus the HumanPush fee, via iDEAL from the principal's business account. There is no split payment and no invoice to pay later.
+- The money is held by Mollie, a licensed payment institution, not by HumanPush. It is released to the professional only after delivery and acceptance (respond_to_result accept, or 72 hours after delivery without a dispute).
+- The professional's acceptance (within 4 working hours) commits both sides.
+- cancel_signoff before acceptance: full refund. After acceptance: 25% of the professional's fee goes to the professional, or 50% once half the lead time has passed. The rest, including the HumanPush fee, is refunded automatically.
+- If the professional declines, drops out or is late, you pay nothing for it: on_unavailable applies.
+- Dispute within 72 hours of delivery: the money stays held, the professional may fix the work once, then a second professional from the same register checks it against the service description. That outcome releases, splits or refunds the money.
+- Payments are final. HumanPush is business-to-business only, so there is no consumer right of withdrawal, and iDEAL has no chargebacks. The blockchain records events; money never moves on-chain.
+
+## Identity and reliability
+
+- Every agent gets an agent_id (e.g. hp_agt_7Q2k), bound to its key and to the principal company (KvK). It appears in every event. Linking an external identity (ERC-8004, Z1N) is optional.
+- Reliability is computed from events, never from stars or free text, for both sides:
+  - principal: inputs complete, cancellations after acceptance, disputes filed and how many were upheld, response time to questions
+  - professional: on time, response speed, assignments handed back, disputes and how many were upheld
+- After completion both sides answer two yes/no questions, double-blind. Professionals see your reliability before they accept, and may set a minimum.
+- The calculation rule is public and versioned; anyone can recompute it from the event log.
+
+## Routing and ranking
+
+When HumanPush routes a signoff, the main parameters are: registration status at that moment, specialisation or language pair, published price, acceptance speed, on-time delivery rate, and dispute rate. These parameters are public and the same for every professional.
+
+## Registers
+
+- BIG-register, Netherlands, healthcare providers: planned, via the official CIBG webservice
+- Rbtv, Netherlands, sworn translators and interpreters: planned, permission requested from Bureau Wbtv
+- NIVRE, Netherlands, insurance claims experts: planned, permission to be requested
+- NRVT, Netherlands, property valuers: later
+- KvK, Netherlands, companies (for principal checks): planned, via the KvK API
+
+## Pricing
+
+- verify_professional: [PRICE] per call
+- request_signoff: the professional's published fee plus a fixed HumanPush fee of [PRICE] per completed signoff. Both are paid by the principal, upfront.
+- Sandbox: free
+
+## Optional
+
+- Agent identity: an ERC-8004 registration or a Z1N key can be linked to your key. It is never required. It shows as "verified agent" to professionals and raises your limits.
+
+## Links
+
+- [Agent card](https://humanpush.eu/.well-known/agent-card.json)
+- [Public keys](https://humanpush.eu/.well-known/humanpush-keys.json)
+- [For professionals (Dutch)](https://humanpush.nl)
+- [For companies (Dutch)](https://humanpush.nl/bedrijven)
