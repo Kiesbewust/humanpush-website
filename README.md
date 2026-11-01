@@ -1,8 +1,8 @@
 # humanpush.nl – website
 
-Statische website, zonder build-stap. Werkt op Vercel, net als z1nprotocol.xyz.
+Statische website, zonder build-stap. Werkt op Vercel.
 
-Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt en verbinden met de sandbox-MCP op https://mcp.humanpush.nl/mcp.
+Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. De sandbox die nu werkt staat op https://humanpush-mcp-production.up.railway.app/ en het MCP-pad is https://humanpush-mcp-production.up.railway.app/mcp.
 
 ## Wat erin zit
 
