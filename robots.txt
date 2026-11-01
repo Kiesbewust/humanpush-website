@@ -1,5 +1,6 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Tijdelijk niet indexeren tot de lancering.
-# For AI agents: https://humanpush.nl/llms.txt
+# Nog niet indexeren tot de lancering (zie X-Robots-Tag: noindex).
+# Agents zijn welkom. For AI agents: https://humanpush.nl/llms.txt
+Sitemap: https://humanpush.nl/sitemap.xml
