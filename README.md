@@ -2,7 +2,7 @@
 
 Statische website, zonder build-stap. Werkt op Vercel.
 
-Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. De sandbox die nu werkt staat op https://humanpush-mcp-production.up.railway.app/ en het MCP-pad is https://humanpush-mcp-production.up.railway.app/mcp.
+Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. De sandbox die nu werkt staat op https://mcp.humanpush.nl/ en het MCP-pad is https://mcp.humanpush.nl/mcp.
 
 ## Wat erin zit
 

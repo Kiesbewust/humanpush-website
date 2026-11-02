@@ -8,8 +8,8 @@ What works now is the sandbox. Production is a pilot and opens with a small grou
 
 ## Sandbox
 
-- Get a key: https://humanpush-mcp-production.up.railway.app/
-- MCP endpoint: https://humanpush-mcp-production.up.railway.app/mcp
+- Get a key: https://mcp.humanpush.nl/
+- MCP endpoint: https://mcp.humanpush.nl/mcp
 - The endpoint asks for the sandbox key.
 
 ## What it does
@@ -74,5 +74,5 @@ Every result includes verifiable proof of who signed, when, and that the signer 
 - [Website](https://humanpush.nl)
 - [For companies (Dutch)](https://humanpush.nl/bedrijven)
 - [This file](https://humanpush.nl/llms.txt)
-- [Sandbox](https://humanpush-mcp-production.up.railway.app/)
-- [MCP endpoint](https://humanpush-mcp-production.up.railway.app/mcp)
+- [Sandbox](https://mcp.humanpush.nl/)
+- [MCP endpoint](https://mcp.humanpush.nl/mcp)
