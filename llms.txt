@@ -38,7 +38,7 @@ Under the AVG (article 22) a person can have a right to human intervention in ce
 
 These are the sandbox calls. They run on pretend data and pretend money. A write call takes an idempotency_key. The same key does not run the action twice.
 
-Usual order: list_services, then request_signoff, then poll get_status. After a delivery: respond_to_result, then get_result, then verify_proof. Upload documents with create_upload_url when the work needs files. Read the log with get_events.
+Usual order: list_services, then request_signoff, then poll get_status. After a delivery: respond_to_result, then get_result, then verify_proof. Upload documents with create_upload_url when the work needs files. Read the log with get_events, or take it with you using export_request.
 
 ### list_services
 
@@ -70,22 +70,22 @@ Get a one-time URL and upload one document with HTTP PUT (raw bytes). Pass the d
 Ask a registered professional to do a service and sign it. The company pays 100% up front: the professional's fee plus the HumanPush fee.
 
 - input: idempotency_key, service_id, task, and deadline (ISO 8601, at most 30 working days ahead). Optional: document_ids, professional_id, on_unavailable, backup_list, replacement_criteria, max_extension_working_days.
-- on_unavailable is chosen now. only_this_professional refunds. backup_list asks your list in order. propose gives you candidates and 15 minutes to choose.
+- on_unavailable defaults to reassign: the next eligible registered professional, on the same review_id. only_this_professional refunds. backup_list asks your list in order. propose is opt-in: you choose from the candidates within 15 minutes.
 - Omit professional_id to let HumanPush route the request.
-- output: review_id, status, the amount, and in the sandbox a pay page
+- output: review_id, status, the sla deadlines, the amount, and in the sandbox a pay page
 - price: Price on request
 - sandbox: pretend money, free
 
 ### get_status
 
-Current status, deadline and next action. When you must choose a replacement, the candidates are included.
+Current status, the SLA deadlines, and the next action. Candidates are included only when you opted in with propose.
 
 - input: review_id from request_signoff
-- output: status, next_action, deadline, payment, is_final, and the candidates when the status is choose_replacement
+- output: status, next_action, sla.acceptance_deadline, sla.delivery_deadline, sla.final_deadline, payment, is_final, and the candidates when the status is choose_replacement
 
 ### choose_replacement
 
-When get_status says choose_replacement, pick one of the candidates within 15 minutes. After that the payment is refunded.
+Opt-in. Use this when you set on_unavailable to propose and get_status says choose_replacement. Pick one candidate within 15 minutes. After that the payment is refunded.
 
 - input: idempotency_key, review_id, professional_id
 - output: the updated status
@@ -116,7 +116,14 @@ The outcome, the signed result, and once it is final the proof. Pass that proof 
 The signed, hash-chained events of one review, oldest first. Use since_seq to fetch only new ones.
 
 - input: review_id, and since_seq if you only want events after that sequence number
-- output: events. Each event has a hash, the previous hash, and a signature. Once anchored, it also has a Merkle path.
+- output: events. Each event has a hash, the previous hash, a signature, and an Ed25519 actor_sig from the agent, the professional, or the HumanPush service key. Once anchored, it also has a Merkle path.
+
+### export_request
+
+Export one review as JSON: the contiguous signed event chain, the actor signatures, the public keys and the Merkle anchors. The review_id stays the same. The same document is GET /reviews/{review_id}/export on the sandbox, with the sandbox key.
+
+- input: review_id
+- output: the export. Check it offline with npm run verify -- <export.json>
 
 ### verify_proof
 
@@ -128,23 +135,23 @@ Check a HumanPush proof yourself: the signature, every event hash and signature,
 
 ## Request lifecycle
 
-You choose what happens if a professional is unavailable when you call request_signoff. After that the request moves on by itself. When you chose propose, you still pick the replacement.
+You choose what happens if a professional is unavailable when you call request_signoff. The default is reassign. After that the request moves on by itself. When you opted in to propose, you still pick the replacement.
 
-States on get_status:
+Every status from get_status includes sla.acceptance_deadline, sla.delivery_deadline and sla.final_deadline.
 
 - awaiting_payment. Next action: principal_pays. The company pays 100% up front. In the sandbox the pay page uses pretend money.
 - awaiting_professional. Next action: wait_for_professional. The professional can accept inside the window in the service terms.
-- choose_replacement. Pick a candidate with choose_replacement within 15 minutes.
+- choose_replacement. Only when on_unavailable is propose. Pick a candidate with choose_replacement within 15 minutes.
 - cancelled. You cancelled. What comes back is in cancel_signoff.
 - refunded. Final. The payment comes back, including the HumanPush fee.
 
 After a delivery, respond_to_result is how you accept or dispute. get_result then returns the signed work and, once final, the proof.
 
-If the professional declines, is unavailable, or misses the deadline, on_unavailable runs on its own. An extension set in max_extension_working_days is applied first. only_this_professional refunds. backup_list offers the request to the next person on your list. propose opens choose_replacement.
+If the professional declines, is unavailable, or misses a deadline, on_unavailable runs on its own. An extension set in max_extension_working_days is applied first. reassign gives the same review_id to the next eligible registered professional and records assignment.reassigned. only_this_professional refunds. backup_list offers the request to the next person on your list. propose, which you opt in to, opens choose_replacement for 15 minutes.
 
-If nobody delivers, the payment is refunded in full, including the HumanPush fee. That follows when the only professional does not take the work, when a backup list runs out, or when you do not choose a replacement in time.
+When sla.final_deadline passes and nothing has been delivered, the status becomes refunded and the log records deadline.final_missed. The payment is refunded in full, including the HumanPush fee. The same refund follows when the only professional does not take the work, when reassign finds nobody eligible, when a backup list runs out, or when you do not choose a replacement in time.
 
-Every review keeps a signed hash-chained event log. Each event stores the previous hash, its own hash, and an ed25519 signature. The sandbox anchors batches of those events on its own chain. get_events returns the log. verify_proof checks the signature, the hashes, the Merkle path and the anchor. You can run that check yourself. The public key is at https://mcp.humanpush.nl/.well-known/humanpush-keys.json.
+Every review keeps a signed hash-chained event log. Each event stores the previous hash, its own hash, a signature, and an Ed25519 actor_sig from the agent, the professional, or the HumanPush service key. The sandbox anchors batches of those events on its own chain. get_events returns the log. export_request saves that chain so you can verify it offline. verify_proof checks the signature, the hashes, the Merkle path and the anchor. You can run that check yourself. The public key is at https://mcp.humanpush.nl/.well-known/humanpush-keys.json.
 
 ## Payment
 
@@ -154,7 +161,7 @@ Every review keeps a signed hash-chained event log. Each event stores the previo
 
 ## Proof
 
-Every final result includes verifiable proof of who signed, when, and that the signer was listed in the public register. The proof is the signed hash chain and the anchor. Anyone can check that proof independently.
+Every final result includes verifiable proof of who signed, when, and that the signer was listed in the public register. The proof is the signed hash chain and the anchor. Anyone can check that proof independently. export_request is that chain in one file, and the file can be checked offline.
 
 ## Links
 
