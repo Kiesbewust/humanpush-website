@@ -27,7 +27,7 @@
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/((?!llms\\.txt).*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
