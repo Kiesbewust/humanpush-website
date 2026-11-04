@@ -32,6 +32,28 @@ body{margin:0;background:#FFFFFF}
 .hp details p{margin:10px 0 0;font-size:17px;color:#3B4458}
 .in{font-family:inherit;font-size:16px;min-height:50px;box-sizing:border-box;padding:10px 14px;border-radius:8px;border:1px solid #B9C1D0;background:#FFFFFF;color:var(--ink);width:100%}
 .role{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 18px}
+.mock{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 0 rgba(27,34,56,.04),0 18px 40px -18px rgba(27,34,56,.28)}
+.mockbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.field{border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px;color:var(--ink);background:#FFFFFF}
+.lbl{font-size:13px;color:var(--muted);margin:0 0 4px}
+.ok{color:var(--paid);font-weight:600}
+.steptext{flex:1 1 380px;min-width:0;max-width:480px}
+.stepmock{flex:1 1 420px;min-width:0;max-width:520px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--pen);color:#FFFFFF;font-weight:700;font-size:17px;margin-bottom:18px}
+.steptext h3{margin:0 0 12px;font-size:30px;line-height:1.15;letter-spacing:-.015em;font-weight:600}
+.steptext p{margin:0 0 14px;color:#3B4458}
+.time{display:inline-block;font-size:14px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+.track{display:flex;align-items:stretch;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:24px;scrollbar-width:none;padding:4px 0 8px}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;box-sizing:border-box;background:var(--mist);border-radius:24px;padding:48px 56px 28px;display:flex;flex-wrap:wrap;gap:40px 64px;align-items:center;align-content:space-between}
+.slidenav{flex:1 1 100%;display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:20px;font-size:16px;color:var(--muted)}
+.slidenav a{text-decoration:none;font-weight:600}
+.prev{color:var(--ink)!important}
+.next{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--pen);color:#FFFFFF!important}
+.phase{display:block;font-size:15px;color:var(--muted);margin:0 0 6px}
+@media (max-width:640px){.slide{padding:28px 20px 20px}.track{align-items:flex-start}}
+@media (prefers-reduced-motion:reduce){.track{scroll-behavior:auto}}
+.track{position:relative}
 </style>
 </head>
 <body>
@@ -74,25 +96,214 @@ body{margin:0;background:#FFFFFF}
 </div>
 </section>
 
-<section id="opdracht" style="background: #FFFFFF; padding: 96px 0">
-<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 48px 80px; align-items: flex-start">
-<div style="flex: 1 1 420px; min-width: 0">
-<h2 style="margin: 0 0 16px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Zo loopt een opdracht</h2>
-<p style="margin: 0 0 28px; font-size: 19px; color: #3B4458">Een AI heeft geen registratie en geen beroepsaansprakelijkheid. Het werk is een onafhankelijk oordeel over een schadeclaim. Daarom komt dat bij jou.</p>
-<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 22px">
-<li style="display: flex; gap: 16px"><span style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--pen); color: #FFFFFF; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">1</span><div><h3 style="margin: 0 0 4px; font-size: 22px; font-weight: 600">De opdracht komt binnen</h3><p style="margin: 0; color: #3B4458">Je ziet het bedrijf, het werk en dat er 100% vooraf is betaald. Je neemt aan of je weigert.</p></div></li>
-<li style="display: flex; gap: 16px"><span style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--pen); color: #FFFFFF; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">2</span><div><h3 style="margin: 0 0 4px; font-size: 22px; font-weight: 600">Je doet het werk</h3><p style="margin: 0; color: #3B4458">De stukken staan klaar. Je werkt zoals je gewend bent.</p></div></li>
-<li style="display: flex; gap: 16px"><span style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--pen); color: #FFFFFF; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">3</span><div><h3 style="margin: 0 0 4px; font-size: 22px; font-weight: 600">Je zet je handtekening</h3><p style="margin: 0; color: #3B4458">De opdrachtgever krijgt je werk en verifieerbaar bewijs, onafhankelijk te controleren.</p></div></li>
-<li style="display: flex; gap: 16px"><span style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--pen); color: #FFFFFF; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">4</span><div><h3 style="margin: 0 0 4px; font-size: 22px; font-weight: 600">Je houdt je tarief</h3><p style="margin: 0; color: #3B4458">De factuur staat klaar. Jij verstuurt hem, of zet hem in je boekhouding.</p></div></li>
-</ol>
+<section id="waarom" style="background: var(--mist); padding: 96px 0">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 48px 96px; align-items: flex-start">
+<div style="flex: 1 1 380px; min-width: 0; max-width: 480px">
+<h2 style="margin: 0 0 18px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 600">Waarom agents jou nodig hebben</h2>
+<p style="margin: 0 0 16px; font-size: 19px; color: #3B4458">Bedrijven laten AI steeds meer werk zelf doen. Maar een AI heeft geen inschrijving, geen eed en geen beroepsaansprakelijkheid. Precies daar ligt jouw werk.</p>
+<p style="margin: 0; font-size: 19px; color: #3B4458">Je hoeft zelf niets met AI te doen.</p>
 </div>
-<aside style="flex: 1 1 320px; min-width: 0; max-width: 440px; background: var(--mist); border-radius: 20px; padding: 28px">
-<p style="margin: 0 0 8px; font-size: 14px; font-weight: 600; color: var(--muted)">Voorbeeld</p>
-<p style="margin: 0 0 16px; font-weight: 600; font-size: 20px">Onafhankelijk oordeel over een claim</p>
-<p style="margin: 0 0 8px; color: #3B4458">Voorbeeld Volmacht B.V. vraagt je oordeel over een afgewezen claim.</p>
-<p style="margin: 0 0 8px; color: var(--paid); font-weight: 600">€185, 100% vooraf betaald</p>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Namen en bedragen zijn verzonnen.</p>
-</aside>
+<div style="flex: 1 1 420px; min-width: 0">
+<div style="background: #FFFFFF; border-radius: 16px; padding: 8px 28px">
+<div style="padding: 20px 0; border-bottom: 1px solid var(--line)"><p style="margin: 0 0 4px; font-weight: 600; font-size: 18px">Wat er verandert</p><p style="margin: 0; font-size: 17px; color: #3B4458">Verzekeraars en volmachten laten AI claims beoordelen. Een AI-agent is software die zo'n klus van begin tot eind afhandelt, zonder dat er steeds een medewerker naar kijkt.</p></div>
+<div style="padding: 20px 0; border-bottom: 1px solid var(--line)"><p style="margin: 0 0 4px; font-weight: 600; font-size: 18px">Waar de grens ligt</p><p style="margin: 0; font-size: 17px; color: #3B4458">Waar de wet of de klant een bevoegde professional vraagt, mag een computer niet tekenen. De AVG geeft mensen nu al recht op een menselijke blik bij een besluit dat alleen door een computer is genomen. De Europese AI-verordening vraagt daarnaast menselijk toezicht bij AI met een hoog risico.</p></div>
+<div style="padding: 20px 0"><p style="margin: 0 0 4px; font-weight: 600; font-size: 18px; color: var(--pen)">Wat dat voor jou betekent</p><p style="margin: 0; font-size: 17px; color: #3B4458">Het werk komt niet meer via de telefoon, maar via de software van die bedrijven. Hun agent vraagt via HumanPush jouw werk en handtekening aan, en wie daar vindbaar is, krijgt die opdrachten. Jij praat nooit met de agent zelf: je krijgt een gewone opdracht van een bedrijf.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="opdracht" style="background: #FFFFFF; padding: 96px 0">
+<div class="wrap">
+<h2 style="margin: 0 0 18px; font-size: clamp(34px, 4vw, 52px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; max-width: 18em">Van aanmelden tot geld op je rekening</h2>
+<p style="margin: 0 0 28px; font-size: 20px; color: #3B4458; max-width: 36em">Je richt één keer je account in. Daarna loopt elke opdracht op dezelfde manier. Zie per stap wat jij doet en wat je op je scherm krijgt.</p>
+<nav aria-label="Stappen" style="display: flex; flex-wrap: wrap; gap: 24px; margin: 28px 0 24px">
+<div style="flex: 3 1 330px; min-width: 0; background: var(--mist); border-radius: 16px; padding: 20px 22px"><p style="margin: 0 0 14px; font-size: 15px; font-weight: 600">Eén keer, ongeveer een kwartier</p><ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px"><li><a href="#stap1" style="display: inline-flex; gap: 8px; align-items: center; text-decoration: none; color: var(--ink); background: #FFFFFF; border-radius: 999px; padding: 6px 14px 6px 6px; font-size: 15px"><span style="display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--pen); color: #FFFFFF; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">1</span>Aanmelden</a></li><li><a href="#stap2" style="display: inline-flex; gap: 8px; align-items: center; text-decoration: none; color: var(--ink); background: #FFFFFF; border-radius: 999px; padding: 6px 14px 6px 6px; font-size: 15px"><span style="display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--pen); color: #FFFFFF; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">2</span>Controle</a></li><li><a href="#stap3" style="display: inline-flex; gap: 8px; align-items: center; text-decoration: none; color: var(--ink); background: #FFFFFF; border-radius: 999px; padding: 6px 14px 6px 6px; font-size: 15px"><span style="display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--pen); color: #FFFFFF; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">3</span>Diensten en prijzen</a></li></ol></div>
+<div style="flex: 4 1 440px; min-width: 0; background: var(--night); color: #FFFFFF; border-radius: 16px; padding: 20px 22px"><p style="margin: 0 0 14px; font-size: 15px; font-weight: 600">Bij elke opdracht</p><ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px"><li><a href="#stap4" style="display: inline-flex; gap: 8px; align-items: center; text-decoration: none; color: #FFFFFF; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 14px 6px 6px; font-size: 15px"><span style="display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--penlight); color: var(--night); align-items: center; justify-content: center; font-weight: 700; font-size: 13px">4</span>Opdracht</a></li><li><a href="#stap5" style="display: inline-flex; gap: 8px; align-items: center; text-decoration: none; color: #FFFFFF; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 14px 6px 6px; font-size: 15px"><span style="display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--penlight); color: var(--night); align-items: center; justify-content: center; font-weight: 700; font-size: 13px">5</span>Werk doen</a></li><li><a href="#stap6" style="display: inline-flex; gap: 8px; align-items: center; text-decoration: none; color: #FFFFFF; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 14px 6px 6px; font-size: 15px"><span style="display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--penlight); color: var(--night); align-items: center; justify-content: center; font-weight: 700; font-size: 13px">6</span>Aftekenen</a></li><li><a href="#stap7" style="display: inline-flex; gap: 8px; align-items: center; text-decoration: none; color: #FFFFFF; background: rgba(255,255,255,.1); border-radius: 999px; padding: 6px 14px 6px 6px; font-size: 15px"><span style="display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: var(--penlight); color: var(--night); align-items: center; justify-content: center; font-weight: 700; font-size: 13px">7</span>Geld en factuur</a></li></ol></div>
+</nav>
+<div class="track">
+<div id="stap1" class="slide" role="group" aria-label="Stap 1 van 8">
+<div class="steptext">
+<span class="phase">Eén keer</span>
+<span class="num">1</span>
+<h3>Je meldt je aan</h3>
+<p>Je vult je naam, je e-mailadres en je register in. Meer is het niet. Aanmelden is gratis en verplicht je tot niets.</p>
+<span class="time">2 minuten</span>
+</div>
+<div class="stepmock">
+<div class="mock" style="padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<div><p class="lbl">Naam</p><div class="field">M. Jansen</div></div>
+<div><p class="lbl">E-mailadres</p><div class="field"><span data-k="mail">m.jansen@expertisebureau.nl</span></div></div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<div style="flex: 1 1 180px"><p class="lbl">Register</p><div class="field"><span data-k="reg">NIVRE, schade-experts</span></div></div>
+<div style="flex: 1 1 140px"><p class="lbl">Registernummer</p><div class="field"><span data-k="regnr">48213</span></div></div>
+</div>
+<span class="btn" aria-hidden="true" style="align-self: flex-start; min-height: 44px; font-size: 15px; background: var(--pen); color: #FFFFFF; cursor: default">Meld me aan</span>
+</div>
+</div>
+<div class="slidenav"><span></span><span>1 / 8</span><a class="next" href="#stap2">Volgende: Controle</a></div>
+</div>
+<div id="stap2" class="slide" role="group" aria-label="Stap 2 van 8">
+<div class="steptext">
+<span class="phase">Eén keer</span>
+<span class="num">2</span>
+<h3>Wij controleren je</h3>
+<p>We zoeken je op in het register. Daarna maak je een passkey aan op je telefoon. Daarmee teken je straks, zodat niemand zich voor jou kan uitgeven.</p>
+<span class="time">Binnen één werkdag</span>
+</div>
+<div class="stepmock">
+<div class="mock">
+<div class="mockbar"><span>Je account</span><span class="ok">Klaar voor opdrachten</span></div>
+<ul style="list-style: none; margin: 0; padding: 12px 24px 18px">
+<li style="display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line)"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="11" cy="11" r="11" fill="#1E7A4F"></circle><path d="M6.5 11.3l3 3 6-6.3" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><strong><span data-k="found">Ingeschreven bij NIVRE</span></strong><br><span style="font-size: 15px; color: var(--muted)">Gevonden in het register op 3 november</span></span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line)"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="11" cy="11" r="11" fill="#1E7A4F"></circle><path d="M6.5 11.3l3 3 6-6.3" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><strong>Passkey aangemaakt</strong><br><span style="font-size: 15px; color: var(--muted)">Op je telefoon, één keer</span></span></li>
+<li style="display: flex; gap: 14px; align-items: flex-start; padding: 12px 0"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" style="flex: none; margin-top: 2px"><circle cx="11" cy="11" r="11" fill="#1E7A4F"></circle><path d="M6.5 11.3l3 3 6-6.3" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span><strong>Voorwaarden geaccepteerd</strong><br><span style="font-size: 15px; color: var(--muted)">Alleen zakelijke opdrachtgevers, altijd vooraf betaald</span></span></li>
+</ul>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#stap1">Vorige stap</a><span>2 / 8</span><a class="next" href="#stap3">Volgende: Diensten en prijzen</a></div>
+</div>
+<div id="stap3" class="slide" role="group" aria-label="Stap 3 van 8">
+<div class="steptext">
+<span class="phase">Eén keer</span>
+<span class="num">3</span>
+<h3>Je kiest wat je aanbiedt</h3>
+<p>Per register is er een vaste lijst met diensten. Je vinkt aan wat je doet en zet per dienst je eigen prijs. Zo kan een agent precies vinden en vergelijken wat jij aanbiedt. Je vult ook je rekeningnummer, KvK- en btw-nummer in, voor de uitbetaling en de factuur.</p>
+<span class="time">10 minuten</span>
+</div>
+<div class="stepmock">
+<div class="mock">
+<div class="mockbar"><span style="color: var(--ink); font-weight: 600">Wat bied je aan?</span><span>Vaste lijst voor <span data-k="reglist">NIVRE</span></span></div>
+<ul style="list-style: none; margin: 0; padding: 6px 24px 0">
+<li style="display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line)"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" style="flex: none"><rect x="1" y="1" width="20" height="20" rx="5" fill="#2F4BD8"></rect><path d="M6.5 11.3l3 3 6-6.3" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="flex: 1; min-width: 0"><span data-k="s1n">Onafhankelijk oordeel over een claimbesluit</span></span><span style="text-align: right; white-space: nowrap; line-height: 1.3"><strong><span data-k="s1p">€185</span></strong><br><span style="font-size: 13px; color: var(--muted)"><span data-k="s1u">per dossier</span></span></span></li>
+<li style="display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line)"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" style="flex: none"><rect x="1" y="1" width="20" height="20" rx="5" fill="#2F4BD8"></rect><path d="M6.5 11.3l3 3 6-6.3" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="flex: 1; min-width: 0"><span data-k="s2n">Schade-opname op locatie</span></span><span style="text-align: right; white-space: nowrap; line-height: 1.3"><strong><span data-k="s2p">€240</span></strong><br><span style="font-size: 13px; color: var(--muted)"><span data-k="s2u">per bezoek</span></span></span></li>
+<li style="display: flex; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--muted)"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true" style="flex: none"><rect x="1.5" y="1.5" width="19" height="19" rx="5" fill="#FFFFFF" stroke="#B9C1D0" stroke-width="1.5"></rect></svg><span style="flex: 1; min-width: 0"><span data-k="s3n">Tweede mening op een schaderapport</span></span><span style="text-align: right; font-size: 14px">niet<br>aangeboden</span></li>
+</ul>
+<dl style="margin: 0; padding: 0 24px 6px; font-size: 15px">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Specialisaties</dt><dd style="margin: 0; text-align: right"><span data-k="spec">Waterschade, brandschade, woningen, regio Utrecht</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Hoeveel werk</dt><dd style="margin: 0; text-align: right"><span data-k="volume">Maximaal 3 opdrachten per week</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0"><dt style="color: var(--muted)">Uitbetaling, KvK en btw</dt><dd style="margin: 0; text-align: right" class="ok">gekoppeld</dd></div>
+</dl>
+<p style="margin: 0; padding: 12px 24px 16px; background: var(--mist); border-radius: 0 0 16px 16px; font-size: 14px; color: var(--muted)">Mis je een dienst? Stel hem voor. Past hij bij je register, dan komt hij op de lijst.</p>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#stap2">Vorige stap</a><span>3 / 8</span><a class="next" href="#stap4">Volgende: Opdracht</a></div>
+</div>
+<div id="stap4" class="slide" role="group" aria-label="Stap 4 van 8">
+<div class="steptext">
+<span class="phase">Bij elke opdracht</span>
+<span class="num">4</span>
+<h3>Er komt een opdracht binnen</h3>
+<p>Je krijgt een bericht. Je ziet meteen welk bedrijf het vraagt, hoe betrouwbaar dat bedrijf is, wat het werk is, wanneer het af moet en dat het bedrag al betaald is. Je neemt aan of je weigert. Weigeren mag altijd, zonder uitleg.</p>
+<span class="time">Jij kiest</span>
+</div>
+<div class="stepmock">
+<div style="background: var(--night); border-radius: 28px; padding: 28px 22px 32px; max-width: 420px">
+<p style="margin: 0 0 18px; text-align: center; color: #AEB8D0; font-size: 14px">dinsdag 3 november</p>
+<div style="background: rgba(255,255,255,.96); border-radius: 16px; padding: 16px 18px">
+<div style="display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px"><span style="font-weight: 700"><span style="color: var(--ink)">Human</span><span style="color: var(--pen)">Push</span></span><span>nu</span></div>
+<p style="margin: 0 0 4px; font-weight: 600; font-size: 16px"><span data-k="ntitle">Nieuwe opdracht: onafhankelijk oordeel</span></p>
+<p style="margin: 0 0 10px; font-size: 15px; color: #3B4458; line-height: 1.45"><span data-k="nbody">Voorbeeld Volmacht B.V. vraagt je oordeel over een afgewezen claim. €185 is al betaald. Af binnen 3 werkdagen.</span></p>
+<p style="margin: 0 0 14px; font-size: 13px; color: var(--paid); font-weight: 600">Opdrachtgever: 42 opdrachten, stukken 98% compleet, 0 geannuleerd na aannemen</p>
+<div style="display: flex; gap: 8px">
+<span class="btn" aria-hidden="true" style="flex: 1; min-height: 40px; font-size: 15px; background: var(--pen); color: #FFFFFF; cursor: default">Aannemen</span>
+<span class="btn" aria-hidden="true" style="flex: 1; min-height: 40px; font-size: 15px; background: #EEF1F6; color: var(--ink); cursor: default">Weigeren</span>
+</div>
+</div>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#stap3">Vorige stap</a><span>4 / 8</span><a class="next" href="#stap5">Volgende: Werk doen</a></div>
+</div>
+<div id="stap5" class="slide" role="group" aria-label="Stap 5 van 8">
+<div class="steptext">
+<span class="phase">Bij elke opdracht</span>
+<span class="num">5</span>
+<h3>Je doet het werk</h3>
+<p>In je werkruimte staan alle stukken klaar, vaak met wat de AI al heeft gedaan, zoals een besluit of een conceptvertaling. Je werkt zoals je gewend bent en zet je eigen werk erbij. Heb je een vraag, dan stel je die in de werkruimte.</p>
+<span class="time">Zoals je gewend bent</span>
+</div>
+<div class="stepmock">
+<div class="mock">
+<div class="mockbar"><span style="color: var(--ink); font-weight: 600"><span data-k="case">Claim HP-2611</span></span><span><span data-k="due">Af op vrijdag 12:00</span></span></div>
+<ul style="list-style: none; margin: 0; padding: 10px 24px 4px">
+<li style="display: flex; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line)"><span style="flex: none; width: 38px; height: 40px; border-radius: 5px; background: var(--mist); color: var(--ink); font-size: 11px; font-weight: 700; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; box-sizing: border-box"><span data-k="b1">PDF</span></span><span style="flex: 1"><span data-k="f1">Schadedossier</span><br><span style="font-size: 14px; color: var(--muted)"><span data-k="f1s">14 pagina's</span></span></span></li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line)"><span style="flex: none; width: 38px; height: 40px; border-radius: 5px; background: var(--mist); color: var(--ink); font-size: 11px; font-weight: 700; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; box-sizing: border-box"><span data-k="b2">PDF</span></span><span style="flex: 1"><span data-k="f2">Besluit van de AI</span><br><span style="font-size: 14px; color: var(--muted)"><span data-k="f2s">Claim afgewezen, met onderbouwing</span></span></span></li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 10px 0"><span style="flex: none; width: 38px; height: 40px; border-radius: 5px; background: var(--mist); color: var(--ink); font-size: 11px; font-weight: 700; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; box-sizing: border-box"><span data-k="b3">JPG</span></span><span style="flex: 1"><span data-k="f3">Foto's van de schade</span><br><span style="font-size: 14px; color: var(--muted)"><span data-k="f3s">8 foto's</span></span></span></li>
+</ul>
+<div style="margin: 8px 24px 24px; border: 1.5px dashed #B9C1D0; border-radius: 12px; padding: 22px; text-align: center; color: var(--muted); font-size: 15px"><span data-k="drop">Zet hier je oordeel neer, als pdf</span></div>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#stap4">Vorige stap</a><span>5 / 8</span><a class="next" href="#stap6">Volgende: Aftekenen</a></div>
+</div>
+<div id="stap6" class="slide" role="group" aria-label="Stap 6 van 8">
+<div class="steptext">
+<span class="phase">Bij elke opdracht</span>
+<span class="num">6</span>
+<h3>Je tekent af</h3>
+<p>Je bevestigt met een code uit je mail dat jij het werk hebt gedaan. HumanPush legt vast wie tekende, wanneer, en dat je op dat moment ingeschreven stond. Je werk en dat bewijs gaan vanzelf naar de opdrachtgever.</p>
+<span class="time">1 minuut</span>
+</div>
+<div class="stepmock">
+<div class="mock" style="padding: 26px">
+<p style="margin: 0 0 6px; font-weight: 600; font-size: 19px">Aftekenen</p>
+<p style="margin: 0 0 20px; font-size: 15px; color: #3B4458"><span data-k="decl">Ik verklaar dat ik dit oordeel zelf heb opgesteld, als register-expert bij NIVRE.</span></p>
+<p class="lbl">Code uit je mail</p>
+<div aria-hidden="true" style="display: flex; gap: 8px; margin-bottom: 20px"><span class="field" style="width: 44px; text-align: center; font-size: 20px; font-weight: 600; padding: 8px 0">4</span><span class="field" style="width: 44px; text-align: center; font-size: 20px; font-weight: 600; padding: 8px 0">8</span><span class="field" style="width: 44px; text-align: center; font-size: 20px; font-weight: 600; padding: 8px 0">2</span><span class="field" style="width: 44px; text-align: center; font-size: 20px; font-weight: 600; padding: 8px 0">1</span><span class="field" style="width: 44px; text-align: center; font-size: 20px; font-weight: 600; padding: 8px 0">9</span><span class="field" style="width: 44px; text-align: center; font-size: 20px; font-weight: 600; padding: 8px 0">3</span></div>
+<span class="btn" aria-hidden="true" style="min-height: 46px; font-size: 16px; background: var(--pen); color: #FFFFFF; cursor: default">Aftekenen en versturen</span>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#stap5">Vorige stap</a><span>6 / 8</span><a class="next" href="#stap7">Volgende: Geld en factuur</a></div>
+</div>
+<div id="stap7" class="slide" role="group" aria-label="Stap 7 van 8">
+<div class="steptext">
+<span class="phase">Bij elke opdracht</span>
+<span class="num">7</span>
+<h3>Het geld komt binnen, je factuur staat klaar</h3>
+<p>Na het aftekenen heeft de opdrachtgever 72 uur om te accepteren. Daarna gaat je tarief naar je eigen rekening. HumanPush zet een conceptfactuur klaar met alle gegevens van de opdracht. Jij verstuurt hem zelf of zet hem in je boekhouding. Omdat er vooraf is betaald, hoef je nergens achteraan.</p>
+<span class="time">2 minuten</span>
+</div>
+<div class="stepmock">
+<div class="mock" style="padding: 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 22px">
+<div><p style="margin: 0; font-weight: 600; font-size: 20px">Conceptfactuur 2026-0142</p><p style="margin: 2px 0 0; font-size: 14px; color: var(--muted)">5 november 2026</p></div>
+<span style="background: #E6F4EC; color: var(--paid); font-weight: 600; font-size: 14px; border-radius: 999px; padding: 4px 12px">Betaald</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px 32px; font-size: 14px; margin-bottom: 22px">
+<div style="flex: 1 1 160px"><p class="lbl">Van</p><p style="margin: 0; line-height: 1.5"><span data-k="frm">M. Jansen Expertise</span><br>KvK 12345678<br>Btw NL001234567B01</p></div>
+<div style="flex: 1 1 160px"><p class="lbl">Aan</p><p style="margin: 0; line-height: 1.5"><span data-k="to">Voorbeeld Volmacht B.V.</span><br>KvK 87654321</p></div>
+</div>
+<div style="font-size: 15px; border-top: 1px solid var(--line)">
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line)"><span><span data-k="line">Onafhankelijk oordeel, claim HP-2611</span></span><span><span data-k="amt">€185,00</span></span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--muted)"><span>Btw 21%</span><span><span data-k="vat">€38,85</span></span></div>
+<div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0 0; font-weight: 600; font-size: 17px"><span>Totaal</span><span><span data-k="tot">€223,85</span></span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px"><span class="btn" aria-hidden="true" style="min-height: 46px; font-size: 16px; background: var(--pen); color: #FFFFFF; cursor: default">Download pdf</span><span class="btn" aria-hidden="true" style="min-height: 46px; font-size: 16px; background: #EEF1F6; color: var(--ink); cursor: default">Naar mijn boekhouding</span></div>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#stap6">Vorige stap</a><span>7 / 8</span><a class="next" href="#stap8">Volgende: Je betrouwbaarheid</a></div>
+</div>
+<div id="stap8" class="slide" role="group" aria-label="Stap 8 van 8">
+<div class="steptext">
+<span class="phase">Daarna</span>
+<h3>Je betrouwbaarheid groeit</h3>
+<p>Elke afgeronde opdracht telt mee. Wie op tijd levert, weinig bezwaren krijgt en snel reageert, wordt vaker gekozen. Hoe die volgorde werkt, maken we openbaar. Je betrouwbaarheid is van jou: je kunt die altijd inzien en downloaden.</p>
+</div>
+<div class="stepmock">
+<div class="mock" style="padding: 28px">
+<p style="margin: 0; font-weight: 600; font-size: 20px">M. Jansen</p>
+<p style="margin: 2px 0 22px; font-size: 15px; color: var(--muted)"><span data-k="title">Register-expert schade, NIVRE</span></p>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 18px">
+<div style="flex: 1 1 90px"><p style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.1">128</p><p style="margin: 0; font-size: 14px; color: var(--muted)">opdrachten</p></div>
+<div style="flex: 1 1 90px"><p style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.1">98%</p><p style="margin: 0; font-size: 14px; color: var(--muted)">op tijd</p></div>
+<div style="flex: 1 1 90px"><p style="margin: 0; font-size: 34px; font-weight: 600; line-height: 1.1">0</p><p style="margin: 0; font-size: 14px; color: var(--muted)">bezwaren</p></div>
+</div>
+<p style="margin: 0; font-size: 15px" class="ok">Ingeschreven, vandaag gecontroleerd</p>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#stap7">Vorige stap</a><span>8 / 8</span><a class="next" href="#aanmelden">Meld je aan</a></div>
+</div>
+</div>
+<p style="margin: 14px 0 0; font-size: 14px; color: var(--muted)">Veeg of klik door de stappen. Alle namen, nummers en bedragen zijn fictief.</p>
 </div>
 </section>
 
@@ -108,25 +319,65 @@ body{margin:0;background:#FFFFFF}
 </div>
 </section>
 
-<section id="vragen" style="background: #FFFFFF; padding: 96px 0">
-<div class="wrap" style="max-width: 800px">
-<h2 style="margin: 0 0 8px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Vragen</h2>
+<section id="bronnen" style="background: #FFFFFF; padding: 96px 0">
+<div class="wrap">
+<h2 style="margin: 0 0 16px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 600; max-width: 20em">Waar je opdrachten vandaan komen</h2>
+<p style="margin: 0 0 16px; font-size: 19px; color: #3B4458; max-width: 40em">Bedrijven die AI inzetten, hebben je om twee redenen nodig. Hun agent mag het werk niet zelf afmaken, en ze moeten kunnen laten zien dat een bevoegde mens ernaar heeft gekeken. Via HumanPush regelt hun agent dat in één aanvraag, zonder zoeken of bellen.</p>
+<p style="margin: 0 0 40px; font-size: 19px; color: #3B4458; max-width: 40em">Denk aan volmachten en verzekeraars die claims met AI beoordelen, en aan de software waarmee zij dat doen.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Altijd een bedrijf</p><p style="margin: 0; font-size: 17px; color: #3B4458">Alleen bedrijven met een KvK-nummer kunnen opdrachten geven. Je werkt nooit voor een anonieme agent.</p></div>
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Betaald voordat jij begint</p><p style="margin: 0; font-size: 17px; color: #3B4458">De opdrachtgever betaalt 100% vooraf. Je ziet dat al bij de aanvraag, nog voordat je aanneemt.</p></div>
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Valt iemand uit, dan loopt het door</p><p style="margin: 0; font-size: 17px; color: #3B4458">Kun jij niet, dan gaat de opdracht volgens vaste regels naar een collega uit het register. Meld je het op tijd, dan telt het niet tegen je.</p></div>
+</div>
+</div>
+</section>
+
+<section id="vragen" style="background: var(--mist); padding: 96px 0">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 56px 96px">
+<div style="flex: 1 1 320px; min-width: 0; max-width: 400px">
+<h2 style="margin: 0 0 16px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 600">Gratis voor professionals</h2>
+<p style="margin: 0 0 16px; font-size: 18px; color: #3B4458">Je krijgt je eigen tarief volledig. De opdrachtgever betaalt jouw tarief en betaalt HumanPush apart.</p>
+<p style="margin: 0; font-size: 18px; color: #3B4458">Geen abonnement, geen exclusiviteit, geen boete als je stopt.</p>
+</div>
+<div style="flex: 2 1 520px; min-width: 0">
+<h2 style="margin: 0 0 8px; font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 600">Vragen</h2>
 <details>
 <summary>Wie mag meedoen?</summary>
-<p>Schade-experts die bij NIVRE geregistreerd staan. We controleren je registratie in het openbare register. We starten begin 2027 met een kleine groep.</p>
+<p>Schade-experts die bij NIVRE geregistreerd staan. We controleren je registratie in het openbare register. We starten begin 2027 met een kleine groep. Later volgen andere beroepen met een register, zoals taxateurs en beëdigd vertalers.</p>
 </details>
 <details>
-<summary>Hoe wordt er betaald?</summary>
-<p>De opdrachtgever betaalt 100% vooraf. Jij houdt je eigen tarief. Prijs van HumanPush is op aanvraag.</p>
+<summary>Hoe en wanneer krijg ik mijn geld?</summary>
+<p>De opdrachtgever betaalt 100% vooraf, nog voordat jij de opdracht ziet. Na het aftekenen heeft hij 72 uur om je werk te accepteren. Zegt hij niets, dan is het geaccepteerd. Daarna gaat je tarief naar je eigen rekening. Er gaat niets van je tarief af.</p>
 </details>
 <details>
-<summary>Wie is aansprakelijk?</summary>
-<p>Jij, voor je eigen werk, zoals altijd. HumanPush verandert niets aan je beroepsregels of je verzekering.</p>
+<summary>Wat als de opdrachtgever annuleert?</summary>
+<p>Voordat je aanneemt, kan dat zonder kosten. Zodra je aanneemt, zitten jullie allebei vast aan de afspraak. Annuleert hij daarna, dan krijg je 25 procent van je tarief, en 50 procent als de helft van de levertijd al voorbij is. Dat gaat vanzelf, uit het geld dat al klaarstaat.</p>
+</details>
+<details>
+<summary>Hoe weet HumanPush wanneer ik beschikbaar ben?</summary>
+<p>Je stelt zelf in hoeveel opdrachten je per week wilt, welke levertijd je per dienst aanhoudt en wanneer je afwezig bent. Je krijgt alleen opdrachten die je binnen je eigen levertijd kunt halen. Je hebt 4 werkuren om aan te nemen of te weigeren.</p>
+</details>
+<details>
+<summary>Wat als ik niet op tijd klaar kan zijn?</summary>
+<p>Vraag vóór de deadline één keer uitstel aan, met een nieuwe datum. Past dat binnen de ruimte die de opdrachtgever vooraf gaf, dan is het meteen geregeld. Zo niet, of word je ziek, dan gaat de opdracht volgens vaste regels naar een collega, of krijgt de opdrachtgever zijn geld terug. Meld je het op tijd, dan telt het niet mee voor je betrouwbaarheid. Ben je te laat zonder bericht, dan krijg je niets betaald en telt het wel mee.</p>
 </details>
 <details>
 <summary>Wie maakt de factuur?</summary>
-<p>Jij. HumanPush zet een concept klaar met de gegevens van de opdracht.</p>
+<p>Jij, zoals je gewend bent. HumanPush zet een conceptfactuur klaar met de gegevens van de opdracht. Die download je of zet je in je boekhoudpakket. Omdat de opdrachtgever al heeft betaald, staat hij meteen op betaald.</p>
 </details>
+<details>
+<summary>Wie is aansprakelijk?</summary>
+<p>Jij, voor je eigen werk, zoals altijd, en alleen voor de opdracht zoals die vooraf is omschreven. HumanPush verandert niets aan je beroepsregels of je verzekering. HumanPush is verantwoordelijk voor het proces: de registercontrole, de termijnen en de betaling.</p>
+</details>
+<details>
+<summary>Wat als de opdrachtgever het niet eens is?</summary>
+<p>Hij kan binnen 72 uur na de oplevering bezwaar maken. Eerst mag je het werk één keer herstellen. Is hij het daarna nog niet eens, dan toetst een tweede expert uit het register of je werk voldoet aan de opdracht zoals die vooraf was omschreven. Die uitkomst bepaalt of het geld naar jou gaat, voor een deel of terug.</p>
+</details>
+<details>
+<summary>Kan ik ook meedoen zonder register?</summary>
+<p>Nog niet. Later komt er misschien een aparte route voor professionals zonder register. Daar komt het vertrouwen dan uit bewezen werk.</p>
+</details>
+</div>
 </div>
 </section>
 
@@ -191,6 +442,16 @@ body{margin:0;background:#FFFFFF}
       'Specialisatie: ' + field('vakgebied')
     ].join('\n');
     window.location.href = 'mailto:info@humanpush.nl?subject=' + encodeURIComponent('Aanmelding professional, humanpush.nl') + '&body=' + encodeURIComponent(body);
+  });
+})();
+</script>
+<script>
+(function () {
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = a.getAttribute('href').slice(1); if (!id) return;
+    var el = document.getElementById(id); var track = el && el.parentElement && el.parentElement.classList.contains('track') ? el.parentElement : null;
+    if (!track) return;
+    a.addEventListener('click', function (e) { e.preventDefault(); track.scrollTo({ left: el.offsetLeft, behavior: 'smooth' }); });
   });
 })();
 </script>

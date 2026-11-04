@@ -28,6 +28,8 @@ body{margin:0;background:#FFFFFF}
 .hp summary{cursor:pointer;font-weight:600;font-size:18px}
 .hp details p{margin:10px 0 0;font-size:17px;color:#3B4458}
 .in{font-family:inherit;font-size:16px;min-height:50px;box-sizing:border-box;padding:10px 14px;border-radius:8px;border:1px solid #B9C1D0;background:#FFFFFF;color:var(--ink);width:100%}
+.row{display:flex;flex-wrap:wrap;border-top:1px solid var(--line)}
+.row > div{flex:1 1 260px;min-width:0;padding:18px 24px;box-sizing:border-box}
 </style>
 </head>
 <body>
@@ -39,6 +41,7 @@ body{margin:0;background:#FFFFFF}
 <a href="/" aria-label="HumanPush, naar de homepage" style="text-decoration: none; font-weight: 700; font-size: 22px; letter-spacing: -0.02em"><span style="color: #FFFFFF">Human</span><span style="color: var(--penlight)">Push</span><span style="color: #AEB8D0; font-weight: 500; font-size: 16px; letter-spacing: 0; margin-left: 10px">voor bedrijven</span></a>
 <nav aria-label="Hoofdmenu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 16px">
 <a href="#hoe" class="nl" style="text-decoration: none; color: #C9D1E6">Hoe het werkt</a>
+<a href="#waarom" class="nl" style="text-decoration: none; color: #C9D1E6">Waarom</a>
 <a href="#vragen" class="nl" style="text-decoration: none; color: #C9D1E6">Vragen</a>
 <a href="/" class="nl" style="text-decoration: none; color: #C9D1E6">Voor professionals</a>
 <a href="/inloggen" style="text-decoration: none; color: #FFFFFF; font-weight: 600">Inloggen</a>
@@ -55,38 +58,128 @@ body{margin:0;background:#FFFFFF}
 </div>
 </section>
 
-<section id="hoe" style="background: #FFFFFF; padding: 96px 0">
+<section id="waarom" style="background: #FFFFFF; padding: 96px 0">
+<div class="wrap">
+<h2 style="margin: 0 0 18px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; max-width: 18em">Waarom bedrijven HumanPush gebruiken</h2>
+<p style="margin: 0 0 40px; font-size: 20px; color: #3B4458; max-width: 38em">Je agent loopt vast op het moment dat een geregistreerde professional nodig is. Zonder HumanPush wordt dat handwerk: zoeken, bellen, controleren, factureren. Met HumanPush maakt je agent het werk zelf af.</p>
+<div style="border: 1px solid var(--line); border-radius: 18px; overflow: hidden">
+<div class="row" style="border-top: 0; background: var(--mist); font-weight: 600; font-size: 16px">
+<div style="flex: 0 1 220px">Wat er nodig is</div>
+<div style="color: var(--muted)">Zonder HumanPush</div>
+<div style="color: var(--pen)">Met HumanPush</div>
+</div>
+<div class="row">
+<div style="flex: 0 1 220px; font-weight: 600">Een geregistreerde professional vinden</div>
+<div style="color: var(--muted)">Zelf zoeken, bellen, offertes opvragen en wachten op een antwoord.</div>
+<div>Je agent vraagt het aan. HumanPush wijst iemand toe en zoekt een ander als die weigert.</div>
+</div>
+<div class="row">
+<div style="flex: 0 1 220px; font-weight: 600">Weten dat die geregistreerd is</div>
+<div style="color: var(--muted)">Met de hand in een register kijken, en hopen dat het nog klopt.</div>
+<div>Bij elke opdracht gecontroleerd in het openbare register, op het moment van tekenen.</div>
+</div>
+<div class="row">
+<div style="flex: 0 1 220px; font-weight: 600">Aantonen dat een mens heeft gekeken</div>
+<div style="color: var(--muted)">Mails en losse pdf's bewaren voor je klant of toezichthouder.</div>
+<div>Werk, handtekening en verifieerbaar bewijs: wie, wanneer, en dat die persoon geregistreerd stond.</div>
+</div>
+<div class="row">
+<div style="flex: 0 1 220px; font-weight: 600">Afrekenen</div>
+<div style="color: var(--muted)">Per professional een eigen prijs, factuur en betaaltermijn.</div>
+<div>Eén vaste prijs vooraf, binnen de grenzen die jij instelt.</div>
+</div>
+<div class="row">
+<div style="flex: 0 1 220px; font-weight: 600">Als iemand uitvalt</div>
+<div style="color: var(--muted)">Je bent afhankelijk van één persoon. Ziekte of vakantie betekent wachten, of opnieuw zoeken.</div>
+<div>HumanPush plaatst automatisch een collega uit het register, binnen de eisen van je agent. Is er niemand, dan krijg je automatisch je geld terug.</div>
+</div>
+</div>
+<h3 style="margin: 64px 0 24px; font-size: 26px; line-height: 1.2; font-weight: 600">Waar het nodig is</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--pen)">Nu, in de pilot</p><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Schade en verzekeringen</p><p style="margin: 0; font-size: 17px; color: #3B4458">Je AI wijst een claim af of bepaalt een bedrag. De klant vraagt om een mens. Een onafhankelijke NIVRE-expert beoordeelt het besluit en tekent.</p></div>
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--muted)">Later</p><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Taxaties</p><p style="margin: 0; font-size: 17px; color: #3B4458">Je agent schat een herbouwwaarde. Voor de polis is een taxatie nodig van een geregistreerde taxateur.</p></div>
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--muted)">Later</p><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Beëdigde vertalingen</p><p style="margin: 0; font-size: 17px; color: #3B4458">Je agent regelt documenten voor de gemeente of de IND. Die vragen een beëdigde vertaling, van een vertaler die het ondertekent.</p></div>
+</div>
+</div>
+</section>
+
+<section id="hoe" style="background: var(--mist); padding: 96px 0">
 <div class="wrap">
 <h2 style="margin: 0 0 12px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Vier stappen</h2>
 <p style="margin: 0 0 36px; font-size: 19px; color: #3B4458; max-width: 40em">Je agent vraagt het werk en de handtekening in één aanvraag. De professional staat bij NIVRE geregistreerd, de betaling is 100% vooraf, en het bewijs is onafhankelijk te controleren. In de sandbox oefen je met nepgeld en nepregisters. Echte opdrachten starten begin 2027.</p>
 <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 20px">
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">1</p><h3 style="margin: 0 0 8px; font-size: 22px">Probeer de sandbox</h3><p style="margin: 0; color: #3B4458">Je maakt een sleutel en laat je agent een opdracht spelen. Zonder echt geld.</p></li>
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">2</p><h3 style="margin: 0 0 8px; font-size: 22px">Je agent vraagt het aan</h3><p style="margin: 0; color: #3B4458">Werk en handtekening van een NIVRE-geregistreerde schade-expert, in één aanvraag.</p></li>
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">3</p><h3 style="margin: 0 0 8px; font-size: 22px">100% vooraf</h3><p style="margin: 0; color: #3B4458">De betaling staat vast voordat het werk begint. Prijs op aanvraag.</p></li>
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">4</p><h3 style="margin: 0 0 8px; font-size: 22px">Bewijs terug</h3><p style="margin: 0; color: #3B4458">Je agent krijgt het werk en verifieerbaar bewijs, onafhankelijk te controleren.</p></li>
+<li style="flex: 1 1 240px; background: #FFFFFF; border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">1</p><h3 style="margin: 0 0 8px; font-size: 22px">Probeer de sandbox</h3><p style="margin: 0; color: #3B4458">Je maakt een sleutel en laat je agent een opdracht spelen. Zonder echt geld.</p></li>
+<li style="flex: 1 1 240px; background: #FFFFFF; border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">2</p><h3 style="margin: 0 0 8px; font-size: 22px">Je agent vraagt het aan</h3><p style="margin: 0; color: #3B4458">Werk en handtekening van een NIVRE-geregistreerde schade-expert, in één aanvraag.</p></li>
+<li style="flex: 1 1 240px; background: #FFFFFF; border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">3</p><h3 style="margin: 0 0 8px; font-size: 22px">100% vooraf</h3><p style="margin: 0; color: #3B4458">De betaling staat vast voordat het werk begint. Prijs op aanvraag.</p></li>
+<li style="flex: 1 1 240px; background: #FFFFFF; border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">4</p><h3 style="margin: 0 0 8px; font-size: 22px">Bewijs terug</h3><p style="margin: 0; color: #3B4458">Je agent krijgt het werk en verifieerbaar bewijs, onafhankelijk te controleren.</p></li>
 </ol>
 </div>
 </section>
 
+<section id="veilig" style="background: #FFFFFF; padding: 96px 0">
+<div class="wrap">
+<h2 style="margin: 0 0 16px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; max-width: 20em">Veilig, ook als er iets misgaat</h2>
+<p style="margin: 0 0 40px; font-size: 19px; color: #3B4458; max-width: 38em">Je agentplatform bepaalt wat je agent überhaupt mag. HumanPush bewaakt daarnaast de grenzen die jij per agent instelt.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Een sleutel per agent</p><p style="margin: 0; font-size: 17px; color: #3B4458">Elke agent heeft een eigen sleutel met eigen grenzen: welke diensten, en tot welk bedrag per opdracht en per maand. Intrekken kan direct.</p></div>
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Vaste regels, geen verrassingen</p><p style="margin: 0; font-size: 17px; color: #3B4458">Termijnen, annuleren en bezwaar liggen vast voordat een opdracht begint. Buiten de grenzen gebeurt er niets, en er hoeft onderweg niemand iets goed te keuren.</p></div>
+<div style="flex: 1 1 300px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 600; font-size: 19px">Je ziet alles</p><p style="margin: 0; font-size: 17px; color: #3B4458">Elke stap staat in een ondertekend logboek. Je agent vraagt het op, of krijgt elke stap direct binnen via een webhook.</p></div>
+</div>
+</div>
+</section>
+
 <section id="vragen" style="background: var(--mist); padding: 96px 0">
-<div class="wrap" style="max-width: 800px">
-<h2 style="margin: 0 0 8px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Vragen</h2>
-<details open>
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 56px 96px">
+<div style="flex: 1 1 300px; min-width: 0; max-width: 400px">
+<h2 style="margin: 0 0 20px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 600">Kosten</h2>
+<dl style="margin: 0; font-size: 17px">
+<div style="padding: 16px 0; border-top: 1px solid var(--line)"><dt style="font-weight: 600">Werk laten tekenen</dt><dd style="margin: 4px 0 0; color: #3B4458">Het tarief van de professional, plus een vaste vergoeding van HumanPush per afgeronde opdracht. Prijs op aanvraag. Je betaalt nooit meer dan de prijs die vooraf vaststaat.</dd></div>
+<div style="padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)"><dt style="font-weight: 600">Sandbox</dt><dd style="margin: 4px 0 0; color: #3B4458">Gratis, met nepgeld en een nepregister.</dd></div>
+</dl>
+</div>
+<div style="flex: 2 1 520px; min-width: 0">
+<h2 style="margin: 0 0 8px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 600">Vragen</h2>
+<details>
 <summary>Is HumanPush ook voor particulieren?</summary>
-<p>Nee. HumanPush is voor bedrijven. Opdrachten zijn zakelijk.</p>
+<p>Nee. HumanPush is voor bedrijven met een KvK-nummer. Opdrachten zijn zakelijk.</p>
 </details>
 <details>
 <summary>Wat kost het?</summary>
 <p>Prijs op aanvraag. De sandbox is gratis.</p>
 </details>
 <details>
-<summary>Hoe wordt er betaald?</summary>
-<p>100% vooraf. Je betaalt het tarief van de professional en de vergoeding van HumanPush.</p>
+<summary>Hoe werken betalen en annuleren?</summary>
+<p>Je betaalt 100% vooraf: het tarief van de professional en de vergoeding van HumanPush. De professional krijgt zijn geld pas als je het werk accepteert, of 72 uur na oplevering zonder bezwaar. Annuleren is gratis tot de professional aanneemt. Daarna krijgt hij 25 procent, en 50 procent als de helft van de levertijd voorbij is. De rest krijg je automatisch terug.</p>
+</details>
+<details>
+<summary>Wat als de professional uitvalt of te laat is?</summary>
+<p>Dan plaatst HumanPush automatisch een collega uit het register, binnen de eisen die je agent vooraf meegeeft en nooit duurder dan wat je betaald hebt. Lukt dat niet, dan krijg je automatisch je geld terug. Je agent hoeft onderweg niets te doen. Wil je liever zelf een vervanger kiezen, dan kan dat ook.</p>
+</details>
+<details>
+<summary>Kan mijn agent een professional niet gewoon zelf mailen?</summary>
+<p>Dat kan. Maar een mail van een onbekende agent blijft vaak liggen, en dan regel je per persoon zelf de prijs, het contract, de factuur en wat er gebeurt als iemand uitvalt. Via HumanPush staat het geld al klaar en ziet de professional wie erachter zit. Valt iemand uit, dan loopt het door. En je krijgt bewijs dat de professional geregistreerd was toen hij tekende.</p>
+</details>
+<details>
+<summary>Werkt dit met mijn agent?</summary>
+<p>Ja, als je agent MCP ondersteunt, zoals de meeste agentplatforms. In de sandbox probeer je het meteen. Je agent vraagt de status op, of krijgt elke stap via een webhook.</p>
+</details>
+<details>
+<summary>Logt mijn agent ook in?</summary>
+<p>Nee. Je agent werkt met een eigen sleutel, binnen de grenzen die je instelt. Hij kan elke aanroep ook met zijn eigen sleutel ondertekenen, zodat vastligt dat hij het was.</p>
+</details>
+<details>
+<summary>Wat als we het niet eens zijn met het werk?</summary>
+<p>Je agent kan binnen 72 uur na oplevering bezwaar maken. Eerst mag de professional één keer herstellen. Daarna toetst een tweede professional uit hetzelfde register of het werk voldoet aan de opdracht zoals die vooraf was omschreven. Die uitkomst bepaalt de verdeling van het geld.</p>
+</details>
+<details>
+<summary>Wie is waarvoor verantwoordelijk?</summary>
+<p>De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: de registercontrole, de termijnen, de betaling en het bewijs.</p>
 </details>
 <details>
 <summary>Wat kunnen we aan een klant laten zien?</summary>
 <p>Het werk, de handtekening, en verifieerbaar bewijs dat onafhankelijk te controleren is. We controleren de registratie in het openbare register. HumanPush is geen onderdeel van NIVRE.</p>
 </details>
+</div>
 </div>
 </section>
 
