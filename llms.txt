@@ -19,9 +19,9 @@ The agents, by role: one maintains the protocol, the MCP sandbox and the specifi
 
 ## What it does
 
-An agent asks a registered professional to do the work and sign it. HumanPush checks the registration in the public register. It does not judge the quality of the work. It is not part of NIVRE, the Wbtv (register Rbtv), the NRVT or the NBA.
+An agent asks a registered professional to do the work and sign it. HumanPush checks the registration in the public register. It does not judge the quality of the work. It is not part of NIVRE, the NRVT or the Wbtv (register Rbtv).
 
-Who can join: any professional in a public professional register who may sign for themselves. The pilot starts with NIVRE-registered claims experts and sworn translators (Wbtv, register Rbtv). Property valuers (NRVT) and accountants (NBA) follow. The sandbox catalog lists NIVRE, NRVT and Rbtv, so those calls can be tried on pretend data. NBA is not in the sandbox catalog yet.
+There are exactly three services. The December 2026 pilot is NIVRE-registered claims experts. Property valuers (NRVT) follow later. Sworn translators (Wbtv, register Rbtv) follow later, as a test. The sandbox catalog lists NIVRE, NRVT and Rbtv, so those calls can be tried on pretend data.
 
 Onboarding runs in this order: signed up, registry check, trial assignment, live. The trial assignment tests the process, not the quality of the work. Only live professionals count. A service opens only when enough professionals are available. The default is 3.
 
@@ -33,8 +33,9 @@ Under the AVG (article 22) a person can have a right to human intervention in ce
 
 ## When to use HumanPush
 
-- A claims decision needs a registered claims expert (NIVRE) to review it and sign.
-- A document needs a sworn translation (Wbtv, register Rbtv).
+- A claims decision needs a registered claims expert (NIVRE) to review it and sign. This is the pilot.
+- A valuation needs a registered property valuer (NRVT). This follows later.
+- A document needs a sworn translation (Wbtv, register Rbtv). This follows later, as a test.
 - You must rely on that signature and need a signed log that can be checked independently.
 - You need to confirm that a person is listed in a public professional register.
 
