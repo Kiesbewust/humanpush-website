@@ -1,10 +1,14 @@
 # HumanPush
 
-> Pilot. AI agents request the work and the signature of a NIVRE-registered claims expert through HumanPush. The company pays 100% upfront. The signed work comes back with proof that anyone can check independently.
+> Pilot. AI agents request the work and the signature of a registered professional through HumanPush. The company pays 100% upfront via a payment link. The professional keeps their own rate. The signed work comes back with a log that anyone can check independently.
 
-People use https://humanpush.nl. This file is for agents and lives at https://humanpush.nl/llms.txt.
+People use https://humanpush.nl. This file is for agents and lives at https://humanpush.nl/llms.txt. Who runs HumanPush, in Dutch: https://humanpush.nl/#wie
 
-What works now is the sandbox. Production is a pilot and opens with a small group in early 2027. Netherlands first. The sandbox uses pretend money and a pretend register. The sandbox clock runs faster than real time, so poll get_status.
+What works now is the sandbox. Production is a pilot and opens with a small group in December 2026. Netherlands first. The sandbox uses pretend money and a pretend register. The sandbox clock runs faster than real time, so poll get_status.
+
+HumanPush is run by agents and overseen by a human. Bob van Bokhoven is the founder and the person finally responsible. He also runs AgentPush, which helps directors of Dutch SMBs with AI strategy. That work is where HumanPush comes from: agents take on more tasks, until a signature is legally required from an authorised, registered professional (for example a damage report or a sworn translation) and an AI may not sign. HumanPush connects agents to those professionals so the work continues and the professional keeps their own responsibility. Reach him at info@humanpush.nl.
+
+The agents, by role: one maintains the protocol, the MCP sandbox and the specifications; one checks registrations and onboarding; one monitors deadlines, reassignment and the daily self-check; one handles the inbox and drafts replies. The human approves external communication and the business and legal decisions.
 
 ## Sandbox
 
@@ -15,17 +19,24 @@ What works now is the sandbox. Production is a pilot and opens with a small grou
 
 ## What it does
 
-An agent asks a registered professional to do the work and sign it. HumanPush checks the registration in the public register. It does not judge the quality of the work. It is not part of NIVRE, NRVT or Rbtv.
+An agent asks a registered professional to do the work and sign it. HumanPush checks the registration in the public register. It does not judge the quality of the work. It is not part of NIVRE, the Wbtv (register Rbtv), the NRVT or the NBA.
 
-The pilot is for NIVRE-registered claims experts. The sandbox catalog also lists an NRVT property valuer and an Rbtv sworn translator, so those calls can be tried on pretend data.
+Who can join: any professional in a public professional register who may sign for themselves. The pilot starts with NIVRE-registered claims experts and sworn translators (Wbtv, register Rbtv). Property valuers (NRVT) and accountants (NBA) follow. The sandbox catalog lists NIVRE, NRVT and Rbtv, so those calls can be tried on pretend data. NBA is not in the sandbox catalog yet.
 
-Under the AVG (article 22) a person can have a right to human intervention in certain decisions based solely on automated processing. HumanPush is how an agent asks a registered claims expert to do that work and sign it.
+Onboarding runs in this order: signed up, registry check, trial assignment, live. The trial assignment tests the process, not the quality of the work. Only live professionals count. A service opens only when enough professionals are available. The default is 3.
+
+The professional is liable for their own content. HumanPush is liable for the process. The professional issues their own invoice. HumanPush prepares a draft. Professionals sign with a passkey. There is no wallet.
+
+Dropout rule (afhakersregel): reporting sick or unavailable on time does not count. Being late without notice means a 30-day pause. The third time, access is closed.
+
+Under the AVG (article 22) a person can have a right to human intervention in certain decisions based solely on automated processing. HumanPush is how an agent asks a registered professional to do that work and sign it.
 
 ## When to use HumanPush
 
-- A claims decision needs a registered claims expert to review it and sign.
-- You must rely on that signature and need proof that can be checked independently.
-- You need to confirm that a person is listed in the public NIVRE register.
+- A claims decision needs a registered claims expert (NIVRE) to review it and sign.
+- A document needs a sworn translation (Wbtv, register Rbtv).
+- You must rely on that signature and need a signed log that can be checked independently.
+- You need to confirm that a person is listed in a public professional register.
 
 ## When not to use HumanPush
 
@@ -67,7 +78,7 @@ Get a one-time URL and upload one document with HTTP PUT (raw bytes). Pass the d
 
 ### request_signoff
 
-Ask a registered professional to do a service and sign it. The company pays 100% up front: the professional's fee plus the HumanPush fee.
+Ask a registered professional to do a service and sign it. The company pays 100% up front via a payment link: the professional's fee plus the HumanPush fee. The professional keeps their own rate. HumanPush is a marketplace and commercial agent (handelsagent), not a reseller. The HumanPush fee is price on request.
 
 - input: idempotency_key, service_id, task, and deadline (ISO 8601, at most 30 working days ahead). Optional: document_ids, professional_id, on_unavailable, backup_list, replacement_criteria, max_extension_working_days.
 - on_unavailable defaults to reassign: the next eligible registered professional, on the same review_id. only_this_professional refunds. backup_list asks your list in order. propose is opt-in: you choose from the candidates within 15 minutes.
@@ -139,7 +150,7 @@ You choose what happens if a professional is unavailable when you call request_s
 
 Every status from get_status includes sla.acceptance_deadline, sla.delivery_deadline and sla.final_deadline.
 
-- awaiting_payment. Next action: principal_pays. The company pays 100% up front. In the sandbox the pay page uses pretend money.
+- awaiting_payment. Next action: principal_pays. The company pays 100% up front via a payment link. In the sandbox the pay page uses pretend money.
 - awaiting_professional. Next action: wait_for_professional. The professional can accept inside the window in the service terms.
 - choose_replacement. Only when on_unavailable is propose. Pick a candidate with choose_replacement within 15 minutes.
 - cancelled. You cancelled. What comes back is in cancel_signoff.
@@ -155,9 +166,17 @@ Every review keeps a signed hash-chained event log. Each event stores the previo
 
 ## Payment
 
-- The company pays 100% upfront.
-- There is no split payment. The amount is the professional's fee plus the HumanPush fee.
+- The company pays 100% upfront via a payment link.
+- The amount is the professional's fee plus the HumanPush fee.
+- The professional keeps their own rate and issues their own invoice. HumanPush prepares the draft invoice and invoices only its own fee.
+- HumanPush is a marketplace and commercial agent (handelsagent), not a reseller.
+- The HumanPush fee is price on request.
+- There is no escrow. When the professional's fee reaches the professional's account is set in the pilot.
 - Sandbox: pretend money, free.
+
+## Signing
+
+Professionals sign with a passkey. There is no wallet. Every step of a review is still a signed, verifiable log entry.
 
 ## Proof
 
@@ -166,7 +185,9 @@ Every final result includes verifiable proof of who signed, when, and that the s
 ## Links
 
 - [Website](https://humanpush.nl)
+- [Who runs HumanPush (Dutch)](https://humanpush.nl/#wie)
 - [For companies (Dutch)](https://humanpush.nl/bedrijven)
+- [For agents (Dutch)](https://humanpush.nl/agents)
 - [This file](https://humanpush.nl/llms.txt)
 - [Sandbox](https://mcp.humanpush.nl/)
 - [MCP endpoint](https://mcp.humanpush.nl/mcp)

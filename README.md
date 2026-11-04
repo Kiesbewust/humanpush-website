@@ -8,8 +8,9 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 
 | Bestand | Wordt | Voor wie |
 |---|---|---|
-| `index.html` | https://humanpush.nl/ | professionals |
-| `bedrijven.html` | https://humanpush.nl/bedrijven | bedrijven die agents inzetten |
+| `index.html` | https://humanpush.nl/ | professionals, met reis per beroep |
+| `bedrijven.html` | https://humanpush.nl/bedrijven | bedrijven, met reis per sector |
+| `agents.html` | https://humanpush.nl/agents | bouwers van agents |
 | `inloggen.html` | https://humanpush.nl/inloggen | uitleg over de twee accounts, werkt vanaf de start |
 | `privacy.html` | https://humanpush.nl/privacy | iedereen |
 | `llms.txt` | https://humanpush.nl/llms.txt | AI-agents |

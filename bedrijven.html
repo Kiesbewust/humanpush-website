@@ -5,87 +5,294 @@
 <meta charset="utf-8">
 <title>HumanPush voor bedrijven – werk en handtekening voor je agent</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Je agent vraagt via HumanPush het werk en de handtekening van een NIVRE-geregistreerde schade-expert. 100% vooraf betaald, met verifieerbaar bewijs.">
+<meta name="description" content="Je agent vraagt via HumanPush het werk en de handtekening van een geregistreerde professional. Pilot met schade-experts (NIVRE) en beëdigde vertalers (Wbtv). 100% vooraf via een betaallink.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://humanpush.nl/bedrijven">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/bedrijven">
 <meta property="og:title" content="HumanPush voor bedrijven">
-<meta property="og:description" content="Je agent vraagt via HumanPush het werk en de handtekening van een NIVRE-geregistreerde schade-expert. 100% vooraf betaald, met verifieerbaar bewijs.">
+<meta property="og:description" content="Je agent vraagt via HumanPush het werk en de handtekening van een geregistreerde professional. Pilot met schade-experts (NIVRE) en beëdigde vertalers (Wbtv). 100% vooraf via een betaallink.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1B2238;--night:#18203A;--pen:#2F4BD8;--penlight:#A9BCFF;--mist:#F3F5F9;--line:#DCE1EA;--muted:#5A6478}
+:root{--ink:#1B2238;--night:#18203A;--pen:#2F4BD8;--penlight:#A9BCFF;--mist:#F3F5F9;--line:#DCE1EA;--muted:#5A6478;--paid:#1E7A4F}
 body{margin:0;background:#FFFFFF}
-.hp{font-family:'Instrument Sans',system-ui,sans-serif;color:var(--ink);background:#FFFFFF;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.hp{font-family:'Instrument Sans',system-ui,sans-serif;color:var(--ink);background:#FFFFFF;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
 .hp a{color:var(--pen)}
 .hp a:focus-visible,.hp button:focus-visible,.hp summary:focus-visible,.hp input:focus-visible,.hp textarea:focus-visible{outline:3px solid var(--penlight);outline-offset:2px;border-radius:6px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 32px;box-sizing:border-box}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:10px;font-weight:600;font-size:17px;text-decoration:none;font-family:inherit;cursor:pointer;border:0}
-@media (max-width:640px){.nl{display:none}}
+@media (max-width:640px){.nl{display:none}.wrap{padding:0 20px}}
 .hp details{border-top:1px solid var(--line);padding:20px 0}
 .hp details:last-of-type{border-bottom:1px solid var(--line)}
 .hp summary{cursor:pointer;font-weight:600;font-size:18px}
 .hp details p{margin:10px 0 0;font-size:17px;color:#3B4458}
 .in{font-family:inherit;font-size:16px;min-height:50px;box-sizing:border-box;padding:10px 14px;border-radius:8px;border:1px solid #B9C1D0;background:#FFFFFF;color:var(--ink);width:100%}
+.chips{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.chiplabel{font-size:15px;color:var(--muted);margin-right:4px}
+.chip{font-family:inherit;font-size:16px;font-weight:600;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:#FFFFFF;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#FFFFFF}
+.soon{font-weight:500;font-size:13px;color:var(--muted);margin-left:6px}
+.chip.on .soon{color:var(--penlight)}
+.track{display:flex;align-items:stretch;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;gap:24px;scrollbar-width:none;padding:4px 0 8px;width:100%}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;box-sizing:border-box;background:var(--mist);border-radius:24px;padding:48px 56px 28px;display:flex;flex-wrap:wrap;gap:40px 64px;align-items:flex-start;align-content:space-between}
+.slidenav{flex:1 1 100%;display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:20px;font-size:16px;color:var(--muted)}
+.slidenav a{text-decoration:none;font-weight:600}
+.prev{color:var(--ink)!important}
+.next{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:10px;background:var(--pen);color:#FFFFFF!important}
+.phase{display:block;font-size:15px;color:var(--muted);margin:0 0 6px}
+.steptext{flex:1 1 340px;min-width:0;max-width:460px}
+.stepmock{flex:1 1 380px;min-width:0;max-width:540px}
+.num{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--pen);color:#FFFFFF;font-weight:700;font-size:17px;margin-bottom:18px}
+.steptext h3{margin:0 0 12px;font-size:30px;line-height:1.15;letter-spacing:-.015em;font-weight:600}
+.steptext p{margin:0 0 14px;color:#3B4458}
+.mock{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 0 rgba(27,34,56,.04),0 18px 40px -18px rgba(27,34,56,.28)}
+.mockbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.ok{color:var(--paid);font-weight:600}
+.card{flex:1 1 220px;background:#FFFFFF;border-radius:16px;padding:24px}
+.row{display:flex;flex-wrap:wrap;border-top:1px solid var(--line)}
+.row > div{flex:1 1 240px;min-width:0;padding:18px 22px;box-sizing:border-box}
+@media (max-width:640px){.slide{padding:28px 20px 20px}}
+@media (prefers-reduced-motion:reduce){.track{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <div class="hp">
-<div style="background: #2F4BD8; color: #FFFFFF; font-size: 15px; text-align: center; padding: 10px 24px">HumanPush is in opbouw. We starten begin 2027 met een kleine groep professionals en bedrijven.</div>
+<div style="background: #2F4BD8; color: #FFFFFF; font-size: 15px; text-align: center; padding: 10px 24px">HumanPush is in opbouw. We starten in december 2026 met een kleine groep professionals en bedrijven.</div>
 
 <section style="background: var(--night); color: #FFFFFF">
 <header class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-top: 24px; padding-bottom: 24px">
 <a href="/" aria-label="HumanPush, naar de homepage" style="text-decoration: none; font-weight: 700; font-size: 22px; letter-spacing: -0.02em"><span style="color: #FFFFFF">Human</span><span style="color: var(--penlight)">Push</span><span style="color: #AEB8D0; font-weight: 500; font-size: 16px; letter-spacing: 0; margin-left: 10px">voor bedrijven</span></a>
-<nav aria-label="Hoofdmenu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 16px">
-<a href="#hoe" class="nl" style="text-decoration: none; color: #C9D1E6">Hoe het werkt</a>
-<a href="#vragen" class="nl" style="text-decoration: none; color: #C9D1E6">Vragen</a>
+<nav aria-label="Hoofdmenu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px; font-size: 16px">
+<a href="#reis" class="nl" style="text-decoration: none; color: #C9D1E6">Hoe het werkt</a>
+<a href="#voordelen" class="nl" style="text-decoration: none; color: #C9D1E6">Voordelen</a>
+<a href="#meer" class="nl" style="text-decoration: none; color: #C9D1E6">Meer weten</a>
 <a href="/" class="nl" style="text-decoration: none; color: #C9D1E6">Voor professionals</a>
+<a href="/agents" class="nl" style="text-decoration: none; color: #C9D1E6">Voor agents</a>
 <a href="/inloggen" style="text-decoration: none; color: #FFFFFF; font-weight: 600">Inloggen</a>
 <a href="https://mcp.humanpush.nl/" class="btn" style="min-height: 44px; padding: 0 18px; font-size: 16px; background: var(--penlight); color: var(--night)">Probeer de sandbox</a>
 </nav>
 </header>
-<div class="wrap" style="padding-top: 72px; padding-bottom: 96px; max-width: 820px">
+<div class="wrap" style="padding-top: 72px; padding-bottom: 96px; max-width: 860px">
 <h1 style="margin: 0 0 24px; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600">Als je agent een geregistreerde professional nodig heeft.</h1>
-<p style="margin: 0 0 36px; font-size: 21px; line-height: 1.55; color: #D5DBEA">Je agent vraagt via HumanPush het werk en de handtekening van een NIVRE-geregistreerde schade-expert. Gecontroleerd, 100% vooraf betaald, met verifieerbaar bewijs terug.</p>
+<p style="margin: 0 0 36px; font-size: 21px; line-height: 1.55; color: #D5DBEA">Je agent vraagt via HumanPush het werk en de handtekening van een professional in een openbaar register. We starten met schade-experts (NIVRE) en beëdigde vertalers (Wbtv). De betaling is 100% vooraf via een betaallink. Elke stap komt terug als ondertekende logregel.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 14px">
 <a href="https://mcp.humanpush.nl/" class="btn" style="background: #FFFFFF; color: var(--night)">Probeer de sandbox</a>
 <a href="#toegang" class="btn" style="background: transparent; color: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(255,255,255,.35)">Vraag toegang aan</a>
+<a href="/agents" class="btn" style="background: transparent; color: #FFFFFF; box-shadow: inset 0 0 0 1px rgba(255,255,255,.35)">Voor agents</a>
 </div>
 </div>
 </section>
 
-<section id="hoe" style="background: #FFFFFF; padding: 96px 0">
+<section style="background: #FFFFFF; padding: 96px 0 40px">
 <div class="wrap">
-<h2 style="margin: 0 0 12px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Vier stappen</h2>
-<p style="margin: 0 0 36px; font-size: 19px; color: #3B4458; max-width: 40em">Je agent vraagt het werk en de handtekening in één aanvraag. De professional staat bij NIVRE geregistreerd, de betaling is 100% vooraf, en het bewijs is onafhankelijk te controleren. In de sandbox oefen je met nepgeld en nepregisters. Echte opdrachten starten begin 2027.</p>
-<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 20px">
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">1</p><h3 style="margin: 0 0 8px; font-size: 22px">Probeer de sandbox</h3><p style="margin: 0; color: #3B4458">Je maakt een sleutel en laat je agent een opdracht spelen. Zonder echt geld.</p></li>
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">2</p><h3 style="margin: 0 0 8px; font-size: 22px">Je agent vraagt het aan</h3><p style="margin: 0; color: #3B4458">Werk en handtekening van een NIVRE-geregistreerde schade-expert, in één aanvraag.</p></li>
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">3</p><h3 style="margin: 0 0 8px; font-size: 22px">100% vooraf</h3><p style="margin: 0; color: #3B4458">De betaling staat vast voordat het werk begint. Prijs op aanvraag.</p></li>
-<li style="flex: 1 1 240px; background: var(--mist); border-radius: 16px; padding: 28px"><p style="margin: 0 0 8px; font-weight: 700; color: var(--pen)">4</p><h3 style="margin: 0 0 8px; font-size: 22px">Bewijs terug</h3><p style="margin: 0; color: #3B4458">Je agent krijgt het werk en verifieerbaar bewijs, onafhankelijk te controleren.</p></li>
+<h2 style="margin: 0 0 16px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Waarom bedrijven HumanPush gebruiken</h2>
+<p style="margin: 0 0 28px; font-size: 19px; color: #3B4458; max-width: 40em">Je agent loopt vast op het moment dat een bevoegde professional moet tekenen. HumanPush is de marktplaats en handelsagent daartussen, geen wederverkoper. De professional houdt het eigen tarief en de eigen verantwoordelijkheid voor de inhoud.</p>
+<div style="border: 1px solid var(--line); border-radius: 18px; overflow: hidden">
+<div class="row" style="border-top: 0; background: var(--mist); font-weight: 600; font-size: 16px">
+<div>Wat er nodig is</div>
+<div style="color: var(--muted)">Zonder HumanPush</div>
+<div style="color: var(--pen)">Met HumanPush</div>
+</div>
+<div class="row">
+<div style="font-weight: 600">Een professional vinden</div>
+<div style="color: var(--muted)">Zelf zoeken, bellen en wachten.</div>
+<div>Je agent vraagt het aan. HumanPush wijst iemand toe die live staat.</div>
+</div>
+<div class="row">
+<div style="font-weight: 600">Weten dat die bevoegd is</div>
+<div style="color: var(--muted)">Zelf in een register kijken.</div>
+<div>HumanPush controleert de inschrijving in het openbare register.</div>
+</div>
+<div class="row">
+<div style="font-weight: 600">Aantonen dat een mens heeft gekeken</div>
+<div style="color: var(--muted)">Mails en losse pdf's bewaren.</div>
+<div>Elke stap is een ondertekende logregel, onafhankelijk te controleren.</div>
+</div>
+<div class="row">
+<div style="font-weight: 600">Afrekenen</div>
+<div style="color: var(--muted)">Per professional een eigen prijs en betaaltermijn.</div>
+<div>100% vooraf via een betaallink. De professional houdt het eigen tarief. De vergoeding van HumanPush is op aanvraag.</div>
+</div>
+<div class="row">
+<div style="font-weight: 600">Als iemand uitvalt</div>
+<div style="color: var(--muted)">Opnieuw zoeken, of wachten.</div>
+<div>Harde deadline. Automatisch een andere professional. Levert niemand, dan krijg je het bedrag terug.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="reis" style="background: #FFFFFF; padding: 56px 0 96px">
+<div class="wrap">
+<h2 style="margin: 0 0 16px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Zo ziet een opdracht eruit</h2>
+<p style="margin: 0 0 12px; font-size: 19px; color: #3B4458; max-width: 42em">Eerst de sandbox, zonder echt geld. Daarna vraagt je agent het werk aan. Kies een sector en zie de agent, de opdracht, de handtekening en het resultaat. Een dienst gaat open zodra er genoeg professionals live zijn. Standaard zijn dat er drie.</p>
+<div class="chips" role="group" aria-label="Kies een sector">
+<span class="chiplabel">Bekijk het voor</span>
+<button type="button" class="chip on" data-role="verzekering" aria-pressed="true">Verzekeringen</button>
+<button type="button" class="chip" data-role="relocatie" aria-pressed="false">Relocatie</button>
+<button type="button" class="chip" data-role="zorg" aria-pressed="false">Zorg <span class="soon">later</span></button>
+</div>
+<p id="sector-status" aria-live="polite" style="margin: 16px 0 0; font-size: 15px; color: var(--muted)">Pilot, december 2026. Schade-experts bij NIVRE. Namen, nummers en bedragen zijn verzonnen.</p>
+<div class="track" id="sector-track" style="margin-top: 28px">
+<div id="bstap1" class="slide" role="group" aria-label="Stap 1 van 4, sandbox">
+<div class="steptext">
+<span class="phase">De agent</span>
+<span class="num">1</span>
+<h3>Probeer het in de sandbox</h3>
+<p>Je opent de sandbox en laat je agent een opdracht spelen. Met nepgeld en een nepregister. Echte opdrachten starten in december 2026, met een kleine groep.</p>
+<p style="margin: 0"><a href="https://mcp.humanpush.nl/">mcp.humanpush.nl</a></p>
+</div>
+<div class="stepmock">
+<div class="mock">
+<div class="mockbar"><span style="color: var(--ink); font-weight: 600">Sandbox</span><span>Geen echt geld</span></div>
+<div style="padding: 22px 24px">
+<p style="margin: 0 0 4px; font-size: 13px; color: var(--muted)">Je agent</p>
+<p style="margin: 0 0 16px; font-weight: 600"><span data-k="agent">Claim-assistent</span></p>
+<p style="margin: 0 0 4px; font-size: 13px; color: var(--muted)">MCP-server, sandbox</p>
+<p style="margin: 0; font-family: ui-monospace, monospace; font-size: 14px; line-height: 1.45; background: var(--mist); border-radius: 8px; padding: 10px 14px; overflow-wrap: anywhere">https://mcp.humanpush.nl/mcp</p>
+</div>
+</div>
+</div>
+<div class="slidenav"><span></span><span>1 / 4</span><a class="next" href="#bstap2">Volgende: Grenzen</a></div>
+</div>
+<div id="bstap2" class="slide" role="group" aria-label="Stap 2 van 4, grenzen">
+<div class="steptext">
+<span class="phase">De agent</span>
+<span class="num">2</span>
+<h3>Je stelt grenzen</h3>
+<p>Elke agent krijgt een eigen sleutel. Jij bepaalt wat die mag vragen en tot welk bedrag. De bedragen hiernaast zijn een voorbeeld van grenzen die het bedrijf zelf instelt, geen prijs van HumanPush.</p>
+</div>
+<div class="stepmock">
+<div class="mock">
+<div class="mockbar"><span style="color: var(--ink); font-weight: 600"><span data-k="agent">Claim-assistent</span></span><span>Voorbeeldgrenzen</span></div>
+<dl style="margin: 0; padding: 6px 24px 18px; font-size: 16px">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Wat de agent mag vragen</dt><dd style="margin: 0; text-align: right"><span data-k="sign">aan, alleen schade-oordelen</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Maximaal per opdracht</dt><dd style="margin: 0"><span data-k="max1">€250</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Maximaal per maand</dt><dd style="margin: 0"><span data-k="max2">€2.500</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0"><dt style="color: var(--muted)">Eerst jouw akkoord boven</dt><dd style="margin: 0"><span data-k="akk">€200</span></dd></div>
+</dl>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#bstap1">Vorige stap</a><span>2 / 4</span><a class="next" href="#bstap3">Volgende: Opdracht</a></div>
+</div>
+<div id="bstap3" class="slide" role="group" aria-label="Stap 3 van 4, opdracht">
+<div class="steptext">
+<span class="phase">De opdracht</span>
+<span class="num">3</span>
+<h3>Je agent vraagt het aan</h3>
+<p>Werk en handtekening gaan in één aanvraag. De betaling is 100% vooraf via een betaallink, binnen de grenzen die jij hebt gezet. Je ziet welk bedrijf, welke professional en welke deadline.</p>
+</div>
+<div class="stepmock">
+<div class="mock">
+<div class="mockbar"><span style="color: var(--ink); font-weight: 600"><span data-k="case">Opdracht HP-2611</span></span><span><span data-k="casesub">Waterschade, Utrecht</span></span></div>
+<ol style="list-style: none; margin: 0; padding: 8px 24px 18px">
+<li style="padding: 10px 0; border-bottom: 1px solid var(--line)"><strong><span data-k="s1">Aangevraagd door Claim-assistent</span></strong><br><span style="font-size: 15px; color: var(--muted)"><span data-k="s1s">dinsdag 10:02</span></span></li>
+<li style="padding: 10px 0; border-bottom: 1px solid var(--line)"><strong><span data-k="s2">€185 betaald via een betaallink</span></strong><br><span style="font-size: 15px; color: var(--muted)"><span data-k="s2s">100% vooraf, voorbeeldbedrag van de professional</span></span></li>
+<li style="padding: 10px 0; border-bottom: 1px solid var(--line)"><strong><span data-k="s3">Aangenomen door een register-expert</span></strong><br><span style="font-size: 15px; color: var(--muted)"><span data-k="s3s">ingeschreven bij NIVRE, live</span></span></li>
+<li style="padding: 10px 0"><strong><span data-k="s4">In behandeling</span></strong><br><span style="font-size: 15px; color: var(--muted)"><span data-k="s4s">harde deadline, vrijdag 12:00</span></span></li>
 </ol>
 </div>
+</div>
+<div class="slidenav"><a class="prev" href="#bstap2">Vorige stap</a><span>3 / 4</span><a class="next" href="#bstap4">Volgende: Handtekening</a></div>
+</div>
+<div id="bstap4" class="slide" role="group" aria-label="Stap 4 van 4, handtekening en resultaat">
+<div class="steptext">
+<span class="phase">Handtekening en resultaat</span>
+<span class="num">4</span>
+<h3>Je agent krijgt het werk terug</h3>
+<p><span data-k="result">Het getekende oordeel komt terug bij je agent, samen met het ondertekende logboek.</span> De professional ondertekent met een passkey, zonder wallet. De professional stuurt de eigen factuur. HumanPush factureert alleen de eigen vergoeding, op aanvraag.</p>
+</div>
+<div class="stepmock">
+<div class="mock">
+<div class="mockbar"><span style="color: var(--ink); font-weight: 600"><span data-k="ptitle">Logboek bij opdracht HP-2611</span></span><span class="ok">Ondertekend</span></div>
+<dl style="margin: 0; padding: 6px 24px 18px; font-size: 16px">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Opdrachtgever</dt><dd style="margin: 0; text-align: right"><span data-k="p1">Voorbeeld Volmacht B.V.</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Professional</dt><dd style="margin: 0; text-align: right"><span data-k="p2">M. Jansen, schade-expert</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Register op dat moment</dt><dd style="margin: 0; text-align: right"><span data-k="p3">ingeschreven bij NIVRE</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--line)"><dt style="color: var(--muted)">Tijdstip</dt><dd style="margin: 0; text-align: right"><span data-k="p4">5 november 2026, 10:42</span></dd></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 11px 0"><dt style="color: var(--muted)">Betaling</dt><dd style="margin: 0; text-align: right"><span data-k="p5">100% vooraf via betaallink, €185 voorbeeld</span></dd></div>
+</dl>
+</div>
+</div>
+<div class="slidenav"><a class="prev" href="#bstap3">Vorige stap</a><span>4 / 4</span><a class="next" href="#toegang">Vraag toegang aan</a></div>
+</div>
+</div>
+<p style="margin: 14px 0 0; font-size: 14px; color: var(--muted)">Veeg of klik door de stappen. Alle namen, nummers en bedragen zijn verzonnen. De vergoeding van HumanPush is op aanvraag.</p>
+</div>
 </section>
 
-<section id="vragen" style="background: var(--mist); padding: 96px 0">
+<section style="background: var(--mist); padding: 96px 0">
+<div class="wrap">
+<h2 style="margin: 0 0 16px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 600">Betrouwbaar voor je agent</h2>
+<p style="margin: 0 0 28px; font-size: 19px; color: #3B4458; max-width: 40em">Je agent hoeft niet op één persoon te wachten. De afspraak ligt vast, en het logboek laat zien wat er gebeurde.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 20px">Harde deadlines</h3><p style="margin: 0; color: #3B4458">Elke opdracht heeft een deadline die vooraf vaststaat.</p></div>
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 20px">Automatisch iemand anders</h3><p style="margin: 0; color: #3B4458">Valt een professional uit, dan volgt een andere professional die live staat.</p></div>
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 20px">Terug als niemand levert</h3><p style="margin: 0; color: #3B4458">Levert niemand het werk, dan komt het bedrag terug.</p></div>
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 20px">Ondertekend logboek</h3><p style="margin: 0; color: #3B4458">Elke stap is een ondertekende logregel. De professional tekent met een passkey, zonder wallet.</p></div>
+</div>
+</div>
+</section>
+
+<section id="voordelen" style="background: #FFFFFF; padding: 96px 0 40px">
+<div class="wrap">
+<h2 style="margin: 0 0 12px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Voordelen</h2>
+<p style="margin: 0 0 28px; font-size: 19px; color: #3B4458; max-width: 42em">Voor het bedrijf dat de agent inzet. Wat een bouwer van agents nodig heeft, staat op de <a href="/agents">pagina voor agents</a>.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 18px">Getekend werk</h3><p style="margin: 0; color: #3B4458">Van een professional van wie de inschrijving in het openbare register is gecontroleerd.</p></div>
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 18px">Prijs vast vooraf</h3><p style="margin: 0; color: #3B4458">Het tarief van de professional plus de vergoeding van HumanPush. Die vergoeding is op aanvraag. Het totaal staat vast voordat het werk begint.</p></div>
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 18px">Deadline, herplaatsing, terug</h3><p style="margin: 0; color: #3B4458">Een harde deadline. Automatisch een andere professional bij uitval. Het bedrag terug als niemand levert.</p></div>
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 18px">Bewijs</h3><p style="margin: 0; color: #3B4458">Een ondertekend logboek dat je aan een klant kunt laten zien en dat iemand onafhankelijk kan controleren.</p></div>
+<div class="card"><h3 style="margin: 0 0 8px; font-size: 18px">Vaste vorm</h3><p style="margin: 0; color: #3B4458">Het resultaat komt gestructureerd terug, zodat je agent het kan verwerken.</p></div>
+</div>
+</div>
+</section>
+
+<section id="meer" style="background: #FFFFFF; padding: 56px 0 96px">
 <div class="wrap" style="max-width: 800px">
-<h2 style="margin: 0 0 8px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Vragen</h2>
+<a id="vragen"></a>
+<h2 style="margin: 0 0 8px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Meer weten</h2>
 <details open>
 <summary>Is HumanPush ook voor particulieren?</summary>
 <p>Nee. HumanPush is voor bedrijven. Opdrachten zijn zakelijk.</p>
 </details>
 <details>
 <summary>Wat kost het?</summary>
-<p>Prijs op aanvraag. De sandbox is gratis.</p>
+<p>De vergoeding van HumanPush is op aanvraag. De sandbox is gratis. Het tarief van de professional bepaalt de professional zelf. Voorbeelden op deze pagina zijn verzonnen.</p>
 </details>
 <details>
 <summary>Hoe wordt er betaald?</summary>
-<p>100% vooraf. Je betaalt het tarief van de professional en de vergoeding van HumanPush.</p>
+<p>100% vooraf via een betaallink. Dat bedrag is het tarief van de professional plus de vergoeding van HumanPush. De prijs staat vast voordat het werk begint. Er is geen escrow. HumanPush is de marktplaats en handelsagent, geen wederverkoper. De professional houdt het eigen tarief en stuurt de eigen factuur. HumanPush factureert alleen de eigen vergoeding. Wanneer het tarief op de rekening van de professional staat, bepalen we in de pilot.</p>
 </details>
 <details>
 <summary>Wat kunnen we aan een klant laten zien?</summary>
-<p>Het werk, de handtekening, en verifieerbaar bewijs dat onafhankelijk te controleren is. We controleren de registratie in het openbare register. HumanPush is geen onderdeel van NIVRE.</p>
+<p>Het werk, de handtekening en het ondertekende logboek. Iemand kan dat onafhankelijk controleren. We controleren de registratie in het openbare register. HumanPush is geen onderdeel van NIVRE, het Wbtv of een ander register.</p>
+</details>
+<details>
+<summary>Wanneer gaat een dienst open?</summary>
+<p>Pas als er genoeg professionals live en beschikbaar zijn. Standaard zijn dat er drie. De pilot van december 2026 start met schade-experts (NIVRE) en beëdigde vertalers (Wbtv). Andere beroepen volgen.</p>
+</details>
+<details>
+<summary>Wat als een professional uitvalt?</summary>
+<p>De deadline staat vast. HumanPush wijst automatisch een andere professional toe. Levert niemand het werk, dan krijg je het bedrag terug. Daarnaast geldt de afhakersregel: meldt een professional zich op tijd ziek of niet beschikbaar, dan telt dat niet. Te laat zonder bericht geeft een pauze van 30 dagen. De derde keer sluit de toegang.</p>
+</details>
+<details>
+<summary>Wie is aansprakelijk?</summary>
+<p>De professional voor de inhoud van het werk. Jouw bedrijf voor wat de agent vraagt en voor de stukken. HumanPush voor het proces: de registercontrole, de termijnen, de herplaatsing, de terugbetaling en het logboek. HumanPush is geen partij bij het werk zelf. In het concept van de voorwaarden staat een maximum voor die procesaansprakelijkheid. Het bedrag is nog een placeholder.</p>
+</details>
+<details>
+<summary>Hoe sluit een agent aan?</summary>
+<p>De agent leest <a href="https://humanpush.nl/llms.txt">llms.txt</a>, haalt een sleutel op de sandbox en praat met https://mcp.humanpush.nl/mcp. Productie is op aanvraag. De volgorde, de garanties en de statussen staan op de <a href="/agents">pagina voor agents</a>.</p>
+</details>
+<details>
+<summary>Wie ziet de stukken?</summary>
+<p>Het bedrijf dat ze instuurt, de professional die de opdracht aanneemt, en HumanPush voor het proces. Hoe lang we de stukken bewaren, bepalen we in de pilot. Zie de <a href="/privacy">privacyverklaring</a>.</p>
+</details>
+<details>
+<summary>Hoe nemen we contact op?</summary>
+<p>Mail <a href="mailto:info@humanpush.nl">info@humanpush.nl</a> voor de pilot van december 2026. De sandbox kun je zonder die mail openen.</p>
 </details>
 </div>
 </section>
@@ -94,7 +301,7 @@ body{margin:0;background:#FFFFFF}
 <div class="wrap" style="display: flex; flex-wrap: wrap; gap: 48px 80px; align-items: flex-start">
 <div style="flex: 1 1 300px; min-width: 0; max-width: 420px">
 <h2 style="margin: 0 0 16px; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600">Probeer het, of vraag toegang</h2>
-<p style="margin: 0 0 20px; font-size: 19px; color: #D5DBEA">De sandbox kun je zelf openen. Voor de start in 2027 mail je ons.</p>
+<p style="margin: 0 0 20px; font-size: 19px; color: #D5DBEA">De sandbox kun je zelf openen. Voor de pilot in december 2026 mail je ons. We starten met een kleine groep.</p>
 <p style="margin: 0"><a href="https://mcp.humanpush.nl/" class="btn" style="background: #FFFFFF; color: var(--night)">Probeer de sandbox</a></p>
 </div>
 <form id="hb-toegang" action="mailto:info@humanpush.nl?subject=Toegang%20bedrijf%2C%20humanpush.nl" method="post" enctype="text/plain" style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; color: var(--ink); border-radius: 18px; padding: 32px; display: flex; flex-direction: column; gap: 18px">
@@ -110,12 +317,12 @@ body{margin:0;background:#FFFFFF}
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
-<label for="hb-agent" style="font-size: 15px; font-weight: 600">Waar heeft je agent een schade-expert nodig?</label>
+<label for="hb-agent" style="font-size: 15px; font-weight: 600">Waar heeft je agent een geregistreerde professional nodig?</label>
 <textarea id="hb-agent" name="toepassing" class="in" rows="4" style="min-height: 110px; resize: vertical"></textarea>
 </div>
 <button type="submit" class="btn" style="align-self: flex-start; background: var(--pen); color: #FFFFFF">Vraag toegang aan per e-mail</button>
 <p style="margin: 0; font-size: 14px; color: var(--muted)">Dit opent een e-mail naar <a href="mailto:info@humanpush.nl?subject=Toegang%20bedrijf%2C%20humanpush.nl">info@humanpush.nl</a>. Lukt het formulier niet, gebruik dan die link.</p>
-<p style="margin: 0; font-size: 14px; color: var(--muted)">Lees de <a href="/privacy">privacyverklaring</a>.</p>
+<p style="margin: 0; font-size: 14px; color: var(--muted)">Lees de <a href="/privacy">privacyverklaring</a> en het concept van de <a href="/voorwaarden">voorwaarden</a>.</p>
 </form>
 </div>
 </section>
@@ -124,7 +331,7 @@ body{margin:0;background:#FFFFFF}
 <div class="wrap" style="padding-top: 36px; padding-bottom: 36px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 32px; font-size: 15px; color: var(--muted)">
 <span style="font-weight: 700; font-size: 18px; letter-spacing: -0.02em"><span style="color: var(--ink)">Human</span><span style="color: var(--pen)">Push</span></span>
 <span>HumanPush, een handelsnaam van AgentPush B.V., <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></span>
-<span><a href="/">Voor professionals</a>&nbsp;&nbsp;&nbsp;<a href="/inloggen">Inloggen</a>&nbsp;&nbsp;&nbsp;<a href="/privacy">Privacy</a>&nbsp;&nbsp;&nbsp;<a href="/voorwaarden">Voorwaarden</a></span>
+<span><a href="/">Voor professionals</a>&nbsp;&nbsp;&nbsp;<a href="/agents">Voor agents</a>&nbsp;&nbsp;&nbsp;<a href="/#wie">Wie zit erachter</a>&nbsp;&nbsp;&nbsp;<a href="/inloggen">Inloggen</a>&nbsp;&nbsp;&nbsp;<a href="/privacy">Privacy</a>&nbsp;&nbsp;&nbsp;<a href="/voorwaarden">Voorwaarden</a></span>
 <span lang="en">For AI agents: <a href="https://humanpush.nl/llms.txt">https://humanpush.nl/llms.txt</a></span>
 </div>
 </footer>
@@ -132,18 +339,125 @@ body{margin:0;background:#FFFFFF}
 <script>
 (function () {
   var form = document.getElementById('hb-toegang');
-  if (!form) return;
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-    var field = function (name) { return (form.elements.namedItem(name) || {}).value || ''; };
-    var body = [
-      'Soort: bedrijf',
-      'Bedrijfsnaam: ' + field('bedrijf'),
-      'E-mailadres: ' + field('email'),
-      'Toepassing: ' + field('toepassing')
-    ].join('\n');
-    window.location.href = 'mailto:info@humanpush.nl?subject=' + encodeURIComponent('Toegang bedrijf, humanpush.nl') + '&body=' + encodeURIComponent(body);
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var field = function (name) { return (form.elements.namedItem(name) || {}).value || ''; };
+      var body = [
+        'Soort: bedrijf',
+        'Bedrijfsnaam: ' + field('bedrijf'),
+        'E-mailadres: ' + field('email'),
+        'Toepassing: ' + field('toepassing')
+      ].join('\n');
+      window.location.href = 'mailto:info@humanpush.nl?subject=' + encodeURIComponent('Toegang bedrijf, humanpush.nl') + '&body=' + encodeURIComponent(body);
+    });
+  }
+  var DATA = {
+    verzekering: {
+      agent: "Claim-assistent",
+      sign: "aan, alleen schade-oordelen",
+      max1: "€250",
+      max2: "€2.500",
+      akk: "€200",
+      case: "Opdracht HP-2611",
+      casesub: "Waterschade, Utrecht",
+      s1: "Aangevraagd door Claim-assistent",
+      s1s: "dinsdag 10:02",
+      s2: "€185 betaald via een betaallink",
+      s2s: "100% vooraf, voorbeeldbedrag van de professional",
+      s3: "Aangenomen door een register-expert",
+      s3s: "ingeschreven bij NIVRE, live",
+      s4: "In behandeling",
+      s4s: "harde deadline, vrijdag 12:00",
+      result: "Het getekende oordeel komt terug bij je agent, samen met het ondertekende logboek. Je agent neemt de claim opnieuw door.",
+      ptitle: "Logboek bij opdracht HP-2611",
+      p1: "Voorbeeld Volmacht B.V.",
+      p2: "M. Jansen, schade-expert",
+      p3: "ingeschreven bij NIVRE",
+      p4: "5 november 2026, 10:42",
+      p5: "100% vooraf via betaallink, €185 voorbeeld",
+      note: "Pilot, december 2026. Schade-experts bij NIVRE. Namen, nummers en bedragen zijn verzonnen."
+    },
+    relocatie: {
+      agent: "Relocatie-assistent",
+      sign: "aan, alleen beëdigde vertalingen",
+      max1: "€100",
+      max2: "€1.000",
+      akk: "€75",
+      case: "Opdracht HP-3107",
+      casesub: "Geboorteakte, Engels naar Nederlands",
+      s1: "Aangevraagd door Relocatie-assistent",
+      s1s: "maandag 14:20",
+      s2: "€45 betaald via een betaallink",
+      s2s: "100% vooraf, voorbeeldbedrag van de professional",
+      s3: "Aangenomen door een beëdigd vertaler",
+      s3s: "ingeschreven via het Wbtv (Rbtv), live",
+      s4: "In behandeling",
+      s4s: "harde deadline, donderdag 17:00",
+      result: "De beëdigde vertaling komt terug bij je agent, samen met het ondertekende logboek. Je agent stuurt hem mee naar de gemeente.",
+      ptitle: "Logboek bij opdracht HP-3107",
+      p1: "Voorbeeld Relocatie B.V.",
+      p2: "M. Jansen, beëdigd vertaler",
+      p3: "ingeschreven in het Rbtv (Wbtv)",
+      p4: "3 november 2026, 16:05",
+      p5: "100% vooraf via betaallink, €45 voorbeeld",
+      note: "Pilot, december 2026. Beëdigde vertalers (Wbtv). Namen, nummers en bedragen zijn verzonnen."
+    },
+    zorg: {
+      agent: "Planningsassistent",
+      sign: "controle in een openbaar register",
+      max1: "door het bedrijf zelf in te stellen",
+      max2: "door het bedrijf zelf in te stellen",
+      akk: "door het bedrijf zelf in te stellen",
+      case: "Controle HP-5530",
+      casesub: "Inzet verpleegkundige, nachtdienst",
+      s1: "Aangevraagd door Planningsassistent",
+      s1s: "woensdag 21:48",
+      s2: "Register geraadpleegd",
+      s2s: "openbaar register, op het moment van de controle",
+      s3: "Ingeschreven als verpleegkundige",
+      s3s: "voorbeeld, deze sector volgt later",
+      s4: "Verklaring ondertekend",
+      s4s: "logregel vastgelegd",
+      result: "De ondertekende controle komt terug bij je agent, die de dienst inplant. Zorg is een voorbeeld voor later. De pilot start met schade-experts en beëdigde vertalers.",
+      ptitle: "Logboek bij controle HP-5530",
+      p1: "Voorbeeld Zorgplanning B.V.",
+      p2: "S. de Vries, verpleegkundige",
+      p3: "ingeschreven in het BIG-register",
+      p4: "4 november 2026, 21:48",
+      p5: "vergoeding HumanPush op aanvraag",
+      note: "Voorbeeld voor later. De pilot van december 2026 start met schade-experts (NIVRE) en beëdigde vertalers (Wbtv). Namen zijn verzonnen."
+    }
+  };
+  var status = document.getElementById('sector-status');
+  document.querySelectorAll('.chip[data-role]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var d = DATA[b.getAttribute('data-role')];
+      document.querySelectorAll('[data-k]').forEach(function (el) {
+        var key = el.getAttribute('data-k');
+        if (Object.prototype.hasOwnProperty.call(d, key)) el.textContent = d[key];
+      });
+      if (status) status.textContent = d.note;
+      document.querySelectorAll('.chip[data-role]').forEach(function (o) {
+        var on = o === b;
+        o.classList.toggle('on', on);
+        o.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    });
+  });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      var el = document.getElementById(id);
+      var track = el && el.parentElement && el.parentElement.classList.contains('track') ? el.parentElement : null;
+      if (!track) return;
+      e.preventDefault();
+      var left = el.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+      track.scrollTo({ left: left, behavior: reduce ? 'auto' : 'smooth' });
+    });
   });
 })();
 </script>
