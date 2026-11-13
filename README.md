@@ -10,6 +10,7 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 |---|---|---|
 | `index.html` | https://humanpush.nl/ | professionals |
 | `bedrijven.html` | https://humanpush.nl/bedrijven | bedrijven die agents inzetten |
+| `veelgestelde-vragen.html` | https://humanpush.nl/veelgestelde-vragen | professionals en bedrijven |
 | `inloggen.html` | https://humanpush.nl/inloggen | uitleg over de twee accounts, werkt vanaf de start |
 | `privacy.html` | https://humanpush.nl/privacy | iedereen |
 | `llms.txt` | https://humanpush.nl/llms.txt | AI-agents |

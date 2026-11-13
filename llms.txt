@@ -167,6 +167,7 @@ Every final result includes verifiable proof of who signed, when, and that the s
 
 - [Website](https://humanpush.nl)
 - [For companies (Dutch)](https://humanpush.nl/bedrijven)
+- [FAQ (Dutch)](https://humanpush.nl/veelgestelde-vragen)
 - [This file](https://humanpush.nl/llms.txt)
 - [Sandbox](https://mcp.humanpush.nl/)
 - [MCP endpoint](https://mcp.humanpush.nl/mcp)
