@@ -1,10 +1,12 @@
 # HumanPush
 
-> Pilot. AI agents request the work and the signature of a NIVRE-registered claims expert through HumanPush. The company pays 100% upfront. The signed work comes back with proof that anyone can check independently.
+> In development. No real orders or payments run yet. AI agents will request the work and the signature of a professional listed in a public Dutch register through HumanPush. The company pays 100% upfront. The signed work comes back with proof that anyone can check independently.
 
 People use https://humanpush.nl. This file is for agents and lives at https://humanpush.nl/llms.txt.
 
-What works now is the sandbox. Production is a pilot and opens with a small group in early 2027. Netherlands first. The sandbox uses pretend money and a pretend register. The sandbox clock runs faster than real time, so poll get_status.
+What works now is the sandbox, with pretend money and a pretend register. Production starts after the test phase is completed. There is no start date yet. Netherlands first, companies only (B2B, with a Dutch KvK number).
+
+HumanPush is a trade name of Humagent B.V., KvK [KVK-NUMMER].
 
 ## Sandbox
 
@@ -13,30 +15,58 @@ What works now is the sandbox. Production is a pilot and opens with a small grou
 - The endpoint asks for the sandbox key.
 - Public keys for the signatures: https://mcp.humanpush.nl/.well-known/humanpush-keys.json
 
+The public sandbox still runs an earlier test version of the protocol. Where it differs from the rules below, the rules below are the ones being built for the start. The differences: the sandbox still has a 50% cancellation step, a repair round after a dispute, reassignment to another professional after acceptance, and an Rbtv sworn translator in its catalog. The sandbox clock runs faster than real time, so poll get_status.
+
 ## What it does
 
-An agent asks a registered professional to do the work and sign it. HumanPush checks the registration in the public register. It does not judge the quality of the work. It is not part of NIVRE, NRVT or Rbtv.
+An agent asks a registered professional to do the work and sign it. HumanPush checks the registration in the public register. It does not judge the quality of the work. It is not part of any of the registers.
 
-The pilot is for NIVRE-registered claims experts. The sandbox catalog also lists an NRVT property valuer and an Rbtv sworn translator, so those calls can be tried on pretend data.
+Five services at the start, one per register:
 
-Under the AVG (article 22) a person can have a right to human intervention in certain decisions based solely on automated processing. HumanPush is how an agent asks a registered claims expert to do that work and sign it.
+- NIVRE: nivre.independent_opinion. An independent opinion on a claims decision, on the documents only. No inspection on site, no personal injury at the start.
+- NRVT: a valuation of a home by a registered valuer of the Kamer Wonen, not NWWI. Not for a mortgage or NHG.
+- NRGD: nrgd.multimedia_authenticity. Whether an image or video shows signs of manipulation, by a court expert in multimedia forensics (008.4). Outside court proceedings; not a court expert report.
+- OCNL: ocnl.novelty_quickscan. A novelty quick scan by a patent attorney. No filing, no freedom-to-operate opinion. The professional sees which company asks, for the mandatory conflict check.
+- NRBI: nrbi.report_desk_review. A remote review of an existing building inspection report for an existing home. Not a new inspection.
+
+Not offered: sworn translators (Rbtv, parked), notaries (KNB) and bailiffs (KBvG).
+
+Under the AVG (article 22) a person can have a right to human intervention in certain decisions based solely on automated processing. HumanPush is how an agent asks a registered professional to do that work and sign it.
 
 ## When to use HumanPush
 
-- A claims decision needs a registered claims expert to review it and sign.
+- A decision or report needs a registered professional to do the work and sign it, and the service is one of the five above.
 - You must rely on that signature and need proof that can be checked independently.
-- You need to confirm that a person is listed in the public NIVRE register.
 
 ## When not to use HumanPush
 
 - The work does not need a registered signer.
 - You want a judgement of quality. HumanPush checks registration, not quality.
-- Notarial deeds. Those go through the Dutch notarial system.
+- Notarial deeds, bailiff work, sworn translations.
 - Consumers. HumanPush is for companies.
 
-## Tools
+## The rules (as decided for the start)
 
-These are the sandbox calls. They run on pretend data and pretend money. A write call takes an idempotency_key. The same key does not run the action twice.
+The protocol runs the terms; the log is the proof. If the terms, the protocol and this file differ, the terms come first, then the protocol, then this file. Time limits and amounts are working rules or test values during the test phase, not fixed facts.
+
+- Every step by a professional or reviewer is a signed action with a passkey. There is no sign-off by an e-mail code.
+- A professional has 4 working hours to accept or decline. Declining never counts against him; the request goes to the next professional of the register. Accepting binds both sides.
+- Cancel: free until the professional accepts. After that, until delivery, 25% of the professional's fee goes to the professional (a test value, not yet fixed) and the rest is refunded. There is no 50% step.
+- If nobody accepts, the professional withdraws after accepting, or he delivers late, the company gets everything back. There is no replacement after acceptance and no extension.
+- Conflict of interest: only for a service with a mandatory conflict check (now OCNL), the professional can return an accepted order before delivery. The company gets everything back, with no cancellation fee. The professional gets no failure but a mark; 3 marks within 12 months count as 1 failure. A reviewer who reports a conflict gets the same mark instead of a failure.
+- After delivery the company has 72 hours to accept or dispute. Silence counts as accept.
+- A dispute can only name the fixed review criteria of the service, such as form_complete and question_answered. Wanting a different conclusion is not a ground. A second professional of the same register reviews only those criteria. The verdict is binary: meets or fails. A fails verdict must name the ground. Meets: the professional is paid. Fails: the company gets everything back. There is no repair after delivery and no partial outcome.
+- If the register reports the professional as suspended or deregistered, an order that is not yet delivered stops and the company gets everything back. Work already delivered runs on. NIVRE, NRVT and OCNL show no suspension; there only a deregistration counts.
+
+## Registration proof
+
+- The floor is proof level 2. A company can ask for a higher level per order, never a lower one.
+- HumanPush checks the registration against the public register and records a register attestation with a validity period: 30 days, and for OCNL also a list reference date of at most 120 days. The register is checked again at every acceptance; for NRVT that check is manual and logged.
+- The attestation shows what the register said at the check. It does not prove the live state of the register.
+
+## Tools (sandbox, earlier test version)
+
+These are the calls of the public sandbox. They run on pretend data and pretend money. A write call takes an idempotency_key. The same key does not run the action twice.
 
 Usual order: list_services, then request_signoff, then poll get_status. After a delivery: respond_to_result, then get_result, then verify_proof. Upload documents with create_upload_url when the work needs files. Read the log with get_events, or take it with you using export_request.
 
@@ -44,16 +74,16 @@ Usual order: list_services, then request_signoff, then poll get_status. After a 
 
 Return the fixed catalog of services per register, with terms, a price range, lead times and the professionals who offer each service. Call this before request_signoff.
 
-- input: register, profession, region or language, all optional. Sandbox registers: NIVRE, NRVT, Rbtv.
+- input: register, profession, region or language, all optional.
 - output: services, each with a service_id, the terms, a price range and the professionals
 - price: Price on request
 - sandbox: pretend catalog, free
 
 ### verify_professional
 
-Check one person against one official register right now.
+Return a signed register attestation for one person in one register: what the register said at the check, with a validity period. It is not a live reading of the register.
 
-- input: register (NIVRE, NRVT or Rbtv) and registration_number. as_of is optional. The sandbox register has no history.
+- input: register and registration_number. as_of is optional. The sandbox register has no history.
 - output: registered true or false, the status, and a signed attestation
 - sandbox: pretend register, free
 
@@ -69,37 +99,28 @@ Get a one-time URL and upload one document with HTTP PUT (raw bytes). Pass the d
 
 Ask a registered professional to do a service and sign it. The company pays 100% up front: the professional's fee plus the HumanPush fee.
 
-- input: idempotency_key, service_id, task, and deadline (ISO 8601, at most 30 working days ahead). Optional: document_ids, professional_id, on_unavailable, backup_list, replacement_criteria, max_extension_working_days.
-- on_unavailable defaults to reassign: the next eligible registered professional, on the same review_id. only_this_professional refunds. backup_list asks your list in order. propose is opt-in: you choose from the candidates within 15 minutes.
-- Omit professional_id to let HumanPush route the request.
-- output: review_id, status, the sla deadlines, the amount, and in the sandbox a pay page
+- input: idempotency_key, service_id, task, and deadline (ISO 8601, at most 30 working days ahead). Optional: document_ids, professional_id, and the options of the earlier test version for an unavailable professional.
+- output: review_id, status, the deadlines, the amount, and in the sandbox a pay page
 - price: Price on request
 - sandbox: pretend money, free
 
 ### get_status
 
-Current status, the SLA deadlines, and the next action. Candidates are included only when you opted in with propose.
+Current status, the deadlines, and the next action.
 
 - input: review_id from request_signoff
-- output: status, next_action, sla.acceptance_deadline, sla.delivery_deadline, sla.final_deadline, payment, is_final, and the candidates when the status is choose_replacement
-
-### choose_replacement
-
-Opt-in. Use this when you set on_unavailable to propose and get_status says choose_replacement. Pick one candidate within 15 minutes. After that the payment is refunded.
-
-- input: idempotency_key, review_id, professional_id
-- output: the updated status
+- output: status, next_action, the deadlines, payment, is_final
 
 ### respond_to_result
 
-After delivery, accept or dispute. Silence for 72 hours counts as accept. The first dispute lets the professional repair once. The second dispute asks another professional from the same register. You pay that review fee up front.
+After delivery, accept or dispute. Silence for 72 hours counts as accept. The earlier test version in the sandbox still gives a repair round on the first dispute; the rules above have none.
 
-- input: idempotency_key, review_id, and action (accept or dispute). Optional: reason, and feedback with two yes/no answers (met_service, responsive).
+- input: idempotency_key, review_id, and action (accept or dispute). Optional: reason.
 - output: the updated status
 
 ### cancel_signoff
 
-Cancel. Free until the professional accepts. After that, 25% of the professional's fee stays with the professional, or 50% once half the lead time has passed. The rest, including the HumanPush fee, is refunded. Not possible after delivery.
+Cancel. Free until the professional accepts. Under the rules above, 25% of the professional's fee after that, until delivery. The earlier test version in the sandbox still has a 50% step.
 
 - input: idempotency_key, review_id, reason
 - output: status cancelled, the fee kept, and the refund
@@ -116,57 +137,38 @@ The outcome, the signed result, and once it is final the proof. Pass that proof 
 The signed, hash-chained events of one review, oldest first. Use since_seq to fetch only new ones.
 
 - input: review_id, and since_seq if you only want events after that sequence number
-- output: events. Each event has a hash, the previous hash, a signature, and an Ed25519 actor_sig from the agent, the professional, or the HumanPush service key. Once anchored, it also has a Merkle path.
+- output: events, each with a hash, the previous hash, a signature, and an actor signature
 
 ### export_request
 
-Export one review as JSON: the contiguous signed event chain, the actor signatures, the public keys and the Merkle anchors. The review_id stays the same. The same document is GET /reviews/{review_id}/export on the sandbox, with the sandbox key.
+Export one review as JSON: the signed event chain, the signatures and the public keys. The same document is GET /reviews/{review_id}/export on the sandbox, with the sandbox key.
 
 - input: review_id
 - output: the export. Check it offline with npm run verify -- <export.json>
 
 ### verify_proof
 
-Check a HumanPush proof yourself: the signature, every event hash and signature, every Merkle path, and the anchor.
+Check a HumanPush proof yourself: the signature and every event hash and signature.
 
 - input: the proof object from get_result
 - output: valid true or false, and the problems when it does not check out
 - keys: https://mcp.humanpush.nl/.well-known/humanpush-keys.json
 
-## Request lifecycle
-
-You choose what happens if a professional is unavailable when you call request_signoff. The default is reassign. After that the request moves on by itself. When you opted in to propose, you still pick the replacement.
-
-Every status from get_status includes sla.acceptance_deadline, sla.delivery_deadline and sla.final_deadline.
-
-- awaiting_payment. Next action: principal_pays. The company pays 100% up front. In the sandbox the pay page uses pretend money.
-- awaiting_professional. Next action: wait_for_professional. The professional can accept inside the window in the service terms.
-- choose_replacement. Only when on_unavailable is propose. Pick a candidate with choose_replacement within 15 minutes.
-- cancelled. You cancelled. What comes back is in cancel_signoff.
-- refunded. Final. The payment comes back, including the HumanPush fee.
-
-After a delivery, respond_to_result is how you accept or dispute. get_result then returns the signed work and, once final, the proof.
-
-If the professional declines, is unavailable, or misses a deadline, on_unavailable runs on its own. An extension set in max_extension_working_days is applied first. reassign gives the same review_id to the next eligible registered professional and records assignment.reassigned. only_this_professional refunds. backup_list offers the request to the next person on your list. propose, which you opt in to, opens choose_replacement for 15 minutes.
-
-When sla.final_deadline passes and nothing has been delivered, the status becomes refunded and the log records deadline.final_missed. The payment is refunded in full, including the HumanPush fee. The same refund follows when the only professional does not take the work, when reassign finds nobody eligible, when a backup list runs out, or when you do not choose a replacement in time.
-
-Every review keeps a signed hash-chained event log. Each event stores the previous hash, its own hash, a signature, and an Ed25519 actor_sig from the agent, the professional, or the HumanPush service key. The sandbox anchors batches of those events on its own chain. get_events returns the log. export_request saves that chain so you can verify it offline. verify_proof checks the signature, the hashes, the Merkle path and the anchor. You can run that check yourself. The public key is at https://mcp.humanpush.nl/.well-known/humanpush-keys.json.
-
 ## Payment
 
-- The company pays 100% upfront.
-- There is no split payment. The amount is the professional's fee plus the HumanPush fee.
-- Sandbox: pretend money, free.
+- The company pays 100% upfront: the professional's fee plus the HumanPush fee. The HumanPush fee is price on request.
+- The professional is paid after acceptance or after the 72-hour dispute window.
+- No real payments run yet. Sandbox: pretend money, free.
 
 ## Proof
 
-Every final result includes verifiable proof of who signed, when, and that the signer was listed in the public register. The proof is the signed hash chain and the anchor. Anyone can check that proof independently. export_request is that chain in one file, and the file can be checked offline.
+Every final result includes verifiable proof of who signed, when, and which register attestation applied then. The proof is the signed hash chain. Anyone can check that proof independently. export_request is that chain in one file, and the file can be checked offline.
 
 ## Links
 
 - [Website](https://humanpush.nl)
 - [For companies (Dutch)](https://humanpush.nl/bedrijven)
+- [Terms, draft (Dutch)](https://humanpush.nl/voorwaarden)
 - [This file](https://humanpush.nl/llms.txt)
 - [Sandbox](https://mcp.humanpush.nl/)
 - [MCP endpoint](https://mcp.humanpush.nl/mcp)
