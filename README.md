@@ -18,7 +18,7 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 
 ## Contact en prijzen
 
-Aanmelden gaat per e-mail naar info@humanpush.nl. De formulieren openen een mailto; er is geen formulierdienst. Prijzen op de site zijn "Prijs op aanvraag" (Nederlands) en "Price on request" (Engels, in llms.txt). Verzin geen KvK-nummer. De footer blijft: HumanPush, een handelsnaam van AgentPush B.V.
+Aanmelden gaat per e-mail naar info@humanpush.nl. De formulieren openen een mailto; er is geen formulierdienst. Prijzen op de site zijn "Prijs op aanvraag" (Nederlands) en "Price on request" (Engels, in llms.txt). De footer is: HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476. Op privacy en voorwaarden staat de aanbieder als: HumAgent B.V. (handelsnaam HumanPush), KvK 42222476.
 
 ## Live zetten
 
