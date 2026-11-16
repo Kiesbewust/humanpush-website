@@ -2,30 +2,41 @@
 
 Statische website, zonder build-stap. Werkt op Vercel.
 
-Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. De sandbox die nu werkt staat op https://mcp.humanpush.nl/ en het MCP-pad is https://mcp.humanpush.nl/mcp.
+Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. Protocol v1 is in de testfase; er is nog geen publiek endpoint voor v1, en de site linkt niet naar de oude sandbox.
 
 ## Wat erin zit
 
 | Bestand | Wordt | Voor wie |
 |---|---|---|
-| `index.html` | https://humanpush.nl/ | professionals |
+| `index.html` | https://humanpush.nl/ | de voordeur: het model, de garanties, drie ingangen |
+| `hoe-het-werkt.html` | https://humanpush.nl/hoe-het-werkt | één methode: stappen, garanties G1–G8, geld, logboek |
 | `bedrijven.html` | https://humanpush.nl/bedrijven | bedrijven die agents inzetten |
-| `inloggen.html` | https://humanpush.nl/inloggen | uitleg over de twee accounts, werkt vanaf de start |
+| `agents.html` | https://humanpush.nl/agents | agentbouwers (Nederlands) |
+| `professionals.html` | https://humanpush.nl/professionals | professionals, met ankers `#nivre #nrvt #nrgd #octrooi #nrbi` |
+| `veelgestelde-vragen.html` | https://humanpush.nl/veelgestelde-vragen | vragen per rol |
+| `inloggen.html` | https://humanpush.nl/inloggen | uitleg: er is nog niets om in te loggen |
+| `voorwaarden.html` | https://humanpush.nl/voorwaarden | concept, nog niet juridisch getoetst |
 | `privacy.html` | https://humanpush.nl/privacy | iedereen |
-| `llms.txt` | https://humanpush.nl/llms.txt | AI-agents |
+| `llms.txt` | https://humanpush.nl/llms.txt | AI-agents (Engels) |
+| `site.css` | gedeeld stylesheet, ontwerp variant A | — |
+| `site.js` | het mobiele menu (zonder JavaScript staat het menu open) | — |
 | `sitemap.xml` | https://humanpush.nl/sitemap.xml | canonieke URL's |
-| `vercel.json` | headers, en een redirect van de host humanpush.eu (alleen `/`) naar https://humanpush.nl/bedrijven | — |
+| `vercel.json` | headers (noindex), en een redirect van de host humanpush.eu (alleen `/`) naar https://humanpush.nl/bedrijven | — |
+
+## Ontwerp
+
+Variant A, in `site.css`: achtergrond `#F7F5F1`, vlakken `#F3EFE8`, lijnen `#E4DDD2`, tekst en knoppen navy `#0B2A5B`, gedempte tekst `#5C6578`. Goud `#E0A526` alleen in het logo en als accent (onderstreping, banderand, kleine markering), nooit als knopkleur of als tekst op licht. Lettertype Instrument Sans. Elke pagina heeft dezelfde banner, navigatie en footer, één primaire en één secundaire knop, en het garantieblok woordelijk gelijk.
 
 ## Contact en prijzen
 
-Aanmelden gaat per e-mail naar info@humanpush.nl. De formulieren openen een mailto; er is geen formulierdienst. Prijzen op de site zijn "Prijs op aanvraag" (Nederlands) en "Price on request" (Engels, in llms.txt). De footer is: HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476. Op privacy en voorwaarden staat de aanbieder als: HumAgent B.V. (handelsnaam HumanPush), KvK 42222476.
+Aanmelden is nog niet open: er zijn geen formulieren en geen mailto-knoppen als call-to-action. info@humanpush.nl staat alleen als contactadres in de footer, de voorwaarden en de privacyverklaring. Prijzen op de site zijn "prijs op aanvraag" (Nederlands) en "price on request" (Engels). De ondertekening is: HumanPush, een handelsnaam van HumAgent B.V., KvK 42222476, [ADRES]. Rangorde in de teksten: voorwaarden boven protocol boven site.
 
 ## Live zetten
 
 1. **GitHub.** Maak een nieuwe repository, bijvoorbeeld `humanpush-website`, zet deze bestanden erin en push.
 2. **Vercel.** Kies Add New → Project, importeer de repository en kies als framework "Other". Er is geen build-commando nodig. Klik op Deploy.
 3. **Domeinen.** Voeg in Vercel onder Settings → Domains `humanpush.nl` en `www.humanpush.nl` toe. Vercel toont per domein welke DNS-records nodig zijn. Zet die bij TransIP. Stuur humanpush.de en humanpush.be in TransIP door naar https://humanpush.nl.
-4. **Controleren.** Open https://humanpush.nl, klik door naar /bedrijven en /inloggen, gebruik de mailto-link en open https://humanpush.nl/llms.txt.
+4. **Controleren.** Open https://humanpush.nl, klik door alle pagina's in het menu en de footer, en open https://humanpush.nl/llms.txt.
 
 ## Bijwerken
 

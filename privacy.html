@@ -1,18 +1,22 @@
 <!doctype html>
-<html lang="nl">
+<html lang="nl" class="no-js">
 <head>
-<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
-<title>Privacyverklaring – HumanPush</title>
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Welke gegevens HumanPush verzamelt, waarom, en wat je rechten zijn.">
+<title>Privacyverklaring – HumanPush</title>
+<meta name="description" content="Wat HumanPush nu met gegevens doet: cookieloos tellen met GoatCounter, hosting bij Vercel, en wat je zelf mailt.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://humanpush.nl/privacy">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/privacy">
+<meta property="og:title" content="Privacyverklaring – HumanPush">
+<meta property="og:description" content="Wat HumanPush nu met gegevens doet: cookieloos tellen met GoatCounter, hosting bij Vercel, en wat je zelf mailt.">
+<meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,63 +24,58 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://humanpush.nl/og-image.png">
 <meta name="twitter:image:alt" content="HumanPush">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#F7F5F1}
-a{color:#0B2A5B;text-decoration-color:#E0A526;text-decoration-thickness:2px;text-underline-offset:3px}a:hover{color:#081F45}
-a:focus-visible{outline:3px solid #0B2A5B;outline-offset:2px;border-radius:6px}
-h2{margin:40px 0 8px;font-size:22px;line-height:1.3;color:#0B2A5B;font-weight:600}
-p,li{font-size:17px}
-</style>
+<link rel="stylesheet" href="/site.css">
+<script src="/site.js" defer></script>
 </head>
 <body>
-<div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #0B2A5B; background: #F7F5F1; font-size: 18px; line-height: 1.65">
-
-<header style="background: #F7F5F1; box-shadow: inset 0 -2px 0 #E0A526">
-<div style="max-width: 1180px; margin: 0 auto; padding: 24px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; box-sizing: border-box">
-<a href="/" aria-label="HumanPush, naar de homepage" style="text-decoration: none; display: inline-flex; align-items: center"><img src="/logo.svg" alt="" width="182" height="48" style="display: block; height: 48px; width: auto"></a>
-<nav aria-label="Hoofdmenu" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 16px">
-<a href="/" style="text-decoration: none; color: #0B2A5B">Voor professionals</a>
-<a href="/bedrijven" style="text-decoration: none; color: #0B2A5B">Voor bedrijven</a>
-</nav>
+<a class="skip" href="#inhoud">Naar de inhoud</a>
+<div class="banner" role="note">HumanPush is in de testfase. Er lopen nog geen echte opdrachten of betalingen. Aanmelden opent na afronding van de testfase.</div>
+<header class="site-header">
+<div class="wrap">
+<a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="167" height="44"></a>
+<button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/agents">Agents</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/veelgestelde-vragen">Vragen</a></li></ul></nav>
 </div>
 </header>
-
-<main style="max-width: 760px; margin: 0 auto; padding: 64px 24px 96px">
-<h1 style="margin: 0 0 12px; font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; color: #0B2A5B; font-weight: 600">Privacyverklaring</h1>
-<p style="margin: 0; color: #5F6B7A">Laatst bijgewerkt: 1 november 2026</p>
-
+<main id="inhoud">
+<section class="hero">
+<div class="wrap prose">
+<h1>Privacyverklaring</h1>
+<p class="muted">Laatst bijgewerkt: 16 november 2026</p>
+</div>
+</section>
+<section class="section white">
+<div class="wrap prose">
 <h2>Wie wij zijn</h2>
-<p>HumAgent B.V. (handelsnaam HumanPush), KvK 42222476. Vragen over je gegevens stel je via <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>.</p>
-
-<h2>Welke gegevens we verzamelen</h2>
+<p>HumanPush, een handelsnaam van HumAgent B.V., KvK 42222476, [ADRES]. Vragen over je gegevens stel je via <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>.</p>
+<h2>Wat er nu gebeurt</h2>
+<p>HumanPush is in de testfase. Aanmelden en toegang aanvragen zijn nog niet open. Er staan op deze website geen formulieren en we verzamelen via de website geen gegevens.</p>
 <ul>
-<li>Meld je je aan als professional, dan bewaren we wat je ons mailt: je naam, e-mailadres, het register waarin je staat, je registernummer en je vakgebied.</li>
-<li>Vraag je als bedrijf een sandbox aan, dan bewaren we wat je ons mailt: de bedrijfsnaam, je e-mailadres en wat je over je agent vertelt.</li>
+<li><strong>Paginabezoeken</strong> tellen we cookieloos met GoatCounter (humanpush.goatcounter.com): geen cookies en geen profiel over andere sites.</li>
+<li><strong>De website</strong> draait bij Vercel. Zoals elke webserver verwerkt Vercel technische gegevens, zoals je IP-adres, om de pagina's te kunnen leveren.</li>
+<li><strong>Mail je ons zelf</strong>, dan bewaren we wat je ons mailt, alleen om je te antwoorden.</li>
 </ul>
-<p>Meer vragen we niet. Deze website plaatst geen trackingcookies. Paginabezoeken tellen we cookieloos, zonder je over andere sites te volgen.</p>
-
-<h2>Waarom</h2>
-<p>We gebruiken je gegevens alleen om contact met je op te nemen over deelname aan HumanPush. Doe je mee, dan controleren we je registratie in het openbare register. We verkopen je gegevens niet en gebruiken ze niet voor reclame van anderen.</p>
-
-<h2>Wie de gegevens verwerkt</h2>
-<p>Aanmelden gaat per e-mail naar <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>. Er is geen formulierdienst die je invoer ontvangt. De sandbox, waar een bedrijf een sleutel kan maken, draait bij Railway. De website draait bij Vercel. Paginabezoeken tellen we cookieloos met GoatCounter (humanpush.goatcounter.com): geen cookies en geen profiel over andere sites.</p>
-
+<p>We verkopen je gegevens niet en gebruiken ze niet voor reclame van anderen.</p>
 <h2>Hoe lang we ze bewaren</h2>
-<p>Tot de start van HumanPush, en daarna nooit langer dan twaalf maanden als je niet meedoet. Wil je dat we je gegevens eerder verwijderen, dan doen we dat.</p>
-
+<p>Wat je ons mailt, bewaren we tot het einde van de testfase, en daarna nooit langer dan twaalf maanden. Wil je dat we je gegevens eerder verwijderen, dan doen we dat.</p>
 <h2>Je rechten</h2>
-<p>Je mag je gegevens inzien, laten verbeteren of laten verwijderen. Stuur daarvoor een mail naar <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de <a href="https://autoriteitpersoonsgegevens.nl">Autoriteit Persoonsgegevens</a>.</p>
+<p>Je mag je gegevens inzien, laten verbeteren of laten verwijderen. Stuur daarvoor een mail naar <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>. Ben je het niet eens met hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de Autoriteit Persoonsgegevens.</p>
+</div>
+</section>
 </main>
-
-<footer style="border-top: 1px solid #E3E7ED">
-<div style="max-width: 1120px; margin: 0 auto; padding: 32px 24px; font-size: 15px; color: #5F6B7A">
-<p style="margin: 0 0 12px">HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476, <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p>
-<p style="margin: 0"><a href="/">Voor professionals</a>&nbsp;&nbsp;&nbsp;<a href="/bedrijven">Voor bedrijven</a>&nbsp;&nbsp;&nbsp;<a href="/inloggen">Inloggen</a>&nbsp;&nbsp;&nbsp;<a href="/voorwaarden">Voorwaarden</a>&nbsp;&nbsp;&nbsp;<span lang="en">For AI agents: <a href="https://humanpush.nl/llms.txt">https://humanpush.nl/llms.txt</a></span></p>
+<footer class="site-footer">
+<div class="wrap">
+<p>HumanPush, een handelsnaam van HumAgent B.V., KvK 42222476, [ADRES] · <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p>
+<ul>
+<li><a href="/voorwaarden">Voorwaarden</a></li>
+<li><a href="/privacy">Privacy</a></li>
+<li><a href="/inloggen">Inloggen</a></li>
+<li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li>
+</ul>
 </div>
 </footer>
-
-</div>
 <script data-goatcounter="https://humanpush.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
