@@ -10,7 +10,7 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 |---|---|---|
 | `index.html` | https://humanpush.nl/ | professionals |
 | `bedrijven.html` | https://humanpush.nl/bedrijven | bedrijven die agents inzetten |
-| `inloggen.html` | https://humanpush.nl/inloggen | uitleg over de twee accounts, werkt vanaf de start |
+| `inloggen.html` | https://humanpush.nl/inloggen | uitleg over de twee accounts, werkt vanaf de start (na de testfase) |
 | `privacy.html` | https://humanpush.nl/privacy | iedereen |
 | `llms.txt` | https://humanpush.nl/llms.txt | AI-agents |
 | `sitemap.xml` | https://humanpush.nl/sitemap.xml | canonieke URL's |
@@ -18,14 +18,16 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 
 ## Contact en prijzen
 
-Aanmelden gaat per e-mail naar info@humanpush.nl. De formulieren openen een mailto; er is geen formulierdienst. Prijzen op de site zijn "Prijs op aanvraag" (Nederlands) en "Price on request" (Engels, in llms.txt). Verzin geen KvK-nummer. De footer blijft: HumanPush, een handelsnaam van AgentPush B.V.
+Aanmelden en toegang aanvragen zijn nog niet open: er zijn geen formulieren en geen mailto-knoppen als call-to-action. info@humanpush.nl staat alleen als contactadres in de footer, de voorwaarden en de privacyverklaring. Prijzen op de site zijn "Prijs op aanvraag" (Nederlands) en "Price on request" (Engels, in llms.txt). Verzin geen KvK-nummer: gebruik de placeholder [KVK-NUMMER]. De footer is: HumanPush, een handelsnaam van Humagent B.V., KvK [KVK-NUMMER].
+
+Rangorde in de teksten: voorwaarden boven protocol boven site.
 
 ## Live zetten
 
 1. **GitHub.** Maak een nieuwe repository, bijvoorbeeld `humanpush-website`, zet deze bestanden erin en push.
 2. **Vercel.** Kies Add New → Project, importeer de repository en kies als framework "Other". Er is geen build-commando nodig. Klik op Deploy.
 3. **Domeinen.** Voeg in Vercel onder Settings → Domains `humanpush.nl` en `www.humanpush.nl` toe. Vercel toont per domein welke DNS-records nodig zijn. Zet die bij TransIP. Stuur humanpush.de en humanpush.be in TransIP door naar https://humanpush.nl.
-4. **Controleren.** Open https://humanpush.nl, klik door naar /bedrijven en /inloggen, gebruik de mailto-link en open https://humanpush.nl/llms.txt.
+4. **Controleren.** Open https://humanpush.nl, klik door naar /bedrijven, /inloggen, /voorwaarden en /privacy, en open https://humanpush.nl/llms.txt.
 
 ## Bijwerken
 
