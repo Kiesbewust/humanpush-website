@@ -31,7 +31,7 @@ Variant A, in `site.css`: achtergrond `#F7F5F1`, vlakken `#F3EFE8`, lijnen `#E4D
 
 Aanmelden is nog niet open: er zijn geen formulieren en geen mailto-knoppen als call-to-action. info@humanpush.nl staat alleen als contactadres in de footer, de voorwaarden en de privacyverklaring. Prijzen op de site zijn "prijs op aanvraag" (Nederlands) en "price on request" (Engels). De footer is: "HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476", gevolgd door info@humanpush.nl, zonder adres. Op privacy en voorwaarden staat de aanbieder als "HumAgent B.V. (handelsnaam HumanPush), KvK 42222476". Rangorde in de teksten: voorwaarden boven protocol boven site.
 
-## Live zetten
+## Online zetten
 
 1. **GitHub.** Maak een nieuwe repository, bijvoorbeeld `humanpush-website`, zet deze bestanden erin en push.
 2. **Vercel.** Kies Add New → Project, importeer de repository en kies als framework "Other". Er is geen build-commando nodig. Klik op Deploy.
@@ -40,7 +40,7 @@ Aanmelden is nog niet open: er zijn geen formulieren en geen mailto-knoppen als 
 
 ## Bijwerken
 
-Pas de bestanden aan, commit en push. Vercel zet de nieuwe versie vanzelf live.
+Pas de bestanden aan, commit en push. Vercel zet de nieuwe versie vanzelf online.
 
 ## Automatische deploy
 

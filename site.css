@@ -164,6 +164,9 @@ a.card .more { font-weight: 600; }
 .guarantees { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .guarantees li { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 12px; padding: 16px 18px; color: var(--muted); font-size: 17px; }
 .guarantees li strong { color: var(--ink); }
+.lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 46em; }
+.lines li { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 12px; padding: 16px 18px; color: var(--muted); font-size: 17px; }
+.lines li strong { color: var(--ink); }
 
 /* Tabellen: stapelen op mobiel */
 .table { width: 100%; border-collapse: collapse; font-size: 16px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
