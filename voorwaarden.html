@@ -56,7 +56,7 @@
 <li>De professional is verantwoordelijk voor de inhoud van zijn werk, onder zijn eigen beroepsregels en beroepsaansprakelijkheidsverzekering.</li>
 <li>De opdrachtgever is verantwoordelijk voor wat zijn agent vraagt en voor de juistheid van de stukken die hij aanlevert.</li>
 <li>HumanPush is verantwoordelijk voor het proces: het registerbewijs, de termijnen, het geld en het logboek. HumanPush oordeelt niet over de inhoud van het werk.</li>
-<li><strong>Registerbewijs.</strong> Een mens zoekt de professional op in het openbare register, met een vaste checklist. Bron, tijdstip en een hash worden bewaard. Het bewijs is minimaal niveau 2 en 30 dagen geldig, bij octrooigemachtigden 120 dagen (de peildatum van de lijst). Een opdrachtgever kan een hoger niveau eisen, nooit een lager. Zonder opgeslagen verklaring is een professional niet inzetbaar. Het bewijs is een registerverklaring met geldigheidsduur, geen realtime stand van het register.</li>
+<li><strong>Registerbewijs.</strong> Een mens zoekt de professional op in het openbare register, met een vaste checklist. Bron, tijdstip en een hash worden bewaard. Het bewijs is minimaal niveau 2 en hooguit 30 dagen oud; bij octrooigemachtigden is daarbovenop de peildatum van de lijst hooguit 120 dagen oud. Een opdrachtgever kan een hoger niveau eisen, nooit een lager. Zonder opgeslagen verklaring is een professional niet inzetbaar. Het bewijs is een registerverklaring met geldigheidsduur, geen realtime stand van het register.</li>
 <li><strong>Bij elke aanname</strong> wordt het register opnieuw gecontroleerd; bij NRVT handmatig en gelogd. Meldt het register een schorsing of doorhaling, dan eindigt de beurt. Gebeurt dat na de aanname en vóór de oplevering, dan krijgt de opdrachtgever alles terug en wordt de professional niet betaald; werk dat al was opgeleverd, loopt door. NIVRE, NRVT en de lijst van octrooigemachtigden tonen geen schorsing; daar telt alleen een doorhaling.</li>
 </ul>
 <h2 id="v3">3. Vaste regels per opdracht</h2>
@@ -66,9 +66,9 @@
 <li>Met het aannemen zijn beide partijen gebonden.</li>
 <li>Annuleert de opdrachtgever vóór de aanname, dan krijgt hij alles terug. Annuleert hij na de aanname en vóór de oplevering, dan houdt de professional 25% van zijn tarief en krijgt de opdrachtgever de rest terug, ook de vaste vergoeding van HumanPush. Na de oplevering kan niet meer worden geannuleerd.</li>
 <li>Trekt de professional zich na de aanname terug, of levert hij te laat, dan krijgt de opdrachtgever alles terug en wordt de professional niet betaald. Na de aanname wordt niemand anders ingezet en wordt geen termijn verschoven.</li>
-<li>Bij een dienst met een verplichte conflictcheck (nu alleen octrooigemachtigden) kan de professional de opdracht na de aanname en vóór de oplevering teruggeven als hij een belangenconflict ontdekt. De opdrachtgever krijgt alles terug, zonder annuleringsvergoeding. De professional krijgt daarvoor een markering; 3 markeringen in 12 maanden tellen als 1 tekortkoming. Een beoordelaar die een conflict meldt, krijgt ook een markering.</li>
+<li>Bij een dienst met een verplichte conflictcheck (nu alleen octrooigemachtigden) kan de professional de opdracht na de aanname en vóór de oplevering teruggeven als hij een belangenconflict ontdekt. De opdrachtgever krijgt alles terug, zonder annuleringsvergoeding. De professional krijgt daarvoor een markering; 3 markeringen in 12 maanden tellen als 1 tekortkoming. Een beoordelaar die na aanname een conflict meldt, krijgt alleen bij een dienst met een verplichte conflictcheck een markering; bij de andere diensten telt het als tekortkoming.</li>
 <li>Na de oplevering heeft de opdrachtgever 72 uur om te accepteren of bezwaar te maken. Zonder reactie geldt het werk als geaccepteerd.</li>
-<li>Bezwaar kan alleen op de vaste toetsingspunten van de dienst: is het stuk compleet, en is de vraag beantwoord. Een andere conclusie willen is geen grond. Een beoordelaar uit hetzelfde register, gekozen door het protocol, beslist: voldoet, of voldoet niet met een grond. Voldoet het niet, dan krijgt de opdrachtgever alles terug. Er is geen tweede ronde en geen gedeeltelijke uitkomst.</li>
+<li>Bezwaar kan alleen op de vaste toetsingspunten van die dienst (per dienst vermeld op <a href="/professionals#registers">de pagina voor professionals</a> en in <code>list_services</code>). Een andere conclusie willen is geen grond. Een beoordelaar uit hetzelfde register, gekozen door het protocol, beslist: voldoet, of voldoet niet met een grond. Voldoet het niet, dan krijgt de opdrachtgever alles terug. Er is geen tweede ronde en geen gedeeltelijke uitkomst.</li>
 <li>Vindt het protocol geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt de opdrachtgever alles terug en betaalt HumanPush de professional uit zijn eigen reserve.</li>
 <li>Te laat leveren of terugtrekken na de aanname telt als tekortkoming. Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden zonder nieuwe opdrachten. Weigeren, of een beurt laten verlopen, telt niet.</li>
 </ul>
@@ -77,18 +77,18 @@
 <h2 id="v5">5. Het logboek</h2>
 <p>Het protocol voert de voorwaarden uit; het ondertekende logboek is het bewijs. Elke stap in een opdracht wordt vastgelegd als een ondertekende gebeurtenis, en elke gebeurtenis verwijst naar de vorige. Partijen accepteren dit logboek als bewijs van wat er is gebeurd en wanneer. Een export van een opdracht kan iedereen zelf controleren.</p>
 <h2 id="v6">6. Aansprakelijkheid van HumanPush</h2>
-<p>De aansprakelijkheid van HumanPush is per opdracht beperkt tot [BEDRAG of: de vergoeding van HumanPush voor die opdracht], behalve bij opzet of grove nalatigheid. HumanPush is niet aansprakelijk voor gevolgschade, voor zover de wet dat toestaat.</p>
+<p>De aansprakelijkheid van HumanPush is per opdracht beperkt; de grens volgt na juridische toetsing. Opzet en grove nalatigheid zijn nooit uitgesloten. HumanPush is niet aansprakelijk voor gevolgschade, voor zover de wet dat toestaat.</p>
 <h2 id="v7">7. Geschillen</h2>
-<p>Op deze voorwaarden is Nederlands recht van toepassing. Geschillen die niet via de bezwaarroute worden opgelost, gaan naar de bevoegde rechter in [PLAATS]. De Nederlandse wet gaat altijd voor deze regels.</p>
+<p>Op deze voorwaarden is Nederlands recht van toepassing. Geschillen die niet via de bezwaarroute worden opgelost, gaan naar de bevoegde rechter; de plaats volgt na juridische toetsing. De Nederlandse wet gaat altijd voor deze regels.</p>
 <h2 id="v8">8. Wie wij zijn en de rangorde</h2>
-<p>HumanPush, een handelsnaam van HumAgent B.V., KvK 42222476, [ADRES]. Vragen: info@humanpush.nl.</p>
+<p>HumAgent B.V. (handelsnaam HumanPush), KvK 42222476. Vragen: info@humanpush.nl.</p>
 <p>Bij verschil gaan deze voorwaarden voor op het protocol, en het protocol voor op de website. Er is geen helpdesk en er zijn geen uitzonderingen per geval.</p>
 </div>
 </section>
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<p>HumanPush, een handelsnaam van HumAgent B.V., KvK 42222476, [ADRES] · <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p>
+<p>HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p>
 <ul>
 <li><a href="/voorwaarden">Voorwaarden</a></li>
 <li><a href="/privacy">Privacy</a></li>
