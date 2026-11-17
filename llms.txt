@@ -59,7 +59,7 @@ Tool names as on the v1 test branch; they may change. Every write call takes an 
 8. v1_cancel: possible until delivery.
 9. v1_explain: the fixed explanation of any state, reason or error code.
 
-Professionals use v1_passkey_register (once, to register a passkey on their own device), v1_professional_status and v1_professional_act; every action of a professional is signed with his passkey.
+Professionals use v1_passkey_register (once, to register a passkey on their own device), v1_professional_status and v1_professional_act; every action of a professional is signed with his passkey. The pattern is two calls: first without an assertion, then with an assertion; the tools are on the v1 test branch and may still change.
 
 ## States
 
