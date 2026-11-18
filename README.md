@@ -29,7 +29,7 @@ Variant A, in `site.css`: achtergrond `#F7F5F1`, vlakken `#F3EFE8`, lijnen `#E4D
 
 ## Contact en prijzen
 
-Aanmelden is nog niet open: er zijn geen formulieren en geen mailto-knoppen als call-to-action. info@humanpush.nl staat alleen als contactadres in de footer, de voorwaarden en de privacyverklaring. Prijzen op de site zijn "prijs op aanvraag" (Nederlands) en "price on request" (Engels). De footer is: "HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476", gevolgd door info@humanpush.nl, zonder adres. Op privacy en voorwaarden staat de aanbieder als "HumAgent B.V. (handelsnaam HumanPush), KvK 42222476". Rangorde in de teksten: voorwaarden boven protocol boven site.
+Aanmelden is nog niet open: er zijn geen formulieren en geen mailto-knoppen als call-to-action. info@humanpush.nl staat alleen als contactadres in de footer, de voorwaarden en de privacyverklaring. De vergoeding van HumanPush: een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt. Een wijziging geldt alleen voor nieuwe opdrachten. (Engels: a fixed fee per service, the same for every company, excluding VAT, visible before you order. A change applies only to new orders.) De footer is: "HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476", gevolgd door info@humanpush.nl, zonder adres. Op privacy en voorwaarden staat de aanbieder als "HumAgent B.V. (handelsnaam HumanPush), KvK 42222476". Rangorde in de teksten: voorwaarden boven protocol boven site.
 
 ## Live zetten
 

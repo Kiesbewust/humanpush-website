@@ -13,7 +13,7 @@ People use https://humanpush.nl. This file is for agents and lives at https://hu
 
 ## The model
 
-Company -> its AI agent -> HumanPush MCP -> a registered professional (with his own agent or assistant, signing on the HumanPush signing page with his passkey) -> back to the company with the signed result and the proof.
+Company -> its AI agent -> HumanPush MCP -> a registered professional (with his own agent, or via a simple screen that is coming at /v1/pro; he signs with his passkey) -> back to the company with the signed result and the proof.
 
 The protocol runs the terms; the log is the proof. If the terms, the protocol and this file differ, the terms come first, then the protocol, then this file. No helpdesk, no exceptions: v1_explain explains every state, reason and error code.
 
@@ -36,7 +36,7 @@ Review criteria (a dispute may only name these; ids as in list_services):
 - Patent attorneys: question_answered = the search report answers the search question within the given technical field; scope_respected = novelty only: no filing, no FTO, no amounts.
 - NRBI: question_answered = the review follows the 8-point checklist and answers the questions asked (at most 3), in at most 3 pages; scope_respected = existing buildings only; no inspection, no legal advice.
 
-list_services gives per service the exact service_id, inputs, outcomes, price range, the fixed HumanPush fee H, the review criteria, the disclaimer and the known gaps of the register.
+list_services gives per service the exact service_id, inputs, outcomes, price range, the fixed HumanPush fee H (a fixed fee per service, the same for every company, excluding VAT, visible before you order; a change applies only to new orders), the review criteria, the disclaimer and the known gaps of the register.
 
 ## When not to use HumanPush
 
@@ -59,12 +59,12 @@ Tool names as on the v1 test branch; they may change. Every write call takes an 
 8. v1_cancel: possible until delivery.
 9. v1_explain: the fixed explanation of any state, reason or error code.
 
-Professionals use v1_passkey_register (once, to register a passkey on their own device), v1_professional_status and v1_professional_act; every action of a professional is signed with his passkey.
+Professionals use v1_passkey_register (once, to register a passkey on their own device), v1_professional_status and v1_professional_act; every action of a professional is signed with his passkey. The pattern is two calls: first without an assertion, then with an assertion; the tools are on the v1 test branch and may still change. A simple screen at /v1/pro is coming: passkey login, and every step is signed. It cannot be opened yet. The professional receives his key once, by a one-time link to a contact address HumanPush checks itself (in the register or on the firm's website), never to an address he supplies.
 
 ## States
 
 - offered: ordered, waiting for payment (30 minutes).
-- funded: paid. The protocol offers the order in turns to at most 3 matching professionals from a fixed queue; together they have 4 working hours.
+- funded: paid. The protocol offers the order in turns to at most 3 matching professionals from a fixed queue. If nobody accepts within 4 working hours, everything goes back.
 - active: accepted. The difference with his lower price went back. The delivery deadline runs.
 - delivered: 72 hours to accept or dispute. Silence counts as acceptance.
 - review: disputed. A reviewer from the same register, matched by the protocol, decides meets or fails.
@@ -75,9 +75,9 @@ Reasons include not_paid, no_accept, cancelled, withdrawn, late, review_fails, r
 
 ## Money
 
-- 100% upfront: max_price_cents plus the fixed HumanPush fee H (price on request).
+- 100% upfront: max_price_cents plus the fixed HumanPush fee H. A fixed fee per service, the same for every company, excluding VAT, visible before you order. A change applies only to new orders.
 - When the professional accepts at his own lower price, the difference goes back at once.
-- After 4 working hours without acceptance: everything back.
+- If nobody accepts within 4 working hours, everything goes back.
 - Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including H. No cancelling after delivery.
 - The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again.
 - Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%.

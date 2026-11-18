@@ -143,6 +143,7 @@ a.card .more { font-weight: 600; }
 .steps > li::after { content: ''; position: absolute; left: 21px; top: 50px; bottom: 6px; width: 2px; background: var(--line); }
 .steps > li:last-child::after { display: none; }
 .steps h3 { padding-top: 8px; }
+.steps > li > p:first-child { padding-top: 8px; }
 .steps p { color: var(--muted); margin-bottom: 0; }
 .steps .with-mock { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: flex-start; }
 .steps .with-mock > div:first-child { flex: 1 1 300px; min-width: 0; }
@@ -159,6 +160,12 @@ a.card .more { font-weight: 600; }
 .mock .fake-btn { display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 10px; background: var(--ink); color: var(--white); font-weight: 600; }
 .sig { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: sign 2.4s ease-out .6s forwards; }
 @keyframes sign { to { stroke-dashoffset: 0; } }
+
+/* Vier korte regels, zelfde op de voorpagina en bij bedrijven */
+.reasons { list-style: none; margin: 0; padding: 0; max-width: 40em; }
+.reasons li { margin: 0 0 12px; color: var(--muted); }
+.reasons li:last-child { margin-bottom: 0; }
+.reasons li strong { color: var(--ink); font-weight: 600; }
 
 /* Garantieblok: overal woordelijk gelijk */
 .guarantees { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
