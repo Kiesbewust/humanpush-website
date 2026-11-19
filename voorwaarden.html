@@ -24,8 +24,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://humanpush.nl/og-image.png">
 <meta name="twitter:image:alt" content="HumanPush">
-<link rel="preload" href="/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/instrument-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-tight-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-tight-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://humanpush.nl/#organization","name":"HumanPush","legalName":"HumAgent B.V.","identifier":{"@type":"PropertyValue","propertyID":"KvK","value":"42222476"},"url":"https://humanpush.nl/","email":"info@humanpush.nl","logo":"https://humanpush.nl/logo.svg","sameAs":[]},{"@type":"WebSite","@id":"https://humanpush.nl/#website","name":"HumanPush","url":"https://humanpush.nl/","inLanguage":"nl","publisher":{"@id":"https://humanpush.nl/#organization"}}]}</script>
 <script src="/config.js"></script>
@@ -66,12 +66,12 @@
 <li>De opdrachtgever is verantwoordelijk voor wat zijn agent vraagt en voor de juistheid van de stukken die hij aanlevert.</li>
 <li>HumanPush is verantwoordelijk voor het proces: het registerbewijs, de termijnen, het geld en het logboek. HumanPush oordeelt niet over de inhoud van het werk.</li>
 <li><strong>Registerbewijs.</strong> Een mens zoekt de professional op in het openbare register, met een vaste checklist. Bron, tijdstip en een hash worden bewaard. Het bewijs is minimaal niveau 2 en hooguit 30 dagen oud; bij octrooigemachtigden is daarbovenop de peildatum van de lijst hooguit 120 dagen oud. Een opdrachtgever kan een hoger niveau eisen, nooit een lager. Zonder opgeslagen verklaring is een professional niet inzetbaar. Het bewijs is een registerverklaring met geldigheidsduur, geen realtime stand van het register.</li>
-<li><strong>Bij elke aanname</strong> wordt het register opnieuw gecontroleerd; bij NRVT handmatig en gelogd. Meldt het register een schorsing of doorhaling, dan eindigt de beurt. Gebeurt dat na de aanname en vóór de oplevering, dan krijgt de opdrachtgever alles terug en wordt de professional niet betaald; werk dat al was opgeleverd, loopt door. NIVRE, NRVT en de lijst van octrooigemachtigden tonen geen schorsing; daar telt alleen een doorhaling.</li>
+<li><strong>Bij elke aanname</strong> wordt het register opnieuw gecontroleerd; bij NRVT handmatig en gelogd. Meldt het register een schorsing of doorhaling, dan vervalt de aangeboden opdracht. Gebeurt dat na de aanname en vóór de oplevering, dan krijgt de opdrachtgever alles terug en wordt de professional niet betaald; werk dat al was opgeleverd, loopt door. NIVRE, NRVT en de lijst van octrooigemachtigden tonen geen schorsing; daar telt alleen een doorhaling.</li>
 </ul>
 <h2 id="v3">3. Vaste regels per opdracht</h2>
 <p>Prijs, levertijd, annuleren en bezwaar liggen per dienst vast voordat een opdracht begint. Een nieuwe versie van deze regels geldt alleen voor nieuwe opdrachten. Elke stap van een professional of beoordelaar is een ondertekende actie met zijn passkey.</p>
 <ul>
-<li>De opdrachtgever kiest een dienst, een uiterste datum en een maximumprijs. Hij kiest geen professional: het protocol biedt de opdracht in beurten van <span data-rule="turnWorkingMinutes">45</span> werkminuten aan, één passende professional tegelijk, tot iemand aanneemt of de opdrachtgever annuleert. Elke professional krijgt hooguit <span data-rule="maxTurnsPerPro">2</span> beurten per opdracht en kan een beurt kosteloos laten gaan. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen <span data-rule="acceptCeilingWorkdays">3</span> werkdagen, dan krijgt de opdrachtgever alles terug.</li>
+<li>De opdrachtgever kiest een dienst, een uiterste datum en een maximumprijs. Hij kiest geen professional: het protocol biedt de opdracht telkens <span data-rule="turnWorkingMinutes">45</span> werkminuten aan, één passende professional tegelijk, tot iemand aanneemt of de opdrachtgever annuleert. Elke professional krijgt een opdracht hooguit <span data-rule="maxTurnsPerPro">2</span> keer aangeboden en kan hem kosteloos doorgeven. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen <span data-rule="acceptCeilingWorkdays">3</span> werkdagen, dan krijgt de opdrachtgever alles terug.</li>
 <li>Met het aannemen zijn beide partijen gebonden.</li>
 <li>Annuleert de opdrachtgever vóór de aanname, dan krijgt hij alles terug. Annuleert hij na de aanname en vóór de oplevering, dan houdt de professional 25% van zijn tarief en krijgt de opdrachtgever de rest terug, ook de vaste vergoeding van HumanPush. Na de oplevering kan niet meer worden geannuleerd.</li>
 <li>Trekt de professional zich na de aanname terug, of levert hij te laat, dan krijgt de opdrachtgever alles terug en wordt de professional niet betaald. Na de aanname wordt niemand anders ingezet en wordt geen termijn verschoven.</li>
@@ -79,7 +79,7 @@
 <li>Na de oplevering heeft de opdrachtgever 72 uur om te accepteren of bezwaar te maken. Zonder reactie geldt het werk als geaccepteerd.</li>
 <li>Bezwaar kan alleen op de vaste toetsingspunten van die dienst (per dienst vermeld op <a href="/professionals#registers">de pagina voor professionals</a> en in <code>list_services</code>). Een andere conclusie willen is geen grond. Een beoordelaar uit hetzelfde register, gekozen door het protocol, beslist: voldoet, of voldoet niet met een grond. Voldoet het niet, dan krijgt de opdrachtgever alles terug. Er is geen tweede ronde en geen gedeeltelijke uitkomst.</li>
 <li>Vindt het protocol geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt de opdrachtgever alles terug en betaalt HumanPush de professional uit zijn eigen reserve.</li>
-<li>Te laat leveren of terugtrekken na de aanname telt als tekortkoming. Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden zonder nieuwe opdrachten. Een beurt laten gaan, of laten verlopen, telt niet.</li>
+<li>Te laat leveren of terugtrekken na de aanname telt als tekortkoming. Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden zonder nieuwe opdrachten. Een aangeboden opdracht doorgeven, of laten verlopen, telt niet.</li>
 </ul>
 <h2 id="v4">4. Betalen</h2>
 <p>De opdrachtgever betaalt vooraf, binnen 30 minuten na de bestelling: zijn maximumprijs plus een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt. Een wijziging geldt alleen voor nieuwe opdrachten. Neemt de professional aan tegen een lagere prijs, dan gaat het verschil meteen terug. De professional krijgt zijn tarief na acceptatie, na 72 uur zonder bezwaar, of na een oordeel "voldoet". Kan HumanPush niet aantonen dat zijn eigen dienst in het venster werkte, dan schuift de uitbetaling hooguit 5 werkdagen op. HumanPush factureert alleen zijn eigen vergoeding; de professional factureert zijn eigen werk. Hoe het geld precies loopt, leggen we vast met een erkende betaalinstelling voordat we openen. In de testfase lopen er geen echte betalingen.</p>
@@ -101,6 +101,7 @@
 <div><p class="h">Over</p><ul><li><a href="/voorwaarden">Voorwaarden</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/inloggen">Inloggen</a></li></ul></div>
 <div><p class="h">Voor agents</p><ul><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li><li><a href="/agents">Voor agents en bouwers</a></li></ul></div>
 </div>
+<div class="wrap"><div class="meta"><span>Regelversie 2026-11-19</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>
 </footer>
 </body>
 </html>

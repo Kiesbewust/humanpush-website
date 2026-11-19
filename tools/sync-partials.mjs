@@ -48,10 +48,37 @@ function swimBlock() {
   return `<div class="swimcard">\n${svg}\n</div>\n<p class="scroll-hint">Op een smal scherm schuift het diagram opzij; de genummerde lijst hieronder zegt hetzelfde.</p>\n<ol class="swimleg" aria-label="Legenda bij het diagram">${items}</ol>`;
 }
 
+// Dienstkaarten: één bron (partials/diensten.json), twee kijkrichtingen. Zonder JavaScript staat alles open en zichtbaar;
+// site.js maakt er tabs (per register), een schakelaar (professional | bedrijf) en ingeklapte details van.
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const withRules = (s) => esc(s).replace(/\{(\w+)\}/g, (_, k) => span(k));
+function dienstenBlock(view) {
+  if (view !== 'pro' && view !== 'bedrijf') throw new Error(`onbekende dienstenweergave: ${view}`);
+  const { registers } = JSON.parse(read('partials/diensten.json'));
+  const li = (xs) => xs.map((x) => `<li>${withRules(x)}</li>`).join('');
+  const row = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
+  const tabs = registers.map((r, i) => `<a class="svc-tab" href="#${r.id}" id="tab-${r.id}" data-tab="${r.id}"${i ? '' : ' aria-current="true"'}>${esc(r.tab)}</a>`).join('');
+  const views = [['pro', 'Voor de professional'], ['bedrijf', 'Voor het bedrijf']];
+  const toggle = views.map(([v, label]) => `<button type="button" class="svc-view" data-view="${v}" aria-pressed="${v === view}">${label}</button>`).join('');
+  const panels = registers.map((r) => {
+    const p = r.pro, b = r.bedrijf;
+    const scope = `<div class="svc-scope"><div><p class="label">Valt in de dienst</p><ul class="ticks">${li(r.in_scope)}</ul></div><div><p class="label">Valt erbuiten</p><ul class="crosses">${li(r.out_of_scope)}</ul></div></div>`;
+    const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} werkminuten per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', 'Je zet zelf je prijs en levertijd, binnen het bereik van de dienst. Er gaat niets van af.')}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
+    const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${row('Zo vraag je aan', `<code>v1_create_order</code> met <code>service_id="${esc(r.service_id)}"</code>, de invoer, een uiterste datum en <code>max_price_cents</code>.`)}${row('Bewijs', `Registerbewijs niveau 2 (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gecontroleerd bij aanname), hash van het stuk, passkey-handtekening en het logboek.`)}</dl>`;
+    const part = (v, x, body) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p><details class="svc-more" open><summary>Details</summary>${body}${scope}</details></div>`;
+    return `<section class="svc-card" id="${r.id}" aria-labelledby="${r.id}-kop" data-panel="${r.id}">`
+      + `<header class="svc-top"><span class="badge">${esc(r.badge)}</span><span class="status">Aangeboden · ${span('turnWorkingMinutes')} werkmin · getekend met passkey</span></header>`
+      + `<h3 id="${r.id}-kop">${esc(r.dienst)}</h3><p class="svc-reg">${esc(r.register)} · <code>${esc(r.service_id)}</code></p>`
+      + part('pro', p, proBody) + part('bedrijf', b, bizBody) + `</section>`;
+  }).join('\n');
+  return `<div class="svc" data-svc data-view="${view}">\n<div class="svc-bar"><nav class="svc-tabs" aria-label="Registers">${tabs}</nav><div class="svc-toggle" role="group" aria-label="Bekijk de dienst als">${toggle}</div></div>\n<div class="svc-panels">\n${panels}\n</div>\n</div>`;
+}
+
 function fill(html, file) {
   let out = html;
   out = out.replace(/<!--flow:start(?: variant=(\w+))?-->[\s\S]*?<!--flow:end-->/g, (m, v) => `<!--flow:start${v ? ' variant=' + v : ''}-->\n${flowBlock(v)}\n<!--flow:end-->`);
   out = out.replace(/<!--flowsvg:start-->[\s\S]*?<!--flowsvg:end-->/g, () => `<!--flowsvg:start-->\n${flowSvgBlock()}\n<!--flowsvg:end-->`);
+  out = out.replace(/<!--diensten:start view=(\w+)-->[\s\S]*?<!--diensten:end-->/g, (m, v) => `<!--diensten:start view=${v}-->\n${dienstenBlock(v)}\n<!--diensten:end-->`);
   out = out.replace(/<!--swim:start-->[\s\S]*?<!--swim:end-->/g, () => `<!--swim:start-->\n${swimBlock()}\n<!--swim:end-->`);
   out = out.replace(/<(span|tspan) data-rule="(\w+)">[^<]*<\/\1>/g, (m, tag, k) => `<${tag} data-rule="${k}">${rv(k)}</${tag}>`);
   if ((out.match(/<!--flow:start/g) || []).length !== (out.match(/<!--flow:end-->/g) || []).length) throw new Error(`${file}: flow-markers kloppen niet`);
@@ -85,7 +112,7 @@ const required = {
   ],
   'kb/spelregels.md': [
     `${rules.turnWorkingMinutes} werkminuten`,
-    `hooguit ${rules.maxTurnsPerPro} beurten`,
+    `hooguit ${rules.maxTurnsPerPro} keer aangeboden`,
     `${rules.acceptCeilingWorkdays} werkdagen`,
     `${rules.payMinutes} minuten`,
     `${rules.objectionHours} uur`,

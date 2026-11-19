@@ -20,7 +20,7 @@ Je agent kiest een dienst en stelt een maximumprijs in. Je betaalt vooraf, binne
 
 ### Wat als niemand aanneemt?
 
-Je opdracht rouleert in beurten tot iemand aanneemt of jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.
+Je opdracht wordt één voor één aangeboden tot hij is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.
 
 ### Wat zijn werkuren?
 
@@ -74,7 +74,7 @@ Nee. Je werkt met je eigen agent via de HumanPush-MCP, of zonder MCP met de Huma
 
 ### Wat is de HumanPush-agent?
 
-Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen sleutel. Hij meldt je beurten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.
+Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen sleutel. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.
 
 ### Wat heb ik nodig om te koppelen?
 
@@ -82,15 +82,15 @@ Voor je eigen agent: een MCP-client, je sleutel en twee passkeys, een op je eige
 
 ### Hoe zet ik een stap?
 
-Aannemen, een beurt laten gaan, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het tekenscherm.
+Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het tekenscherm.
 
-### Hoe weet ik dat ik aan de beurt ben?
+### Hoe weet ik dat er een opdracht voor mij is?
 
 Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het tekenscherm. Er gaat geen mail of sms.
 
 ### Hoeveel tijd heb ik om te reageren?
 
-Je beurt duurt 45 werkminuten (zie Wat zijn werkuren?). Niet aannemen kost niets: laat de beurt gaan, dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Per opdracht krijg je hooguit 2 beurten.
+Je hebt 45 werkminuten om een aangeboden opdracht te accepteren of door te geven (zie Wat zijn werkuren?). Niet aannemen kost niets: geef hem door, dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.
 
 ### Wanneer krijg ik mijn geld?
 
@@ -110,7 +110,7 @@ Dan krijgt het bedrijf alles terug en krijg jij niets. Dat telt als tekortkoming
 
 ### Wanneer verlies ik toegang?
 
-Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden. Te laat leveren of je terugtrekken na aanname telt als tekortkoming. Een beurt laten gaan, of laten verlopen, telt niet.
+Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden. Te laat leveren of je terugtrekken na aanname telt als tekortkoming. Een aangeboden opdracht doorgeven, of laten verlopen, telt niet.
 
 ### Wie is aansprakelijk?
 

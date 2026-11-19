@@ -24,7 +24,8 @@ test('pilot: doelgroep, probleem zonder "de wet eist altijd", 4 stappen met de f
   assert.match(main, /De wet eist dat niet altijd\./);
   assert.match(main, /wanneer de situatie daarom vraagt/);
   assert.equal((main.match(/<span class="pi">\d<\/span>/g) || []).length, 4);
-  assert.match(main, /NIVRE-geregistreerde schade-expert tegelijk, in beurten van <span data-rule="turnWorkingMinutes">\d+<\/span> werkminuten/);
+  assert.match(main, /NIVRE-geregistreerde schade-expert tegelijk aan, telkens <span data-rule="turnWorkingMinutes">\d+<\/span> werkminuten/);
+  assert.doesNotMatch(main.replace(/gebeurtenis/g, ''), /beurt/i);
   assert.match(main, /tekent met de passkey/);
   assert.match(main, /logboek/);
   assert.match(P, /<!--flow:start variant=pilot-->\n<section class="section flow"/);

@@ -1,11 +1,8 @@
-Copyright 2022 The Instrument Sans Project Authors (https://github.com/Instrument/instrument-sans) InstrumentSans-Italic[wdth,wght].ttf: Copyright 2022 The Instrument Sans Project Authors (https://github.com/Instrument/instrument-sans)
+Inter Tight — Copyright 2022 The Inter Project Authors (https://github.com/rsms/inter-tight)
+JetBrains Mono — Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono)
+Both fonts are licensed under the SIL Open Font License, Version 1.1, reproduced below.
+Both files are subsets (only the characters this site uses), made with fontTools pyftsubset from the @fontsource 5.3.0 packages.
 
-This Font Software is licensed under the SIL Open Font License, Version 1.1.
-This license is copied below, and is also available with a FAQ at:
-http://scripts.sil.org/OFL
-
-
------------------------------------------------------------
 SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
 -----------------------------------------------------------
 

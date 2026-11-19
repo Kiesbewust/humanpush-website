@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "56fa356133148e60667f879b755fddf6a67bf9c39bc2902b28c905d744ea2ba6",
+ "kb_hash": "888e36f716bc83ce64efa1051ce2ef69de0df65909fb798d1c6ce64dc68e16f4",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -71,8 +71,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Zonder geldig registerbewijs van minstens niveau 2 krijgt niemand een beurt, ook niet als beoordelaar. Niveau 2 betekent: een mens zocht de professional met een vaste checklist op in het openbare register.",
-   "hash": "c24469b25083c23c"
+   "text": "Zonder geldig registerbewijs van minstens niveau 2 krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. Niveau 2 betekent: een mens zocht de professional met een vaste checklist op in het openbare register.",
+   "hash": "eb905fe9d1fb9426"
   },
   {
    "id": "spelregels-r2-2",
@@ -98,8 +98,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Vlak voor een aanname wordt het register opnieuw gecontroleerd. Doorgehaald of geschorst: de beurt eindigt.",
-   "hash": "7fbc345b3ad52055"
+   "text": "Vlak voor een aanname wordt het register opnieuw gecontroleerd. Doorgehaald of geschorst: de aangeboden opdracht vervalt.",
+   "hash": "53ba4794c35f2848"
   },
   {
    "id": "spelregels-r2-8",
@@ -116,8 +116,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een professional maakt een passkey aan op zijn eigen telefoon of computer, en een tweede passkey als reserve. Zonder tweede passkey krijgt hij geen beurt.",
-   "hash": "25f4153b6b5b6cc8"
+   "text": "Een professional maakt een passkey aan op zijn eigen telefoon of computer, en een tweede passkey als reserve. Zonder tweede passkey krijgt hij geen opdracht aangeboden.",
+   "hash": "05019a030d1e4092"
   },
   {
    "id": "spelregels-r3-1",
@@ -166,21 +166,21 @@
   },
   {
    "id": "spelregels-r4-2",
-   "title": "R4.2 Beurten van 45 werkminuten, tot iemand aanneemt",
+   "title": "R4.2 Telkens 45 werkminuten aangeboden, tot iemand aanneemt",
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Na de betaling krijgt één passende professional tegelijk een beurt. Een beurt duurt 45 werkminuten. Neemt hij niet aan, of laat hij de beurt gaan, dan gaat de beurt meteen naar de volgende. Na elke ronde bouwt het protocol de volgorde opnieuw. Elke professional krijgt hooguit 2 beurten per opdracht. Dat gaat door tot iemand aanneemt of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.",
-   "hash": "4ec29e68642c13b0"
+   "text": "Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde bouwt het protocol de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.",
+   "hash": "c7074dda87cc5e3f"
   },
   {
    "id": "spelregels-r4-4",
-   "title": "R4.4 Niet aannemen kost niets: laat de beurt gaan",
+   "title": "R4.4 Niet aannemen kost niets: doorgeven",
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een professional kan een beurt laten gaan. Dat is een getekende stap, staat in het logboek en kost niets: de beurt gaat direct naar de volgende. Een beurt laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je in je beurt een belang melden; ook dat kost niets.",
-   "hash": "838042666cd59660"
+   "text": "Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het logboek en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.",
+   "hash": "8193dc7d4df7943c"
   },
   {
    "id": "spelregels-r4-5",
@@ -202,12 +202,12 @@
   },
   {
    "id": "spelregels-r4-7",
-   "title": "R4.7 Hoe een professional hoort dat hij aan de beurt is",
+   "title": "R4.7 Hoe een professional een aangeboden opdracht ziet",
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De agent van de professional vraagt zijn beurten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de beurt op het tekenscherm. Er gaat geen mail of sms.",
-   "hash": "bb76e37de87f21c7"
+   "text": "De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het tekenscherm. Er gaat geen mail of sms.",
+   "hash": "9c97d982c0ba54c6"
   },
   {
    "id": "spelregels-r5-1",
@@ -341,8 +341,8 @@
    "url": "https://humanpush.nl/professionals#betrouwbaar",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een beurt laten gaan of laten verlopen, een belang melden in je beurt, een geslaagde conflictteruggave (markering), een doorhaling of schorsing.",
-   "hash": "6d79395e199f5e22"
+   "text": "Een aangeboden opdracht doorgeven of laten verlopen, een belang melden bij een aangeboden opdracht, een geslaagde conflictteruggave (markering), een doorhaling of schorsing.",
+   "hash": "9493ad3ce4853d4c"
   },
   {
    "id": "spelregels-r10-1",
@@ -404,8 +404,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
    "lang": "nl",
    "source": "faq",
-   "text": "Je opdracht rouleert in beurten tot iemand aanneemt of jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.",
-   "hash": "0802f031b3d47ba9"
+   "text": "Je opdracht wordt één voor één aangeboden tot hij is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.",
+   "hash": "a6578cb2b6433dd7"
   },
   {
    "id": "faq-bedrijven-wat-zijn-werkuren",
@@ -521,8 +521,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#humanpush-agent",
    "lang": "nl",
    "source": "faq",
-   "text": "Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen sleutel. Hij meldt je beurten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.",
-   "hash": "2fa3a743c8402eab"
+   "text": "Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen sleutel. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.",
+   "hash": "3fa8242a8d9470dd"
   },
   {
    "id": "faq-professionals-wat-heb-ik-nodig-om-te-koppelen",
@@ -539,13 +539,13 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Aannemen, een beurt laten gaan, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het tekenscherm.",
-   "hash": "cf8c7e8f04356e42"
+   "text": "Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het tekenscherm.",
+   "hash": "d23ba8e75c1cd365"
   },
   {
-   "id": "faq-professionals-hoe-weet-ik-dat-ik-aan-de-beurt-ben",
-   "title": "Hoe weet ik dat ik aan de beurt ben?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#beurt",
+   "id": "faq-professionals-hoe-weet-ik-dat-er-een-opdracht-voor-mij-is",
+   "title": "Hoe weet ik dat er een opdracht voor mij is?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#aangeboden",
    "lang": "nl",
    "source": "faq",
    "text": "Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het tekenscherm. Er gaat geen mail of sms.",
@@ -557,8 +557,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Je beurt duurt 45 werkminuten (zie Wat zijn werkuren?). Niet aannemen kost niets: laat de beurt gaan, dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Per opdracht krijg je hooguit 2 beurten.",
-   "hash": "de4947824f6de1eb"
+   "text": "Je hebt 45 werkminuten om een aangeboden opdracht te accepteren of door te geven (zie Wat zijn werkuren?). Niet aannemen kost niets: geef hem door, dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.",
+   "hash": "a3b5ae77426c6b6f"
   },
   {
    "id": "faq-professionals-wanneer-krijg-ik-mijn-geld",
@@ -602,8 +602,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden. Te laat leveren of je terugtrekken na aanname telt als tekortkoming. Een beurt laten gaan, of laten verlopen, telt niet.",
-   "hash": "71b71e56a8de4c18"
+   "text": "Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden. Te laat leveren of je terugtrekken na aanname telt als tekortkoming. Een aangeboden opdracht doorgeven, of laten verlopen, telt niet.",
+   "hash": "9ae3144218a3611e"
   },
   {
    "id": "faq-professionals-wie-is-aansprakelijk",
@@ -751,12 +751,12 @@
   },
   {
    "id": "pagina-hoe-het-werkt-aannemen",
-   "title": "Aannemen in beurten",
+   "title": "Aannemen",
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "pagina",
-   "text": "Aannemen. Na de betaling biedt het protocol de opdracht in beurten aan. Elke beurt duurt 45 werkminuten. Neemt de beurthouder niet aan, of laat hij de beurt gaan, dan gaat de beurt meteen naar de volgende passende professional. Na elke ronde bouwt het protocol de wachtrij opnieuw; elke professional krijgt hooguit 2 beurten per opdracht. Dat gaat door tot iemand aanneemt, of tot jij annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw. Wat zijn werkuren? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Voorbeeld (fictief): betaal je maandag om 10:00, dan loopt de eerste beurt tot 10:45. Betaal je vrijdag om 16:30, dan loopt de eerste beurt tot maandag 09:15. Het vangnet van 3 werkdagen: betaal je maandag om 10:00 en neemt niemand aan, dan krijg je uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
-   "hash": "497ea454b4ddd141"
+   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 werkminuten open. Accepteert hij niet, of geeft hij hem door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde bouwt het protocol de wachtrij opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot jij annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
+   "hash": "f3db465a9cc89437"
   },
   {
    "id": "pagina-hoe-het-werkt-werkuren",
@@ -764,8 +764,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#werkuren",
    "lang": "nl",
    "source": "pagina",
-   "text": "Wat zijn werkuren? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Voorbeeld (fictief): betaal je maandag om 10:00, dan loopt de eerste beurt tot 10:45. Betaal je vrijdag om 16:30, dan loopt de eerste beurt tot maandag 09:15. Het vangnet van 3 werkdagen: betaal je maandag om 10:00 en neemt niemand aan, dan krijg je uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
-   "hash": "475be0a72ebe99ea"
+   "text": "Wat zijn werkuren? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Voorbeeld (fictief): betaal je maandag om 10:00, dan staat de opdracht tot 10:45 open voor de eerste professional. Betaal je vrijdag om 16:30, dan staat hij tot maandag 09:15 open. Het vangnet van 3 werkdagen: betaal je maandag om 10:00 en neemt niemand aan, dan krijg je uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
+   "hash": "1b65b0d1b83a606c"
   },
   {
    "id": "pagina-bedrijven-hoe",
@@ -773,8 +773,8 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Zo bestel je. Je agent kiest een dienst en stelt een maximumprijs in. Je betaalt vooraf, binnen 30 minuten, via een betaallink: dat is je maximumprijs plus een vaste vergoeding voor HumanPush. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug. De vaste vergoeding zie je in list_services vóór je bestelt; die is voor elk bedrijf hetzelfde, excl. btw. Daarna rouleert je opdracht in beurten langs passende professionals, tot iemand aanneemt. Annuleren kan tot de aanname gratis. Neemt niemand aan, dan krijg je alles terug. Hoe de beurten lopen en wat werkuren zijn, staat op /hoe-het-werkt. Hoe krijg je toegang? Je geeft je agent een sleutel voor de HumanPush-MCP, gekoppeld aan het KvK-nummer van je bedrijf. Die opent na de testfase. Er is nu niets om aan te melden. Hoe betaal je? Met een directe betaalmethode via de betaallink. Bankoverschrijving past niet in de 30 minuten. Geen bedragen op de site: die volgen na de testfase. Wat krijg je? Het getekende stuk, de hash, het registernummer en een export met het bewijs.",
-   "hash": "4ca2057c8534022e"
+   "text": "Zo bestel je. Je agent kiest een dienst en een maximumprijs. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus een vaste vergoeding voor HumanPush, voor elk bedrijf hetzelfde, excl. btw. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug. Daarna wordt je opdracht één voor één aangeboden, tot hij is toegewezen aan een professional. Annuleren kan tot de aanname gratis. Neemt niemand aan, dan krijg je alles terug. Zie /hoe-het-werkt. Toegang: een sleutel voor je agent, gekoppeld aan je KvK-nummer. Opent na de testfase. Betalen: met een directe betaalmethode via de betaallink. Bedragen volgen na de testfase. Je krijgt: het getekende stuk, de hash, het registernummer en een export met het bewijs.",
+   "hash": "3ef3f7b967bba7d9"
   },
   {
    "id": "pagina-bedrijven-niet-geschikt",
@@ -791,8 +791,8 @@
    "url": "https://humanpush.nl/professionals#humanpush-agent",
    "lang": "nl",
    "source": "pagina",
-   "text": "Je kijkt naar: Professionals zonder MCP · komt eraan Geen agent? Je krijgt een HumanPush-agent. Bij je aanmelding krijg je een gehoste agent met een eigen sleutel. Hij praat met de agent van het bedrijf via de HumanPush-MCP, zodat jij agent-ready bent zonder iets te installeren. Hij werkt alleen voor HumanPush en tekent nooit voor je. Dit doet hij. Je beurten melden. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen bewaken. Dit doet hij nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. De eerste versie is een eenvoudig tekenscherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde sleutel aan je eigen MCP-client koppelen; je passkeys blijven hetzelfde. Komt eraan. HumanPush-agentVoorbeeld, fictief AGENTJe bent aan de beurt: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Je beurt loopt nog 38 minuten werktijd. Aannemen met passkeyLaat de beurt gaan Niet aannemen? Laat de beurt gaan. Dat kost niets. AGENTJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we je register opnieuw. OPLEVERENUitkomstKies de vaste uitkomst Stukrapport.pdf toegevoegd Inhoudshash9f3a…e17d Tekenen met passkey",
-   "hash": "15801edb5205ecef"
+   "text": "Je kijkt naar: Professionals zonder MCP · komt eraan Geen agent? Je krijgt een HumanPush-agent. Bij je aanmelding krijg je een gehoste agent met een eigen sleutel. Hij praat met de agent van het bedrijf via de HumanPush-MCP, zodat jij agent-ready bent zonder iets te installeren. Hij werkt alleen voor HumanPush en tekent nooit voor je. Dit doet hij. Aangeboden opdrachten melden. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen bewaken. Dit doet hij nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. De eerste versie is een eenvoudig tekenscherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde sleutel aan je eigen MCP-client koppelen; je passkeys blijven hetzelfde. Komt eraan. HumanPush-agentVoorbeeld, fictief AGENTAangeboden opdracht: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Nog 38 werkminuten om te accepteren. Aannemen met passkeyDoorgeven Niet aannemen? Geef hem door. Dat kost niets. AGENTJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we je register opnieuw. OPLEVERENUitkomstKies de vaste uitkomst Stukrapport.pdf toegevoegd Inhoudshash9f3a…e17d Tekenen met passkey",
+   "hash": "29d6ee1963903c83"
   },
   {
    "id": "pagina-agents-zo-verbind-je",

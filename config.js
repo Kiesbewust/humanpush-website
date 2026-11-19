@@ -8,3 +8,6 @@ window.HP_CONFIG = {
   LOGIN_PRO_URL: null,
   LOGIN_BIZ_URL: null
 };
+
+// Zet de klasse "js" al vóór de eerste weergave (site.js laadt met defer), zodat het menu en de kaarten niet verspringen.
+document.documentElement.classList.replace('no-js', 'js');
