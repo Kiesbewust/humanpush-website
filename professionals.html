@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HumanPush voor professionals</title>
-<meta name="description" content="Opdrachten van bedrijven met een KvK-nummer, voor één vaste dienst binnen jouw register. Vooraf betaald, tegen je eigen tarief. Voor NIVRE, NRVT, NRGD, octrooigemachtigden en NRBI. In de testfase.">
+<meta name="description" content="Jouw oordeel en handtekening blijven nodig: met je eigen agent of met de HumanPush-agent, je beurt, je geld en per register één dienst.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/professionals">
 <meta property="og:title" content="HumanPush voor professionals">
-<meta property="og:description" content="Opdrachten van bedrijven met een KvK-nummer, voor één vaste dienst binnen jouw register. Vooraf betaald, tegen je eigen tarief. Voor NIVRE, NRVT, NRGD, octrooigemachtigden en NRBI. In de testfase.">
+<meta property="og:description" content="Jouw oordeel en handtekening blijven nodig: met je eigen agent of met de HumanPush-agent, je beurt, je geld en per register één dienst.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,145 +24,258 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://humanpush.nl/og-image.png">
 <meta name="twitter:image:alt" content="HumanPush">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
+<script src="/config.js"></script>
 <script src="/site.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
-<div class="banner" role="note">HumanPush is in de testfase. Er lopen nog geen echte opdrachten of betalingen. Aanmelden opent na afronding van de testfase.</div>
+<div class="banner" role="note">HumanPush is in de testfase: er lopen nog geen echte opdrachten of betalingen en alle bedragen en termijnen zijn testwaarden. Aanmelden opent na afronding van de testfase.</div>
 <header class="site-header">
 <div class="wrap">
-<a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="167" height="44"></a>
+<a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/agents">Agents</a></li><li><a href="/professionals" aria-current="page">Professionals</a></li><li><a href="/veelgestelde-vragen">Vragen</a></li></ul></nav>
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/agents">Agents</a></li><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals" aria-current="page">Professionals</a></li><li><a href="/veelgestelde-vragen">Vragen</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
+<div class="login">
+<a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
+<div class="login-menu" id="login-menu">
+<a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
+<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een sleutel; later ook een overzicht voor jou. Komt eraan.</span></a>
+</div>
+</div>
 </div>
 </header>
 <main id="inhoud">
 <section class="hero">
 <div class="wrap">
-<h1>Bedrijven laten AI het voorwerk doen. Jouw oordeel en handtekening blijven nodig.</h1>
-<p class="lead">Twee manieren om te werken: met je eigen AI-assistent via de MCP, of via een eenvoudig scherm met je passkey. Dat scherm komt eraan. Via HumanPush krijg je opdrachten van bedrijven met een KvK-nummer, voor één vaste dienst binnen jouw register. Vooraf betaald, tegen je eigen tarief. Weigeren kost niets.</p>
+<span class="kicker">Je kijkt naar: Professionals</span>
+<h1>Jouw oordeel en handtekening blijven nodig.</h1>
+<p class="lead">Bedrijven laten hun agent het voorwerk doen en bestellen via HumanPush. Jij doet het vakwerk en tekent. Kies hoe je werkt: met je eigen agent, of zonder MCP met de HumanPush-agent.</p>
 <div class="actions"><a class="btn btn-primary" href="#registers">Bekijk jouw register</a><a class="btn btn-secondary" href="/veelgestelde-vragen#professionals">Vragen van professionals</a></div>
 </div>
 </section>
-<section class="section mist" aria-labelledby="twee-manieren">
+
+<!--flow:start variant=professionals-->
+<section class="section flow" aria-labelledby="flow-kop">
+  <div class="wrap">
+    <h2 id="flow-kop">Zo praten agents en mensen met elkaar</h2>
+    <p class="lead">Bedrijven laten hun agent het voorwerk doen en bestellen via HumanPush. Rechts in het plaatje sta jij: jij doet het vakwerk en tekent, met je eigen agent of via een eenvoudig scherm.</p>
+    <figure class="flow-figure">
+      <svg class="hp-flow hp-flow-desktop" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 1204 424" role="img" aria-labelledby="hpf-d-t hpf-d-d">
+<title id="hpf-d-t">Hoe agents en mensen samenwerken via HumanPush</title>
+<desc id="hpf-d-d">Het bedrijf zet zijn agent in. De agent bestelt en betaalt vooraf via de HumanPush-MCP en krijgt het stuk met bewijs terug. De MCP biedt de opdracht in beurten aan een geregistreerde professional, via route 1 met de eigen agent van de professional (agent naar agent naar mens) of via route 2 met een tekenscherm (agent naar mens). Alleen de professional, een mens, tekent met zijn passkey.</desc>
+<defs><marker id="hpf-ah-d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0B2A5B"/></marker></defs>
+<rect x="680" y="40" width="320" height="150" rx="16" fill="#F3EFE8"/>
+<rect x="680" y="230" width="320" height="150" rx="16" fill="#F3EFE8"/>
+<text x="696" y="62" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 1 · AGENT ↔ AGENT ↔ MENS</text>
+<text x="696" y="252" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 2 · AGENT ↔ MENS</text>
+<rect x="450" y="40" width="200" height="340" rx="14" fill="#0B2A5B" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="550.0" y="62" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#AFC0DD">PROTOCOL</text>
+<text x="550.0" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">HumanPush-MCP</text>
+<text x="550.0" y="105" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Vaste regels</text>
+<text x="550.0" y="121" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Betaling vooraf</text>
+<text x="550.0" y="137" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Registerbewijs niveau 2</text>
+<text x="550.0" y="153" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Ondertekend logboek</text>
+<text x="550.0" y="169" text-anchor="middle" font-size="12.5" fill="#D6DEEE"></text>
+<text x="550.0" y="185" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Elke stap is een aanroep</text>
+<text x="550.0" y="201" text-anchor="middle" font-size="12.5" fill="#D6DEEE">of bericht in het protocol</text>
+<rect x="1010" y="40" width="190" height="340" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="1105.0" y="62" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">MENS</text>
+<text x="1105.0" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Geregistreerde</text>
+<text x="1105.0" y="103" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">professional</text>
+<rect x="1079.0" y="110" width="52" height="3" rx="1.5" fill="#E0A526"/>
+<text x="1105.0" y="132" text-anchor="middle" font-size="12.5" fill="#5C6578">NIVRE · NRVT · NRGD</text>
+<text x="1105.0" y="148" text-anchor="middle" font-size="12.5" fill="#5C6578">octrooigemachtigde · NRBI</text>
+<text x="1105.0" y="164" text-anchor="middle" font-size="12.5" fill="#5C6578"></text>
+<text x="1105.0" y="180" text-anchor="middle" font-size="12.5" fill="#5C6578">Doet het werk en</text>
+<text x="1105.0" y="196" text-anchor="middle" font-size="12.5" fill="#5C6578">tekent met zijn passkey.</text>
+<rect x="0" y="165" width="130" height="90" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="65.0" y="187" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">BEDRIJF</text>
+<text x="65.0" y="209" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Bedrijf</text>
+<text x="65.0" y="230" text-anchor="middle" font-size="12.5" fill="#5C6578">met KvK-nummer</text>
+<rect x="180" y="165" width="150" height="90" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="255.0" y="187" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
+<text x="255.0" y="209" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van</text>
+<text x="255.0" y="228" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">het bedrijf</text>
+<rect x="780" y="78" width="160" height="98" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="860.0" y="100" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
+<text x="860.0" y="122" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van de</text>
+<text x="860.0" y="141" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">professional</text>
+<text x="860.0" y="162" text-anchor="middle" font-size="12.5" fill="#5C6578">eigen MCP-client</text>
+<rect x="780" y="268" width="160" height="98" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="860.0" y="290" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">SCHERM</text>
+<text x="860.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Tekenscherm</text>
+<text x="860.0" y="333" text-anchor="middle" font-size="12.5" fill="#5C6578">komt eraan</text>
+<text x="860.0" y="349" text-anchor="middle" font-size="12.5" fill="#5C6578">passkey-login</text>
+<line x1="130" y1="210" x2="180" y2="210" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
+<text x="155" y="196" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">zet in</text>
+<line x1="330" y1="210" x2="450" y2="210" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
+<text x="390" y="178" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">bestelt en</text>
+<text x="390" y="193" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">betaalt vooraf</text>
+<text x="390" y="232" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">stuk en bewijs</text>
+<line x1="650" y1="127" x2="780" y2="127" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
+<text x="715" y="108" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">biedt aan,</text>
+<text x="715" y="146" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">in beurten</text>
+<line x1="650" y1="317" x2="780" y2="317" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
+<text x="715" y="298" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">biedt aan,</text>
+<text x="715" y="340" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">toont wat je tekent</text>
+<line x1="940" y1="127" x2="1010" y2="127" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
+<line x1="940" y1="317" x2="1010" y2="317" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
+<circle cx="975" cy="127" r="5" fill="#E0A526"/>
+<circle cx="975" cy="317" r="5" fill="#E0A526"/>
+<text x="975" y="111" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
+<text x="975" y="301" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
+</svg>
+      <svg class="hp-flow hp-flow-mobile" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 364 704" role="img" aria-labelledby="hpf-m-t hpf-m-d">
+<title id="hpf-m-t">Hoe agents en mensen samenwerken via HumanPush</title>
+<desc id="hpf-m-d">Het bedrijf zet zijn agent in. De agent bestelt en betaalt vooraf via de HumanPush-MCP. De MCP biedt de opdracht aan een geregistreerde professional, via route 1 met de eigen agent van de professional (agent naar agent naar mens) of via route 2 met een tekenscherm (agent naar mens). Alleen de professional, een mens, tekent met zijn passkey. Stuk en bewijs gaan terug naar de agent van het bedrijf.</desc>
+<defs><marker id="hpf-ah-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0B2A5B"/></marker></defs>
+<rect x="30" y="0" width="300" height="72" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="180.0" y="22" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">BEDRIJF</text>
+<text x="180.0" y="44" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Bedrijf</text>
+<text x="180.0" y="65" text-anchor="middle" font-size="12.5" fill="#5C6578">met KvK-nummer</text>
+<line x1="180" y1="72" x2="180" y2="112" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
+<text x="196" y="96" text-anchor="start" font-size="12" font-weight="500" fill="#5C6578">zet in</text>
+<rect x="30" y="112" width="300" height="66" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="180.0" y="134" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
+<text x="180.0" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van het bedrijf</text>
+<line x1="180" y1="178" x2="180" y2="226" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
+<text x="196" y="198" text-anchor="start" font-size="12" font-weight="500" fill="#5C6578">bestelt en betaalt vooraf</text>
+<text x="196" y="214" text-anchor="start" font-size="12" font-weight="500" fill="#5C6578">stuk en bewijs terug</text>
+<rect x="30" y="226" width="300" height="112" rx="14" fill="#0B2A5B" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="180.0" y="248" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#AFC0DD">PROTOCOL</text>
+<text x="180.0" y="270" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">HumanPush-MCP</text>
+<text x="180.0" y="291" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Vaste regels · betaling vooraf</text>
+<text x="180.0" y="307" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Registerbewijs niveau 2</text>
+<text x="180.0" y="323" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Ondertekend logboek</text>
+<rect x="6" y="360" width="348" height="170" rx="16" fill="#F3EFE8"/>
+<line x1="30" y1="338" x2="30" y2="420" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
+<line x1="200" y1="338" x2="200" y2="420" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
+<text x="42" y="354" text-anchor="start" font-size="11.5" font-weight="500" fill="#5C6578">biedt aan</text>
+<text x="212" y="354" text-anchor="start" font-size="11.5" font-weight="500" fill="#5C6578">biedt aan</text>
+<text x="42" y="380" font-size="11" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 1</text>
+<text x="42" y="395" font-size="11.5" fill="#0B2A5B">agent ↔ agent ↔ mens</text>
+<text x="212" y="380" font-size="11" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 2</text>
+<text x="212" y="395" font-size="11.5" fill="#0B2A5B">agent ↔ mens</text>
+<rect x="16" y="422" width="158" height="100" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="95.0" y="444" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
+<text x="95.0" y="466" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van de</text>
+<text x="95.0" y="485" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">professional</text>
+<text x="95.0" y="506" text-anchor="middle" font-size="12.5" fill="#5C6578">eigen MCP-client</text>
+<rect x="186" y="422" width="158" height="100" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="265.0" y="444" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">SCHERM</text>
+<text x="265.0" y="466" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Tekenscherm</text>
+<text x="265.0" y="487" text-anchor="middle" font-size="12.5" fill="#5C6578">komt eraan</text>
+<line x1="95" y1="522" x2="95" y2="566" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
+<line x1="265" y1="522" x2="265" y2="566" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
+<circle cx="95" cy="543" r="5" fill="#E0A526"/><circle cx="265" cy="543" r="5" fill="#E0A526"/>
+<text x="110" y="547" text-anchor="start" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
+<text x="280" y="547" text-anchor="start" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
+<rect x="30" y="566" width="300" height="128" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
+<text x="180.0" y="588" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">MENS</text>
+<text x="180.0" y="610" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Geregistreerde professional</text>
+<rect x="154.0" y="617" width="52" height="3" rx="1.5" fill="#E0A526"/>
+<text x="180.0" y="639" text-anchor="middle" font-size="12.5" fill="#5C6578">NIVRE · NRVT · NRGD</text>
+<text x="180.0" y="655" text-anchor="middle" font-size="12.5" fill="#5C6578">octrooigemachtigde · NRBI</text>
+<text x="180.0" y="671" text-anchor="middle" font-size="12.5" fill="#5C6578">Doet het werk en tekent met zijn passkey.</text>
+</svg>
+      <figcaption>Route 1: de agent van het bedrijf praat via de MCP met de agent van de professional (agent ↔ agent ↔ mens). Route 2: de agent van het bedrijf praat via de MCP met een tekenscherm (agent ↔ mens); dat scherm komt eraan. In beide routes is de handtekening van een mens. Planning, betaling, termijnen en logboek voert het protocol uit; mensen doen alleen het vakwerk, het oordeel en de registercontrole.</figcaption>
+    </figure>
+    <p class="flow-legend"><span class="actor-tag tag-agent">Agent</span> software die namens iemand handelt · <span class="actor-tag tag-protocol">Protocol</span> vaste regels, geld en logboek · <span class="actor-tag tag-mens">Mens</span> een persoon die werk doet en tekent</p>
+  </div>
+</section>
+<!--flow:end-->
+
+<section class="section mist" aria-labelledby="routes-kop">
 <div class="wrap">
-<h2 id="twee-manieren">Twee manieren om te werken</h2>
-<div class="prose"><h3>Met je eigen agent</h3></div>
-<ol class="steps">
-<li><p>Je krijgt een eigen professionele sleutel. Je sleutel krijg je via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van je kantoor), nooit naar een adres dat je zelf opgeeft. In de testfase maakt HumanPush die voor je aan; aanmelden opent na afronding van de testfase.</p></li>
-<li><p>Je koppelt de sleutel aan je eigen AI-assistent via de HumanPush-MCP (een MCP-client zoals Claude).</p></li>
-<li><p>Elke stap teken je op de tekenpagina van HumanPush met de passkey op je eigen apparaat. Die pagina tekent; je agent zet de stap door.</p></li>
-</ol>
-<div class="prose" style="margin-top:4px">
-<p>Je werkt via de HumanPush-MCP met je eigen professionele sleutel, bijvoorbeeld met je eigen AI-assistent. Elke stap teken je op de tekenpagina van HumanPush, met de passkey op je eigen apparaat. Die pagina doet één ding: ze laat zien wat je tekent en zet je handtekening.</p>
-<h3>Via een eenvoudig scherm</h3>
-<p>Je logt in met je passkey en tekent elke stap. Dat scherm komt eraan.</p>
+<h2 id="routes-kop">Twee manieren om te werken</h2>
+<div class="grid" style="margin-top:28px">
+<section class="card" id="eigen-agent" aria-labelledby="eigen-agent-kop"><span class="kicker">Professionals met eigen agent</span><h3 id="eigen-agent-kop" style="margin-top:12px">Met je eigen agent (MCP)</h3><p>Je koppelt je eigen MCP-client, zoals Claude, met je eigen professionele sleutel. Je agent leest uitnodigingen en bereidt voor. Elke stap teken je zelf met de passkey op je eigen apparaat.</p><p>Je sleutel krijg je via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van je kantoor), nooit naar een adres dat je zelf opgeeft. In de testfase maakt HumanPush die voor je aan.</p></section>
+<section class="card"><span class="kicker">Professionals zonder MCP</span><h3 style="margin-top:12px">Zonder MCP (HumanPush-agent)</h3><p>Je krijgt een HumanPush-agent: een eenvoudig scherm dat je beurten meldt, uitlegt wat je tekent en het opleverformulier klaarzet. Hij werkt alleen voor HumanPush en tekent nooit voor je. Komt eraan.</p><p><a href="#humanpush-agent">Zo ziet de HumanPush-agent eruit</a></p></section>
 </div>
 </div>
 </section>
-<section class="section white" aria-labelledby="zo">
+
+<section class="section" aria-labelledby="zo">
 <div class="wrap">
 <h2 id="zo">Zo werkt het voor jou</h2>
 <ol class="steps">
-<li><div class="with-mock"><div><h3>Aanmelden en registercontrole</h3><p>Na de testfase meld je je aan met je naam zoals in het register, je registergegevens en je KvK-nummer. Een mens zoekt je op in het openbare register, met een vaste checklist. Dat is een handmatige stap. Je maakt een passkey aan op je eigen telefoon of computer. Pas met een opgeslagen registerbewijs van niveau 2 ben je inzetbaar.</p></div>
-<div class="mock" aria-label="Voorbeeldscherm, fictief" role="img"><div class="mock-bar"><span>Registerbewijs</span><span class="fictief">Fictief</span></div><div class="mock-body"><p class="lbl">Register</p><div class="field">NIVRE · register-expert</div><div class="ok">Registerbewijs niveau 2 · gecontroleerd 3 maart 2026 · geldig tot 2 april 2026</div><p class="small muted" style="margin:0">Bij elke aanname wordt het register opnieuw gecontroleerd.</p></div></div></div></li>
+<li><div class="with-mock"><div><h3>Aanmelden en registercontrole</h3><p>Na de testfase meld je je aan met je naam zoals in het register, je registergegevens en je KvK-nummer. Een mens zoekt je op in het openbare register, met een vaste checklist. Dat is een handmatige stap. Je maakt een passkey aan op je eigen telefoon of computer, en een tweede passkey als reserve. Pas met een opgeslagen registerbewijs van niveau 2 en twee passkeys krijg je een beurt.</p></div>
+<div class="mock" role="img" aria-label="Registerbewijs, voorbeeld, fictief"><div class="mock-bar"><span>Registerbewijs</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Register</p><div class="field">NIVRE · register-expert</div><div class="ok">Registerbewijs niveau 2 · gecontroleerd op de dag van aanmelding · hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen geldig</div><p class="small muted" style="margin:0">Bij elke aanname wordt het register opnieuw gecontroleerd.</p></div></div></div></li>
 <li><div class="with-mock"><div><h3>Je prijs, levertijd en capaciteit</h3><p>Per register is er één vaste dienst, met een vaste invulling: wat je krijgt, wat je oplevert en waarop getoetst wordt. Jij zet je eigen prijs, levertijd en het aantal opdrachten dat je tegelijk aanneemt.</p></div>
-<div class="mock" aria-label="Voorbeeldscherm, fictief" role="img"><div class="mock-bar"><span>Jouw dienst</span><span class="fictief">Fictief</span></div><div class="mock-body"><p class="lbl">Vaste dienst voor NIVRE</p><div class="field"><strong>Onafhankelijk oordeel over een claimbesluit, op stukken</strong><br><span class="small muted">Geen opname ter plaatse, geen personenschade</span></div><p class="lbl">Jouw prijs en levertijd</p><div class="field">€185 per dossier · 3 werkdagen</div></div></div></div></li>
-<li><div class="with-mock"><div><h3>Een uitnodiging, als het jouw beurt is</h3><p>Het bedrijf heeft al betaald. Je ziet de dienst, de prijs en de levertijd; bij octrooi ook de opdrachtgever en het vakgebied, voor je conflictcheck. Je beurt is een deel van de 4 werkuren. Neemt niemand binnen 4 werkuren aan, dan krijgt het bedrijf alles terug. Weigeren kost niets, een beurt laten verlopen ook niet. Vlak voor je aanname controleren we het register opnieuw.</p></div>
-<div class="mock" aria-label="Voorbeeldscherm, fictief" role="img"><div class="mock-bar"><span>Uitnodiging</span><span class="fictief">Fictief</span></div><div class="mock-body"><p class="lbl">Dienst</p><div class="field">Oordeel over een claimbesluit, op stukken</div><p class="lbl">Al betaald</p><div class="field">€185 · lever vóór 12 maart 2026</div><div class="fake-btn">Aannemen met passkey</div></div></div></div></li>
+<div class="mock" role="img" aria-label="Jouw dienst, voorbeeld, fictief"><div class="mock-bar"><span>Jouw dienst</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Vaste dienst voor NIVRE</p><div class="field"><strong>Onafhankelijk oordeel over een claimbesluit, op stukken</strong><br><span class="small muted">Geen opname ter plaatse, geen personenschade</span></div><p class="lbl">Jouw prijs en levertijd</p><div class="field">€185 per dossier · 3 werkdagen</div><p class="small muted" style="margin:0">Jij bepaalt je eigen prijs.</p></div></div></div></li>
+<li><div class="with-mock"><div><h3>Een beurt, als het jouw beurt is</h3><p>Het bedrijf heeft al betaald. Je ziet de dienst, de prijs en de levertijd; bij octrooi ook de opdrachtgever en het vakgebied, voor je conflictcheck. Je beurt duurt <span data-rule="turnWorkingMinutes">45</span> werkminuten; wat werkuren zijn, staat op <a href="/hoe-het-werkt#werkuren">/hoe-het-werkt</a>. Dat je aan de beurt bent, zie je in je agent (<code>get_my_turns</code>) of op het tekenscherm.</p><p>Niet aannemen kost niets. Laat de beurt gaan: dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Per opdracht krijg je hooguit <span data-rule="maxTurnsPerPro">2</span> beurten. Vlak voor je aanname controleren we het register opnieuw.</p></div>
+<div class="mock" role="img" aria-label="Je beurt, voorbeeld, fictief"><div class="mock-bar"><span>Je beurt</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Dienst</p><div class="field">Oordeel over een claimbesluit, op stukken</div><p class="lbl">Al betaald</p><div class="field">€185 · lever binnen 3 werkdagen</div><div class="acts"><span class="fake pri">Aannemen met passkey</span><span class="fake sec">Laat de beurt gaan</span></div></div></div></div></li>
 <li><h3>Het werk</h3><p>Na de aanname zie je de invoer, bij octrooi pas dan. Je werkt zoals je gewend bent, onder je eigen beroepsregels. Alles loopt via het protocol; het bedrijf kan niet even bellen.</p></li>
-<li><div class="with-mock"><div><h3>Opleveren en tekenen met je passkey</h3><p>Je kiest de vaste uitkomst van de dienst, voegt je stuk toe en tekent met je passkey. Het stuk krijgt een vingerafdruk (hash) en alles staat in het logboek. Je sleutel krijg je via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van je kantoor), nooit naar een adres dat je zelf opgeeft.</p></div>
-<div class="mock" aria-label="Voorbeeldscherm, fictief" role="img"><div class="mock-bar"><span>Tekenpagina van HumanPush</span><span class="fictief">Fictief</span></div><div class="mock-body"><p class="lbl">Order</p><div class="field">1042</div><p class="lbl">Stap</p><div class="field">Opleveren</div><p class="lbl">Inhoudshash</p><div class="field">9f3ac21b...e17d</div><div class="fake-btn">Tekenen met passkey</div><p class="small muted" style="margin:10px 0 0">Plak het resultaat in je agent</p></div></div></div></li>
-<li><h3>Je geld</h3><p>Na acceptatie, na 72 uur zonder bezwaar, of na een oordeel "voldoet", krijg je je tarief. Er gaat niets van af: het bedrijf betaalt HumanPush apart.</p></li>
+<li><div class="with-mock"><div><h3>Opleveren en tekenen met je passkey</h3><p>Je kiest de vaste uitkomst van de dienst, voegt je stuk toe en tekent met je passkey. Het stuk krijgt een vingerafdruk (hash) en alles staat in het logboek.</p></div>
+<div class="mock" role="img" aria-label="Tekenscherm, voorbeeld, fictief"><div class="mock-bar"><span>Tekenscherm</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Stap</p><div class="field">Opleveren</div><p class="lbl">Inhoudshash</p><div class="field mono">9f3ac21b…e17d</div><div class="acts"><span class="fake pri">Tekenen met passkey</span></div></div></div></div></li>
+<li><h3>Je geld</h3><p>Na acceptatie, na <span data-rule="objectionHours">72</span> uur zonder bezwaar, of na een oordeel "voldoet", krijg je je tarief. Er gaat niets van af. <span data-rule="cancelSharePct">25</span>% van je prijs als de opdrachtgever annuleert nadat je hebt aangenomen; de rest gaat terug naar het bedrijf. De vergoeding van HumanPush is een vaste vergoeding per dienst en komt bovenop jouw prijs.</p></li>
 </ol>
 <div class="prose" style="margin-top:12px">
-<p>Annuleert het bedrijf nadat je hebt aangenomen, dan krijg je 25% van je tarief. Bezwaar kan alleen op de vaste toetsingspunten van jouw dienst (zie <a href="#registers">per register</a>): een collega uit je register beslist voldoet of voldoet niet. Je beroepsregels en je verzekering blijven gelden; HumanPush verandert daar niets aan.</p>
+<p>Bezwaar kan alleen op de vaste toetsingspunten van jouw dienst (zie <a href="#registers">per register</a>): een collega uit je register beslist voldoet of voldoet niet. Je beroepsregels en je verzekering blijven gelden; HumanPush verandert daar niets aan.</p>
 </div>
 </div>
 </section>
+
+<section class="section mist" id="humanpush-agent" aria-labelledby="humanpush-agent-kop" data-kb="humanpush-agent|De HumanPush-agent">
+<div class="wrap hpagent-grid">
+<div>
+<span class="eyebrow">Je kijkt naar: Professionals zonder MCP · komt eraan</span>
+<h2 id="humanpush-agent-kop">Geen agent? Je krijgt een HumanPush-agent.</h2>
+<p class="lead">Bij je aanmelding krijg je een gehoste agent met een eigen sleutel. Hij praat met de agent van het bedrijf via de HumanPush-MCP, zodat jij agent-ready bent zonder iets te installeren. Hij werkt alleen voor HumanPush en tekent nooit voor je.</p>
+<div class="dd">
+<div><h3>Dit doet hij</h3><ul><li>Je beurten melden</li><li>Uitleggen wat je tekent</li><li>Het opleverformulier klaarzetten</li><li>Termijnen bewaken</li></ul></div>
+<div><h3>Dit doet hij nooit</h3><ul class="no"><li>Zelf tekenen</li><li>Het vakwerk schrijven</li><li>Buiten HumanPush werken</li><li>Gegevens delen of onthouden buiten je opdrachten</li></ul></div>
+</div>
+<p class="small muted">De eerste versie is een eenvoudig tekenscherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde sleutel aan je eigen MCP-client koppelen; je passkeys blijven hetzelfde. Komt eraan.</p>
+</div>
+<div role="img" aria-label="Voorbeeld van de HumanPush-agent, fictief">
+<div class="win"><div class="wbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>HumanPush-agent</b><em>Voorbeeld, fictief</em></div>
+<div class="msg"><span class="who">AGENT</span><p>Je bent aan de beurt: <b>oordeel over een claimbesluit, op stukken</b>. Al betaald. Lever binnen 3 werkdagen. Je beurt loopt nog 38 minuten werktijd.</p>
+<div class="acts"><span class="fake pri">Aannemen met passkey</span><span class="fake sec">Laat de beurt gaan</span></div>
+<p class="small muted" style="margin:10px 0 0">Niet aannemen? Laat de beurt gaan. Dat kost niets.</p></div>
+<div class="msg"><span class="who">AGENT</span><p>Je tekent: <b>aannemen</b> van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we je register opnieuw.</p></div>
+<div class="msg"><span class="who">OPLEVEREN</span><div class="form3"><div><span class="lb">Uitkomst</span><span class="v">Kies de vaste uitkomst</span></div><div><span class="lb">Stuk</span><span class="v">rapport.pdf toegevoegd</span></div><div><span class="lb">Inhoudshash</span><span class="v mono">9f3a…e17d</span></div></div>
+<div class="acts"><span class="fake pri">Tekenen met passkey</span></div></div>
+</div>
+</div>
+</div>
+</section>
+
 <section class="section" id="registers" aria-labelledby="registers-kop">
 <div class="wrap">
 <h2 id="registers-kop">Per register één dienst</h2>
 <p class="lead">Geen registerlogo's, geen samenwerking met de registers: HumanPush controleert alleen de openbare gegevens.</p>
-<div class="grid wide"><div class="card" id="nivre">
-<p class="tag">NIVRE (schade-experts)</p>
-<h3>Onafhankelijk oordeel over een claimbesluit, op stukken</h3>
-<p><strong>Vaste disclaimer:</strong> Oordeel op stukken, geen opname ter plaatse. Geen personenschade.</p>
-<p>We controleren je in de openbare NIVRE-zoeker, met een vaste checklist. Je registerbewijs is hooguit 30 dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p>
-<p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het oordeel beantwoordt of het claimbesluit standhoudt, met motivering</li><li>op stukken, binnen de opgegeven branche; geen personenschade</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li><li>de onafhankelijkheidsverklaring is getekend</li></ul>
-<p>Het register toont geen schorsing; daar telt alleen een doorhaling.</p>
-<p class="note">HumanPush is geen onderdeel van NIVRE.</p>
-</div><div class="card" id="nrvt">
-<p class="tag">NRVT (register-taxateurs Kamer Wonen)</p>
-<h3>Taxatierapport van een woning, zonder NWWI-validatie</h3>
-<p><strong>Vaste disclaimer:</strong> Niet voor een hypotheek of NHG.</p>
-<p>We controleren je in de officiële NRVT-zoeker, met een vaste checklist (naam, kantoor en Kamer). De controle bij elke aanname is hier handmatig en gelogd. Je registerbewijs is hooguit 30 dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p>
-<p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het rapport is navolgbaar: de waarde volgt uit de vastgelegde gegevens en methode</li><li>Kamer Wonen, niet voor hypotheek of NHG, geen NWWI</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li></ul>
-<p>Het register toont geen schorsing; daar telt alleen een doorhaling.</p>
-<p class="note">HumanPush is geen onderdeel van het NRVT.</p>
-</div><div class="card" id="nrgd">
-<p class="tag">NRGD (gerechtelijk deskundigen, 008.4 multimedia)</p>
-<h3>Authenticiteitsonderzoek van een beeld- of videobestand</h3>
-<p><strong>Vaste disclaimer:</strong> Buiten rechtszaken. Geen gerechtelijk deskundigenrapport.</p>
-<p>We controleren je in de officiële NRGD-zoeker, met een vaste checklist. Je registerbewijs is hooguit 30 dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p>
-<p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het rapport beantwoordt de vraag uit de vaste lijst en heeft alle 9 vaste onderdelen</li><li>één bestand, buiten rechtszaken, binnen 008.4</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li><li>de methode en de AI-verklaring zijn vermeld</li></ul>
-<p>Via HumanPush werk je niet als benoemd gerechtelijk deskundige.</p>
-<p class="note">HumanPush is geen onderdeel van het NRGD.</p>
-</div><div class="card" id="octrooi">
-<p class="tag">Register van octrooigemachtigden (Octrooicentrum Nederland)</p>
-<h3>Nieuwheidsquickscan</h3>
-<p><strong>Vaste disclaimer:</strong> Geen indiening en geen FTO-advies. De opdrachtgever is zichtbaar voor de conflictcheck; de inhoud pas na aanname.</p>
-<p>We controleren je in de officiële lijst van octrooigemachtigden. Daarbovenop geldt: de peildatum van die lijst is bij de controle hooguit 120 dagen oud. Je registerbewijs is hooguit 30 dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p>
-<p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het zoekrapport beantwoordt de zoekvraag binnen het opgegeven vakgebied</li><li>alleen nieuwheid: geen indiening, geen FTO, geen bedragen</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li></ul>
-<p>Je ziet de opdrachtgever vóór je aanneemt, zodat je een conflictcheck kunt doen. Het register toont geen schorsing; daar telt alleen een doorhaling.</p>
-<p class="note">HumanPush is geen onderdeel van het register van octrooigemachtigden of Octrooicentrum Nederland.</p>
-</div><div class="card" id="nrbi">
-<p class="tag">Nederlands Register Bouwkundig Inspecteurs (NRBI)</p>
-<h3>Rapporttoets op afstand van een bestaand bouwkundig keuringsrapport</h3>
-<p><strong>Vaste disclaimer:</strong> Geen nieuwe keuring en geen NRBI-gevalideerde keuring.</p>
-<p>We controleren je op de openbare NRBI-pagina, met een vaste checklist en een KvK-match. Je registerbewijs is hooguit 30 dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p>
-<p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>de toets volgt de 8-puntenchecklist en beantwoordt de gestelde vragen (hooguit 3), in hooguit 3 pagina's</li><li>alleen bestaande bouw; geen keuring, geen juridisch advies</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li></ul>
-<p>Je toetst een bestaand rapport; je doet geen nieuwe keuring.</p>
-<p class="note">HumanPush is geen onderdeel van het NRBI.</p>
-</div></div>
+<div class="grid"><div class="card" id="nivre"><p class="tag">NIVRE (schade-experts)</p><h3>Onafhankelijk oordeel over een claimbesluit, op stukken</h3><p><strong>Vaste disclaimer:</strong> Oordeel op stukken, geen opname ter plaatse. Geen personenschade.</p><p>We controleren je in de openbare NIVRE-zoeker, met een vaste checklist. Je registerbewijs is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p><p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het oordeel beantwoordt of het claimbesluit standhoudt, met motivering</li><li>op stukken, binnen de opgegeven branche; geen personenschade</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li><li>de onafhankelijkheidsverklaring is getekend</li></ul><p>Het register toont geen schorsing; daar telt alleen een doorhaling.</p><p class="note">HumanPush is geen onderdeel van NIVRE.</p></div><div class="card" id="nrvt"><p class="tag">NRVT (register-taxateurs Kamer Wonen)</p><h3>Taxatierapport van een woning, zonder NWWI-validatie</h3><p><strong>Vaste disclaimer:</strong> Niet voor een hypotheek of NHG.</p><p>We controleren je in de officiële NRVT-zoeker, met een vaste checklist (naam, kantoor en Kamer). De controle bij elke aanname is hier handmatig en gelogd. Je registerbewijs is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p><p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het rapport is navolgbaar: de waarde volgt uit de vastgelegde gegevens en methode</li><li>Kamer Wonen, niet voor hypotheek of NHG, geen NWWI</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li></ul><p>Het register toont geen schorsing; daar telt alleen een doorhaling.</p><p class="note">HumanPush is geen onderdeel van het NRVT.</p></div><div class="card" id="nrgd"><p class="tag">NRGD (gerechtelijk deskundigen, 008.1 computer forensics)</p><h3>Integriteits- en tijdstempelcheck van één aangeleverd document</h3><p><strong>Vaste disclaimer:</strong> Buiten rechtszaken. Geen gerechtelijk deskundigenrapport.</p><p>We controleren je in de officiële NRGD-zoeker, met een vaste checklist. Je registerbewijs is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p><p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het rapport stelt vast of het document sinds het opgegeven tijdstip ongewijzigd is, met de gebruikte controles</li><li>één aangeleverd document, buiten rechtszaken, binnen 008.1</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li><li>de methode en de AI-verklaring zijn vermeld</li></ul><p>Via HumanPush werk je niet als benoemd gerechtelijk deskundige. De dienst gaat open bij minstens 5 deskundigen uit minstens 3 organisaties.</p><p class="note">HumanPush is geen onderdeel van het NRGD.</p></div><div class="card" id="octrooi"><p class="tag">Register van octrooigemachtigden (Octrooicentrum Nederland)</p><h3>Nieuwheidsquickscan</h3><p><strong>Vaste disclaimer:</strong> Geen indiening en geen FTO-advies. De opdrachtgever is zichtbaar voor de conflictcheck; de inhoud pas na aanname.</p><p>We controleren je in de officiële lijst van octrooigemachtigden. Daarbovenop geldt: de peildatum van die lijst is bij de controle hooguit <span data-rule="octrooiSourceMaxAgeDays">120</span> dagen oud. Je registerbewijs is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p><p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>het zoekrapport beantwoordt de zoekvraag binnen het opgegeven vakgebied</li><li>alleen nieuwheid: geen indiening, geen FTO, geen bedragen</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li></ul><p>Je ziet de opdrachtgever vóór je aanneemt, zodat je een conflictcheck kunt doen. Het register toont geen schorsing; daar telt alleen een doorhaling.</p><p class="note">HumanPush is geen onderdeel van het register van octrooigemachtigden of Octrooicentrum Nederland.</p></div><div class="card" id="nrbi"><p class="tag">Nederlands Register Bouwkundig Inspecteurs (NRBI)</p><h3>Rapporttoets op afstand van een bestaand bouwkundig keuringsrapport</h3><p><strong>Vaste disclaimer:</strong> Geen nieuwe keuring en geen NRBI-gevalideerde keuring.</p><p>We controleren je op de openbare NRBI-pagina, met een vaste checklist en een KvK-match. Je registerbewijs is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud en wordt bij elke aanname opnieuw gecontroleerd.</p><p><strong>Vaste toetsingspunten bij bezwaar:</strong></p><ul class="small"><li>het stuk heeft alle vaste onderdelen en het afgesproken formaat</li><li>de toets volgt de 8-puntenchecklist en beantwoordt de gestelde vragen (hooguit 3), in hooguit 3 pagina's</li><li>alleen bestaande bouw; geen keuring, geen juridisch advies</li><li>de verplichte disclaimer staat ongewijzigd in het stuk</li></ul><p>Je toetst een bestaand rapport; je doet geen nieuwe keuring.</p><p class="note">HumanPush is geen onderdeel van het NRBI.</p></div></div>
 </div>
 </section>
-<section class="section white" aria-labelledby="betrouwbaar">
+
+<section class="section mist" aria-labelledby="betrouwbaar">
 <div class="wrap prose">
 <h2 id="betrouwbaar">Betrouwbaarheid</h2>
-<p>Te laat leveren of je terugtrekken na de aanname telt als tekortkoming: het bedrijf krijgt dan alles terug en jij krijgt niets. Weigeren, of een beurt laten verlopen, telt niet. Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden zonder nieuwe opdrachten.</p>
+<p>Te laat leveren of je terugtrekken na de aanname telt als tekortkoming: het bedrijf krijgt dan alles terug en jij krijgt niets. Een beurt laten gaan, of laten verlopen, telt niet. Bij 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden zonder nieuwe opdrachten.</p>
 <p>Ontdek je na de aanname een belangenconflict, bij een dienst met een verplichte conflictcheck (nu octrooi), dan geef je de opdracht terug. Dat is geen tekortkoming maar een markering; 3 markeringen in 12 maanden tellen als 1 tekortkoming. Bij de andere diensten: neem alleen aan als je zeker bent.</p>
 <p>Schorst het register je of schrijft het je uit, dan krijg je geen nieuwe opdrachten. Een opdracht die je nog niet had opgeleverd, stopt: het bedrijf krijgt alles terug en jij wordt niet betaald.</p>
+<p class="linkline">Wat het systeem garandeert staat op <a href="/hoe-het-werkt#garanties">/hoe-het-werkt</a>.</p>
 </div>
 </section>
-<section class="section mist" aria-labelledby="garanties">
-<div class="wrap">
-<h2 id="garanties">Wat het systeem garandeert</h2>
-<ul class="guarantees"><li><strong>Gecontroleerd.</strong> Elke professional is door een mens opgezocht in het openbare register (niveau 2), met datum en bron, en bij elke opdracht opnieuw gecontroleerd. Het is een verklaring met een geldigheidsduur, geen live koppeling met het register.</li><li><strong>Snel duidelijkheid.</strong> Neemt niemand binnen 4 werkuren aan, dan krijg je alles terug.</li><li><strong>Vooraf betaald, eerlijk verdeeld.</strong> Annuleren vóór aanname: alles terug. Daarna: 25% voor de professional, de rest terug.</li><li><strong>Bezwaar zonder discussie.</strong> 72 uur, alleen op de vaste toetsingspunten van die dienst. Een onafhankelijke collega beslist: voldoet of voldoet niet. Voldoet niet: alles terug.</li><li><strong>Conflict is geen schuld.</strong> Waar een conflictcheck verplicht is, mag de professional de opdracht teruggeven; jij krijgt alles terug.</li><li><strong>Bewijs dat blijft.</strong> Elke stap is ondertekend en vastgelegd. Je kunt het zelf controleren of doorgeven.</li><li><strong>Alleen zakelijk.</strong> Alleen bedrijven met een KvK-nummer.</li></ul>
-<p class="small muted" style="margin-top:16px">Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Het protocol voert de voorwaarden uit; het logboek is het bewijs.</p>
-</div>
-</section>
+
 <section class="section" aria-labelledby="aanmelden">
 <div class="wrap">
 <div class="notice">
 <h2 id="aanmelden">Aanmelden is nog niet open</h2>
-<p>We openen aanmelden na afronding van de testfase. Er is nu geen formulier en we verzamelen geen gegevens.</p>
+<p>Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we verzamelen geen gegevens.</p>
 </div>
 </div>
 </section>
 </main>
 <footer class="site-footer">
-<div class="wrap">
-<p>HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476, <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p>
-<ul>
-<li><a href="/voorwaarden">Voorwaarden</a></li>
-<li><a href="/privacy">Privacy</a></li>
-<li><a href="/inloggen">Inloggen</a></li>
-<li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li>
-</ul>
+<div class="wrap cols">
+<div><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p>HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476, <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p></div>
+<div><p class="h">Over</p><ul><li><a href="/voorwaarden">Voorwaarden</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/inloggen">Inloggen</a></li></ul></div>
+<div><p class="h">Voor agents</p><ul><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li><li><a href="/agents">Voor agents en bouwers</a></li></ul></div>
 </div>
 </footer>
 <script data-goatcounter="https://humanpush.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

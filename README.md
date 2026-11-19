@@ -2,7 +2,7 @@
 
 Statische website, zonder build-stap. Werkt op Vercel.
 
-Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. Protocol v1 is in de testfase; er is nog geen publiek endpoint voor v1, en de site linkt niet naar de oude sandbox.
+Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. Protocol v1 is in de testfase; er is nog geen publiek endpoint voor v1.
 
 ## Wat erin zit
 
