@@ -207,11 +207,11 @@
 <li><div class="with-mock"><div><h3>Je prijs, levertijd en capaciteit</h3><p>Per register is er één vaste dienst, met een vaste invulling: wat je krijgt, wat je oplevert en waarop getoetst wordt. Jij zet je eigen prijs, levertijd en het aantal opdrachten dat je tegelijk aanneemt.</p></div>
 <div class="mock" role="img" aria-label="Jouw dienst, voorbeeld, fictief"><div class="mock-bar"><span>Jouw dienst</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Vaste dienst voor NIVRE</p><div class="field"><strong>Onafhankelijk oordeel over een claimbesluit, op stukken</strong><br><span class="small muted">Geen opname ter plaatse, geen personenschade</span></div><p class="lbl">Jouw prijs en levertijd</p><div class="field">€185 per dossier · 3 werkdagen</div><p class="small muted" style="margin:0">Jij bepaalt je eigen prijs.</p></div></div></div></li>
 <li><div class="with-mock"><div><h3>Een beurt, als het jouw beurt is</h3><p>Het bedrijf heeft al betaald. Je ziet de dienst, de prijs en de levertijd; bij octrooi ook de opdrachtgever en het vakgebied, voor je conflictcheck. Je beurt duurt <span data-rule="turnWorkingMinutes">45</span> werkminuten; wat werkuren zijn, staat op <a href="/hoe-het-werkt#werkuren">/hoe-het-werkt</a>. Dat je aan de beurt bent, zie je in je agent (<code>get_my_turns</code>) of op het tekenscherm.</p><p>Niet aannemen kost niets. Laat de beurt gaan: dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Per opdracht krijg je hooguit <span data-rule="maxTurnsPerPro">2</span> beurten. Vlak voor je aanname controleren we het register opnieuw.</p></div>
-<div class="mock" role="img" aria-label="Je beurt, voorbeeld, fictief"><div class="mock-bar"><span>Je beurt</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Dienst</p><div class="field">Oordeel over een claimbesluit, op stukken</div><p class="lbl">Al betaald</p><div class="field">€185 · lever binnen 3 werkdagen</div><div class="acts"><span class="fake pri">Aannemen met passkey</span><span class="fake sec">Laat de beurt gaan</span></div></div></div></div></li>
+<div class="mock" role="img" aria-label="Je beurt, voorbeeld, fictief"><div class="mock-bar"><span>Je beurt</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Dienst</p><div class="field">Oordeel over een claimbesluit, op stukken</div><div class="field">Al betaald · lever binnen 3 werkdagen</div><div class="acts"><span class="fake pri">Aannemen met passkey</span><span class="fake sec">Laat de beurt gaan</span></div></div></div></div></li>
 <li><h3>Het werk</h3><p>Na de aanname zie je de invoer, bij octrooi pas dan. Je werkt zoals je gewend bent, onder je eigen beroepsregels. Alles loopt via het protocol; het bedrijf kan niet even bellen.</p></li>
 <li><div class="with-mock"><div><h3>Opleveren en tekenen met je passkey</h3><p>Je kiest de vaste uitkomst van de dienst, voegt je stuk toe en tekent met je passkey. Het stuk krijgt een vingerafdruk (hash) en alles staat in het logboek.</p></div>
 <div class="mock" role="img" aria-label="Tekenscherm, voorbeeld, fictief"><div class="mock-bar"><span>Tekenscherm</span><span class="fictief">Voorbeeld, fictief</span></div><div class="mock-body"><p class="lbl">Stap</p><div class="field">Opleveren</div><p class="lbl">Inhoudshash</p><div class="field mono">9f3ac21b…e17d</div><div class="acts"><span class="fake pri">Tekenen met passkey</span></div></div></div></div></li>
-<li><h3>Je geld</h3><p>Na acceptatie, na <span data-rule="objectionHours">72</span> uur zonder bezwaar, of na een oordeel "voldoet", krijg je je tarief. Er gaat niets van af. <span data-rule="cancelSharePct">25</span>% van je prijs als de opdrachtgever annuleert nadat je hebt aangenomen; de rest gaat terug naar het bedrijf. De vergoeding van HumanPush is een vaste vergoeding per dienst en komt bovenop jouw prijs.</p></li>
+<li><h3>Je geld</h3><p>Na acceptatie, na <span data-rule="objectionHours">72</span> uur zonder bezwaar, of na een oordeel "voldoet", krijg je je tarief. Er gaat niets van af. Annuleert de opdrachtgever nadat je hebt aangenomen, dan krijg je <span data-rule="cancelSharePct">25</span>% van je prijs; de rest gaat terug naar het bedrijf. De vergoeding van HumanPush is een vaste vergoeding per dienst en komt bovenop jouw prijs.</p></li>
 </ol>
 <div class="prose" style="margin-top:12px">
 <p>Bezwaar kan alleen op de vaste toetsingspunten van jouw dienst (zie <a href="#registers">per register</a>): een collega uit je register beslist voldoet of voldoet niet. Je beroepsregels en je verzekering blijven gelden; HumanPush verandert daar niets aan.</p>
@@ -265,8 +265,8 @@
 <section class="section" aria-labelledby="aanmelden">
 <div class="wrap">
 <div class="notice">
-<h2 id="aanmelden">Aanmelden is nog niet open</h2>
-<p>Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we vragen je geen gegevens.</p>
+<h2 id="aanmelden">Aanmelden opent na de testfase</h2>
+<p>Aanmelden is nog niet open. Er is nu geen formulier en we verzamelen geen gegevens.</p>
 </div>
 </div>
 </section>
@@ -278,6 +278,5 @@
 <div><p class="h">Voor agents</p><ul><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li><li><a href="/agents">Voor agents en bouwers</a></li></ul></div>
 </div>
 </footer>
-<script data-goatcounter="https://humanpush.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

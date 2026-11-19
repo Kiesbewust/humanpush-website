@@ -1,5 +1,5 @@
 {
-  "_doc": "Eén bron voor de termijnen op de site. tools/sync-partials.mjs zet deze waarden in elke <span data-rule=\"…\"> en in de partials; --check faalt bij verschil. Moet gelijk zijn aan src/v1/params.ts op de testversie van humanpush-mcp.",
+  "_doc": "Eén bron voor de termijnen op deze site: elke pagina, de swimlane, llms.txt en de kennisbasis nemen deze waarden over.",
   "version": "2026-11-19",
   "turnWorkingMinutes": 45,
   "maxTurnsPerPro": 2,

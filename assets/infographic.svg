@@ -9,17 +9,17 @@
 <g fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linejoin="round"><rect x="100.0" y="179" width="48" height="60" rx="4"/><rect x="109.0" y="189" width="10" height="9" rx="1.5"/><rect x="127.0" y="189" width="10" height="9" rx="1.5"/><rect x="109.0" y="205" width="10" height="9" rx="1.5"/><rect x="127.0" y="205" width="10" height="9" rx="1.5"/><rect x="109.0" y="221" width="10" height="9" rx="1.5"/><rect x="127.0" y="221" width="10" height="9" rx="1.5"/><rect x="118.0" y="223" width="12" height="16"/></g>
 <text x="172.0" y="202" font-size="21" font-weight="700" fill="#0B2A5B" text-anchor="start" >Bedrijf</text>
 <text x="172.0" y="230" font-size="16" font-weight="400" fill="#5C6578" text-anchor="start" >met KvK-nummer</text>
-<line x1="400.0" y1="209" x2="438.6666666666667" y2="209" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
-<rect x="444.6666666666667" y="150" width="330" height="118" rx="18" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
-<g fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linejoin="round"><rect x="478.6666666666667" y="189" width="52" height="40" rx="12"/><line x1="504.6666666666667" y1="189" x2="504.6666666666667" y2="177"/><circle cx="504.6666666666667" cy="174" r="3.5" fill="#0B2A5B"/><circle cx="493.6666666666667" cy="207" r="4" fill="#0B2A5B"/><circle cx="515.6666666666667" cy="207" r="4" fill="#0B2A5B"/><path d="M495.6666666666667 218 Q504.6666666666667 224 513.6666666666667 218"/></g>
-<text x="552.6666666666667" y="202" font-size="21" font-weight="700" fill="#0B2A5B" text-anchor="start" >Agent van het bedrijf</text>
-<text x="552.6666666666667" y="230" font-size="16" font-weight="400" fill="#5C6578" text-anchor="start" >bestelt en betaalt</text>
-<line x1="780.6666666666667" y1="209" x2="819.3333333333334" y2="209" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
-<rect x="825.3333333333334" y="150" width="330" height="118" rx="18" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
-<g><circle cx="885.3333333333334" cy="209" r="30" fill="#0B2A5B"/><circle cx="885.3333333333334" cy="209" r="11" fill="#E0A526"/><circle cx="906.3333333333334" cy="209.0" r="3.2" fill="#FFFFFF"/><circle cx="891.8234304086732" cy="228.97194632359765" r="3.2" fill="#FFFFFF"/><circle cx="868.3448914330795" cy="221.34474956415468" r="3.2" fill="#FFFFFF"/><circle cx="868.342604154049" cy="196.65839872803303" r="3.2" fill="#FFFFFF"/><circle cx="891.8197293522194" cy="189.02685135773078" r="3.2" fill="#FFFFFF"/></g>
-<text x="933.3333333333334" y="202" font-size="21" font-weight="700" fill="#0B2A5B" text-anchor="start" >HumanPush-MCP</text>
-<text x="933.3333333333334" y="230" font-size="16" font-weight="400" fill="#5C6578" text-anchor="start" >vaste regels, logboek</text>
-<line x1="1161.3333333333335" y1="209" x2="1200.0" y2="209" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<line x1="400.0" y1="209" x2="438.67" y2="209" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="444.67" y="150" width="330" height="118" rx="18" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
+<g fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linejoin="round"><rect x="478.67" y="189" width="52" height="40" rx="12"/><line x1="504.67" y1="189" x2="504.67" y2="177"/><circle cx="504.67" cy="174" r="3.5" fill="#0B2A5B"/><circle cx="493.67" cy="207" r="4" fill="#0B2A5B"/><circle cx="515.67" cy="207" r="4" fill="#0B2A5B"/><path d="M495.67 218 Q504.67 224 513.67 218"/></g>
+<text x="552.67" y="202" font-size="21" font-weight="700" fill="#0B2A5B" text-anchor="start" >Agent van het bedrijf</text>
+<text x="552.67" y="230" font-size="16" font-weight="400" fill="#5C6578" text-anchor="start" >bestelt en betaalt</text>
+<line x1="780.67" y1="209" x2="819.33" y2="209" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect x="825.33" y="150" width="330" height="118" rx="18" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
+<g><circle cx="885.33" cy="209" r="30" fill="#0B2A5B"/><circle cx="885.33" cy="209" r="11" fill="#E0A526"/><circle cx="906.33" cy="209.0" r="3.2" fill="#FFFFFF"/><circle cx="891.82" cy="228.97" r="3.2" fill="#FFFFFF"/><circle cx="868.34" cy="221.34" r="3.2" fill="#FFFFFF"/><circle cx="868.34" cy="196.66" r="3.2" fill="#FFFFFF"/><circle cx="891.82" cy="189.03" r="3.2" fill="#FFFFFF"/></g>
+<text x="933.33" y="202" font-size="21" font-weight="700" fill="#0B2A5B" text-anchor="start" >HumanPush-MCP</text>
+<text x="933.33" y="230" font-size="16" font-weight="400" fill="#5C6578" text-anchor="start" >vaste regels, logboek</text>
+<line x1="1161.33" y1="209" x2="1200.0" y2="209" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
 <rect x="1206.0" y="150" width="330" height="118" rx="18" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
 <g fill="none" stroke="#0B2A5B" stroke-width="3" stroke-linejoin="round"><circle cx="1266.0" cy="193" r="13"/><path d="M1240.0 239 Q1240.0 211 1266.0 211 Q1292.0 211 1292.0 239"/><rect x="1274.0" y="219" width="14" height="10" rx="2" fill="#E0A526" stroke="none"/></g>
 <text x="1314.0" y="202" font-size="21" font-weight="700" fill="#0B2A5B" text-anchor="start" >Professional</text>
@@ -51,7 +51,7 @@
 <text x="580.8" y="457" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >na elkaar, tot iemand</text>
 <text x="580.8" y="478" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >aanneemt. Vangnet:</text>
 <text x="580.8" y="499" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >3 werkdagen.</text>
-<line x1="794.8" y1="451.5" x2="805.1999999999999" y2="451.5" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)"/>
+<line x1="794.8" y1="451.5" x2="805.2" y2="451.5" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)"/>
 <rect x="809.2" y="344" width="230" height="215" rx="18" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
 <circle cx="843.2" cy="382" r="18" fill="#E0A526"/>
 <text x="843.2" y="389" font-size="20" font-weight="700" fill="#0B2A5B" text-anchor="middle" >4</text>
@@ -60,7 +60,7 @@
 <text x="829.2" y="436" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >De professional levert op,</text>
 <text x="829.2" y="457" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >kiest een vaste uitkomst en</text>
 <text x="829.2" y="478" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >tekent met zijn passkey.</text>
-<line x1="1043.2" y1="451.5" x2="1053.6000000000001" y2="451.5" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)"/>
+<line x1="1043.2" y1="451.5" x2="1053.6" y2="451.5" stroke="#0B2A5B" stroke-width="2.5" marker-end="url(#ar)"/>
 <rect x="1057.6" y="344" width="230" height="215" rx="18" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
 <circle cx="1091.6" cy="382" r="18" fill="#E0A526"/>
 <text x="1091.6" y="389" font-size="20" font-weight="700" fill="#0B2A5B" text-anchor="middle" >5</text>
@@ -121,10 +121,10 @@
 <text x="677.2" y="863" font-size="17" font-weight="700" fill="#0B2A5B" text-anchor="start" >Te laat of terugtrekken</text>
 <text x="677.2" y="889" font-size="14.5" font-weight="400" fill="#5C6578" text-anchor="start" >Alles terug. Telt als tekortkoming</text>
 <text x="677.2" y="908" font-size="14.5" font-weight="400" fill="#5C6578" text-anchor="start" >voor de professional.</text>
-<rect x="956.8000000000001" y="833" width="281.6" height="106" rx="14" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
-<text x="974.8000000000001" y="863" font-size="17" font-weight="700" fill="#0B2A5B" text-anchor="start" >Schorsing of doorhaling</text>
-<text x="974.8000000000001" y="889" font-size="14.5" font-weight="400" fill="#5C6578" text-anchor="start" >Nog niet opgeleverd: alles terug.</text>
-<text x="974.8000000000001" y="908" font-size="14.5" font-weight="400" fill="#5C6578" text-anchor="start" >De professional krijgt niets.</text>
+<rect x="956.8" y="833" width="281.6" height="106" rx="14" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
+<text x="974.8" y="863" font-size="17" font-weight="700" fill="#0B2A5B" text-anchor="start" >Schorsing of doorhaling</text>
+<text x="974.8" y="889" font-size="14.5" font-weight="400" fill="#5C6578" text-anchor="start" >Nog niet opgeleverd: alles terug.</text>
+<text x="974.8" y="908" font-size="14.5" font-weight="400" fill="#5C6578" text-anchor="start" >De professional krijgt niets.</text>
 <rect x="1254.4" y="833" width="281.6" height="106" rx="14" fill="#FFFFFF" stroke="#E4DDD2" stroke-width="1.5"/>
 <text x="1272.4" y="863" font-size="17" font-weight="700" fill="#0B2A5B" text-anchor="start" >Na oplevering annuleren</text>
 <text x="1272.4" y="889" font-size="14.5" font-weight="400" fill="#5C6578" text-anchor="start" >Kan niet. Wel bezwaar binnen 72</text>

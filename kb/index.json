@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "b170a3a48ed884e59c704913941237643cd4c6d37cde7a79a69451a6a721155c",
+ "kb_hash": "83c70bb4ca7e36b336f4f05aee667f583352a937c575db1ecf7a6fe471929110",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -485,8 +485,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#aanmelden",
    "lang": "nl",
    "source": "faq",
-   "text": "Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we vragen je geen gegevens.",
-   "hash": "7e9ec246bf09d5af"
+   "text": "Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we verzamelen geen gegevens.",
+   "hash": "dc09dfc719dc06c7"
   },
   {
    "id": "faq-professionals-kost-het-mij-iets",

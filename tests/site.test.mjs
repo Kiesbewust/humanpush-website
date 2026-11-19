@@ -38,9 +38,14 @@ test('geen interne woorden, ook niet hold_2a (QA 19 nov)', () => {
   for (const f of FILES) assert.doesNotMatch(read(f), /hold_2a|v1-testtak|test branch|\/v1\/pro\b|tekenpagina/i, f);
 });
 
-test('geen zin "we verzamelen geen gegevens" naast de bezoekersteller (QA 19 nov)', () => {
-  for (const f of FILES) assert.doesNotMatch(read(f), /verzamelen (via de website )?geen gegevens/i, f);
-  assert.match(read('privacy.html'), /GoatCounter/);
+test('geen bezoekersteller of andere externe scripts: "we verzamelen geen gegevens" klopt (QA 19 nov)', () => {
+  for (const f of PAGES) { const x = read(f); assert.doesNotMatch(x, /goatcounter|gc\.zgo\.at/i, f); assert.doesNotMatch(x, /<script[^>]+src="(https?:)?\/\//i, f); }
+  assert.match(read('professionals.html'), /Aanmelden is nog niet open\. Er is nu geen formulier en we verzamelen geen gegevens\./);
+  assert.doesNotMatch(read('rules.json'), /src\/|tools\/|\.ts\b|\.mjs\b/, 'geen interne paden in rules.json');
+});
+
+test('infographic: coördinaten met hooguit 2 decimalen', () => {
+  assert.doesNotMatch(read('assets/infographic.svg'), /\d\.\d{3,}/);
 });
 
 test('het garantieblok staat alleen op /hoe-het-werkt; elders één regel met link', () => {
