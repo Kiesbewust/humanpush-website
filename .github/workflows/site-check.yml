@@ -1,0 +1,21 @@
+name: site-check
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Partials, termijnen en kennisbasis
+        run: |
+          node tools/sync-partials.mjs --check
+          node tools/build-kb.mjs --check
+      - name: Tests (gouden set in extract-modus, geen netwerk, geen model)
+        run: node --test tests/*.test.mjs

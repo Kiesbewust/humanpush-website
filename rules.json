@@ -1,0 +1,20 @@
+{
+  "_doc": "Eén bron voor de termijnen op deze site: elke pagina, de swimlane, llms.txt en de kennisbasis nemen deze waarden over.",
+  "version": "2026-11-19",
+  "turnWorkingMinutes": 45,
+  "maxTurnsPerPro": 2,
+  "acceptCeilingWorkdays": 3,
+  "payMinutes": 30,
+  "objectionHours": 72,
+  "cancelSharePct": 25,
+  "attestationMaxAgeDays": 30,
+  "octrooiSourceMaxAgeDays": 120,
+  "holdEndWorkdays": 5,
+  "workingHours": {
+    "days": "maandag tot en met vrijdag",
+    "from": "09:00",
+    "to": "17:00",
+    "timeZone": "Europe/Amsterdam",
+    "holidays": "zonder Nederlandse feestdagen"
+  }
+}

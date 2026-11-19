@@ -1,0 +1,143 @@
+# Spelregels van HumanPush (publieke versie)
+
+Testversie. Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Rangorde: voorwaarden boven protocol boven site. Elke regel heeft een vast nummer. Het protocol voert de regels uit; het ondertekende logboek is het bewijs.
+
+## 1. Grondregels
+
+### R1.1 · Het protocol voert de voorwaarden uit
+Elke opdracht loopt alleen door de vaste stappen van het protocol. Er is geen handmatige route ernaast. Elke stap staat als ondertekende gebeurtenis in het logboek, en elke gebeurtenis verwijst naar de vorige.
+
+### R1.2 · Geen uitzonderingen per geval
+Geen helpdesk die regels buigt: een mens beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.
+
+### R1.3 · Beheer heeft alleen een pauzeknop
+De pauze stopt nieuwe opdrachten voor iedereen. Lopende opdrachten lopen door onder hun eigen termijnen.
+
+### R1.4 · Regels liggen vast bij het bestellen
+De regels en de catalogus die golden bij het bestellen, gelden voor die hele opdracht. Een nieuwe versie geldt alleen voor nieuwe opdrachten.
+
+### R1.5 · Eén systeem voor alle beroepen
+Termijnen, geldregels, bezwaar en bewijsvloer zijn voor alle vijf diensten gelijk. Per dienst verschillen alleen het register, de invoer, de uitkomsten, het prijsbereik, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.
+
+### R1.6 · Alleen zakelijk
+Opdrachtgevers hebben een KvK-nummer. Professionals staan in een openbaar register. Niet voor particulieren of consumenten.
+
+### R1.7 · Eén route en één sleutel per actor
+Het bedrijf werkt via de sleutel van zijn agent. De professional werkt met zijn passkey: met zijn eigen agent (MCP), of zonder MCP met de HumanPush-agent op het tekenscherm. Die komt eraan.
+
+## 2. Registerbewijs
+
+### R2.1 · Bewijsvloer niveau 2, voor iedereen
+Zonder geldig registerbewijs van minstens niveau 2 krijgt niemand een beurt, ook niet als beoordelaar. Niveau 2 betekent: een mens zocht de professional met een vaste checklist op in het openbare register.
+
+### R2.2 · Alleen de agent mag het niveau verhogen
+Een agent kan per opdracht een hoger bewijsniveau eisen (min_proof_level 3 of 4), nooit een lager. Bij de start biedt geen register een hoger niveau, dus wie hoger eist, vindt nu niemand en krijgt alles terug.
+
+### R2.6 · Versheid van het registerbewijs
+Een registerbewijs telt hooguit 30 dagen. Bij octrooigemachtigden geldt daarbovenop: de peildatum van de lijst is bij de controle hooguit 120 dagen oud. Het is een registerverklaring met geldigheidsduur, geen live koppeling met het register.
+
+### R2.7 · Hercontrole bij elke aanname
+Vlak voor een aanname wordt het register opnieuw gecontroleerd. Doorgehaald of geschorst: de beurt eindigt.
+
+### R2.8 · Schorsing en doorhaling
+Meldt het register een schorsing of doorhaling, dan krijgt de professional geen nieuwe opdrachten. Een lopende opdracht die nog niet is opgeleverd, stopt: het bedrijf krijgt alles terug, de professional krijgt niets.
+
+### R2.12 · Twee passkeys
+Een professional maakt een passkey aan op zijn eigen telefoon of computer, en een tweede passkey als reserve. Zonder tweede passkey krijgt hij geen beurt.
+
+## 3. Bestellen en betalen
+
+### R3.1 · De agent kiest een dienst, geen persoon
+Bestellen is: dienst, invoer, uiterste datum en maximumprijs. Onbekende velden worden geweigerd. De agent kiest nooit zelf een professional.
+
+### R3.2 · 100% vooraf, binnen 30 minuten
+Het bedrijf betaalt vooraf de maximumprijs plus de vaste vergoeding van HumanPush, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
+
+### R3.3 · De vaste vergoeding
+Per dienst één vaste vergoeding, voor elk bedrijf hetzelfde, excl. btw, zichtbaar in list_services vóór het bestellen. Bedragen volgen na de testfase. HumanPush houdt de vergoeding alleen als een opdracht slaagt.
+
+### R3.5 · Herhaalde aanroep is één uitvoering
+Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert niets twee keer uit.
+
+## 4. Beurt en aanname
+
+### R4.1 · Vaste volgorde
+Het protocol zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldig registerbewijs, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.
+
+### R4.2 · Beurten van 45 werkminuten, tot iemand aanneemt
+Na de betaling krijgt één passende professional tegelijk een beurt. Een beurt duurt 45 werkminuten. Neemt hij niet aan, of laat hij de beurt gaan, dan gaat de beurt meteen naar de volgende. Na elke ronde bouwt het protocol de volgorde opnieuw. Elke professional krijgt hooguit 2 beurten per opdracht. Dat gaat door tot iemand aanneemt of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.
+
+### R4.4 · Niet aannemen kost niets: laat de beurt gaan
+Een professional kan een beurt laten gaan. Dat is een getekende stap, staat in het logboek en kost niets: de beurt gaat direct naar de volgende. Een beurt laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je in je beurt een belang melden; ook dat kost niets.
+
+### R4.5 · Aannemen is tekenen
+De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
+
+### R4.6 · Niemand neemt aan: alles terug
+Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de vaste vergoeding.
+
+### R4.7 · Hoe een professional hoort dat hij aan de beurt is
+De agent van de professional vraagt zijn beurten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de beurt op het tekenscherm. Er gaat geen mail of sms.
+
+## 5. Werk en oplevering
+
+### R5.1 · Levertermijn
+De uiterste leverdatum is de vroegste van: aanname plus eigen levertijd, en de uiterste datum van het bedrijf. Die schuift nooit.
+
+### R5.2 · Opleveren is tekenen
+De professional levert het stuk, kiest een vaste uitkomst van de dienst en tekent met zijn passkey. Het stuk krijgt een vingerafdruk (hash).
+
+## 6. 72 uur en bezwaar
+
+### R6.1 · 72 uur na oplevering
+Het bedrijf accepteert, of maakt bezwaar. Zegt het niets, dan geldt het werk na 72 uur als geaccepteerd. De 72 uur zijn gewone klokuren.
+
+### R6.2 · Bezwaar alleen op vaste toetsingspunten
+Bezwaar kan alleen op de vaste toetsingspunten van de dienst: vorm compleet, vraag beantwoord, binnen de scope, disclaimer aanwezig, en per dienst soms een verklaring. Een andere conclusie willen is geen grond.
+
+### R6.3 · Eén beoordelaar, binair oordeel
+Het protocol kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.
+
+### R6.4 · Voldoet niet: alles terug
+Het bedrijf krijgt alles terug, ook de vaste vergoeding. De professional krijgt niets.
+
+### R6.6 · Geen beoordelaar of storing bij HumanPush
+Vindt het protocol geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
+
+## 7. Annuleren, terugtrekken, te laat
+
+### R7.1 · Vóór aanname annuleren: alles terug
+Annuleren vóór de aanname kost niets.
+
+### R7.2 · Annuleren na aanname, vóór oplevering: 25% van de prijs
+De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de vaste vergoeding.
+
+### R7.3 · Na oplevering kan niet meer worden geannuleerd
+Na de oplevering blijft alleen accepteren of bezwaar over.
+
+### R7.4 · Te laat of terugtrekken: alles terug
+Levert de professional niet op tijd, of trekt hij zich na aanname terug, dan krijgt het bedrijf alles terug en telt het als tekortkoming. Er wordt niemand anders ingezet; het bedrijf kan opnieuw bestellen.
+
+### R7.5 · Conflict na aanname, alleen bij verplichte conflictcheck
+Nu alleen bij octrooigemachtigden. Vóór oplevering mag de professional teruggeven. Het bedrijf krijgt alles terug, zonder 25%. De professional krijgt een markering; 3 markeringen in 12 maanden tellen als 1 tekortkoming.
+
+## 8. Uitbetaling
+
+### R8.1 · Na het venster
+De professional krijgt zijn prijs na acceptatie, na 72 uur zonder bezwaar, of na een oordeel voldoet. Er gaat niets van af.
+
+## 9. Betrouwbaarheid
+
+### R9.1 · 3 tekortkomingen in 12 maanden
+Na 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden zonder nieuwe opdrachten. Daarna automatisch weer open.
+
+### R9.2 · Wat geen tekortkoming is
+Een beurt laten gaan of laten verlopen, een belang melden in je beurt, een geslaagde conflictteruggave (markering), een doorhaling of schorsing.
+
+## 10. Bewijs
+
+### R10.1 · Iedereen kan het bewijs zelf controleren
+Een export van een opdracht bevat de hash van het stuk, de passkey-handtekeningen, het registerbewijs en de logboekregels met hun keten. verify_proof controleert hash, handtekening en keten.
+
+### R10.3 · Persoonsgegevens niet leesbaar in het logboek
+Het logboek bevat vingerafdrukken (hashes) van inhoud, nooit de inhoud zelf.

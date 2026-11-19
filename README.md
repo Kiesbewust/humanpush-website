@@ -2,14 +2,14 @@
 
 Statische website, zonder build-stap. Werkt op Vercel.
 
-Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. Protocol v1 is in de testfase; er is nog geen publiek endpoint voor v1, en de site linkt niet naar de oude sandbox.
+Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken dat domein. AI-agents lezen https://humanpush.nl/llms.txt. Protocol v1 is in de testfase; er is nog geen publiek endpoint voor v1.
 
 ## Wat erin zit
 
 | Bestand | Wordt | Voor wie |
 |---|---|---|
-| `index.html` | https://humanpush.nl/ | de voordeur: het model, de garanties, drie ingangen |
-| `hoe-het-werkt.html` | https://humanpush.nl/hoe-het-werkt | één methode: stappen, garanties G1–G8, geld, logboek |
+| `index.html` | https://humanpush.nl/ | de voordeur: drie routes, interactieve flow, swimlane, HumanPush-agent |
+| `hoe-het-werkt.html` | https://humanpush.nl/hoe-het-werkt | de enige plek met de volledige uitleg: flow, swimlane, infographic, werkuren, garanties G1–G8, geld, logboek |
 | `bedrijven.html` | https://humanpush.nl/bedrijven | bedrijven die agents inzetten |
 | `agents.html` | https://humanpush.nl/agents | agentbouwers (Nederlands) |
 | `professionals.html` | https://humanpush.nl/professionals | professionals, met ankers `#nivre #nrvt #nrgd #octrooi #nrbi` |
@@ -19,13 +19,35 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 | `privacy.html` | https://humanpush.nl/privacy | iedereen |
 | `llms.txt` | https://humanpush.nl/llms.txt | AI-agents (Engels) |
 | `site.css` | gedeeld stylesheet, ontwerp variant A | — |
-| `site.js` | het mobiele menu (zonder JavaScript staat het menu open) | — |
+| `site.js` | mobiel menu, Inloggen-menu, interactieve flow, vlaggen (zonder JavaScript: menu open, flow als lijst) | — |
+| `config.js` | de vlaggen van de site (alles uit) | — |
+| `api/` | `POST /api/ask` (achter een vlag) | agents en het chatvenster |
 | `sitemap.xml` | https://humanpush.nl/sitemap.xml | canonieke URL's |
 | `vercel.json` | headers (noindex), en een redirect van de host humanpush.eu (alleen `/`) naar https://humanpush.nl/bedrijven | — |
 
 ## Ontwerp
 
-Variant A, in `site.css`: achtergrond `#F7F5F1`, vlakken `#F3EFE8`, lijnen `#E4DDD2`, tekst en knoppen navy `#0B2A5B`, gedempte tekst `#5C6578`. Goud `#E0A526` alleen in het logo en als accent (onderstreping, banderand, kleine markering), nooit als knopkleur of als tekst op licht. Lettertype Instrument Sans. Elke pagina heeft dezelfde banner, navigatie en footer, één primaire en één secundaire knop, en het garantieblok woordelijk gelijk.
+Variant A, in `site.css`: achtergrond `#F7F5F1`, vlakken `#F3EFE8`, lijnen `#E4DDD2`, tekst en knoppen navy `#0B2A5B`, gedempte tekst `#5C6578`. Goud `#E0A526` alleen in het logo en als accent (onderstreping, banderand, kleine markering), nooit als knopkleur of als tekst op licht. Lettertype Instrument Sans. Elke pagina heeft dezelfde banner, navigatie (met Inloggen, "komt eraan") en footer, één primaire en één secundaire knop per blok. Het garantieblok staat alleen op /hoe-het-werkt; elders staat één regel met een link. Instrument Sans staat zelf gehost in `/fonts` (geen Google Fonts).
+
+## Eén bron, geen build-stap
+
+- `rules.json`: alle termijnen (beurt van 45 werkminuten, hooguit 2 beurten per professional, vangnet 3 werkdagen, 30 minuten betalen, 72 uur bezwaar, 25%). De aanneemtermijn heeft één bron: verandert hij, dan pas je alleen `rules.json` aan (en `llms.txt`, `kb/spelregels.md` en de infographic, die het script controleert). Moet gelijk zijn aan `src/v1/params.ts` op de testversie van humanpush-mcp.
+- `partials/`: het stroomdiagram (`flow.html` + twee SVG's) en de swimlane (`swimlane.svg` + `swimlane-legenda.json`). `node tools/sync-partials.mjs` zet ze in de pagina's tussen `<!--flow:start-->`/`<!--flow:end-->`, `<!--flowsvg:…-->` en `<!--swim:…-->`, en vult elke `<span data-rule="…">`. `--check` faalt bij verschil of bij de oude regel "4 werkuren".
+- `kb/`: de kennisbasis. `node tools/build-kb.mjs` bouwt `kb/index.json`, `kb/faq.md` en `api/_kb.js` uit `kb/spelregels.md`, de vragenpagina, `llms.txt` en de blokken met `data-kb`. `--check` in CI.
+- `npm run check` draait alles plus de tests (`tests/`, geen netwerk, geen model). CI: `.github/workflows/site-check.yml`.
+- `.vercelignore`: `tests`, `tools`, `partials` en `.github` worden niet uitgeleverd.
+
+## Vragen aan HumanPush (achter vlaggen, standaard UIT)
+
+| Vlag | Waar | Standaard | Effect |
+|---|---|---|---|
+| `HP_CONFIG.chat` | `config.js` | `false` | het chatvenster (`chat.js`, `chat.css`) laadt wel/niet |
+| `HP_CONFIG.ask` | `config.js` | `false` | het blok met `POST /api/ask` op /agents |
+| `ASK_ENABLED` | Vercel env | uit | `/api/ask` geeft anders `503 ask_disabled` |
+| `ASK_MODE` | Vercel env | `extract` | `extract` (geen model, letterlijk citaat) of `llm` (alleen met Bobs ja en sleutel) |
+| `ASK_DAILY_CAP` | Vercel env | `500` | maximaal aantal modelaanroepen per dag |
+
+`/api/ask` bewaart en logt niets van de vraag. De sleutel voor het model staat nooit in de repo.
 
 ## Contact en prijzen
 

@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacyverklaring – HumanPush</title>
-<meta name="description" content="Wat HumanPush nu met gegevens doet: cookieloos tellen met GoatCounter, hosting bij Vercel, en wat je zelf mailt.">
+<meta name="description" content="Wat HumanPush nu met gegevens doet: geen formulieren, geen tellers, hosting bij Vercel, en wat je zelf mailt.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/privacy">
 <meta property="og:title" content="Privacyverklaring – HumanPush">
-<meta property="og:description" content="Wat HumanPush nu met gegevens doet: cookieloos tellen met GoatCounter, hosting bij Vercel, en wat je zelf mailt.">
+<meta property="og:description" content="Wat HumanPush nu met gegevens doet: geen formulieren, geen tellers, hosting bij Vercel, en wat je zelf mailt.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -24,19 +24,27 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://humanpush.nl/og-image.png">
 <meta name="twitter:image:alt" content="HumanPush">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site.css">
+<script src="/config.js"></script>
 <script src="/site.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
-<div class="banner" role="note">HumanPush is in de testfase. Er lopen nog geen echte opdrachten of betalingen. Aanmelden opent na afronding van de testfase.</div>
+<div class="banner" role="note">HumanPush is in de testfase: er lopen nog geen echte opdrachten of betalingen en alle bedragen en termijnen zijn testwaarden. Aanmelden opent na afronding van de testfase.</div>
 <header class="site-header">
 <div class="wrap">
-<a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="167" height="44"></a>
+<a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/agents">Agents</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/veelgestelde-vragen">Vragen</a></li></ul></nav>
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/agents">Agents</a></li><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/veelgestelde-vragen">Vragen</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
+<div class="login">
+<a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
+<div class="login-menu" id="login-menu">
+<a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
+<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een sleutel; later ook een overzicht voor jou. Komt eraan.</span></a>
+</div>
+</div>
 </div>
 </header>
 <main id="inhoud">
@@ -53,7 +61,6 @@
 <h2>Wat er nu gebeurt</h2>
 <p>HumanPush is in de testfase. Aanmelden en toegang aanvragen zijn nog niet open. Er staan op deze website geen formulieren en we verzamelen via de website geen gegevens.</p>
 <ul>
-<li><strong>Paginabezoeken</strong> tellen we cookieloos met GoatCounter (humanpush.goatcounter.com): geen cookies en geen profiel over andere sites.</li>
 <li><strong>De website</strong> draait bij Vercel. Zoals elke webserver verwerkt Vercel technische gegevens, zoals je IP-adres, om de pagina's te kunnen leveren.</li>
 <li><strong>Mail je ons zelf</strong>, dan bewaren we wat je ons mailt, alleen om je te antwoorden.</li>
 </ul>
@@ -66,16 +73,11 @@
 </section>
 </main>
 <footer class="site-footer">
-<div class="wrap">
-<p>HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476, <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p>
-<ul>
-<li><a href="/voorwaarden">Voorwaarden</a></li>
-<li><a href="/privacy">Privacy</a></li>
-<li><a href="/inloggen">Inloggen</a></li>
-<li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li>
-</ul>
+<div class="wrap cols">
+<div><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p>HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476, <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p></div>
+<div><p class="h">Over</p><ul><li><a href="/voorwaarden">Voorwaarden</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/inloggen">Inloggen</a></li></ul></div>
+<div><p class="h">Voor agents</p><ul><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li><li><a href="/agents">Voor agents en bouwers</a></li></ul></div>
 </div>
 </footer>
-<script data-goatcounter="https://humanpush.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

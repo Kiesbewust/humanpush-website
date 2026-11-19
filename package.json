@@ -1,0 +1,13 @@
+{
+  "name": "humanpush-website",
+  "private": true,
+  "type": "module",
+  "description": "Statische site van humanpush.nl, plus de functie /api/ask (achter een vlag, standaard uit).",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "check": "node tools/sync-partials.mjs --check && node tools/build-kb.mjs --check && node --test tests/*.test.mjs",
+    "sync": "node tools/sync-partials.mjs",
+    "kb": "node tools/build-kb.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

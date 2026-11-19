@@ -1,0 +1,5 @@
+# Niet uitleveren: bouwgereedschap, bronnen van de partials en tests (ze bevatten testvragen en verboden woorden als patroon).
+tests
+tools
+partials
+.github
