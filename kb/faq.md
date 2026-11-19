@@ -50,6 +50,10 @@ De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vra
 
 Nee. Alleen bedrijven met een KvK-nummer.
 
+### Eist de wet altijd een geregistreerde professional?
+
+Nee, niet altijd. De AVG (art. 22) geeft mensen bij bepaalde geautomatiseerde besluiten recht op betekenisvolle menselijke tussenkomst. De AI-verordening eist menselijk toezicht bij AI-systemen met een hoog risico. Een registratie zoals bij NIVRE is een kwaliteitsnorm van de beroepsgroep. HumanPush biedt een onafhankelijke, controleerbare beoordeling door een geregistreerde professional, wanneer de situatie daarom vraagt. Dit is geen juridisch advies.
+
 ## Professionals
 
 ### Wie mag meedoen?

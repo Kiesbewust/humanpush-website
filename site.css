@@ -89,6 +89,8 @@ h2 { font-size: 38px; line-height: 1.12; letter-spacing: -.022em; margin: 10px 0
 h3 { font-size: 21px; line-height: 1.25; letter-spacing: -.012em; margin: 0 0 8px; }
 h4 { font-size: 16.5px; margin: 0 0 6px; }
 p { margin: 0 0 14px; }
+.definition { font-size: 19.5px; line-height: 1.5; font-weight: 600; color: var(--ink); max-width: 38em; margin: 18px 0 0; }
+.definition + .lead { margin-top: 14px; }
 .lead { font-size: 19.5px; line-height: 1.55; color: var(--muted); max-width: 40em; }
 .muted { color: var(--muted); }
 .small { font-size: 15px; }
