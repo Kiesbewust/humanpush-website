@@ -59,7 +59,8 @@ function fill(html, file) {
 }
 
 const problems = [];
-const pages = readdirSync(ROOT).filter((f) => f.endsWith('.html'));
+const pages = [...readdirSync(ROOT).filter((f) => f.endsWith('.html')),
+  ...(existsSync(join(ROOT, 'pilot')) ? readdirSync(join(ROOT, 'pilot')).filter((f) => f.endsWith('.html')).map((f) => 'pilot/' + f) : [])];
 const mustHaveFlow = ['index.html', 'hoe-het-werkt.html', 'agents.html', 'professionals.html'];
 for (const f of pages) {
   const before = read(f);
