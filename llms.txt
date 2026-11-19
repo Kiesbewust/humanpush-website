@@ -14,7 +14,7 @@ You can ask a question in plain text about how HumanPush works: POST https://hum
 - Companies only (B2B, with a Dutch KvK number). Netherlands first.
 - All amounts and time limits are test values or working rules during the test phase.
 - Working hours: Monday–Friday 09:00–17:00 Europe/Amsterdam, minus Dutch public holidays; the clock is stopped outside working hours. The 72 hours for a dispute are ordinary clock hours.
-- HumanPush is a trade name of HumAgent B.V., KvK 42222476.
+- HumanPush is a trade name of HumAgent B.V. (KvK 42222476).
 
 ## The model
 
@@ -47,6 +47,7 @@ list_services gives per service the exact service_id, inputs, outcomes, price ra
 
 - For consumers.
 - When you do not need a registered signer.
+- The law does not always require one. GDPR art. 22 gives people a right to meaningful human intervention in certain automated decisions; the EU AI Act requires human oversight for high-risk AI systems; registration (such as NIVRE) is a professional quality standard. HumanPush offers an independent, verifiable expert assessment when the situation calls for it.
 - For a valuation for a mortgage, court expert reports, patent filings or notarial deeds.
 - To force a different conclusion: a dispute is only about the fixed review criteria of that service.
 
@@ -65,7 +66,7 @@ How your agent connects: it calls list_services, then v1_create_order, pays pay_
 9. v1_explain: the fixed explanation of any state, reason or error code.
 10. ask_humanpush (test version, switched off by default): a question in plain text, answered from the published rules with sources, as in "Ask us".
 
-Professionals use v1_passkey_register (to register a passkey on their own device, and a second passkey as a reserve; without the second passkey a professional gets no turn), get_my_turns (the open turns of this professional: service, price, lead time and the end of the turn), v1_professional_status and v1_professional_act (accept, pass_turn, deliver, review). Every action of a professional is signed with his passkey. The pattern is two calls: first without an assertion, then with an assertion; the tools are in the test version and may still change. A simple signing screen with passkey login is coming for professionals without their own agent; it cannot be opened yet. The professional receives his key once, by a one-time link to a contact address HumanPush checks itself (in the register or on the firm's website), never to an address he supplies.
+Professionals use v1_passkey_register (to register a passkey on their own device, and a second passkey as a reserve; without the second passkey a professional gets no turn), get_my_turns (the open turns of this professional: service, price, lead time and the end of the turn), v1_professional_status and v1_professional_act (accept, pass_turn, deliver, review). Every action of a professional is signed with his passkey. The pattern is two calls: first without an assertion, then with an assertion; the tools are in the test version and may still change. A simple signing screen with passkey login is coming for professionals without their own agent; it cannot be opened yet. The professional receives his key once, by a one-time link to a contact address HumanPush checks itself (in the register or on the firm's website), never to an address he supplies. That link only serves to fetch the key and register the passkey plus the required second passkey as a reserve; every step is signed with a passkey.
 
 ## Accepting: turns
 
