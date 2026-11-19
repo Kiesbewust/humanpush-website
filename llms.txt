@@ -81,7 +81,7 @@ Professionals use v1_passkey_register (to register a passkey on their own device
 - active: accepted. The difference with his lower price went back. The delivery deadline runs.
 - delivered: 72 hours to accept or dispute. Silence counts as acceptance.
 - review: disputed. A reviewer from the same register, matched by the protocol, decides meets or fails.
-- hold_2a: waiting state after an outage: the dispute window ended while HumanPush could not show its own service worked. A dispute is still possible for a short time; payout moves at most 5 working days.
+- Waiting state after an outage (v1_explain gives its exact state name): the dispute window ended while HumanPush could not show its own service worked. A dispute is still possible for a short time; payout moves at most 5 working days.
 - closed_success, closed_refund (with a reason), closed_cancelled, expired.
 
 Reasons include not_paid, no_accept, cancelled, withdrawn, late, review_fails, returned_conflict, suspended, deregistered, no_reviewer, platform, platform_review and success. Ask v1_explain for each.

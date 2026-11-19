@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "f23505cca49df8811bbb03d395a373e6cec617e74dd74711c88842d60febe287",
+ "kb_hash": "b170a3a48ed884e59c704913941237643cd4c6d37cde7a79a69451a6a721155c",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -485,8 +485,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#aanmelden",
    "lang": "nl",
    "source": "faq",
-   "text": "Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we verzamelen geen gegevens.",
-   "hash": "dc09dfc719dc06c7"
+   "text": "Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we vragen je geen gegevens.",
+   "hash": "7e9ec246bf09d5af"
   },
   {
    "id": "faq-professionals-kost-het-mij-iets",
@@ -719,8 +719,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "offered: ordered, waiting for payment (30 minutes). funded: paid. The protocol offers the order in turns until someone accepts (see \"Accepting: turns\"). active: accepted. The difference with his lower price went back. The delivery deadline runs. delivered: 72 hours to accept or dispute. Silence counts as acceptance. review: disputed. A reviewer from the same register, matched by the protocol, decides meets or fails. hold_2a: waiting state after an outage: the dispute window ended while HumanPush could not show its own service worked. A dispute is still possible for a short time; payout moves at most 5 working days. closed_success, closed_refund (with a reason), closed_cancelled, expired. Reasons include not_paid, no_accept, cancelled, withdrawn, late, review_fails, returned_conflict, suspended, deregistered, no_reviewer, platform, platform_review and success. Ask v1_explain for each.",
-   "hash": "b152df035f050a5a"
+   "text": "offered: ordered, waiting for payment (30 minutes). funded: paid. The protocol offers the order in turns until someone accepts (see \"Accepting: turns\"). active: accepted. The difference with his lower price went back. The delivery deadline runs. delivered: 72 hours to accept or dispute. Silence counts as acceptance. review: disputed. A reviewer from the same register, matched by the protocol, decides meets or fails. Waiting state after an outage (v1_explain gives its exact state name): the dispute window ended while HumanPush could not show its own service worked. A dispute is still possible for a short time; payout moves at most 5 working days. closed_success, closed_refund (with a reason), closed_cancelled, expired. Reasons include not_paid, no_accept, cancelled, withdrawn, late, review_fails, returned_conflict, suspended, deregistered, no_reviewer, platform, platform_review and success. Ask v1_explain for each.",
+   "hash": "018be114ed2c43e2"
   },
   {
    "id": "llms-money",

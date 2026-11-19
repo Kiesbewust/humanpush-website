@@ -34,8 +34,13 @@ test('geen adres of postcode op de site', () => {
   }
 });
 
-test('hold_2a alleen als code met uitleg (llms.txt, statustabel op /agents)', () => {
-  for (const f of FILES.filter((f) => /hold_2a/.test(read(f)))) assert.ok(['llms.txt', 'agents.html', 'kb/index.json', 'api/_kb.js'].includes(f), f);
+test('geen interne woorden, ook niet hold_2a (QA 19 nov)', () => {
+  for (const f of FILES) assert.doesNotMatch(read(f), /hold_2a|v1-testtak|test branch|\/v1\/pro\b|tekenpagina/i, f);
+});
+
+test('geen zin "we verzamelen geen gegevens" naast de bezoekersteller (QA 19 nov)', () => {
+  for (const f of FILES) assert.doesNotMatch(read(f), /verzamelen (via de website )?geen gegevens/i, f);
+  assert.match(read('privacy.html'), /GoatCounter/);
 });
 
 test('het garantieblok staat alleen op /hoe-het-werkt; elders één regel met link', () => {

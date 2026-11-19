@@ -58,7 +58,7 @@ Professionals in een van vijf registers: NIVRE (schade-experts), NRVT (register-
 
 ### Waar kan ik me aanmelden?
 
-Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we verzamelen geen gegevens.
+Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we vragen je geen gegevens.
 
 ### Kost het mij iets?
 
