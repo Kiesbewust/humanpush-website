@@ -43,7 +43,7 @@ test('geen interne woorden, ook niet hold_2a (QA 19 nov)', () => {
 
 test('geen bezoekersteller of andere externe scripts: "we verzamelen geen gegevens" klopt (QA 19 nov)', () => {
   for (const f of PAGES) { const x = read(f); assert.doesNotMatch(x, /goatcounter|gc\.zgo\.at/i, f); assert.doesNotMatch(x, /<script[^>]+src="(https?:)?\/\//i, f); }
-  assert.match(read('professionals.html'), /Aanmelden is nog niet open\. Er is nu geen formulier en we verzamelen geen gegevens\./);
+  assert.match(read('professionals.html'), /Aanmelden is nog niet open\./);
   assert.doesNotMatch(read('rules.json'), /src\/|tools\/|\.ts\b|\.mjs\b/, 'geen interne paden in rules.json');
 });
 
@@ -122,5 +122,18 @@ test('geen straatadres of postcode in een publiek bestand', () => {
     const t = read(f);
     assert.doesNotMatch(t, /\b\d{4}\s?[A-Z]{2}\b/, `${f}: postcode`);
     assert.doesNotMatch(t, street, `${f}: straat met huisnummer`);
+  }
+});
+
+test('pilotaanvraag zonder backend: mailto-knoppen met sjabloon, geen formulier naar buiten, geen trackers, geen cookies', () => {
+  const NOTE = 'Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox.';
+  assert.match(read('bedrijven.html'), /href="mailto:info@humanpush\.nl\?subject=Pilot%20aanvragen&amp;body=Organisatie%3A%0ASoort%20schadezaken%3A%0AOngeveer%20hoeveel%20per%20maand%3A%0AWerk%20je%20al%20met%20AI-agents%20of%20claimsoftware%20%28welke%29%3A%0ATelefoon%20%28optioneel%29%3A%0A">Pilot aanvragen<\/a>/);
+  assert.match(read('professionals.html'), /href="mailto:info@humanpush\.nl\?subject=Interesse%20als%20professional&amp;body=Register%20en%20registratienummer%3A%0ABranche%3A%0AZelfstandig%20of%20bureau%3A%0A">Interesse als professional<\/a>/);
+  for (const f of ['bedrijven.html', 'professionals.html', 'pilot/second-opinion.html']) assert.ok(read(f).includes(NOTE), f);
+  const trackers = /google-analytics|googletagmanager|gtag\(|plausible\.io|matomo|hotjar|segment\.(io|com)|facebook\.net|fbq\(|clarity\.ms|goatcounter|umami|mixpanel|hubspot|typeform|tally\.so|jotform|formspree|getform|document\.cookie/i;
+  for (const f of FILES.filter((f) => /\.(html|js|css|txt|json)$/.test(f) && !f.startsWith('api/'))) {
+    const t = read(f);
+    assert.doesNotMatch(t, trackers, f);
+    for (const m of t.matchAll(/<form\b[^>]*action="([^"]*)"/gi)) assert.match(m[1], /^\//, `${f}: formulier naar buiten`);
   }
 });

@@ -41,7 +41,8 @@ test('pilot: hoe een pilot eruitziet, 5% afhandelfee zonder bedragen, CTA alleen
   assert.doesNotMatch(main, /pilotvoorwaarden in overleg|platformvergoeding|vaste vergoeding/i);
   const text = main.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ');
   assert.doesNotMatch(text, /€|\bEUR\b|\d+[.,]\d{2}\b|euro/i, 'geen bedragen op de pilotpagina');
-  assert.match(main, /Interesse in een pilot\? Mail <a href="mailto:info@humanpush\.nl[^"]*">info@humanpush\.nl<\/a>/);
+  assert.equal((main.match(/<a class="btn btn-primary" href="mailto:info@humanpush\.nl\?subject=Pilot%20aanvragen&amp;body=Organisatie%3A[^"]*">Pilot aanvragen<\/a>/g) || []).length, 2);
+  assert.match(main, /Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox\./);
   assert.doesNotMatch(P, /<form\b|<input\b|<textarea\b|<iframe\b/i);
   for (const m of main.matchAll(/href="([^"]+)"/g)) assert.match(m[1], /^(mailto:info@humanpush\.nl|\/|#)/, m[1]);
 });
