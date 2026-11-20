@@ -167,7 +167,7 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <h2 id="bewijs">Het bewijs</h2>
 <p>Een registercheck: HumanPush heeft de professional met een vaste checklist in het openbare register gevonden. De bron en de datum worden bewaard. De check is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud; bij octrooigemachtigden is daarbovenop de peildatum van de lijst hooguit <span data-rule="octrooiSourceMaxAgeDays">120</span> dagen oud. Bij elke aanname opnieuw gecontroleerd. Het is geen realtime koppeling met het register.</p>
 <p>Je agent mag met <code>min_proof_level</code> een strengere check eisen, nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand.</p>
-<p>Elke stap van de professional is getekend met zijn passkey. Elke stap staat in het dossier van de opdracht, en elke stap verwijst naar de vorige. <code>verify_proof</code> controleert het geheel.</p>
+<p>Elke stap van de professional is getekend met zijn passkey (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>). Elke stap staat in het dossier van de opdracht, en elke stap verwijst naar de vorige. <code>verify_proof</code> controleert het geheel.</p>
 <h2>Wanneer niet</h2>
 <p>Niet voor consumenten. Niet als je geen geregistreerde professional nodig hebt die tekent. Niet voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Niet als je een andere conclusie wilt afdwingen: bezwaar telt alleen bij een objectieve fout.</p>
 <p class="linkline"><a href="/hoe-het-werkt#garanties">Lees wat HumanPush garandeert</a></p>

@@ -36,7 +36,7 @@ test('woordenlijst: "sleutel" alleen als API-sleutel op /agents; elders "toegang
 
 test('woordenlijst: uitleg van digitale vingerafdruk, handtekening met je passkey en dossier', () => {
   const vinger = 'Bij de oplevering berekent HumanPush uit het stuk een unieke code van 64 tekens. Verander je één komma, dan komt er een totaal andere code uit.';
-  const passkey = 'Daarmee bevestig jij als geregistreerde professional dat jij de opdracht aanneemt, dat jij het opgeleverde werk hebt gemaakt of gecontroleerd, en dat jij ervoor instaat.';
+  const passkey = 'Daarmee bevestig jij als geregistreerde professional dat jij de opdracht aanneemt, dat jij het opgeleverde werk hebt gemaakt of gecontroleerd, en dat jij ervoor instaat (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>).';
   for (const f of ['index.html', 'hoe-het-werkt.html']) {
     const t = read(f);
     assert.ok(t.includes(vinger), `${f}: vingerafdruk`);
@@ -410,5 +410,14 @@ test('grenzen van het bewijs: blok op /hoe-het-werkt#grenzen, kort op /bedrijven
     const t = (f.endsWith('.html') ? read(f).slice(read(f).indexOf('<body')).replace(/<[^>]+>/g, ' ') : read(f)).replace(/\s+/g, ' ');
     assert.doesNotMatch(t, /juridisch bindend|rechtsgeldig|onweerlegbaar|garantie op kwaliteit/i, f);
     for (const s of t.split(/(?<=[.?!])\s+/)) if (/gekwalificeerd/i.test(s)) assert.match(s, ok, `${f}: "${s.slice(0, 120)}"`);
+  }
+});
+
+test('tekenen uitgelegd: lead onder de h1 zegt wat tekenen betekent; per pagina één keer de passkey-kanttekening', () => {
+  const home = read('index.html');
+  assert.match(home, /<h1>Je agent bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">Een geregistreerde professional beoordeelt het werk en staat er met naam en registratie voor in\. Vastgelegd in een dossier dat je zelf kunt nagaan\.<\/p>\n<p class="hero-link"><a href="\/hoe-het-werkt#grenzen">Wat het dossier aantoont, en wat niet<\/a><\/p>/);
+  assert.doesNotMatch(home.match(/<meta name="description" content="([^"]*)"/)[1], /HumanPush-MCP|voert de regels uit/);
+  for (const f of ['index.html', 'hoe-het-werkt.html', 'bedrijven.html', 'professionals.html', 'agents.html', 'pilot/second-opinion.html']) {
+    assert.equal((read(f).match(/\(geen gekwalificeerde e-handtekening; zie <a href="\/hoe-het-werkt#grenzen">wat het dossier aantoont<\/a>\)/g) || []).length, 1, f);
   }
 });
