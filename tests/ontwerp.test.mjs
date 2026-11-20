@@ -114,7 +114,10 @@ test('goudregel: goud alleen als accent, nooit knopachtergrond of tekstkleur', (
 
 test('dienstkaart NRGD (bedrijf): vaststelling, geen "zekerheid"', () => {
   const nrgd = JSON.parse(read('partials/diensten.json')).registers.find((r) => r.id === 'nrgd');
-  assert.equal(nrgd.bedrijf.regel, 'Een getekende vaststelling of één document onveranderd is, door een NRGD-deskundige.');
+  assert.equal(nrgd.bedrijf.regel, 'Een getekende vaststelling of één document overeenkomt met een referentiepunt dat je meelevert, door een NRGD-deskundige.');
+  assert.ok(nrgd.in_scope.includes("Je stelt vast of één aangeleverd document overeenkomt met een referentiepunt dat het bedrijf meelevert: een eerdere digitale vingerafdruk (hash), een ondertekende versie of een tijdstempel. Zonder bruikbaar referentiepunt is de uitkomst 'niet te beoordelen'."));
+  assert.ok(nrgd.out_of_scope.includes('Een oordeel zonder referentiepunt'));
+  assert.doesNotMatch(JSON.stringify(nrgd), /sinds (een|het opgegeven) tijdstip|onveranderd is/);
   for (const f of ['professionals.html', 'bedrijven.html']) assert.doesNotMatch(read(f), /Zekerheid of één document/, f);
 });
 

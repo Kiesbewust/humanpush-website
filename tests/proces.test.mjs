@@ -19,7 +19,8 @@ test('woordenlijst: geen logboek, hash, passkey-handtekening, protocol, "mens", 
   const files = [...PAGES.filter((f) => f !== 'voorwaarden.html'), 'kb/spelregels.md', 'kb/faq.md', 'partials/diensten.json'];
   const bad = /logboek|\bhash(es)?\b|inhoudshash|passkey-handtekening|\bprotocol\b|\bmens\b|niveau 2|\bniveau\b|registerbewijs|registerverklaring|tijdstip-hash/i;
   for (const f of files) {
-    const m = visible(read(f)).match(bad);
+    // Eén uitzondering: "digitale vingerafdruk (hash)" in de NRGD-dienst, waar het referentiepunt precies moet zijn.
+    const m = visible(read(f)).replace(/digitale vingerafdruk \(hash\)/g, "").match(bad);
     assert.equal(m, null, `${f}: "${m && m[0]}"`);
   }
 });
