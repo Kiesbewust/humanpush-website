@@ -137,3 +137,19 @@ test('pilotaanvraag zonder backend: mailto-knoppen met sjabloon, geen formulier 
     for (const m of t.matchAll(/<form\b[^>]*action="([^"]*)"/gi)) assert.match(m[1], /^\//, `${f}: formulier naar buiten`);
   }
 });
+
+test('voorbeeld-dossier: fictief, gestempeld, en de sha256 in de JSON is de echte hash van de pdf', async () => {
+  const { createHash } = await import('node:crypto');
+  const pdf = readFileSync(join(ROOT, 'voorbeeld/rapport-voorbeeld.pdf'));
+  const d = JSON.parse(read('voorbeeld/dossier-voorbeeld.json'));
+  assert.equal(d.example, true);
+  assert.equal(d.sha256, createHash('sha256').update(pdf).digest('hex'), 'hash van de pdf klopt');
+  assert.equal(d.signature, 'VOORBEELD – niet verifieerbaar');
+  assert.equal(d.organisation.kvk, '00000000');
+  const text = pdf.toString('latin1');
+  assert.ok(text.includes('VOORBEELD') && text.includes('FICTIEF') && text.includes('GEEN ECHTE OPDRACHT'), 'gestempeld');
+  assert.doesNotMatch(JSON.stringify(d), /NL\d{2}[A-Z]{4}\d{6,}|\b(?!00000000\b)\d{8}\b/, 'geen echte KvK- of rekeningnummers');
+  const b = read('bedrijven.html');
+  assert.match(b, /id="voorbeeld-dossier"[\s\S]*href="\/voorbeeld\/rapport-voorbeeld\.pdf"[\s\S]*href="\/voorbeeld\/dossier-voorbeeld\.json"[\s\S]*shasum -a 256 rapport-voorbeeld\.pdf[\s\S]*VOORBEELD – niet verifieerbaar/);
+  assert.match(read('hoe-het-werkt.html'), /id="grenzen"[\s\S]*?<a href="\/bedrijven#voorbeeld-dossier">Bekijk een voorbeeld-dossier<\/a>/);
+});

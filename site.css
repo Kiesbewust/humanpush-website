@@ -714,3 +714,8 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .hero.dark .hero-link a { color: var(--white); text-decoration-color: rgba(255, 255, 255, .5); }
 
 .status-tabel th[scope="row"] { font-weight: 500; color: var(--ink); text-align: left; }
+
+.voorbeeld-dossier { margin-top: 28px; padding: 20px 22px; background: var(--white); border-radius: var(--radius); max-width: 46em; }
+.voorbeeld-dossier h3 { margin: 0 0 8px; }
+.small-steps { padding-left: 22px; font-size: 16px; }
+.small-steps li { margin: 0 0 6px; }

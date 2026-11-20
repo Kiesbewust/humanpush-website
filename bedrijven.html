@@ -138,6 +138,13 @@
 </ul>
 <p><strong>HumanPush controleert het proces, niet de inhoud.</strong> Of er op tijd is opgeleverd, met een vaste uitkomst, getekend door de professional die aannam en met een kloppende vingerafdruk. Of de conclusie juist is, beoordeelt de professional onder zijn eigen beroepsregels. <a href="/hoe-het-werkt#controle">Lees wat HumanPush controleert</a></p>
 <p class="grenzen-kort"><strong>Wat het dossier niet aantoont:</strong> dat de inhoud juist is (daarvoor staat de professional in, onder de regels van zijn register), dat hij geschikt is voor élke opdracht in zijn vak, of dat de handtekening met de passkey een gekwalificeerde elektronische handtekening is. <a href="/hoe-het-werkt#grenzen">Wat het dossier aantoont, en wat niet</a></p>
+<div class="voorbeeld-dossier" id="voorbeeld-dossier">
+<h3>Bekijk een voorbeeld-dossier</h3>
+<p>Een fictieve toets van een schadevaststelling, met het rapport en het dossier: <a href="/voorbeeld/rapport-voorbeeld.pdf">rapport (pdf)</a> en <a href="/voorbeeld/dossier-voorbeeld.json">dossier (json)</a>. Alles is verzonnen; er is geen echte opdracht, expert of organisatie.</p>
+<p>Zo controleer je de digitale vingerafdruk zelf:</p>
+<ol class="small-steps"><li>Download het rapport.</li><li>Reken de vingerafdruk uit: <code>shasum -a 256 rapport-voorbeeld.pdf</code> (Windows: <code>certutil -hashfile rapport-voorbeeld.pdf SHA256</code>).</li><li>Vergelijk de uitkomst met <code>sha256</code> in het dossier: gelijk betekent dat het stuk niet is veranderd.</li></ol>
+<p class="small muted">De handtekening met de passkey is in dit voorbeeld niet echt: in het dossier staat "VOORBEELD – niet verifieerbaar".</p>
+</div>
 </div>
 </section>
 
