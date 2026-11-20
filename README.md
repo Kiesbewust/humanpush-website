@@ -43,6 +43,7 @@ Ontwerpsysteem in `site.css` ("infrastructuur voor geregistreerde professionals"
 |---|---|---|---|
 | `HP_CONFIG.chat` | `config.js` | `false` | het chatvenster (`chat.js`, `chat.css`) laadt wel/niet |
 | `HP_CONFIG.ask` | `config.js` | `false` | het blok met `POST /api/ask` op /agents |
+| `HP_CONFIG.testenv` | `config.js` | `false` | de knop Inloggen ("Professionals: testomgeving") en op /agents "Proberen in de testomgeving"; alleen Bob zet dit aan |
 | `ASK_ENABLED` | Vercel env | uit | `/api/ask` geeft anders `503 ask_disabled` |
 | `ASK_MODE` | Vercel env | `extract` | `extract` (geen model, letterlijk citaat) of `llm` (alleen met Bobs ja en sleutel) |
 | `ASK_DAILY_CAP` | Vercel env | `500` | maximaal aantal modelaanroepen per dag |
@@ -51,7 +52,7 @@ Ontwerpsysteem in `site.css` ("infrastructuur voor geregistreerde professionals"
 
 ## Contact en prijzen
 
-Aanmelden is nog niet open: er zijn geen formulieren en geen mailto-knoppen als call-to-action. info@humanpush.nl staat alleen als contactadres in de footer, de voorwaarden en de privacyverklaring. De vergoeding van HumanPush: een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt. Een wijziging geldt alleen voor nieuwe opdrachten. (Engels: a fixed fee per service, the same for every company, excluding VAT, visible before you order. A change applies only to new orders.) De footer is: "HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476", gevolgd door info@humanpush.nl, zonder adres. Op privacy en voorwaarden staat de aanbieder als "HumAgent B.V. (handelsnaam HumanPush), KvK 42222476". Rangorde in de teksten: voorwaarden boven protocol boven site.
+Aanmelden is nog niet open: er zijn geen formulieren. Bedrijven en professionals kunnen met een mailto-knop ("Pilot aanvragen", "Interesse als professional") een mail met een paar vragen sturen; er is geen formulier-backend en de site verzamelt geen gegevens. De kosten: de HumanPush-afhandelfee is 5% van de prijs van de professional, excl. btw, plus btw over de fee (`rules.json` `feePct`). Geen abonnement, geen minimum, geen andere kosten. Vooraf betaalt het bedrijf zijn maximumprijs plus 5% daarvan; neemt een professional aan voor minder, dan gaat het verschil in prijs en fee meteen terug. (Engels: HumanPush handling fee: 5% of the professional's price, excluding VAT.) De vanaf-prijs per dienst (`partials/diensten.json` `vanaf_cents`) is nu leeg; een latere PR vult hem uit de catalogus van humanpush-mcp. De footer is: "HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · btw NL870249964B01 · Utrecht", met info@humanpush.nl, zonder straatadres. Op privacy en voorwaarden staat de aanbieder als "HumAgent B.V. (handelsnaam HumanPush), KvK 42222476". Rangorde in de teksten: voorwaarden boven protocol boven site.
 
 ## Live zetten
 
@@ -71,4 +72,4 @@ Pushes naar `main` worden automatisch gedeployed naar Vercel (project `humanpush
 
 ## Woordenlijst (publieke Nederlandse tekst)
 
-Bewijsdossier (niet logboek), digitale vingerafdruk (niet hash), handtekening met je passkey (niet passkey-handtekening), registercheck (niet registerbewijs of niveau 2), toegangscode voor je agent (op /agents: API-sleutel), HumanPush (niet protocol), jij of de professional (niet mens). "Beurt" staat alleen nog in /voorwaarden; die tekst verandert pas na akkoord van de jurist (PR #20). `tests/proces.test.mjs` bewaakt dit.
+Dossier, bij de eerste vermelding "het dossier van de opdracht" (niet bewijsdossier of logboek), digitale vingerafdruk (niet hash; alleen bij de NRGD-dienst "digitale vingerafdruk (hash)"), HumanPush-scherm (niet HumanPush-agent), HumanPush-afhandelfee (niet vaste vergoeding of H), vanaf-prijs (de laagste prijs die nu geldt), handtekening met je passkey (niet passkey-handtekening), registercheck (niet registerbewijs of niveau 2), toegangscode voor je agent (op /agents: API-sleutel), HumanPush (niet protocol), jij of de professional (niet mens). "Beurt" staat alleen nog in /voorwaarden; die tekst verandert pas na akkoord van de jurist (PR #20). `tests/proces.test.mjs` bewaakt dit.
