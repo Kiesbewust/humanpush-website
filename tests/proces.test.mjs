@@ -27,9 +27,9 @@ test('woordenlijst: geen logboek, hash, passkey-handtekening, protocol, "mens", 
 test('woordenlijst: "sleutel" alleen als API-sleutel op /agents; elders "toegangscode voor je agent"', () => {
   for (const f of [...PAGES.filter((f) => f !== 'voorwaarden.html'), 'kb/spelregels.md', 'kb/faq.md']) {
     const t = visible(read(f));
-    for (const m of t.matchAll(/\S*sleutel\S*/gi)) assert.ok(f === 'agents.html' && /API-sleutel/.test(m[0]), `${f}: "${m[0]}"`);
+    for (const m of t.matchAll(/\S*sleutel\S*/gi)) assert.ok(/^versleuteld/i.test(m[0]) || (f === 'agents.html' && /API-sleutel/.test(m[0])), `${f}: "${m[0]}"`);
   }
-  for (const f of ['index.html', 'bedrijven.html', 'professionals.html']) assert.doesNotMatch(visible(read(f)), /sleutel/i, f);
+  for (const f of ['index.html', 'bedrijven.html', 'professionals.html']) assert.doesNotMatch(visible(read(f)).replace(/versleuteld/g, ''), /sleutel/i, f);
   assert.match(read('bedrijven.html'), /toegangscode/);
   assert.match(read('professionals.html'), /toegangscode voor je agent/);
 });
@@ -362,4 +362,15 @@ test('geen overdrijven, geen doodlopende knoppen: testvlag uit, scherm in plaats
   assert.match(read('bedrijven.html'), /<span class="fake sec">Dossier bekijken<\/span><span class="soon">Voorbeeld · komt eraan<\/span>/);
   for (const f of ['bedrijven.html', 'hoe-het-werkt.html', 'index.html', 'pilot/second-opinion.html']) assert.doesNotMatch(peopleText(read(f)), /AVG \(art\. 22\)|AI-verordening eist/, `${f}: wetsalinea alleen in de FAQ`);
   assert.match(read('veelgestelde-vragen.html'), /id="wet"[\s\S]*AVG \(art\. 22\)/);
+});
+
+test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, DAC7; niets over wie factureert', () => {
+  const t = read('professionals.html');
+  const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/section>/)[0];
+  for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys', 'DAC7']) assert.ok(begin.includes(x), x);
+  assert.match(begin, /Als platform is HumanPush wettelijk verplicht \(DAC7\) om gegevens over je opdrachten en inkomsten jaarlijks aan de Belastingdienst door te geven\./);
+  const faq = read('veelgestelde-vragen.html');
+  assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot je rekening volgt na de testfase\.<\/p>/);
+  assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op je scherm bij HumanPush, of je agent vraagt het op\. Er gaat nog geen mail of push\./);
+  for (const f of PAGES.filter((f) => f !== 'voorwaarden.html')) assert.doesNotMatch(read(f), /factur/i, `${f}: wie factureert wacht op jurist en fiscalist`);
 });

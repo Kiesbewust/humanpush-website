@@ -122,7 +122,11 @@ Je hebt 45 minuten binnen werktijd om een aangeboden opdracht aan te nemen of do
 
 ### Wanneer krijg ik mijn geld?
 
-Na acceptatie, na 72 uur zonder bezwaar, of na een oordeel "voldoet". Kan HumanPush niet aantonen dat zijn eigen dienst in het venster werkte, dan schuift de uitbetaling hooguit 5 werkdagen op.
+Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt na de testfase.
+
+### Welke gegevens moet ik geven, en waarom?
+
+Als platform is HumanPush wettelijk verplicht (DAC7) om gegevens over je opdrachten en inkomsten jaarlijks aan de Belastingdienst door te geven. Daarom vragen we vóór je eerste opdracht je KvK-nummer, btw-nummer (als je dat hebt), IBAN en adres. We slaan die versleuteld op.
 
 ### Wat als de opdrachtgever annuleert?
 

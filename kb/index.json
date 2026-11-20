@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "96790862d6eaa962c2098d6a636a55e0682d3531f2afa91996a48bfa09f19316",
+ "kb_hash": "822ffb0b2150f2a16973a60e167023ffa870d44367f2de8a7ed48010c2b4fd80",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -626,11 +626,20 @@
   {
    "id": "faq-professionals-wanneer-krijg-ik-mijn-geld",
    "title": "Wanneer krijg ik mijn geld?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
+   "url": "https://humanpush.nl/veelgestelde-vragen#geld",
    "lang": "nl",
    "source": "faq",
-   "text": "Na acceptatie, na 72 uur zonder bezwaar, of na een oordeel \"voldoet\". Kan HumanPush niet aantonen dat zijn eigen dienst in het venster werkte, dan schuift de uitbetaling hooguit 5 werkdagen op.",
-   "hash": "5496d52d01ddffeb"
+   "text": "Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt na de testfase.",
+   "hash": "0385367e5d1c784e"
+  },
+  {
+   "id": "faq-professionals-welke-gegevens-moet-ik-geven-en-waarom",
+   "title": "Welke gegevens moet ik geven, en waarom?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#dac7",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Als platform is HumanPush wettelijk verplicht (DAC7) om gegevens over je opdrachten en inkomsten jaarlijks aan de Belastingdienst door te geven. Daarom vragen we vóór je eerste opdracht je KvK-nummer, btw-nummer (als je dat hebt), IBAN en adres. We slaan die versleuteld op.",
+   "hash": "2a60b5f05fcd8796"
   },
   {
    "id": "faq-professionals-wat-als-de-opdrachtgever-annuleert",
