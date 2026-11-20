@@ -61,7 +61,8 @@ test('elke pagina: noindex, banner, footer zonder adres, Inloggen met "komt eraa
     const t = read(f);
     assert.match(t, /<meta name="robots" content="noindex, nofollow">/, f);
     assert.ok(t.includes(banner), f + ' banner');
-    assert.ok(t.includes('HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476). <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>'), f + ' footer');
+    assert.ok(t.includes('<p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal">'), f + ' footer');
+    assert.equal(t.match(/<p class="f-legal">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, ''), 'HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · btw NL870249964B01 · Utrecht', f + ' footerregel');
     assert.match(t, /Inloggen[\s\S]{0,400}komt eraan/, f + ' inloggen');
     assert.doesNotMatch(t, /fonts\.googleapis|fonts\.gstatic/, f);
     assert.equal((t.match(/<h1[ >]/g) || []).length, 1, f + ' één h1');
