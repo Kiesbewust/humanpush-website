@@ -1,5 +1,5 @@
 {
-  "_doc": "Eén bron voor de dienstkaarten op /professionals en /bedrijven. tools/sync-partials.mjs zet ze in <!--diensten:start view=pro|bedrijf-->. Wel- en niet-in-de-dienst volgen de catalogus van versie 1; regels die daar nog niet besloten zijn, staan hier niet. {naam} wordt een termijn uit rules.json. uitleg: in één zin wat het register is en welke sector. vanaf_cents: de laagste prijs die nu geldt (in centen), of null zolang er nog geen professionals zijn aangemeld; een latere PR vult dit uit de catalogusexport van humanpush-mcp.",
+  "_doc": "Eén bron voor de dienstkaarten op /professionals en /bedrijven. tools/sync-partials.mjs zet ze in <!--diensten:start view=pro|bedrijf-->. Wel- en niet-in-de-dienst volgen de catalogus van versie 1; regels die daar nog niet besloten zijn, staan hier niet. {naam} wordt een termijn uit rules.json. uitleg: in één zin wat het register is en welke sector. vanaf_cents: de laagste prijs die nu geldt (in centen), of null zolang er nog geen professionals zijn aangemeld; een latere PR vult dit uit de catalogusexport van humanpush-mcp. status: boekbaar | in_voorbereiding | in_toetsing (besluit Bob 20-11: NIVRE eerst). kort: één regel voor \"Ook in voorbereiding\".",
   "registers": [
     {
       "id": "nivre",
@@ -8,35 +8,40 @@
       "uitleg": "Schade-expert, ingeschreven bij NIVRE. Sector: schade en verzekeringen.",
       "badge": "NIVRE",
       "service_id": "nivre.independent_opinion",
-      "dienst": "Onafhankelijk oordeel over een claimbesluit, op stukken",
+      "status": "boekbaar",
+      "kort": "Toets van een schadevaststelling op basis van een compleet dossier.",
+      "dienst": "Toets van een schadevaststelling op basis van een compleet dossier",
       "vanaf_cents": null,
       "pro": {
-        "regel": "Je beoordeelt op stukken of een claimbesluit standhoudt.",
+        "regel": "Je toetst op stukken of een vastgestelde schadehoogte standhoudt.",
         "chips": [
           "Rapport als pdf",
           "Op stukken",
           "Getekend met passkey"
         ],
-        "levert": "Een gemotiveerd oordeel: het besluit houdt stand, houdt deels stand, of houdt geen stand.",
+        "levert": "Een gemotiveerd oordeel over de schadehoogte: houdt stand, houdt deels stand, of houdt geen stand.",
         "registratie": "Ingeschreven in het NIVRE-register. We controleren je in de openbare NIVRE-zoeker, met een vaste checklist.",
         "tekent": "Aanname, oplevering en een onafhankelijkheidsverklaring: je werkt niet voor de betrokken verzekeraar en hebt geen belang bij de uitkomst."
       },
       "bedrijf": {
-        "regel": "Een second opinion op een schadebesluit, getekend door een schade-expert.",
+        "regel": "Een onafhankelijke toets van een schadevaststelling, getekend door een NIVRE-geregistreerde schade-expert.",
         "chips": [
           "Op stukken",
           "Geen personenschade",
           "Vaste uitkomst"
         ],
-        "krijgt": "Een getekend, gemotiveerd oordeel (pdf): standhouden, deels standhouden of niet standhouden."
+        "krijgt": "Een getekend, gemotiveerd oordeel over de schadehoogte (pdf): houdt stand, houdt deels stand of houdt geen stand."
       },
       "in_scope": [
-        "Het oordeel beantwoordt de vraag of het claimbesluit standhoudt, met motivering.",
-        "Oordeel op stukken",
+        "Het oordeel beantwoordt de vraag of de vastgestelde schadehoogte standhoudt, met motivering.",
+        "Schadehoogte, los van dekking",
+        "Zaakschade",
+        "Oordeel op stukken, op basis van een compleet dossier",
         "Binnen de opgegeven branche",
         "Alleen B2B"
       ],
       "out_of_scope": [
+        "Geen oordeel over dekking",
         "Geen opname ter plaatse",
         "Geen personenschade",
         "Geen herstelronde"
@@ -51,6 +56,8 @@
       "uitleg": "Register-taxateur (wonen), ingeschreven bij NRVT. Sector: taxatie van woningen.",
       "badge": "NRVT",
       "service_id": "nrvt.residential_valuation_non_nwwi",
+      "status": "in_voorbereiding",
+      "kort": "Taxatie van een woning door een register-taxateur.",
       "dienst": "Taxatie van een woning, niet-NWWI",
       "vanaf_cents": null,
       "pro": {
@@ -91,6 +98,8 @@
       "uitleg": "Bouwkundig inspecteur, ingeschreven bij NRBI. Sector: bouwkundige keuring van bestaande woningen.",
       "badge": "NRBI",
       "service_id": "nrbi.report_desk_review",
+      "status": "in_voorbereiding",
+      "kort": "Toets op afstand van een bestaand bouwkundig keuringsrapport.",
       "dienst": "Rapporttoets op afstand van een bouwkundig keuringsrapport",
       "vanaf_cents": null,
       "pro": {
@@ -134,6 +143,8 @@
       "uitleg": "Gerechtelijk deskundige (digitaal onderzoek), ingeschreven bij NRGD. Sector: digitaal onderzoek van documenten.",
       "badge": "NRGD",
       "service_id": "nrgd.document_integrity",
+      "status": "in_voorbereiding",
+      "kort": "Vaststelling of één document overeenkomt met een meegeleverd referentiepunt.",
       "dienst": "Integriteits- en tijdstempelcheck van één document",
       "vanaf_cents": null,
       "pro": {
@@ -177,6 +188,8 @@
       "uitleg": "Octrooigemachtigde, ingeschreven in het register van octrooigemachtigden. Sector: octrooien en uitvindingen.",
       "badge": "Octrooi",
       "service_id": "ocnl.novelty_quickscan",
+      "status": "in_voorbereiding",
+      "kort": "Nieuwheidsquickscan met getekend zoekrapport.",
       "dienst": "Nieuwheidsquickscan met getekend zoekrapport",
       "vanaf_cents": null,
       "pro": {

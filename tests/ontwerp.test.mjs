@@ -48,18 +48,19 @@ test('dienstkaarten: 5 registers in vaste volgorde, beide kanten in de HTML, det
     for (const k of ['pro', 'bedrijf']) assert.equal(r[k].chips.length, 3, `${r.id} ${k}: 3 chips`);
     assert.doesNotMatch(JSON.stringify(r), /TODO|\[\.\.\.\]|€/);
   }
-  for (const [f, view] of [['professionals.html', 'pro'], ['bedrijven.html', 'bedrijf']]) {
+  // /professionals toont alle vijf registers (NIVRE uitgeklapt); /bedrijven alleen de dienst die te boeken is (besluit 20-11: NIVRE eerst).
+  for (const [f, view, regs] of [['professionals.html', 'pro', data.registers], ['bedrijven.html', 'bedrijf', data.registers.filter((r) => r.status === 'boekbaar')]]) {
     const t = read(f);
-    assert.match(t, new RegExp(`<!--diensten:start view=${view}-->`), f);
+    assert.match(t, new RegExp(`<!--diensten:start view=${view}( only=boekbaar)?-->`), f);
     assert.match(t, new RegExp(`<div class="svc" data-svc data-view="${view}">`), f);
-    for (const r of data.registers) {
+    for (const r of regs) {
       assert.match(t, new RegExp(`<section class="svc-card" id="${r.id}"`), `${f}: ${r.id}`);
       assert.match(t, new RegExp(`<a class="svc-tab" href="#${r.id}"`), `${f}: tab ${r.id}`);
       assert.ok(t.includes(r.service_id), `${f}: ${r.service_id}`);
     }
-    assert.equal((t.match(/<div class="svc-v" data-v="pro"/g) || []).length, 5, f);
-    assert.equal((t.match(/<div class="svc-v" data-v="bedrijf"/g) || []).length, 5, f);
-    assert.equal((t.match(/<details class="svc-more" open>/g) || []).length, 10, f);
+    assert.equal((t.match(/<div class="svc-v" data-v="pro"/g) || []).length, regs.length, f);
+    assert.equal((t.match(/<div class="svc-v" data-v="bedrijf"/g) || []).length, regs.length, f);
+    assert.equal((t.match(/<details class="svc-more" open>/g) || []).length, 2, `${f}: alleen NIVRE uitgeklapt (zonder JS)`);
     assert.match(t, /<button type="button" class="svc-view" data-view="pro" aria-pressed="(true|false)">Voor de professional<\/button>/);
   }
 });

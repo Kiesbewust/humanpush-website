@@ -35,9 +35,12 @@ export function vanafLine(cents) {
   return `<p class="svc-vanaf">Vanaf € ${euro} · laagste prijs die nu geldt</p>`;
 }
 const withRules = (s) => esc(s).replace(/\{(\w+)\}/g, (_, k) => span(k));
-function dienstenBlock(view) {
+const STATUS = { boekbaar: null, in_voorbereiding: 'In voorbereiding', in_toetsing: 'In toetsing: niet te boeken' };
+function dienstenBlock(view, only) {
   if (view !== 'pro' && view !== 'bedrijf') throw new Error(`onbekende dienstenweergave: ${view}`);
-  const { registers } = JSON.parse(read('partials/diensten.json'));
+  let { registers } = JSON.parse(read('partials/diensten.json'));
+  for (const r of registers) if (!(r.status in STATUS)) throw new Error(`${r.id}: onbekende status ${r.status}`);
+  if (only) registers = registers.filter((r) => r.status === only);
   const li = (xs) => xs.map((x) => `<li>${withRules(x)}</li>`).join('');
   const row = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
   const tabs = registers.map((r, i) => `<a class="svc-tab" href="#${r.id}" id="tab-${r.id}" data-tab="${r.id}"${i ? '' : ' aria-current="true"'}>${esc(r.tab)}</a>`).join('');
@@ -48,9 +51,9 @@ function dienstenBlock(view) {
     const scope = `<div class="svc-scope"><div><p class="label">Valt in de dienst</p><ul class="ticks">${li(r.in_scope)}</ul></div><div><p class="label">Valt erbuiten</p><ul class="crosses">${li(r.out_of_scope)}</ul></div></div>`;
     const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} minuten binnen werktijd per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', `Je zet zelf je prijs en levertijd. Er gaat niets van af: de afhandelfee van ${span('feePct')}% betaalt het bedrijf bovenop je prijs. Reken je btw, dan is je prijs inclusief btw.`)}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
     const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${row('Zo vraag je aan', 'Je agent kiest deze dienst, levert de stukken aan en geeft een uiterste datum en een maximumprijs. Het bedrijf betaalt via een betaallink.')}${row('Bewijs', `Registercheck (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gedaan bij de aanname), de digitale vingerafdruk van het stuk, de handtekening met de passkey van de professional en het dossier van de opdracht.`)}</dl>`;
-    const part = (v, x, body, r) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p>${vanafLine(r.vanaf_cents)}<details class="svc-more" open><summary>Details</summary>${body}${scope}</details></div>`;
+    const part = (v, x, body, r) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p>${vanafLine(r.vanaf_cents)}<details class="svc-more"${r.status === 'boekbaar' ? ' open' : ''}><summary>Details</summary>${body}${scope}</details></div>`;
     return `<section class="svc-card" id="${r.id}" aria-labelledby="${r.id}-kop" data-panel="${r.id}">`
-      + `<header class="svc-top"><span class="badge">${esc(r.badge)}</span><span class="status">${span('turnWorkingMinutes')} min binnen werktijd om aan te nemen</span></header>`
+      + `<header class="svc-top"><span class="badge">${esc(r.badge)}</span><span class="status${STATUS[r.status] ? ' prep' : ''}">${STATUS[r.status] || `${span('turnWorkingMinutes')} min binnen werktijd om aan te nemen`}</span></header>`
       + `<h3 id="${r.id}-kop">${esc(r.dienst)}</h3><p class="svc-uitleg"><strong>${esc(r.tab)}:</strong> ${esc(r.uitleg)}</p><p class="svc-reg">${esc(r.beroep)} · ${esc(r.registernaam)}</p>`
       + part('pro', p, proBody, r) + part('bedrijf', b, bizBody, r) + `<details class="voor-bouwer"><summary>Voor je bouwer</summary><p>Dienst <code>${esc(r.service_id)}</code>. Bestellen met <code>v1_create_order</code>: <code>service_id</code>, de invoer uit <code>list_services</code>, een uiterste datum en <code>max_price_cents</code>. Meer op <a href="/agents">/agents</a>.</p></details></section>`;
   }).join('\n');
@@ -78,10 +81,18 @@ function stappenBlock(view) {
   return `<div class="stappen" data-view="${view}">\n<ol class="tl">${lis}</ol>\n${band}\n${rule}\n</div>`;
 }
 
+// "Ook in voorbereiding": de diensten die nog niet te boeken zijn, elk in één regel.
+function voorbereidingBlock() {
+  const { registers } = JSON.parse(read('partials/diensten.json'));
+  const li = registers.filter((r) => r.status !== 'boekbaar').map((r) => `<li><strong>${esc(r.beroep)} (${esc(r.tab)}).</strong> ${esc(r.kort)} <span class="status prep">${STATUS[r.status]}</span></li>`).join('');
+  return `<ul class="voorbereiding">${li}</ul>`;
+}
+
 function fill(html, file) {
   let out = html;
   out = out.replace(/<!--stappen:start view=(\w+)-->[\s\S]*?<!--stappen:end-->/g, (m, v) => `<!--stappen:start view=${v}-->\n${stappenBlock(v)}\n<!--stappen:end-->`);
-  out = out.replace(/<!--diensten:start view=(\w+)-->[\s\S]*?<!--diensten:end-->/g, (m, v) => `<!--diensten:start view=${v}-->\n${dienstenBlock(v)}\n<!--diensten:end-->`);
+  out = out.replace(/<!--diensten:start view=(\w+)( only=(\w+))?-->[\s\S]*?<!--diensten:end-->/g, (m, v, o, only) => `<!--diensten:start view=${v}${o || ''}-->\n${dienstenBlock(v, only)}\n<!--diensten:end-->`);
+  out = out.replace(/<!--voorbereiding:start-->[\s\S]*?<!--voorbereiding:end-->/g, () => `<!--voorbereiding:start-->\n${voorbereidingBlock()}\n<!--voorbereiding:end-->`);
   out = out.replace(/<(span|tspan) data-rule="(\w+)">[^<]*<\/\1>/g, (m, tag, k) => `<${tag} data-rule="${k}">${rv(k)}</${tag}>`);
   if (/<!--(flow|flowsvg|swim):start/.test(out)) throw new Error(`${file}: het oude stroomdiagram of de swimlane staat er nog`);
   return out;
