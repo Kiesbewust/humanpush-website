@@ -34,6 +34,10 @@ Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering ho
 
 Dan krijg je alles terug en kun je opnieuw bestellen. Er wordt onderweg niets verschoven en niemand anders ingezet.
 
+### Is de handtekening met de passkey een gekwalificeerde elektronische handtekening?
+
+Nee. De handtekening met een passkey bewijst dat deze professional dit stuk heeft goedgekeurd. Het is geen gekwalificeerde elektronische handtekening (QES) in de zin van de Europese eIDAS-verordening. Lees wat het dossier aantoont, en wat niet.
+
 ### Wat bewijst de registercheck precies?
 
 Dat HumanPush de professional met een vaste checklist in het openbare register heeft gevonden, op een vastgelegde datum, en dat dit bij de aanname opnieuw is gecontroleerd. Het is geen live koppeling met het register.

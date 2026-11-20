@@ -703,3 +703,9 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 @media (max-width: 600px) { .chat li { grid-template-columns: 1fr; gap: 4px; } }
 .svc-tabs { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); padding-right: 24px; }
 @media (min-width: 900px) { .svc-tabs { -webkit-mask-image: none; mask-image: none; padding-right: 0; } }
+
+/* Wat het dossier aantoont, en wat niet */
+.grenzen-wel { padding-left: 22px; }
+.grenzen-wel li { margin: 0 0 10px; }
+.grenzen-niet li { margin: 0 0 10px; }
+.grenzen-kort { margin-top: 16px; max-width: 46em; font-size: 16px; }

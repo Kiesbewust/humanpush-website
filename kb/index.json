@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "802619f865d46516207660d32b5d08c2915c14da46fb27d0a0ff5b8fd525dd6e",
+ "kb_hash": "049cf42fc3063dd743bb64292960d2fb1d94e5c11a55021ff3967aed1f9ceceb",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -435,6 +435,15 @@
    "hash": "48e6a12459c13e39"
   },
   {
+   "id": "faq-bedrijven-is-de-handtekening-met-de-passkey-een-gekwalific",
+   "title": "Is de handtekening met de passkey een gekwalificeerde elektronische handtekening?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#handtekening",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Nee. De handtekening met een passkey bewijst dat deze professional dit stuk heeft goedgekeurd. Het is geen gekwalificeerde elektronische handtekening (QES) in de zin van de Europese eIDAS-verordening. Lees wat het dossier aantoont, en wat niet.",
+   "hash": "4836a581f1418575"
+  },
+  {
    "id": "faq-bedrijven-wat-bewijst-de-registercheck-precies",
    "title": "Wat bewijst de registercheck precies?",
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
@@ -847,6 +856,15 @@
    "source": "pagina",
    "text": "Wat HumanPush controleert, en wat niet. HumanPush controleert alleen wat objectief na te gaan is: staat de professional in het openbare register, bij aanmelding en opnieuw vlak voor het aannemen; is er op tijd opgeleverd; is er een stuk met een van de vaste uitkomsten van de dienst; is het getekend met de passkey van de professional die de opdracht aannam; klopt de digitale vingerafdruk. HumanPush oordeelt niet over de inhoud. Of een conclusie juist is, beoordeelt de professional onder zijn eigen beroepsregels.",
    "hash": "5c6d64e9c82b1833"
+  },
+  {
+   "id": "pagina-hoe-het-werkt-grenzen",
+   "title": "Wat het dossier aantoont, en wat niet",
+   "url": "https://humanpush.nl/hoe-het-werkt#grenzen",
+   "lang": "nl",
+   "source": "pagina",
+   "text": "Wat het dossier aantoont, en wat niet. Het dossier legt drie dingen vast: Wie en welke registratie. Dat de professional bij aannemen in het openbare register van zijn beroep stond, met bron en datum van de check. Wat hij beoordeelde. Welke stukken hij heeft ontvangen en, in zijn rapport, welke methode hij gebruikte. (Voor zover de dienstkaart dat als verplicht onderdeel vraagt.). Dat het stuk niet is veranderd. Wie wanneer welke versie aannam en opleverde, met een digitale vingerafdruk. Wat het niet aantoont: Dat de inhoud juist is. Daarvoor staat de professional zelf in, onder de regels van zijn register. Ben je het oneens met de inhoud, dan ga je naar de professional of naar de klacht- of tuchtregeling van het register. Dat de professional geschikt is voor élke opdracht binnen zijn vak. De registercheck toont alleen de inschrijving; de professional verklaart bij aannemen zelf dat de opdracht binnen zijn deskundigheid valt. Dat het een gekwalificeerde elektronische handtekening is. De handtekening met een passkey bewijst dat deze professional dit stuk heeft goedgekeurd. Het is geen gekwalificeerde elektronische handtekening (QES) in de zin van de Europese eIDAS-verordening en heeft dus niet automatisch dezelfde werking als een handgeschreven handtekening. Dat een AI-besluit hiermee \"compliant\" is. Een getekend oordeel helpt bij betekenisvolle menselijke tussenkomst, maar wie beslist blijft de opdrachtgever.",
+   "hash": "da9ed1216136a943"
   },
   {
    "id": "pagina-hoe-het-werkt-aannemen",

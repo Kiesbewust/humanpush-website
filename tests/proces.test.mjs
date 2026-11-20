@@ -394,3 +394,21 @@ test('code is law: nergens meer een collega of beoordelaar die beslist, geen "vo
   assert.match(read('hoe-het-werkt.html'), /G6 · 72 uur bezwaar, alleen objectieve fouten/);
   assert.match(read('veelgestelde-vragen.html'), /<summary>Wat als ik het niet eens ben met de conclusie\?<\/summary>/);
 });
+
+test('grenzen van het bewijs: blok op /hoe-het-werkt#grenzen, kort op /bedrijven, link uit de FAQ; geen overclaim-woorden', () => {
+  const h = read('hoe-het-werkt.html');
+  const g = h.match(/<section class="section" id="grenzen"[\s\S]*?<\/section>/)[0];
+  assert.match(g, /<h2 id="grenzen-kop">Wat het dossier aantoont, en wat niet<\/h2>/);
+  assert.equal((g.match(/<ol class="grenzen-wel">[\s\S]*?<\/ol>/)[0].match(/<li>/g) || []).length, 3);
+  assert.equal((g.match(/<ul class="crosses grenzen-niet">[\s\S]*?<\/ul>/)[0].match(/<li>/g) || []).length, 4);
+  assert.match(g, /<em>\(Voor zover de dienstkaart dat als verplicht onderdeel vraagt\.\)<\/em>/, 'eerlijk zolang de catalogus methode en ontvangen stukken niet overal verplicht stelt');
+  assert.match(g, /geen gekwalificeerde elektronische handtekening \(QES\) in de zin van de Europese eIDAS-verordening/);
+  assert.match(read('bedrijven.html'), /<p class="grenzen-kort">[\s\S]*?<a href="\/hoe-het-werkt#grenzen">Wat het dossier aantoont, en wat niet<\/a><\/p>/);
+  assert.match(read('veelgestelde-vragen.html'), /id="handtekening"[\s\S]*?href="\/hoe-het-werkt#grenzen"/);
+  const ok = /geen gekwalificeerde|niet aantoont|Dat het een gekwalificeerde elektronische handtekening is\.|\?\s*$/i;
+  for (const f of [...PAGES, 'llms.txt', 'kb/spelregels.md', 'kb/faq.md']) {
+    const t = (f.endsWith('.html') ? read(f).slice(read(f).indexOf('<body')).replace(/<[^>]+>/g, ' ') : read(f)).replace(/\s+/g, ' ');
+    assert.doesNotMatch(t, /juridisch bindend|rechtsgeldig|onweerlegbaar|garantie op kwaliteit/i, f);
+    for (const s of t.split(/(?<=[.?!])\s+/)) if (/gekwalificeerd/i.test(s)) assert.match(s, ok, `${f}: "${s.slice(0, 120)}"`);
+  }
+});
