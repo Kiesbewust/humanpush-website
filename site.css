@@ -165,7 +165,6 @@ p { margin: 0 0 14px; max-width: var(--measure); }
 @media (max-width: 960px) { .hero-grid > :first-child, .hero-grid > :last-child { grid-column: 1 / -1; } }
 @media (max-width: 760px) { .hero { padding: 48px 0 44px; } }
 .hero.dark { background: var(--ink); color: var(--on-dark); border-bottom: 1px solid var(--ink-deep); }
-.hero.dark::after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px); background-size: calc((min(1200px, 100vw) - 80px) / 12) 64px; background-position: center top; pointer-events: none; }
 .hero.dark h1, .hero.dark .definition { color: var(--white); }
 .hero.dark .lead { color: var(--on-dark-muted); }
 .hero.dark .kicker { color: var(--on-dark-muted); }
@@ -276,14 +275,13 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .demo .st.signed::before { background: var(--gold); }
 .demo .turns { display: flex; gap: 6px; margin-top: 8px; }
 .demo .turns span { font-family: var(--mono); font-size: 12px; padding: 2px 7px; border: 1px solid var(--line-dark); border-radius: 3px; color: var(--on-dark-muted); }
-.demo .turns span.pass { text-decoration: line-through; }
+.demo .turns span.pass { color: var(--on-dark-muted); border-style: dashed; }
 .demo .turns span.now { color: var(--ink); background: var(--white); border-color: var(--white); }
 .demo .log { font-family: var(--mono); font-size: 12px; line-height: 1.55; color: #E6ECF7; background: rgba(255, 255, 255, .05); border: 1px solid var(--line-dark); border-radius: 3px; padding: 8px 10px; margin-top: 6px; overflow-wrap: anywhere; }
 .demo .log i { font-style: normal; color: var(--on-dark-muted); }
 .demo-cap { font-size: 13.5px; color: var(--on-dark-muted); margin: 12px 0 0; }
 /* Met JavaScript: stap voor stap. Zonder JavaScript, of met verminderde beweging: alles tegelijk zichtbaar. */
-.js .demo[data-anim] li:not(.on) .what { visibility: hidden; }
-.js .demo[data-anim] .turns span:not(.seen) { visibility: hidden; }
+/* Alle rijen zijn altijd leesbaar; de animatie markeert alleen de rij die aan de beurt is. */
 .js .demo[data-anim] li.on { box-shadow: inset 2px 0 0 var(--on-dark-muted); }
 @media (prefers-reduced-motion: no-preference) { .js .demo[data-anim] li.on .what { animation: tipin .35s ease-out; } }
 
@@ -510,7 +508,7 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .tl-step.r-professional .tl-role { color: #7A5A12; }
 .tl-step h3 { font-size: 18px; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
 .tl-step p { font-size: 15px; line-height: 1.55; color: var(--body); margin: 0; }
-.tl-time { position: absolute; top: 4px; right: -16px; transform: translateX(50%); z-index: 1; font-family: var(--mono); font-size: 12px; color: var(--muted); background: var(--page); padding: 0 6px; white-space: nowrap; }
+.tl-time { position: absolute; top: 5px; left: 40px; z-index: 1; font-size: 14px; line-height: 18px; color: var(--muted); background: var(--page); padding: 0 6px; white-space: nowrap; }
 .section.mist .tl-time { background: var(--mist); }
 .tl-band { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 24px 0 0; padding: 12px 0 0; font-size: 15px; color: var(--ink); }
 .tl-ic { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
@@ -662,3 +660,46 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .pay-q:last-child { border-bottom: 1px solid var(--line); }
 .pay-q p { margin: 0 0 14px; font-size: 16px; }
 @media (max-width: 760px) { .paycards { grid-template-columns: 1fr; } }
+
+
+/* ---------- Visuele rust (websiteronde 20-11): minder lijnen, leesbare labels, niets afgeknipt ---------- */
+/* Lijn tussen secties alleen als de achtergrond gelijk blijft; bij een kleurwissel is de wissel de scheiding. */
+.section { border-top: 0; }
+.section:not(.mist):not(.dark) + .section:not(.mist):not(.dark), .section.mist + .section.mist { border-top: 1px solid var(--line-soft); }
+/* Kaartgrids: ruimte in plaats van een rand om elke kaart. */
+.grid { border: 0; gap: 20px; }
+.card { border: 0; border-radius: var(--radius); background: var(--white); }
+.section.mist .card, .section .card { background: var(--white); }
+/* Lijsten: alleen scheidingslijnen tussen items, niet boven het eerste. */
+.steps { border-top: 0; }
+.steps > li { border-bottom: 0; }
+.steps > li + li { border-top: 1px solid var(--line-soft); }
+.reasons li, .guarantees li { border-top: 0; }
+.reasons li + li, .guarantees li + li { border-top: 1px solid var(--line-soft); }
+.vastgelegd li { border-top: 1px solid var(--line-soft); }
+.vastgelegd li:nth-child(-n+2) { border-top: 0; }
+@media (max-width: 760px) { .vastgelegd li:nth-child(2) { border-top: 1px solid var(--line-soft); } }
+.flowlist li { border-top: 0; }
+.flowlist li + li { border-top: 1px solid var(--line-soft); }
+.next-grid { border-top: 0; padding-top: 0; }
+.svc-more, .svc-facts { border-top: 0; }
+.more { border-bottom: 0; border-top-color: var(--line-soft); }
+
+/* Leesbare labels: sans, 14px, zinsvorm, gedempt. Mono met hoofdletters alleen nog voor code, vingerafdrukken en statussen in de demo's. */
+.eyebrow, .kicker, .label, .soon, .status, .card .tag, .table th, .table td[data-label]::before, .svc-for, .svc-facts dt, .side-for,
+.site-footer .h, .site-footer .meta, .dd h3, .mock-bar .fictief, .mock .lbl, .wbar em, .form3 .lb, .c-who, .badge, .chips li {
+  font-family: var(--sans); font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+.eyebrow, .kicker, .label, .card .tag, .table th, .svc-for, .svc-facts dt, .side-for, .dd h3, .mock .lbl, .form3 .lb, .c-who { color: var(--muted); }
+.hero.dark .kicker { color: var(--on-dark-muted); }
+.site-footer .h, .site-footer .meta { color: var(--on-dark-muted); }
+.status { font-weight: 500; }
+.dossierkaart, .dossierkaart dt, .dossierkaart dd, .dossierkaart .dk-foot { font-size: 14px; }
+.demo-cap, .dk-cap, .small { font-size: 14px; }
+
+/* Mobiel: voorbeeldgesprekken lopen niet uit, tabs laten zien dat ze scrollen, de footerregel begint nooit met "·". */
+.c-msg { overflow-wrap: anywhere; min-width: 0; }
+.c-code { white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat { overflow: visible; }
+@media (max-width: 600px) { .chat li { grid-template-columns: 1fr; gap: 4px; } }
+.svc-tabs { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); padding-right: 24px; }
+@media (min-width: 900px) { .svc-tabs { -webkit-mask-image: none; mask-image: none; padding-right: 0; } }

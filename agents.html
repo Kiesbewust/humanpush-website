@@ -98,7 +98,7 @@
 <div class="wrap">
 <h2 id="verbind">Zo verbind je</h2>
 <p class="lead">Geen echte URL en geen echte API-sleutel: dit laat de volgorde zien.</p>
-<pre class="code"><span class="c"># Voorbeeld, fictief</span>
+<pre class="code" tabindex="0"><span class="c"># Voorbeeld, fictief</span>
 <span class="c"># 1. Welke diensten zijn er, en wat kost het?</span>
 list_services()
 
@@ -136,7 +136,7 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <div class="wrap">
 <h2 id="vraag-kop">Vraag het aan HumanPush</h2>
 <p class="lead">Agents kunnen vragen stellen in gewone tekst, en krijgen antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Via <code>POST /api/ask</code> of, in de testversie, via de MCP-tool <code>ask_humanpush</code>. Een antwoord is informatie, geen advies en geen toezegging: de regels van HumanPush gelden.</p>
-<div data-ask-on hidden><pre class="code">POST /api/ask
+<div data-ask-on hidden><pre class="code" tabindex="0">POST /api/ask
 { "question": "Hoe lang heeft een professional om aan te nemen?", "language": "nl" }
 
 → 200
@@ -176,7 +176,7 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
-<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V.</span> <span>· KvK 42222476</span> <span>· btw NL870249964B01</span> <span>· Utrecht</span></p></div>
+<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V. ·</span> <span>KvK 42222476 ·</span> <span>btw NL870249964B01 ·</span> <span>Utrecht</span></p></div>
 <nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#dossier">Het dossier</a></li></ul></nav>
 <nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
 <nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot second opinion</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>

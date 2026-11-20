@@ -111,7 +111,7 @@ test('entiteit: alleen HumAgent B.V. (KvK 42222476), geen andere naam, geen plac
   for (const f of TEXT_FILES) {
     const t = read(f).replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
     assert.doesNotMatch(t, /AgentPush B\.V\.|in oprichting|\bTODO\b|\bXXX\b|\[\.\.\.\]|\[…\]|\bRSIN\b|vestigingsnummer/i, f);
-    for (const m of t.matchAll(/HumAgent B\.V\.[^\n]{0,40}/g)) assert.match(m[0], /^HumAgent B\.V\.( \(KvK 42222476\)|<\/span> <span>· KvK 42222476<\/span>|", )/, `${f}: ${m[0]}`);
+    for (const m of t.matchAll(/HumAgent B\.V\.[^\n]{0,40}/g)) assert.match(m[0], /^HumAgent B\.V\.( \(KvK 42222476\)| ·<\/span> <span>KvK 42222476 ·<\/span>|", )/, `${f}: ${m[0]}`);
   }
   for (const f of PAGES) assert.equal(read(f).match(/<p class="f-legal">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, ''), 'HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · btw NL870249964B01 · Utrecht', f);
 });

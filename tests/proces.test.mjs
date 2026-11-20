@@ -77,7 +77,7 @@ test('demo op home: elke rij krijgt een frame, "Bewijs" is geen actor, zonder JS
   assert.doesNotMatch(anim, /rows\[\d\]/, 'geen vaste rijnummers: elke rij krijgt een frame');
   assert.match(anim, /rows\.forEach\(function \(row\) \{\s*frames\.push/);
   assert.match(js, /if \(reduce\) \{ demo\.removeAttribute\('data-anim'\)/, 'bij verminderde beweging staat alles stil en zichtbaar');
-  assert.match(read('site.css'), /\.js \.demo\[data-anim\] li:not\(\.on\) \.what \{ visibility: hidden; \}/, 'verbergen alleen met JS');
+  assert.doesNotMatch(read('site.css'), /\.demo[^{]*\{[^}]*visibility: hidden/, 'geen demo-rij ooit verborgen');
 });
 
 test('geen zichtbare backslash in de tekst van een pagina; linkregel is gewone tekst', () => {

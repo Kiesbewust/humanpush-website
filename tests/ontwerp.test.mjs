@@ -151,3 +151,24 @@ test('dienstkaarten volgen de opgeslagen doelgroep, net als de steppers', () => 
   assert.match(svc, /store\('hp-doelgroep'\)/);
   assert.match(svc, /aud === 'pro' \|\| aud === 'bedrijf'/);
 });
+
+test('visuele rust: geen raster door de hero, geen doorhaling, minder lijnen, leesbare labels, niets afgeknipt op mobiel', () => {
+  const css = read('site.css');
+  assert.doesNotMatch(css, /line-through/, 'geen doorgestreepte tekst');
+  assert.doesNotMatch(css, /\.hero\.dark::after/, 'geen raster door de hero');
+  assert.match(css, /\.section \{ border-top: 0; \}/, 'geen lijn tussen secties met een andere achtergrond');
+  assert.match(css, /\.grid \{ border: 0; gap: 20px; \}/);
+  assert.match(css, /\.reasons li \+ li, \.guarantees li \+ li \{ border-top/, 'alleen lijnen tussen items');
+  assert.match(css, /\.c-msg \{ overflow-wrap: anywhere;/);
+  assert.match(css, /\.c-code \{ white-space: pre-wrap;/);
+  assert.match(css, /\.svc-tabs \{ -webkit-mask-image: linear-gradient\(to right/, 'zichtbare scrollhint op de tabs');
+  // Labels die mensen lezen: sans, 14px, zinsvorm.
+  const block = css.slice(css.indexOf('/* Leesbare labels'));
+  assert.match(block, /\.svc-facts dt[\s\S]*?\{\s*font-family: var\(--sans\); font-size: 14px; letter-spacing: 0; text-transform: none;/);
+  for (const f of PAGES) {
+    const spans = read(f).match(/<p class="f-legal">([\s\S]*?)<\/p>/)[1].match(/<span>([^<]*)<\/span>/g).map((s) => s.replace(/<[^>]+>/g, ''));
+    for (const s of spans) assert.doesNotMatch(s, /^·/, `${f}: footerregel begint nooit met "·"`);
+  }
+  assert.match(read('tools/visual-check.mjs'), /scrollWidth > r\.cw|r\.sw > r\.cw/);
+  assert.match(read('.gitignore'), /tests\/screenshots\//);
+});
