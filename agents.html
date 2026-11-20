@@ -44,7 +44,7 @@
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
 <a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
-<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een sleutel; later ook een overzicht voor jou. Komt eraan.</span></a>
+<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een toegangscode; later ook een overzicht voor jou. Komt eraan.</span></a>
 </div>
 </div>
 </div>
@@ -54,147 +54,24 @@
 <div class="wrap">
 <span class="kicker">Voor agents en bouwers</span>
 <h1>HumanPush is gebouwd voor agents.</h1>
-<p class="lead">Je agent kiest een dienst, betaalt vooraf en krijgt een getekend stuk met bewijs terug. Een mens doet het vakwerk en tekent. Alles wat je agent nodig heeft staat in llms.txt, en je kunt het ook gewoon vragen.</p>
+<p class="lead">Je agent kiest een dienst, betaalt vooraf en krijgt een getekend stuk met het bewijsdossier terug. Een geregistreerde professional doet het vakwerk en tekent. Alles wat je agent nodig heeft staat in llms.txt, en je kunt het ook gewoon vragen.</p>
 <div class="actions"><a class="btn btn-primary" href="/llms.txt">Lees llms.txt</a><a class="btn btn-secondary" href="#vraag">Stel een vraag aan HumanPush</a></div>
 </div>
 </section>
 
-<!--flow:start-->
-<section class="section flow" aria-labelledby="flow-kop">
-  <div class="wrap">
-    <h2 id="flow-kop">Zo praten agents en mensen met elkaar</h2>
-    <p class="lead">Agents bestellen en praten met elkaar via één MCP. Een geregistreerde professional doet het vakwerk en tekent: met zijn eigen agent of via een eenvoudig scherm.</p>
-    <figure class="flow-figure">
-      <svg class="hp-flow hp-flow-desktop" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 1204 424" role="img" aria-labelledby="hpf-d-t hpf-d-d">
-<title id="hpf-d-t">Hoe agents en mensen samenwerken via HumanPush</title>
-<desc id="hpf-d-d">Het bedrijf zet zijn agent in. De agent bestelt en betaalt vooraf via de HumanPush-MCP en krijgt het stuk met bewijs terug. De MCP biedt de opdracht één voor één aan een geregistreerde professional aan, via route 1 met de eigen agent van de professional (agent naar agent naar mens) of via route 2 met een tekenscherm (agent naar mens). Alleen de professional, een mens, tekent met zijn passkey.</desc>
-<defs><marker id="hpf-ah-d" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0B2A5B"/></marker></defs>
-<rect x="680" y="40" width="320" height="150" rx="16" fill="#F3EFE8"/>
-<rect x="680" y="230" width="320" height="150" rx="16" fill="#F3EFE8"/>
-<text x="696" y="62" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 1 · AGENT ↔ AGENT ↔ MENS</text>
-<text x="696" y="252" font-size="11.5" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 2 · AGENT ↔ MENS</text>
-<rect x="450" y="40" width="200" height="340" rx="14" fill="#0B2A5B" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="550.0" y="62" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#AFC0DD">PROTOCOL</text>
-<text x="550.0" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">HumanPush-MCP</text>
-<text x="550.0" y="105" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Vaste regels</text>
-<text x="550.0" y="121" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Betaling vooraf</text>
-<text x="550.0" y="137" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Registerbewijs niveau 2</text>
-<text x="550.0" y="153" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Ondertekend logboek</text>
-<text x="550.0" y="169" text-anchor="middle" font-size="12.5" fill="#D6DEEE"></text>
-<text x="550.0" y="185" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Elke stap is een aanroep</text>
-<text x="550.0" y="201" text-anchor="middle" font-size="12.5" fill="#D6DEEE">of bericht in het protocol</text>
-<rect x="1010" y="40" width="190" height="340" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="1105.0" y="62" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">MENS</text>
-<text x="1105.0" y="84" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Geregistreerde</text>
-<text x="1105.0" y="103" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">professional</text>
-<rect x="1079.0" y="110" width="52" height="3" rx="1.5" fill="#E0A526"/>
-<text x="1105.0" y="132" text-anchor="middle" font-size="12.5" fill="#5C6578">NIVRE · NRVT · NRGD</text>
-<text x="1105.0" y="148" text-anchor="middle" font-size="12.5" fill="#5C6578">octrooigemachtigde · NRBI</text>
-<text x="1105.0" y="164" text-anchor="middle" font-size="12.5" fill="#5C6578"></text>
-<text x="1105.0" y="180" text-anchor="middle" font-size="12.5" fill="#5C6578">Doet het werk en</text>
-<text x="1105.0" y="196" text-anchor="middle" font-size="12.5" fill="#5C6578">tekent met zijn passkey.</text>
-<rect x="0" y="165" width="130" height="90" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="65.0" y="187" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">BEDRIJF</text>
-<text x="65.0" y="209" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Bedrijf</text>
-<text x="65.0" y="230" text-anchor="middle" font-size="12.5" fill="#5C6578">met KvK-nummer</text>
-<rect x="180" y="165" width="150" height="90" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="255.0" y="187" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
-<text x="255.0" y="209" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van</text>
-<text x="255.0" y="228" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">het bedrijf</text>
-<rect x="780" y="78" width="160" height="98" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="860.0" y="100" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
-<text x="860.0" y="122" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van de</text>
-<text x="860.0" y="141" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">professional</text>
-<text x="860.0" y="162" text-anchor="middle" font-size="12.5" fill="#5C6578">eigen MCP-client</text>
-<rect x="780" y="268" width="160" height="98" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="860.0" y="290" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">SCHERM</text>
-<text x="860.0" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Tekenscherm</text>
-<text x="860.0" y="333" text-anchor="middle" font-size="12.5" fill="#5C6578">komt eraan</text>
-<text x="860.0" y="349" text-anchor="middle" font-size="12.5" fill="#5C6578">passkey-login</text>
-<line x1="130" y1="210" x2="180" y2="210" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
-<text x="155" y="196" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">zet in</text>
-<line x1="330" y1="210" x2="450" y2="210" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
-<text x="390" y="178" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">bestelt en</text>
-<text x="390" y="193" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">betaalt vooraf</text>
-<text x="390" y="232" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">stuk en bewijs</text>
-<line x1="650" y1="127" x2="780" y2="127" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
-<text x="715" y="108" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">biedt aan,</text>
-<text x="715" y="146" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">één voor één</text>
-<line x1="650" y1="317" x2="780" y2="317" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
-<text x="715" y="298" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">biedt aan,</text>
-<text x="715" y="340" text-anchor="middle" font-size="12" font-weight="500" fill="#5C6578">toont wat je tekent</text>
-<line x1="940" y1="127" x2="1010" y2="127" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
-<line x1="940" y1="317" x2="1010" y2="317" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-d)" marker-end="url(#hpf-ah-d)"/>
-<circle cx="975" cy="127" r="5" fill="#E0A526"/>
-<circle cx="975" cy="317" r="5" fill="#E0A526"/>
-<text x="975" y="111" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
-<text x="975" y="301" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
-</svg>
-      <svg class="hp-flow hp-flow-mobile" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 364 704" role="img" aria-labelledby="hpf-m-t hpf-m-d">
-<title id="hpf-m-t">Hoe agents en mensen samenwerken via HumanPush</title>
-<desc id="hpf-m-d">Het bedrijf zet zijn agent in. De agent bestelt en betaalt vooraf via de HumanPush-MCP. De MCP biedt de opdracht aan een geregistreerde professional, via route 1 met de eigen agent van de professional (agent naar agent naar mens) of via route 2 met een tekenscherm (agent naar mens). Alleen de professional, een mens, tekent met zijn passkey. Stuk en bewijs gaan terug naar de agent van het bedrijf.</desc>
-<defs><marker id="hpf-ah-m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0B2A5B"/></marker></defs>
-<rect x="30" y="0" width="300" height="72" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="180.0" y="22" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">BEDRIJF</text>
-<text x="180.0" y="44" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Bedrijf</text>
-<text x="180.0" y="65" text-anchor="middle" font-size="12.5" fill="#5C6578">met KvK-nummer</text>
-<line x1="180" y1="72" x2="180" y2="112" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
-<text x="196" y="96" text-anchor="start" font-size="12" font-weight="500" fill="#5C6578">zet in</text>
-<rect x="30" y="112" width="300" height="66" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="180.0" y="134" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
-<text x="180.0" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van het bedrijf</text>
-<line x1="180" y1="178" x2="180" y2="226" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
-<text x="196" y="198" text-anchor="start" font-size="12" font-weight="500" fill="#5C6578">bestelt en betaalt vooraf</text>
-<text x="196" y="214" text-anchor="start" font-size="12" font-weight="500" fill="#5C6578">stuk en bewijs terug</text>
-<rect x="30" y="226" width="300" height="112" rx="14" fill="#0B2A5B" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="180.0" y="248" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#AFC0DD">PROTOCOL</text>
-<text x="180.0" y="270" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">HumanPush-MCP</text>
-<text x="180.0" y="291" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Vaste regels · betaling vooraf</text>
-<text x="180.0" y="307" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Registerbewijs niveau 2</text>
-<text x="180.0" y="323" text-anchor="middle" font-size="12.5" fill="#D6DEEE">Ondertekend logboek</text>
-<rect x="6" y="360" width="348" height="170" rx="16" fill="#F3EFE8"/>
-<line x1="30" y1="338" x2="30" y2="420" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
-<line x1="200" y1="338" x2="200" y2="420" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
-<text x="42" y="354" text-anchor="start" font-size="11.5" font-weight="500" fill="#5C6578">biedt aan</text>
-<text x="212" y="354" text-anchor="start" font-size="11.5" font-weight="500" fill="#5C6578">biedt aan</text>
-<text x="42" y="380" font-size="11" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 1</text>
-<text x="42" y="395" font-size="11.5" fill="#0B2A5B">agent ↔ agent ↔ mens</text>
-<text x="212" y="380" font-size="11" font-weight="700" letter-spacing="0.6" fill="#0B2A5B">ROUTE 2</text>
-<text x="212" y="395" font-size="11.5" fill="#0B2A5B">agent ↔ mens</text>
-<rect x="16" y="422" width="158" height="100" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="95.0" y="444" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">AGENT</text>
-<text x="95.0" y="466" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Agent van de</text>
-<text x="95.0" y="485" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">professional</text>
-<text x="95.0" y="506" text-anchor="middle" font-size="12.5" fill="#5C6578">eigen MCP-client</text>
-<rect x="186" y="422" width="158" height="100" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="265.0" y="444" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">SCHERM</text>
-<text x="265.0" y="466" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Tekenscherm</text>
-<text x="265.0" y="487" text-anchor="middle" font-size="12.5" fill="#5C6578">komt eraan</text>
-<line x1="95" y1="522" x2="95" y2="566" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
-<line x1="265" y1="522" x2="265" y2="566" stroke="#0B2A5B" stroke-width="2" marker-start="url(#hpf-ah-m)" marker-end="url(#hpf-ah-m)"/>
-<circle cx="95" cy="543" r="5" fill="#E0A526"/><circle cx="265" cy="543" r="5" fill="#E0A526"/>
-<text x="110" y="547" text-anchor="start" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
-<text x="280" y="547" text-anchor="start" font-size="11.5" font-weight="700" fill="#0B2A5B">tekent</text>
-<rect x="30" y="566" width="300" height="128" rx="14" fill="#FFFFFF" stroke="#0B2A5B" stroke-width="1.5"/>
-<text x="180.0" y="588" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#5C6578">MENS</text>
-<text x="180.0" y="610" text-anchor="middle" font-size="16" font-weight="700" fill="#0B2A5B">Geregistreerde professional</text>
-<rect x="154.0" y="617" width="52" height="3" rx="1.5" fill="#E0A526"/>
-<text x="180.0" y="639" text-anchor="middle" font-size="12.5" fill="#5C6578">NIVRE · NRVT · NRGD</text>
-<text x="180.0" y="655" text-anchor="middle" font-size="12.5" fill="#5C6578">octrooigemachtigde · NRBI</text>
-<text x="180.0" y="671" text-anchor="middle" font-size="12.5" fill="#5C6578">Doet het werk en tekent met zijn passkey.</text>
-</svg>
-      <figcaption>Route 1: de agent van het bedrijf praat via de MCP met de agent van de professional (agent ↔ agent ↔ mens). Route 2: de agent van het bedrijf praat via de MCP met een tekenscherm (agent ↔ mens); dat scherm komt eraan. In beide routes is de handtekening van een mens. Planning, betaling, termijnen en logboek voert het protocol uit; mensen doen alleen het vakwerk, het oordeel en de registercontrole.</figcaption>
-    </figure>
-    <p class="flow-legend"><span class="actor-tag tag-agent">Agent</span> software die namens iemand handelt · <span class="actor-tag tag-protocol">Protocol</span> vaste regels, geld en logboek · <span class="actor-tag tag-mens">Mens</span> een persoon die werk doet en tekent</p>
-  </div>
+<section class="section top0" aria-labelledby="stappen4-kop">
+<div class="wrap">
+<h2 id="stappen4-kop">De vier stappen</h2>
+<ol class="steps4" aria-labelledby="stappen4-kop"><li><span class="s4-num">1</span><h3>Opdracht</h3><p>De agent van een bedrijf zet een opdracht uit bij HumanPush. Het bedrijf betaalt vooraf.</p></li><li><span class="s4-num">2</span><h3>Aannemen</h3><p>HumanPush biedt de opdracht aan één geregistreerde professional aan. Die heeft <span data-rule="turnWorkingMinutes">45</span> werkminuten om ja te zeggen. Zegt hij niets of geeft hij hem door, dan gaat de opdracht naar de volgende.</p></li><li><span class="s4-num">3</span><h3>Uitvoeren en tekenen</h3><p>De professional doet het werk, zelf of met hulp van een agent, en levert het op. Hij tekent met zijn passkey: daarmee staat hij er als geregistreerde professional voor in.</p></li><li><span class="s4-num">4</span><h3>Bewijs</h3><p>Elke stap komt in het bewijsdossier van de opdracht. Het bedrijf, de professional en later een controleur kunnen zien wie wat wanneer deed en dat het opgeleverde stuk niet is veranderd.</p></li></ol>
+<p class="same">Dit proces is hetzelfde voor elk register.</p>
+</div>
 </section>
-<!--flow:end-->
 
 <section class="section mist" aria-labelledby="status">
 <div class="wrap">
 <div class="notice">
-<h2 id="status">Status: protocol v1 is in de testfase</h2>
-<p>Protocol v1 is in de testfase. Er is nog geen publiek endpoint voor v1. Er lopen geen echte opdrachten of betalingen. De volledige beschrijving voor agents staat in <a href="/llms.txt">llms.txt</a> (Engels).</p>
+<h2 id="status">Status: versie 1 is in de testfase</h2>
+<p>Versie 1 is in de testfase. Er is nog geen publiek endpoint voor v1. Er lopen geen echte opdrachten of betalingen. De volledige beschrijving voor agents staat in <a href="/llms.txt">llms.txt</a> (Engels).</p>
 </div>
 </div>
 </section>
@@ -202,7 +79,7 @@
 <section class="section" id="zo-verbind-je" aria-labelledby="verbind" data-kb="zo-verbind-je|Zo verbind je">
 <div class="wrap">
 <h2 id="verbind">Zo verbind je</h2>
-<p class="lead">Geen echte URL en geen sleutel: dit laat de volgorde zien.</p>
+<p class="lead">Geen echte URL en geen echte API-sleutel: dit laat de volgorde zien.</p>
 <pre class="code"><span class="c"># Voorbeeld, fictief</span>
 <span class="c"># 1. Welke diensten zijn er, en wat is de vaste vergoeding H?</span>
 list_services()
@@ -213,15 +90,15 @@ v1_create_order(
   inputs={…},                <span class="c"># de invoer van die dienst</span>
   deadline="…",              <span class="c"># ISO 8601, uiterste datum</span>
   max_price_cents=…,         <span class="c"># je maximumprijs</span>
-  idempotency_key="…"        <span class="c"># dezelfde sleutel voert niets twee keer uit</span>
+  idempotency_key="…"        <span class="c"># dezelfde waarde voert niets twee keer uit</span>
 )
 → { order_id, status: "offered", pay_url, pay_by }
 
 <span class="c"># 3. Betaal binnen 30 minuten via pay_url (max-prijs + H)</span>
 <span class="c"># 4. Volgen en ophalen</span>
 v1_get_status(order_id)   <span class="c"># status, reden, termijnen, geld</span>
-v1_get_result(order_id)   <span class="c"># het stuk, SHA-256, registernummer</span>
-verify_proof(order_id)    <span class="c"># hash, handtekening, logboek</span></pre>
+v1_get_result(order_id)   <span class="c"># het stuk, vingerafdruk, registernummer</span>
+verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, bewijsdossier</span></pre>
 <p class="muted">Welke velden <code>inputs</code> heeft, staat per dienst in <code>list_services</code>. Onbekende velden worden geweigerd.</p>
 </div>
 </section>
@@ -229,18 +106,18 @@ verify_proof(order_id)    <span class="c"># hash, handtekening, logboek</span></
 <section class="section mist" aria-labelledby="tools">
 <div class="wrap">
 <h2 id="tools">De tools, in volgorde</h2>
-<p class="lead">Toolnamen van de testversie; ze kunnen nog veranderen. Elke schrijfactie neemt een <code>idempotency_key</code>: dezelfde sleutel voert niets twee keer uit.</p>
-<ol class="steps"><li><h3><code>list_services</code></h3><p>De diensten die je kunt boeken: per dienst het register, de invoer, de uitkomsten, het prijsbereik, wat wel en niet in de dienst valt, de toetsingspunten, de disclaimer, de bekende leemtes in het register en de termijnen. De vergoeding H: een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt.</p></li><li><h3><code>v1_create_order</code></h3><p>Dienst, invoer, uiterste datum en <code>max_price_cents</code>. Optioneel <code>min_proof_level</code> om een hoger registerbewijs te eisen (nooit lager dan 2). Je noemt nooit een professional. Onbekende velden worden geweigerd.</p></li><li><h3><code>pay_url, v1_pay_link, v1_link_payment</code></h3><p>Betalen binnen <span data-rule="payMinutes">30</span> minuten via <code>pay_url</code>: je maximumprijs plus H. <code>v1_pay_link</code> geeft de open betaallink opnieuw; <code>v1_link_payment</code> koppelt een eigen betaling die op de wachtlijst belandde. Niet betaald: de bestelling vervalt (<code>not_paid</code>), zonder gevolgen.</p></li><li><h3><code>v1_get_status</code></h3><p>Status, reden, alle termijnen en het geld; tijdens het aanbieden ook wie aan zet is en de ronde. Verlopen termijnen worden eerst verwerkt. Bij twijfel: <code>v1_explain</code>.</p></li><li><h3><code>v1_get_result</code></h3><p>Het stuk, de SHA-256 en het registernummer van de professional.</p></li><li><h3><code>verify_proof</code></h3><p>Controleert de hash, de passkey-handtekening van de professional en het ondertekende logboek.</p></li><li><h3><code>v1_accept_result of v1_object</code></h3><p>Binnen <span data-rule="objectionHours">72</span> uur. Bezwaar alleen met <code>grounds</code> uit de toetsingspunten van de dienst; anders <code>invalid_objection</code>.</p></li><li><h3><code>v1_cancel</code></h3><p>Kan tot de oplevering. Vóór aanname alles terug; daarna <span data-rule="cancelSharePct">25</span>% van het tarief voor de professional en de rest terug.</p></li></ol>
+<p class="lead">Toolnamen van de testversie; ze kunnen nog veranderen. Elke schrijfactie neemt een <code>idempotency_key</code>: dezelfde waarde voert niets twee keer uit.</p>
+<ol class="steps"><li><h3><code>list_services</code></h3><p>De diensten die je kunt boeken: per dienst het register, de invoer, de uitkomsten, het prijsbereik, wat wel en niet in de dienst valt, de toetsingspunten, de disclaimer, de bekende leemtes in het register en de termijnen. De vergoeding H: een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt.</p></li><li><h3><code>v1_create_order</code></h3><p>Dienst, invoer, uiterste datum en <code>max_price_cents</code>. Optioneel <code>min_proof_level</code> om een strengere registercheck te eisen dan de standaard (nooit een lichtere). Je noemt nooit een professional. Onbekende velden worden geweigerd.</p></li><li><h3><code>pay_url, v1_pay_link, v1_link_payment</code></h3><p>Betalen binnen <span data-rule="payMinutes">30</span> minuten via <code>pay_url</code>: je maximumprijs plus H. <code>v1_pay_link</code> geeft de open betaallink opnieuw; <code>v1_link_payment</code> koppelt een eigen betaling die op de wachtlijst belandde. Niet betaald: de bestelling vervalt (<code>not_paid</code>), zonder gevolgen.</p></li><li><h3><code>v1_get_status</code></h3><p>Status, reden, alle termijnen en het geld; tijdens het aanbieden ook wie aan zet is en de ronde. Verlopen termijnen worden eerst verwerkt. Bij twijfel: <code>v1_explain</code>.</p></li><li><h3><code>v1_get_result</code></h3><p>Het stuk, de digitale vingerafdruk (SHA-256) en het registernummer van de professional.</p></li><li><h3><code>verify_proof</code></h3><p>Controleert de digitale vingerafdruk, de handtekening met de passkey van de professional en het bewijsdossier.</p></li><li><h3><code>v1_accept_result of v1_object</code></h3><p>Binnen <span data-rule="objectionHours">72</span> uur. Bezwaar alleen met <code>grounds</code> uit de toetsingspunten van de dienst; anders <code>invalid_objection</code>.</p></li><li><h3><code>v1_cancel</code></h3><p>Kan tot de oplevering. Vóór aanname alles terug; daarna <span data-rule="cancelSharePct">25</span>% van het tarief voor de professional en de rest terug.</p></li></ol>
 <h2 id="prof-agent" style="margin-top:56px">Voor de agent van een professional</h2>
 <p class="lead">Met <code>get_my_turns</code> ziet de agent van een professional zijn aangeboden opdrachten, met de dienst, de prijs, de levertijd en tot wanneer het aanbod openstaat. Daarnaast <code>v1_passkey_register</code>, <code>v1_professional_status</code> en <code>v1_professional_act</code>: aannemen, doorgeven (<code>pass_turn</code>), opleveren en beoordelen. Elke actie tekent de professional zelf met zijn passkey; het patroon is twee aanroepen, eerst zonder en dan met assertion.</p>
-<p class="muted" style="max-width:44em">Er komt ook een eenvoudig tekenscherm met passkey-login, voor professionals zonder eigen agent. Dat scherm komt eraan; je kunt het nog niet openen. De sleutel van de professional gaat via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van het kantoor), nooit naar een adres dat hij zelf opgeeft. Die link dient alleen om de sleutel op te halen en de passkey plus een verplichte tweede passkey als reserve aan te maken; tekenen gaat altijd met een passkey.</p>
+<p class="muted" style="max-width:44em">Er komt ook een eenvoudig scherm met passkey-login, voor professionals zonder eigen agent. Dat scherm komt eraan; je kunt het nog niet openen. De API-sleutel van de professional gaat via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van het kantoor), nooit naar een adres dat hij zelf opgeeft. Die link dient alleen om de API-sleutel op te halen en de passkey plus een verplichte tweede passkey als reserve aan te maken; tekenen gaat altijd met een passkey.</p>
 </div>
 </section>
 
 <section class="section" id="vraag" aria-labelledby="vraag-kop" data-kb="vraag|Vraag het aan HumanPush">
 <div class="wrap">
 <h2 id="vraag-kop">Vraag het aan HumanPush</h2>
-<p class="lead">Agents kunnen vragen stellen in gewone tekst, en krijgen antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Via <code>POST /api/ask</code> of, in de testversie, via de MCP-tool <code>ask_humanpush</code>. Een antwoord is informatie, geen advies en geen toezegging: de regels in het protocol gelden.</p>
+<p class="lead">Agents kunnen vragen stellen in gewone tekst, en krijgen antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Via <code>POST /api/ask</code> of, in de testversie, via de MCP-tool <code>ask_humanpush</code>. Een antwoord is informatie, geen advies en geen toezegging: de regels van HumanPush gelden.</p>
 <div data-ask-on hidden><pre class="code">POST /api/ask
 { "question": "Hoe lang heeft een professional om aan te nemen?", "language": "nl" }
 
@@ -262,28 +139,30 @@ verify_proof(order_id)    <span class="c"># hash, handtekening, logboek</span></
 <section class="section mist" aria-labelledby="statussen">
 <div class="wrap">
 <h2 id="statussen">Statussen</h2>
-<p class="lead">Elke status, reden en foutcode heeft een vaste uitleg via <code>v1_explain</code>. Geen helpdesk die regels buigt: een mens beantwoordt vragen via <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>, maar uitzonderingen per geval bestaan niet.</p>
-<table class="table"><thead><tr><th scope="col">Status</th><th scope="col">Betekenis</th></tr></thead><tbody><tr><td data-label="Status"><code>offered</code></td><td data-label="Betekenis">Besteld, wacht op betaling (<span data-rule="payMinutes">30</span> minuten).</td></tr><tr><td data-label="Status"><code>funded</code></td><td data-label="Betekenis">Betaald. Het protocol biedt de opdracht één voor één aan, tot iemand aanneemt.</td></tr><tr><td data-label="Status"><code>active</code></td><td data-label="Betekenis">Aangenomen. Het verschil met de lagere prijs is terug. Levertermijn loopt.</td></tr><tr><td data-label="Status"><code>delivered</code></td><td data-label="Betekenis">Opgeleverd. <span data-rule="objectionHours">72</span> uur om te accepteren of bezwaar te maken.</td></tr><tr><td data-label="Status"><code>review</code></td><td data-label="Betekenis">Bezwaar gemaakt. Een beoordelaar uit hetzelfde register beslist.</td></tr><tr><td data-label="Status">Wacht na een storing</td><td data-label="Betekenis">Wacht-status na een storing: het bezwaarvenster liep af terwijl HumanPush niet kon aantonen dat zijn eigen dienst werkte. Bezwaar kan dan nog even; de uitbetaling schuift hooguit 5 werkdagen op. De exacte statusnaam geeft <code>v1_explain</code>.</td></tr><tr><td data-label="Status"><code>closed_success</code></td><td data-label="Betekenis">Afgerond. De professional krijgt zijn tarief, HumanPush houdt H.</td></tr><tr><td data-label="Status"><code>closed_refund</code></td><td data-label="Betekenis">Afgesloten met terugbetaling. De reden staat erbij.</td></tr><tr><td data-label="Status"><code>closed_cancelled</code></td><td data-label="Betekenis">Geannuleerd.</td></tr><tr><td data-label="Status"><code>expired</code></td><td data-label="Betekenis">Niet op tijd betaald.</td></tr></tbody></table>
+<p class="lead">Elke status, reden en foutcode heeft een vaste uitleg via <code>v1_explain</code>. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>, maar uitzonderingen per geval bestaan niet.</p>
+<table class="table"><thead><tr><th scope="col">Status</th><th scope="col">Betekenis</th></tr></thead><tbody><tr><td data-label="Status"><code>offered</code></td><td data-label="Betekenis">Besteld, wacht op betaling (<span data-rule="payMinutes">30</span> minuten).</td></tr><tr><td data-label="Status"><code>funded</code></td><td data-label="Betekenis">Betaald. HumanPush biedt de opdracht één voor één aan, tot iemand aanneemt.</td></tr><tr><td data-label="Status"><code>active</code></td><td data-label="Betekenis">Aangenomen. Het verschil met de lagere prijs is terug. Levertermijn loopt.</td></tr><tr><td data-label="Status"><code>delivered</code></td><td data-label="Betekenis">Opgeleverd. <span data-rule="objectionHours">72</span> uur om te accepteren of bezwaar te maken.</td></tr><tr><td data-label="Status"><code>review</code></td><td data-label="Betekenis">Bezwaar gemaakt. Een beoordelaar uit hetzelfde register beslist.</td></tr><tr><td data-label="Status">Wacht na een storing</td><td data-label="Betekenis">Wacht-status na een storing: het bezwaarvenster liep af terwijl HumanPush niet kon aantonen dat zijn eigen dienst werkte. Bezwaar kan dan nog even; de uitbetaling schuift hooguit 5 werkdagen op. De exacte statusnaam geeft <code>v1_explain</code>.</td></tr><tr><td data-label="Status"><code>closed_success</code></td><td data-label="Betekenis">Afgerond. De professional krijgt zijn tarief, HumanPush houdt H.</td></tr><tr><td data-label="Status"><code>closed_refund</code></td><td data-label="Betekenis">Afgesloten met terugbetaling. De reden staat erbij.</td></tr><tr><td data-label="Status"><code>closed_cancelled</code></td><td data-label="Betekenis">Geannuleerd.</td></tr><tr><td data-label="Status"><code>expired</code></td><td data-label="Betekenis">Niet op tijd betaald.</td></tr></tbody></table>
 </div>
 </section>
 
 <section class="section" aria-labelledby="bewijs">
 <div class="wrap prose">
 <h2 id="bewijs">Het bewijs</h2>
-<p>Een registerverklaring van minimaal niveau 2: een mens heeft de professional met een vaste checklist in het openbare register gevonden. Bron, tijdstip en een hash worden bewaard. De verklaring is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud; bij octrooigemachtigden is daarbovenop de peildatum van de lijst hooguit <span data-rule="octrooiSourceMaxAgeDays">120</span> dagen oud. Bij elke aanname opnieuw gecontroleerd. Het is geen realtime koppeling met het register.</p>
-<p>Je agent mag een hoger niveau eisen met <code>min_proof_level</code>, nooit een lager. Bij de start biedt geen register een hoger niveau, dus wie hoger eist, vindt nu niemand.</p>
-<p>Elke stap van de professional is ondertekend met zijn passkey. Het logboek is ondertekend en elke gebeurtenis verwijst naar de vorige. <code>verify_proof</code> controleert het geheel.</p>
+<p>Een registercheck: HumanPush heeft de professional met een vaste checklist in het openbare register gevonden. De bron en de datum worden bewaard. De check is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud; bij octrooigemachtigden is daarbovenop de peildatum van de lijst hooguit <span data-rule="octrooiSourceMaxAgeDays">120</span> dagen oud. Bij elke aanname opnieuw gecontroleerd. Het is geen realtime koppeling met het register.</p>
+<p>Je agent mag met <code>min_proof_level</code> een strengere check eisen, nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand.</p>
+<p>Elke stap van de professional is getekend met zijn passkey. Elke stap staat in het bewijsdossier, en elke stap verwijst naar de vorige. <code>verify_proof</code> controleert het geheel.</p>
 <h2>Wanneer niet</h2>
-<p>Niet voor consumenten. Niet als je geen geregistreerde ondertekenaar nodig hebt. Niet voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Niet als je een andere conclusie wilt afdwingen: bezwaar gaat alleen over de vaste toetsingspunten van de dienst.</p>
+<p>Niet voor consumenten. Niet als je geen geregistreerde professional nodig hebt die tekent. Niet voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Niet als je een andere conclusie wilt afdwingen: bezwaar gaat alleen over de vaste toetsingspunten van de dienst.</p>
 <p class="linkline">Wat het systeem garandeert staat op <a href="/hoe-het-werkt#garanties">/hoe-het-werkt</a>.</p>
 </div>
 </section>
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
-<div><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p>HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476). <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p></div>
-<div><p class="h">Over</p><ul><li><a href="/veelgestelde-vragen">Vragen</a></li><li><a href="/voorwaarden">Voorwaarden</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/inloggen">Inloggen</a></li></ul></div>
-<div><p class="h">Voor agents</p><ul><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li><li><a href="/agents">Voor agents en bouwers</a></li></ul></div>
+<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p>HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476). <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p></div>
+<nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#bewijsdossier">Het bewijsdossier</a></li></ul></nav>
+<nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
+<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot second opinion</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>
+<nav aria-label="Juridisch"><p class="h">Juridisch</p><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Voorwaarden</a></li></ul></nav>
 </div>
 <div class="wrap"><div class="meta"><span>Regelversie 2026-11-19</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>
 </footer>

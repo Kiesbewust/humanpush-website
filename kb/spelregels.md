@@ -1,14 +1,14 @@
 # Spelregels van HumanPush (publieke versie)
 
-Testversie. Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Rangorde: voorwaarden boven protocol boven site. Elke regel heeft een vast nummer. Het protocol voert de regels uit; het ondertekende logboek is het bewijs.
+Testversie. Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Rangorde: eerst de voorwaarden, dan het systeem van HumanPush, dan de site. Elke regel heeft een vast nummer. HumanPush voert de regels automatisch uit; het bewijsdossier van elke opdracht is het bewijs.
 
 ## 1. Grondregels
 
-### R1.1 · Het protocol voert de voorwaarden uit
-Elke opdracht loopt alleen door de vaste stappen van het protocol. Er is geen handmatige route ernaast. Elke stap staat als ondertekende gebeurtenis in het logboek, en elke gebeurtenis verwijst naar de vorige.
+### R1.1 · HumanPush voert de voorwaarden uit
+Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het bewijsdossier van de opdracht, en elke stap verwijst naar de vorige.
 
 ### R1.2 · Geen uitzonderingen per geval
-Geen helpdesk die regels buigt: een mens beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.
+Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.
 
 ### R1.3 · Beheer heeft alleen een pauzeknop
 De pauze stopt nieuwe opdrachten voor iedereen. Lopende opdrachten lopen door onder hun eigen termijnen.
@@ -22,19 +22,19 @@ Termijnen, geldregels, bezwaar en bewijsvloer zijn voor alle vijf diensten gelij
 ### R1.6 · Alleen zakelijk
 Opdrachtgevers hebben een KvK-nummer. Professionals staan in een openbaar register. Niet voor particulieren of consumenten.
 
-### R1.7 · Eén route en één sleutel per actor
-Het bedrijf werkt via de sleutel van zijn agent. De professional werkt met zijn passkey: met zijn eigen agent (MCP), of zonder MCP met de HumanPush-agent op het tekenscherm. Die komt eraan.
+### R1.7 · Eén route en één toegangscode per partij
+Het bedrijf werkt via de toegangscode van zijn agent. De professional werkt met zijn passkey: met zijn eigen agent (MCP), of zonder MCP met de HumanPush-agent op het scherm van HumanPush. Die komt eraan.
 
-## 2. Registerbewijs
+## 2. Registercheck
 
-### R2.1 · Bewijsvloer niveau 2, voor iedereen
-Zonder geldig registerbewijs van minstens niveau 2 krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. Niveau 2 betekent: een mens zocht de professional met een vaste checklist op in het openbare register.
+### R2.1 · Registercheck vooraf, voor iedereen
+Zonder geldige registercheck krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.
 
-### R2.2 · Alleen de agent mag het niveau verhogen
-Een agent kan per opdracht een hoger bewijsniveau eisen (min_proof_level 3 of 4), nooit een lager. Bij de start biedt geen register een hoger niveau, dus wie hoger eist, vindt nu niemand en krijgt alles terug.
+### R2.2 · Alleen de agent mag een strengere check eisen
+Een agent kan per opdracht een strengere registercheck eisen (min_proof_level), nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand en krijgt alles terug.
 
-### R2.6 · Versheid van het registerbewijs
-Een registerbewijs telt hooguit 30 dagen. Bij octrooigemachtigden geldt daarbovenop: de peildatum van de lijst is bij de controle hooguit 120 dagen oud. Het is een registerverklaring met geldigheidsduur, geen live koppeling met het register.
+### R2.6 · Hoe lang een registercheck geldt
+Een registercheck telt hooguit 30 dagen. Bij octrooigemachtigden geldt daarbovenop: de peildatum van de lijst is bij de controle hooguit 120 dagen oud. Het is een registercheck met een geldigheidsduur, geen live koppeling met het register.
 
 ### R2.7 · Hercontrole bij elke aanname
 Vlak voor een aanname wordt het register opnieuw gecontroleerd. Doorgehaald of geschorst: de aangeboden opdracht vervalt.
@@ -62,13 +62,13 @@ Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert
 ## 4. Aanbieden en aanname
 
 ### R4.1 · Vaste volgorde
-Het protocol zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldig registerbewijs, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.
+HumanPush zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldige registercheck, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.
 
 ### R4.2 · Telkens 45 werkminuten aangeboden, tot iemand aanneemt
-Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde bouwt het protocol de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.
+Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.
 
 ### R4.4 · Niet aannemen kost niets: doorgeven
-Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het logboek en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.
+Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het bewijsdossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.
 
 ### R4.5 · Aannemen is tekenen
 De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
@@ -77,7 +77,7 @@ De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen g
 Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de vaste vergoeding.
 
 ### R4.7 · Hoe een professional een aangeboden opdracht ziet
-De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het tekenscherm. Er gaat geen mail of sms.
+De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het scherm van HumanPush. Er gaat geen mail of sms.
 
 ## 5. Werk en oplevering
 
@@ -85,7 +85,7 @@ De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_tur
 De uiterste leverdatum is de vroegste van: aanname plus eigen levertijd, en de uiterste datum van het bedrijf. Die schuift nooit.
 
 ### R5.2 · Opleveren is tekenen
-De professional levert het stuk, kiest een vaste uitkomst van de dienst en tekent met zijn passkey. Het stuk krijgt een vingerafdruk (hash).
+De professional levert het stuk, kiest een vaste uitkomst van de dienst en tekent met zijn passkey. Het stuk krijgt een digitale vingerafdruk: een unieke code van het opgeleverde stuk. Verandert er later één letter, dan klopt de vingerafdruk niet meer. Zo is aantoonbaar dat het stuk niet is aangepast.
 
 ## 6. 72 uur en bezwaar
 
@@ -96,13 +96,13 @@ Het bedrijf accepteert, of maakt bezwaar. Zegt het niets, dan geldt het werk na 
 Bezwaar kan alleen op de vaste toetsingspunten van de dienst: vorm compleet, vraag beantwoord, binnen de scope, disclaimer aanwezig, en per dienst soms een verklaring. Een andere conclusie willen is geen grond.
 
 ### R6.3 · Eén beoordelaar, binair oordeel
-Het protocol kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.
+HumanPush kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.
 
 ### R6.4 · Voldoet niet: alles terug
 Het bedrijf krijgt alles terug, ook de vaste vergoeding. De professional krijgt niets.
 
 ### R6.6 · Geen beoordelaar of storing bij HumanPush
-Vindt het protocol geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
+Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
 
 ## 7. Annuleren, terugtrekken, te laat
 
@@ -137,7 +137,7 @@ Een aangeboden opdracht doorgeven of laten verlopen, een belang melden bij een a
 ## 10. Bewijs
 
 ### R10.1 · Iedereen kan het bewijs zelf controleren
-Een export van een opdracht bevat de hash van het stuk, de passkey-handtekeningen, het registerbewijs en de logboekregels met hun keten. verify_proof controleert hash, handtekening en keten.
+Het bewijsdossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.
 
-### R10.3 · Persoonsgegevens niet leesbaar in het logboek
-Het logboek bevat vingerafdrukken (hashes) van inhoud, nooit de inhoud zelf.
+### R10.3 · Persoonsgegevens niet leesbaar in het bewijsdossier
+De stappen in het bewijsdossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.

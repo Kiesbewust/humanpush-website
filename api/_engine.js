@@ -24,7 +24,11 @@ const SYN = [
   [/^(passkeys?)$/, 'passkey'],
   [/^(kiez\w*|kies\w*|kiest|choose|chooses|choosing|pick\w*)$/, 'kiezen'],
   [/^(professionals?|deskundigen?|experts?)$/, 'professional'],
-  [/^(agents?)$/, 'agent']
+  [/^(agents?)$/, 'agent'],
+  [/^(registerbewijs\w*|registercheck\w*|registerverklaring\w*)$/, 'registercheck'],
+  [/^(logboek\w*|bewijsdossier\w*)$/, 'bewijsdossier'],
+  [/^(hash\w*|vingerafdruk\w*|sha-?256)$/, 'vingerafdruk'],
+  [/^(sleutel\w*|toegangscode\w*)$/, 'toegangscode']
 ];
 export function tokens(s) {
   const out = [];

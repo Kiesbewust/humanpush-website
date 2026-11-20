@@ -706,3 +706,106 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
   .rc-title { font-size: 17px; }
   .rc-sub { font-size: 13.5px; }
 }
+
+/* ===== Het HumanPush-proces helder (nov 2026) ===== */
+/* Compactere secties, links uitgelijnd in een vaste leesbreedte */
+.section { padding: 64px 0; }
+.section.top0 { padding-top: 32px; }
+@media (max-width: 760px) { .section { padding: 44px 0; } }
+.section > .wrap > p:not(.linkline):not(.label), .section > .wrap > h2 { max-width: 44em; }
+.twocol { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 28px; align-items: start; }
+.twocol > :first-child { grid-column: span 5; }
+.twocol > :last-child { grid-column: 7 / span 6; }
+@media (max-width: 960px) { .twocol > :first-child, .twocol > :last-child { grid-column: 1 / -1; } }
+
+/* De vier stappen: leesbaar, niet in kleine labels */
+.steps4 { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); counter-reset: none; }
+.steps4 li { padding: 24px 24px 26px; min-width: 0; }
+.steps4 li + li { border-left: 1px solid var(--line); }
+.steps4 h3 { font-size: 19px; margin: 12px 0 8px; }
+.steps4 p { font-size: 16.5px; line-height: 1.55; color: var(--body); margin: 0; }
+.s4-num { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--white); font-weight: 600; font-size: 16px; }
+.same { margin: 16px 0 0; font-size: 16.5px; font-weight: 500; color: var(--ink); }
+.steps4 + .same + .linkline { margin-top: 8px; }
+@media (max-width: 960px) { .steps4 { grid-template-columns: 1fr 1fr; } .steps4 li:nth-child(3) { border-left: 0; } .steps4 li:nth-child(n+3) { border-top: 1px solid var(--line); } }
+@media (max-width: 600px) { .steps4 { grid-template-columns: 1fr; } .steps4 li + li { border-left: 0; border-top: 1px solid var(--line); } }
+
+/* Wat wordt er vastgelegd */
+.vastgelegd { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+.vastgelegd li { position: relative; padding: 20px 0 20px 48px; border-top: 1px solid var(--line); }
+.vastgelegd .s4-num { position: absolute; left: 0; top: 20px; }
+.vastgelegd h3 { margin: 3px 0 6px; }
+.vastgelegd p { font-size: 16px; margin: 0 0 8px; }
+.vastgelegd .why { color: var(--muted); }
+.vastgelegd .why strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 760px) { .vastgelegd { grid-template-columns: 1fr; } }
+
+/* Kant kiezen (pro | bedrijf) */
+.side-bar { margin-top: 24px; }
+.side-toggle { margin-bottom: 0; }
+.side-toggle .svc-view { min-height: 44px; padding: 0 16px; font-size: 15px; }
+.no-js .side-bar { display: none; }
+.side + .side { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); }
+.side-for { font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 16px 0 12px; }
+.js [data-side-ready] .side-for { display: none; }
+.js [data-side-ready] .side + .side { margin-top: 0; padding-top: 0; border-top: 0; }
+.js .side[data-off] { display: none; }
+
+/* Gesprek (voorbeeld) */
+.chat { margin: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.chat ol { list-style: none; margin: 0; padding: 8px 0; }
+.chat li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); }
+.chat li:last-child { border-bottom: 0; }
+.c-who { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.c-me .c-who { color: var(--ink); }
+.c-msg p { margin: 0 0 6px; font-size: 15.5px; line-height: 1.5; }
+.c-msg .acts { margin-top: 6px; }
+.c-msg .field { border: 1px solid var(--line); border-radius: 3px; padding: 6px 10px; font-size: 14px; margin-top: 4px; }
+.c-msg .status { margin-top: 4px; }
+.c-me { background: var(--page); }
+.c-code { margin: 4px 0 0; padding: 8px 10px; background: var(--ink-deep); color: #E6ECF7; border-radius: 3px; font-family: var(--mono); font-size: 12px; overflow-x: auto; }
+.c-code code { background: none; border: 0; padding: 0; color: inherit; }
+@media (max-width: 520px) { .chat li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Genummerde flow, uitbetalingsschema, citaat */
+.flowlist { list-style: none; margin: 20px 0 0; padding: 0; counter-reset: fl; }
+.flowlist li { position: relative; counter-increment: fl; padding: 14px 0 14px 48px; border-top: 1px solid var(--line-soft); }
+.flowlist li::before { content: counter(fl); position: absolute; left: 0; top: 14px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--ink); color: var(--ink); display: grid; place-items: center; font-weight: 600; font-size: 14.5px; }
+.flowlist strong { display: block; color: var(--ink); font-size: 17px; margin-bottom: 2px; }
+.flowlist li > span { display: block; font-size: 16px; color: var(--body); max-width: 40em; }
+.payschema { list-style: none; margin: 24px 0 20px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.payschema li { position: relative; padding: 20px 24px; }
+.payschema li + li { border-left: 1px solid var(--line); }
+.payschema li + li::before { content: ""; position: absolute; left: -9px; top: 24px; width: 16px; height: 16px; background: var(--page); border: 1px solid var(--line); border-radius: 50%; }
+.payschema li + li::after { content: ""; position: absolute; left: -6px; top: 27px; width: 10px; height: 10px; background: var(--ink); -webkit-mask: var(--i-arrow) center / contain no-repeat; mask: var(--i-arrow) center / contain no-repeat; }
+.payschema strong { display: block; color: var(--ink); font-size: 17px; margin-bottom: 4px; }
+.payschema li > span { font-size: 16px; }
+.payschema .pay { box-shadow: inset 0 -2px 0 var(--ink); }
+@media (max-width: 760px) { .payschema { grid-template-columns: 1fr; } .payschema li + li { border-left: 0; border-top: 1px solid var(--line); } .payschema li + li::before { left: 24px; top: -9px; } .payschema li + li::after { left: 27px; top: -6px; transform: rotate(90deg); } }
+.quote { margin: 20px 0 24px; padding: 4px 0 4px 20px; border-left: 2px solid var(--ink); max-width: 40em; }
+.quote p { margin: 0; font-size: 20px; line-height: 1.45; font-weight: 500; color: var(--ink); }
+.ticks.small li { font-size: 16px; }
+
+/* Registers en sectoren op home */
+.sectoren { margin-top: 28px; max-width: 960px; }
+.sectoren .label { color: var(--on-dark-muted); }
+.sectoren ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.sectoren a { display: inline-flex; align-items: baseline; gap: 8px; min-height: 40px; padding: 8px 12px; border: 1px solid var(--line-dark); border-radius: var(--radius-s); text-decoration: none; }
+.sectoren a:hover { border-color: var(--on-dark-muted); background: rgba(255, 255, 255, .05); }
+.sec-name { color: var(--white); font-weight: 500; font-size: 15px; }
+.sec-reg { font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em; color: var(--on-dark-muted); }
+
+/* Dienstkaart: register in één zin; manieren van werken zonder schakelaar */
+.svc-uitleg { font-size: 16px; color: var(--body); margin: 6px 0 4px; }
+.svc-uitleg strong { color: var(--ink); }
+.tabs-only .svc-bar { justify-content: flex-start; }
+.manier .flowlist { margin-top: 12px; }
+
+/* Footer met vier kolommen */
+.site-footer .cols > .f-brand { grid-column: span 4; }
+.site-footer .cols > nav:not(:first-child) { grid-column: span 2; }
+@media (max-width: 960px) { .site-footer .cols > .f-brand { grid-column: 1 / -1; } .site-footer .cols > nav:not(:first-child) { grid-column: span 6; } }
+@media (max-width: 760px) { .site-footer .cols > nav { grid-column: span 6 !important; } }
+.site-footer nav li a { min-height: 36px; }
+
+.section:not(.dark) .demo-cap { color: var(--muted); }

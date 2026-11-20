@@ -8,8 +8,8 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 
 | Bestand | Wordt | Voor wie |
 |---|---|---|
-| `index.html` | https://humanpush.nl/ | de voordeur: drie routes, interactieve flow, swimlane, HumanPush-agent |
-| `hoe-het-werkt.html` | https://humanpush.nl/hoe-het-werkt | de enige plek met de volledige uitleg: flow, swimlane, infographic, werkuren, garanties G1–G8, geld, logboek |
+| `index.html` | https://humanpush.nl/ | de voordeur: twee routekaarten, registers en sectoren, de vier stappen, een voorbeeld, wat er wordt vastgelegd |
+| `hoe-het-werkt.html` | https://humanpush.nl/hoe-het-werkt | de volledige uitleg: kant kiezen (professional of bedrijf), de vier stappen, een voorbeeldgesprek per kant, wat er wordt vastgelegd, garanties G1–G8, termijnen en werkuren, geld |
 | `bedrijven.html` | https://humanpush.nl/bedrijven | bedrijven die agents inzetten |
 | `agents.html` | https://humanpush.nl/agents | agentbouwers (Nederlands) |
 | `professionals.html` | https://humanpush.nl/professionals | professionals, met ankers `#nivre #nrvt #nrgd #octrooi #nrbi` |
@@ -19,7 +19,7 @@ Alles draait onder https://humanpush.nl. Canonieke URL's en de sitemap gebruiken
 | `privacy.html` | https://humanpush.nl/privacy | iedereen |
 | `llms.txt` | https://humanpush.nl/llms.txt | AI-agents (Engels) |
 | `site.css` | gedeeld stylesheet, ontwerp variant A | — |
-| `site.js` | mobiel menu, Inloggen-menu, interactieve flow, vlaggen (zonder JavaScript: menu open, flow als lijst) | — |
+| `site.js` | mobiel menu, Inloggen-menu, dienstkaarten en tabs, kant kiezen, de voorbeeld-demo, vlaggen (zonder JavaScript: alles open en zichtbaar) | — |
 | `config.js` | de vlaggen van de site (alles uit) | — |
 | `api/` | `POST /api/ask` (achter een vlag) | agents en het chatvenster |
 | `sitemap.xml` | https://humanpush.nl/sitemap.xml | canonieke URL's |
@@ -31,8 +31,8 @@ Ontwerpsysteem in `site.css` ("infrastructuur voor geregistreerde professionals"
 
 ## Eén bron, geen build-stap
 
-- `rules.json`: alle termijnen (beurt van 45 werkminuten, hooguit 2 beurten per professional, vangnet 3 werkdagen, 30 minuten betalen, 72 uur bezwaar, 25%). De aanneemtermijn heeft één bron: verandert hij, dan pas je alleen `rules.json` aan (en `llms.txt`, `kb/spelregels.md` en de infographic, die het script controleert). Moet gelijk zijn aan `src/v1/params.ts` op de testversie van humanpush-mcp.
-- `partials/`: het stroomdiagram (`flow.html` + twee SVG's) en de swimlane (`swimlane.svg` + `swimlane-legenda.json`). `node tools/sync-partials.mjs` zet ze in de pagina's tussen `<!--flow:start-->`/`<!--flow:end-->`, `<!--flowsvg:…-->` en `<!--swim:…-->`, en vult elke `<span data-rule="…">`. `--check` faalt bij verschil of bij de oude regel "4 werkuren". `partials/diensten.json` is de bron van de dienstkaarten op /professionals en /bedrijven (`<!--diensten:start view=pro|bedrijf-->`): tabs per register, een schakelaar professional | bedrijf en details; zonder JavaScript staat alles open.
+- `rules.json`: alle termijnen (45 werkminuten om een aangeboden opdracht aan te nemen, hooguit 2 keer aangeboden per professional, vangnet 3 werkdagen, 30 minuten betalen, 72 uur bezwaar, 25%). De aanneemtermijn heeft één bron: verandert hij, dan pas je alleen `rules.json` aan (en `llms.txt`, `kb/spelregels.md`, die het script controleert). Moet gelijk zijn aan `src/v1/params.ts` op de testversie van humanpush-mcp.
+- `partials/diensten.json`: de bron van de dienstkaarten, met per register één zin wat het register is en welke sector. `node tools/sync-partials.mjs` zet ze in de pagina's tussen `<!--diensten:start view=pro|bedrijf-->` en `<!--diensten:end-->`, en vult elke `<span data-rule="…">`. `--check` faalt bij verschil. Het oude stroomdiagram, de swimlane en de infographic zijn weg.
 - `kb/`: de kennisbasis. `node tools/build-kb.mjs` bouwt `kb/index.json`, `kb/faq.md` en `api/_kb.js` uit `kb/spelregels.md`, de vragenpagina, `llms.txt` en de blokken met `data-kb`. `--check` in CI.
 - `npm run check` draait alles plus de tests (`tests/`, geen netwerk, geen model). CI: `.github/workflows/site-check.yml`.
 - `.vercelignore`: `tests`, `tools`, `partials` en `.github` worden niet uitgeleverd.
@@ -67,3 +67,8 @@ Pas de bestanden aan, commit en push. Vercel zet de nieuwe versie vanzelf live.
 ## Automatische deploy
 
 Pushes naar `main` worden automatisch gedeployed naar Vercel (project `humanpush-website`, productiedomein humanpush.nl). Open een pull request voor wijzigingen; merge niet automatisch.
+
+
+## Woordenlijst (publieke Nederlandse tekst)
+
+Bewijsdossier (niet logboek), digitale vingerafdruk (niet hash), handtekening met je passkey (niet passkey-handtekening), registercheck (niet registerbewijs of niveau 2), toegangscode voor je agent (op /agents: API-sleutel), HumanPush (niet protocol), jij of de professional (niet mens). "Beurt" staat alleen nog in /voorwaarden; die tekst verandert pas na akkoord van de jurist (PR #20). `tests/proces.test.mjs` bewaakt dit.

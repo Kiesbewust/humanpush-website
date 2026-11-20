@@ -1,15 +1,15 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "888e36f716bc83ce64efa1051ce2ef69de0df65909fb798d1c6ce64dc68e16f4",
+ "kb_hash": "41f39b7c823021dd1a12f8a6fad586090fe58db747fae9080c51cc55c58fe607",
  "chunks": [
   {
    "id": "spelregels-r1-1",
-   "title": "R1.1 Het protocol voert de voorwaarden uit",
+   "title": "R1.1 HumanPush voert de voorwaarden uit",
    "url": "https://humanpush.nl/hoe-het-werkt#logboek",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Elke opdracht loopt alleen door de vaste stappen van het protocol. Er is geen handmatige route ernaast. Elke stap staat als ondertekende gebeurtenis in het logboek, en elke gebeurtenis verwijst naar de vorige.",
-   "hash": "77bbd78b94e697a9"
+   "text": "Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het bewijsdossier van de opdracht, en elke stap verwijst naar de vorige.",
+   "hash": "8305353662cff844"
   },
   {
    "id": "spelregels-r1-2",
@@ -17,8 +17,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#logboek",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Geen helpdesk die regels buigt: een mens beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.",
-   "hash": "96a792f99d145f43"
+   "text": "Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.",
+   "hash": "bdbe9d337af62939"
   },
   {
    "id": "spelregels-r1-3",
@@ -58,39 +58,39 @@
   },
   {
    "id": "spelregels-r1-7",
-   "title": "R1.7 Eén route en één sleutel per actor",
+   "title": "R1.7 Eén route en één toegangscode per partij",
    "url": "https://humanpush.nl/hoe-het-werkt#logboek",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het bedrijf werkt via de sleutel van zijn agent. De professional werkt met zijn passkey: met zijn eigen agent (MCP), of zonder MCP met de HumanPush-agent op het tekenscherm. Die komt eraan.",
-   "hash": "e71211448958e806"
+   "text": "Het bedrijf werkt via de toegangscode van zijn agent. De professional werkt met zijn passkey: met zijn eigen agent (MCP), of zonder MCP met de HumanPush-agent op het scherm van HumanPush. Die komt eraan.",
+   "hash": "a41cc5c24360923d"
   },
   {
    "id": "spelregels-r2-1",
-   "title": "R2.1 Bewijsvloer niveau 2, voor iedereen",
+   "title": "R2.1 Registercheck vooraf, voor iedereen",
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Zonder geldig registerbewijs van minstens niveau 2 krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. Niveau 2 betekent: een mens zocht de professional met een vaste checklist op in het openbare register.",
-   "hash": "eb905fe9d1fb9426"
+   "text": "Zonder geldige registercheck krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.",
+   "hash": "e9722ed8560daff5"
   },
   {
    "id": "spelregels-r2-2",
-   "title": "R2.2 Alleen de agent mag het niveau verhogen",
+   "title": "R2.2 Alleen de agent mag een strengere check eisen",
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een agent kan per opdracht een hoger bewijsniveau eisen (min_proof_level 3 of 4), nooit een lager. Bij de start biedt geen register een hoger niveau, dus wie hoger eist, vindt nu niemand en krijgt alles terug.",
-   "hash": "e84d478d351d4620"
+   "text": "Een agent kan per opdracht een strengere registercheck eisen (min_proof_level), nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand en krijgt alles terug.",
+   "hash": "aaa3310b295e093d"
   },
   {
    "id": "spelregels-r2-6",
-   "title": "R2.6 Versheid van het registerbewijs",
+   "title": "R2.6 Hoe lang een registercheck geldt",
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een registerbewijs telt hooguit 30 dagen. Bij octrooigemachtigden geldt daarbovenop: de peildatum van de lijst is bij de controle hooguit 120 dagen oud. Het is een registerverklaring met geldigheidsduur, geen live koppeling met het register.",
-   "hash": "cd4b4bfd6e840158"
+   "text": "Een registercheck telt hooguit 30 dagen. Bij octrooigemachtigden geldt daarbovenop: de peildatum van de lijst is bij de controle hooguit 120 dagen oud. Het is een registercheck met een geldigheidsduur, geen live koppeling met het register.",
+   "hash": "2ecb3ca1ce9e2f45"
   },
   {
    "id": "spelregels-r2-7",
@@ -161,8 +161,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het protocol zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldig registerbewijs, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.",
-   "hash": "69f534abdea60b72"
+   "text": "HumanPush zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldige registercheck, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.",
+   "hash": "0c7c34a19427fe34"
   },
   {
    "id": "spelregels-r4-2",
@@ -170,8 +170,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde bouwt het protocol de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.",
-   "hash": "c7074dda87cc5e3f"
+   "text": "Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.",
+   "hash": "1281eae936e1c0c7"
   },
   {
    "id": "spelregels-r4-4",
@@ -179,8 +179,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het logboek en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.",
-   "hash": "8193dc7d4df7943c"
+   "text": "Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het bewijsdossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.",
+   "hash": "f27ad6fb97880aef"
   },
   {
    "id": "spelregels-r4-5",
@@ -206,8 +206,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het tekenscherm. Er gaat geen mail of sms.",
-   "hash": "9c97d982c0ba54c6"
+   "text": "De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het scherm van HumanPush. Er gaat geen mail of sms.",
+   "hash": "79ccc016be9c6ba7"
   },
   {
    "id": "spelregels-r5-1",
@@ -224,8 +224,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#stappen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De professional levert het stuk, kiest een vaste uitkomst van de dienst en tekent met zijn passkey. Het stuk krijgt een vingerafdruk (hash).",
-   "hash": "a60046b1c97f77bc"
+   "text": "De professional levert het stuk, kiest een vaste uitkomst van de dienst en tekent met zijn passkey. Het stuk krijgt een digitale vingerafdruk: een unieke code van het opgeleverde stuk. Verandert er later één letter, dan klopt de vingerafdruk niet meer. Zo is aantoonbaar dat het stuk niet is aangepast.",
+   "hash": "42a5eb4573731637"
   },
   {
    "id": "spelregels-r6-1",
@@ -251,8 +251,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het protocol kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.",
-   "hash": "9afc8381e903eb48"
+   "text": "HumanPush kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.",
+   "hash": "08d6931d6052d4c0"
   },
   {
    "id": "spelregels-r6-4",
@@ -269,8 +269,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Vindt het protocol geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.",
-   "hash": "042c266262ce2775"
+   "text": "Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.",
+   "hash": "95ffc395c49fe4a1"
   },
   {
    "id": "spelregels-r7-1",
@@ -350,17 +350,17 @@
    "url": "https://humanpush.nl/hoe-het-werkt#logboek",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een export van een opdracht bevat de hash van het stuk, de passkey-handtekeningen, het registerbewijs en de logboekregels met hun keten. verify_proof controleert hash, handtekening en keten.",
-   "hash": "876a97af448e8b98"
+   "text": "Het bewijsdossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.",
+   "hash": "56db6a3967e690d1"
   },
   {
    "id": "spelregels-r10-3",
-   "title": "R10.3 Persoonsgegevens niet leesbaar in het logboek",
+   "title": "R10.3 Persoonsgegevens niet leesbaar in het bewijsdossier",
    "url": "https://humanpush.nl/hoe-het-werkt#logboek",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het logboek bevat vingerafdrukken (hashes) van inhoud, nooit de inhoud zelf.",
-   "hash": "3a68d0717b90f131"
+   "text": "De stappen in het bewijsdossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.",
+   "hash": "0b34c8cbd6ca696e"
   },
   {
    "id": "faq-bedrijven-is-het-al-te-gebruiken",
@@ -377,8 +377,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
    "lang": "nl",
    "source": "faq",
-   "text": "Nee. Je kiest een dienst en een maximumprijs; het protocol kiest in een vaste volgorde uit professionals met een geldig registerbewijs.",
-   "hash": "3c608c2133914af0"
+   "text": "Nee. Je kiest een dienst en een maximumprijs; HumanPush biedt de opdracht in een vaste volgorde aan professionals met een geldige registercheck.",
+   "hash": "74c3572bea1bed40"
   },
   {
    "id": "faq-bedrijven-wat-kost-het",
@@ -435,13 +435,13 @@
    "hash": "48e6a12459c13e39"
   },
   {
-   "id": "faq-bedrijven-wat-bewijst-het-registerbewijs-precies",
-   "title": "Wat bewijst het registerbewijs precies?",
+   "id": "faq-bedrijven-wat-bewijst-de-registercheck-precies",
+   "title": "Wat bewijst de registercheck precies?",
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
    "lang": "nl",
    "source": "faq",
-   "text": "Dat een mens de professional met een vaste checklist in het openbare register heeft gevonden, op een vastgelegde datum, en dat dit bij de aanname opnieuw is gecontroleerd. Het is geen live koppeling met het register.",
-   "hash": "aa31fb2f30c72c34"
+   "text": "Dat HumanPush de professional met een vaste checklist in het openbare register heeft gevonden, op een vastgelegde datum, en dat dit bij de aanname opnieuw is gecontroleerd. Het is geen live koppeling met het register.",
+   "hash": "b4ead0365df555d3"
   },
   {
    "id": "faq-bedrijven-kan-ik-bezwaar-maken-als-ik-het-niet-eens-ben-me",
@@ -458,8 +458,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
    "lang": "nl",
    "source": "faq",
-   "text": "De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registerbewijs, termijnen, geld en logboek.",
-   "hash": "076fe8436a01170f"
+   "text": "De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het bewijsdossier.",
+   "hash": "734a457198224a34"
   },
   {
    "id": "faq-bedrijven-is-dit-ook-voor-particulieren",
@@ -521,8 +521,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#humanpush-agent",
    "lang": "nl",
    "source": "faq",
-   "text": "Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen sleutel. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.",
-   "hash": "3fa8242a8d9470dd"
+   "text": "Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen toegangscode. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.",
+   "hash": "05b4ce3dc0bf40f8"
   },
   {
    "id": "faq-professionals-wat-heb-ik-nodig-om-te-koppelen",
@@ -530,8 +530,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Voor je eigen agent: een MCP-client, je sleutel en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor de HumanPush-agent volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.",
-   "hash": "22032966d9c8f863"
+   "text": "Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor de HumanPush-agent volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.",
+   "hash": "fab6a91b7fac9e89"
   },
   {
    "id": "faq-professionals-hoe-zet-ik-een-stap",
@@ -539,8 +539,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het tekenscherm.",
-   "hash": "d23ba8e75c1cd365"
+   "text": "Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.",
+   "hash": "7dd357267b5bcccb"
   },
   {
    "id": "faq-professionals-hoe-weet-ik-dat-er-een-opdracht-voor-mij-is",
@@ -548,8 +548,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#aangeboden",
    "lang": "nl",
    "source": "faq",
-   "text": "Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het tekenscherm. Er gaat geen mail of sms.",
-   "hash": "de4110cc10020b16"
+   "text": "Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het scherm van HumanPush. Er gaat geen mail of sms.",
+   "hash": "a7aff0249864ed0b"
   },
   {
    "id": "faq-professionals-hoeveel-tijd-heb-ik-om-te-reageren",
@@ -629,8 +629,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#agents",
    "lang": "nl",
    "source": "faq",
-   "text": "Nog niet voor v1. Protocol v1 is in de testfase; er is nog geen publiek endpoint.",
-   "hash": "0a35cc64eace21ff"
+   "text": "Nog niet voor versie 1. Die is in de testfase; er is nog geen publiek endpoint.",
+   "hash": "1418434576e8fe43"
   },
   {
    "id": "faq-agents-kan-mijn-agent-vragen-stellen",
@@ -656,8 +656,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#agents",
    "lang": "nl",
    "source": "faq",
-   "text": "Vraag v1_explain. Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een mens beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet.",
-   "hash": "710f42fea9b1e531"
+   "text": "Vraag v1_explain. Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet.",
+   "hash": "1c1e73935daf3c4c"
   },
   {
    "id": "llms-ask-us",
@@ -755,8 +755,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "pagina",
-   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 werkminuten open. Accepteert hij niet, of geeft hij hem door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde bouwt het protocol de wachtrij opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot jij annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
-   "hash": "f3db465a9cc89437"
+   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 werkminuten open. Accepteert hij niet, of geeft hij hem door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde maakt HumanPush de volgorde opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot jij annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
+   "hash": "6ebad80ef8413a96"
   },
   {
    "id": "pagina-hoe-het-werkt-werkuren",
@@ -773,8 +773,8 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Zo bestel je. Je agent kiest een dienst en een maximumprijs. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus een vaste vergoeding voor HumanPush, voor elk bedrijf hetzelfde, excl. btw. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug. Daarna wordt je opdracht één voor één aangeboden, tot hij is toegewezen aan een professional. Annuleren kan tot de aanname gratis. Neemt niemand aan, dan krijg je alles terug. Zie /hoe-het-werkt. Toegang: een sleutel voor je agent, gekoppeld aan je KvK-nummer. Opent na de testfase. Betalen: met een directe betaalmethode via de betaallink. Bedragen volgen na de testfase. Je krijgt: het getekende stuk, de hash, het registernummer en een export met het bewijs.",
-   "hash": "3ef3f7b967bba7d9"
+   "text": "Betaling en geld terug. Vooraf betalen. Je maximumprijs plus een vaste vergoeding voor HumanPush, voor elk bedrijf hetzelfde, excl. btw. Je betaalt nooit meer. Niemand neemt aan. Neemt niemand aan binnen 3 werkdagen, of kan niemand meer op tijd leveren: alles terug. Annuleren. Vóór de aanname: alles terug. Daarna houdt de professional 25% van zijn prijs en krijg je de rest terug. Voldoet het niet? Maak binnen 72 uur bezwaar op de vaste toetsingspunten. Een collega uit hetzelfde register beslist; voldoet het niet, dan krijg je alles terug. Te laat of teruggetrokken. Alles terug. Je kunt opnieuw bestellen.",
+   "hash": "57011fc9c973a83d"
   },
   {
    "id": "pagina-bedrijven-niet-geschikt",
@@ -782,8 +782,8 @@
    "url": "https://humanpush.nl/bedrijven#niet-geschikt",
    "lang": "nl",
    "source": "pagina",
-   "text": "Niet geschikt. Voor consumenten. Als je geen geregistreerde ondertekenaar nodig hebt. Voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Of als je een andere conclusie wilt afdwingen.",
-   "hash": "164fc04829fce416"
+   "text": "Niet geschikt. Voor consumenten. Als je geen geregistreerde professional nodig hebt die tekent. Voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Of als je een andere conclusie wilt afdwingen.",
+   "hash": "0fa16b3d2abe91ea"
   },
   {
    "id": "pagina-professionals-humanpush-agent",
@@ -791,8 +791,8 @@
    "url": "https://humanpush.nl/professionals#humanpush-agent",
    "lang": "nl",
    "source": "pagina",
-   "text": "Je kijkt naar: Professionals zonder MCP · komt eraan Geen agent? Je krijgt een HumanPush-agent. Bij je aanmelding krijg je een gehoste agent met een eigen sleutel. Hij praat met de agent van het bedrijf via de HumanPush-MCP, zodat jij agent-ready bent zonder iets te installeren. Hij werkt alleen voor HumanPush en tekent nooit voor je. Dit doet hij. Aangeboden opdrachten melden. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen bewaken. Dit doet hij nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. De eerste versie is een eenvoudig tekenscherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde sleutel aan je eigen MCP-client koppelen; je passkeys blijven hetzelfde. Komt eraan. HumanPush-agentVoorbeeld, fictief AGENTAangeboden opdracht: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Nog 38 werkminuten om te accepteren. Aannemen met passkeyDoorgeven Niet aannemen? Geef hem door. Dat kost niets. AGENTJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we je register opnieuw. OPLEVERENUitkomstKies de vaste uitkomst Stukrapport.pdf toegevoegd Inhoudshash9f3a…e17d Tekenen met passkey",
-   "hash": "29d6ee1963903c83"
+   "text": "Met de HumanPush-agent Geen agent? Je krijgt een HumanPush-agent. Bij je aanmelding krijg je een eenvoudige HumanPush-agent. Hij regelt het contact met de agent van het bedrijf, zodat jij zonder eigen techniek kunt meedoen. Hij werkt alleen voor HumanPush en tekent nooit voor je. Dit doet hij. Aangeboden opdrachten melden. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen bewaken. Dit doet hij nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. De eerste versie is een eenvoudig scherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde toegangscode aan je eigen agent koppelen; je passkeys blijven hetzelfde. Komt eraan. HumanPush-agentVoorbeeld, fictief AGENTAangeboden opdracht: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Nog 38 werkminuten om te accepteren. Aannemen met passkeyDoorgeven Niet aannemen? Geef hem door. Dat kost niets. AGENTJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat. OPLEVERENUitkomstKies de vaste uitkomst Stukrapport.pdf toegevoegd Vingerafdruk9f3a…e17d Tekenen met passkey",
+   "hash": "0a5e038556e30e42"
   },
   {
    "id": "pagina-agents-zo-verbind-je",
@@ -800,8 +800,8 @@
    "url": "https://humanpush.nl/agents#zo-verbind-je",
    "lang": "nl",
    "source": "pagina",
-   "text": "Zo verbind je. Geen echte URL en geen sleutel: dit laat de volgorde zien. Welke velden inputs heeft, staat per dienst in list_services. Onbekende velden worden geweigerd.",
-   "hash": "039d963e84b08fb0"
+   "text": "Zo verbind je. Geen echte URL en geen echte API-sleutel: dit laat de volgorde zien. Welke velden inputs heeft, staat per dienst in list_services. Onbekende velden worden geweigerd.",
+   "hash": "4dbbccced0ececa4"
   },
   {
    "id": "pagina-agents-vraag",
@@ -809,8 +809,8 @@
    "url": "https://humanpush.nl/agents#vraag",
    "lang": "nl",
    "source": "pagina",
-   "text": "Vraag het aan HumanPush. Agents kunnen vragen stellen in gewone tekst, en krijgen antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Via POST /api/ask of, in de testversie, via de MCP-tool ask_humanpush. Een antwoord is informatie, geen advies en geen toezegging: de regels in het protocol gelden. Vragen aan HumanPush in tekst komen eraan.",
-   "hash": "480768715629098c"
+   "text": "Vraag het aan HumanPush. Agents kunnen vragen stellen in gewone tekst, en krijgen antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Via POST /api/ask of, in de testversie, via de MCP-tool ask_humanpush. Een antwoord is informatie, geen advies en geen toezegging: de regels van HumanPush gelden. Vragen aan HumanPush in tekst komen eraan.",
+   "hash": "9544c7ef19a80974"
   }
  ]
 }

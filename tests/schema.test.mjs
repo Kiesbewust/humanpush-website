@@ -99,8 +99,8 @@ test('authenticatie: tekenen met passkey plus verplichte reserve; nergens een co
   for (const f of TEXT_FILES) assert.doesNotMatch(read(f), /e-?mail-?code|code (per|via) (e-)?mail|email code|verificatiecode|sms-code|one-time code|eenmalige code/i, f);
   // Waar de eenmalige link genoemd wordt, staat er ook waarvoor hij dient.
   const pages = TEXT_FILES.filter((f) => f.endsWith('.html'));
-  for (const f of pages) if (/eenmalig(e)? (een )?link/i.test(read(f))) assert.match(read(f), /link dient alleen om (je|de) sleutel op te halen/, f);
-  for (const f of ['agents.html', 'inloggen.html', 'professionals.html']) assert.match(read(f), /link dient alleen om (je|de) sleutel op te halen/, f);
+  for (const f of pages) if (/eenmalig(e)? (een )?link/i.test(read(f))) assert.match(read(f), /link dient alleen om (je|de) (toegangscode|API-sleutel) op te halen/, f);
+  for (const f of ['agents.html', 'inloggen.html', 'professionals.html']) assert.match(read(f), /link dient alleen om (je|de) (toegangscode|API-sleutel) op te halen/, f);
 });
 
 test('entiteit: alleen HumAgent B.V. (KvK 42222476), geen andere naam, geen placeholders', () => {

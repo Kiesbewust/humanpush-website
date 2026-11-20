@@ -1,15 +1,12 @@
 #!/usr/bin/env node
-// HumanPush: één bron voor het stroomdiagram, de swimlane en de termijnen. Geen dependencies.
+// HumanPush: één bron voor de dienstkaarten en de termijnen. Geen dependencies.
 //
 //   node tools/sync-partials.mjs          schrijft de partials en de termijnen in de pagina's
 //   node tools/sync-partials.mjs --check  faalt als een pagina afwijkt van de bron (voor CI)
 //
-// Bronnen: partials/flow.html (+ flow-desktop.svg, flow-mobiel.svg, flow-leads.json),
-// partials/swimlane.svg (+ swimlane-legenda.json) en rules.json.
+// Bronnen: partials/diensten.json en rules.json.
 // Markers in de pagina's:
-//   <!--flow:start--> … <!--flow:end-->                 (optioneel: <!--flow:start variant=professionals-->)
-//   <!--flowsvg:start--> … <!--flowsvg:end-->           (alleen de twee SVG's, voor de terugval op de homepage)
-//   <!--swim:start--> … <!--swim:end-->
+//   <!--diensten:start view=pro|bedrijf--> … <!--diensten:end-->
 //   <span data-rule="turnWorkingMinutes">45</span>      (overal waar een termijn genoemd wordt)
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -27,27 +24,6 @@ const rv = (k) => {
 };
 const span = (k) => `<span data-rule="${k}">${rv(k)}</span>`;
 
-const desktop = read('partials/flow-desktop.svg').trim();
-const mobile = read('partials/flow-mobiel.svg').trim();
-const leads = JSON.parse(read('partials/flow-leads.json'));
-
-function flowBlock(variant) {
-  const lead = leads[variant || 'default'];
-  if (!lead) throw new Error(`onbekende flow-variant: ${variant}`);
-  return read('partials/flow.html').trim()
-    .replace('<!-- lead -->', `<p class="lead">${lead}</p>`)
-    .replace('<!-- desktop-svg -->', desktop)
-    .replace('<!-- mobiel-svg -->', mobile);
-}
-const flowSvgBlock = () => `<figure class="flow-figure">\n${desktop}\n${mobile}\n</figure>`;
-
-function swimBlock() {
-  const svg = read('partials/swimlane.svg').trim();
-  const legend = JSON.parse(read('partials/swimlane-legenda.json'));
-  const items = legend.map((t, i) => `<li><span class="ln" aria-hidden="true">${i + 1}</span><span>${t.replace(/\{(\w+)\}/g, (_, k) => span(k))}</span></li>`).join('');
-  return `<div class="swimcard">\n${svg}\n</div>\n<p class="scroll-hint">Op een smal scherm schuift het diagram opzij; de genummerde lijst hieronder zegt hetzelfde.</p>\n<ol class="swimleg" aria-label="Legenda bij het diagram">${items}</ol>`;
-}
-
 // Dienstkaarten: één bron (partials/diensten.json), twee kijkrichtingen. Zonder JavaScript staat alles open en zichtbaar;
 // site.js maakt er tabs (per register), een schakelaar (professional | bedrijf) en ingeklapte details van.
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -64,11 +40,11 @@ function dienstenBlock(view) {
     const p = r.pro, b = r.bedrijf;
     const scope = `<div class="svc-scope"><div><p class="label">Valt in de dienst</p><ul class="ticks">${li(r.in_scope)}</ul></div><div><p class="label">Valt erbuiten</p><ul class="crosses">${li(r.out_of_scope)}</ul></div></div>`;
     const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} werkminuten per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', 'Je zet zelf je prijs en levertijd, binnen het bereik van de dienst. Er gaat niets van af.')}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
-    const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${row('Zo vraag je aan', `<code>v1_create_order</code> met <code>service_id="${esc(r.service_id)}"</code>, de invoer, een uiterste datum en <code>max_price_cents</code>.`)}${row('Bewijs', `Registerbewijs niveau 2 (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gecontroleerd bij aanname), hash van het stuk, passkey-handtekening en het logboek.`)}</dl>`;
+    const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${row('Zo vraag je aan', `<code>v1_create_order</code> met <code>service_id="${esc(r.service_id)}"</code>, de invoer, een uiterste datum en <code>max_price_cents</code>.`)}${row('Bewijs', `Registercheck (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gedaan bij de aanname), de digitale vingerafdruk van het stuk, de handtekening met de passkey van de professional en het bewijsdossier.`)}</dl>`;
     const part = (v, x, body) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p><details class="svc-more" open><summary>Details</summary>${body}${scope}</details></div>`;
     return `<section class="svc-card" id="${r.id}" aria-labelledby="${r.id}-kop" data-panel="${r.id}">`
       + `<header class="svc-top"><span class="badge">${esc(r.badge)}</span><span class="status">Aangeboden · ${span('turnWorkingMinutes')} werkmin · getekend met passkey</span></header>`
-      + `<h3 id="${r.id}-kop">${esc(r.dienst)}</h3><p class="svc-reg">${esc(r.register)} · <code>${esc(r.service_id)}</code></p>`
+      + `<h3 id="${r.id}-kop">${esc(r.dienst)}</h3><p class="svc-uitleg"><strong>${esc(r.tab)}:</strong> ${esc(r.uitleg)}</p><p class="svc-reg">${esc(r.register)} · <code>${esc(r.service_id)}</code></p>`
       + part('pro', p, proBody) + part('bedrijf', b, bizBody) + `</section>`;
   }).join('\n');
   return `<div class="svc" data-svc data-view="${view}">\n<div class="svc-bar"><nav class="svc-tabs" aria-label="Registers">${tabs}</nav><div class="svc-toggle" role="group" aria-label="Bekijk de dienst als">${toggle}</div></div>\n<div class="svc-panels">\n${panels}\n</div>\n</div>`;
@@ -76,30 +52,25 @@ function dienstenBlock(view) {
 
 function fill(html, file) {
   let out = html;
-  out = out.replace(/<!--flow:start(?: variant=(\w+))?-->[\s\S]*?<!--flow:end-->/g, (m, v) => `<!--flow:start${v ? ' variant=' + v : ''}-->\n${flowBlock(v)}\n<!--flow:end-->`);
-  out = out.replace(/<!--flowsvg:start-->[\s\S]*?<!--flowsvg:end-->/g, () => `<!--flowsvg:start-->\n${flowSvgBlock()}\n<!--flowsvg:end-->`);
   out = out.replace(/<!--diensten:start view=(\w+)-->[\s\S]*?<!--diensten:end-->/g, (m, v) => `<!--diensten:start view=${v}-->\n${dienstenBlock(v)}\n<!--diensten:end-->`);
-  out = out.replace(/<!--swim:start-->[\s\S]*?<!--swim:end-->/g, () => `<!--swim:start-->\n${swimBlock()}\n<!--swim:end-->`);
   out = out.replace(/<(span|tspan) data-rule="(\w+)">[^<]*<\/\1>/g, (m, tag, k) => `<${tag} data-rule="${k}">${rv(k)}</${tag}>`);
-  if ((out.match(/<!--flow:start/g) || []).length !== (out.match(/<!--flow:end-->/g) || []).length) throw new Error(`${file}: flow-markers kloppen niet`);
+  if (/<!--(flow|flowsvg|swim):start/.test(out)) throw new Error(`${file}: het oude stroomdiagram of de swimlane staat er nog`);
   return out;
 }
 
 const problems = [];
 const pages = [...readdirSync(ROOT).filter((f) => f.endsWith('.html')),
   ...(existsSync(join(ROOT, 'pilot')) ? readdirSync(join(ROOT, 'pilot')).filter((f) => f.endsWith('.html')).map((f) => 'pilot/' + f) : [])];
-const mustHaveFlow = ['hoe-het-werkt.html', 'agents.html', 'professionals.html'];
 for (const f of pages) {
   const before = read(f);
   const after = fill(before, f);
-  if (mustHaveFlow.includes(f) && !/<!--(flow|flowsvg):start/.test(after)) problems.push(`${f}: het stroomdiagram ontbreekt`);
   if (before !== after) {
     if (CHECK) problems.push(`${f}: wijkt af van de partials of rules.json (draai node tools/sync-partials.mjs)`);
     else writeFileSync(join(ROOT, f), after);
   }
 }
 
-// Termijnen die niet als <span data-rule> kunnen staan (platte tekst en de infographic): vaste zinnen uit rules.json.
+// Termijnen die niet als <span data-rule> kunnen staan (platte tekst): vaste zinnen uit rules.json.
 const required = {
   'llms.txt': [
     `${rules.turnWorkingMinutes} working minutes`,
@@ -117,8 +88,7 @@ const required = {
     `${rules.payMinutes} minuten`,
     `${rules.objectionHours} uur`,
     `${rules.cancelSharePct}%`
-  ],
-  'assets/infographic.svg': [`${rules.turnWorkingMinutes} werkminuten`, `${rules.acceptCeilingWorkdays} werkdagen`]
+  ]
 };
 for (const [f, phrases] of Object.entries(required)) {
   if (!existsSync(join(ROOT, f))) { problems.push(`${f}: ontbreekt`); continue; }
@@ -128,7 +98,7 @@ for (const [f, phrases] of Object.entries(required)) {
 
 // Oude regel (4 werkuren, 3 beurten van 80 minuten) mag nergens meer staan.
 const stale = /4 werkuren|4 working hours|80 werkminuten|80 working minutes|hooguit 3 (passende )?professionals|at most 3 matching|samen 4 werkuren/i;
-const scan = [...pages, 'llms.txt', 'kb/spelregels.md', 'kb/faq.md', 'assets/infographic.svg', 'partials/swimlane.svg', 'partials/swimlane-legenda.json', 'partials/flow.html', 'chat.js'];
+const scan = [...pages, 'llms.txt', 'kb/spelregels.md', 'kb/faq.md', 'partials/diensten.json', 'chat.js'];
 for (const f of scan) {
   if (!existsSync(join(ROOT, f))) continue;
   const m = read(f).match(stale);

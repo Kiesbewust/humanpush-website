@@ -129,6 +129,24 @@
     svc.setAttribute('data-ready', '');
   });
 
+  // Kant kiezen op /hoe-het-werkt: "Ik ben professional | Ik ben een bedrijf (of zijn agent)". Zonder JS: beide kanten.
+  document.querySelectorAll('[data-side-root]').forEach(function (root) {
+    var btns = root.querySelectorAll('.svc-view');
+    var sides = document.querySelectorAll('.side[data-side]');
+    function set(v, save) {
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-view') === v ? 'true' : 'false'); });
+      sides.forEach(function (s) { if (s.getAttribute('data-side') === v) s.removeAttribute('data-off'); else s.setAttribute('data-off', ''); });
+      if (save) store('hp-doelgroep', v);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-view'), true); }); });
+    var aud = store('hp-doelgroep');
+    set(aud === 'pro' || aud === 'bedrijf' ? aud : 'bedrijf', false);
+    document.querySelectorAll('.side[data-side]').forEach(function (s) { s.parentNode.setAttribute('data-side-ready', ''); });
+  });
+
+  // Registers en sectoren op home: een professional landt op zijn eigen pagina, een bedrijf op /bedrijven.
+  if (store('hp-doelgroep') === 'pro') document.querySelectorAll('a[data-tablink]').forEach(function (a) { a.href = '/professionals#' + a.getAttribute('data-tablink'); });
+
   // Stepper: 4 stappen, pijlen, swipe (scroll-snap) en pijltjestoetsen. Geen autoplay.
   document.querySelectorAll('[data-stepper]').forEach(function (st) {
     var track = st.querySelector('.stepper-track');
