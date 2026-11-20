@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HumanPush: je agent bestelt, een geregistreerde professional tekent</title>
-<meta name="description" content="HumanPush draait op agents. De agent van je bedrijf bestelt, de HumanPush-MCP voert de regels uit en een geregistreerde professional tekent met zijn passkey.">
+<meta name="description" content="Je agent bestelt, een geregistreerde professional beoordeelt het werk en staat er met naam en registratie voor in. Schade-experts, taxateurs, bouwkundig inspecteurs, gerechtelijk deskundigen en octrooigemachtigden uit de openbare registers.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/">
 <meta property="og:title" content="HumanPush: je agent bestelt, een geregistreerde professional tekent">
-<meta property="og:description" content="HumanPush draait op agents. De agent van je bedrijf bestelt, de HumanPush-MCP voert de regels uit en een geregistreerde professional tekent met zijn passkey.">
+<meta property="og:description" content="Je agent bestelt, een geregistreerde professional beoordeelt het werk en staat er met naam en registratie voor in. Schade-experts, taxateurs, bouwkundig inspecteurs, gerechtelijk deskundigen en octrooigemachtigden uit de openbare registers.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -39,12 +39,11 @@
 <a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
 <a class="menu-link" href="#site-nav">Menu</a>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
-<div class="login">
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile" data-testenv hidden><a href="https://humanpush-mcp-test-production.up.railway.app/v1/pro">Professionals: testomgeving</a></li></ul></nav>
+<div class="login" data-testenv hidden>
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
-<a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
-<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een toegangscode; later ook een overzicht voor jou. Komt eraan.</span></a>
+<a class="login-opt" href="https://humanpush-mcp-test-production.up.railway.app/v1/pro"><b>Professionals: testomgeving</b><span class="why">Nepgeld, geen echte opdrachten.</span></a>
 </div>
 </div>
 </div>
@@ -53,8 +52,8 @@
 <section class="hero dark home-hero">
 <div class="wrap">
 <span class="kicker">Agent-first · een geregistreerde professional tekent</span>
-<h1>Waar AI-agenten werk doen, tekent een geregistreerde professional.</h1>
-<p class="definition">HumanPush is de laag waarmee AI-agents geregistreerde professionals inschakelen, hun werk ontvangen en controleerbaar vastleggen wie waarvoor verantwoordelijk is.</p>
+<h1>Je agent bestelt. Een geregistreerde professional tekent.</h1>
+<p class="definition">Schade-experts, taxateurs, bouwkundig inspecteurs, gerechtelijk deskundigen en octrooigemachtigden uit de openbare registers. Een vaste dienst, de prijs vooraf, en een dossier dat laat zien wie wat wanneer tekende.</p>
 <nav class="routecards" aria-label="Kies je route"><ul>
 <li><a class="routecard" href="/bedrijven" data-aud="bedrijf"><span class="rc-title">Ik vertegenwoordig een bedrijf</span><span class="rc-sub">of ik bouw de AI-agent van een bedrijf</span></a></li>
 <li><a class="routecard" href="/professionals" data-aud="pro"><span class="rc-title">Ik ben een geregistreerde professional</span><span class="rc-sub">NIVRE, NRVT, NRBI, NRGD, register van octrooigemachtigden</span></a></li>

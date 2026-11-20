@@ -21,7 +21,8 @@ test('pilot: noindex, één h1, gelinkt vanaf /bedrijven en in de sitemap', () =
 test('pilot: doelgroep, probleem zonder "de wet eist altijd", het stappenblok met vijf stappen', () => {
   for (const s of ['Gevolmachtigde agenten', 'Schadebehandelaars', 'Leveranciers van claimsoftware']) assert.ok(main.includes(s), s);
   for (const s of ['geschil', 'complexe claim', 'tekort aan capaciteit', 'contract onafhankelijkheid']) assert.ok(main.includes(s), s);
-  assert.match(main, /De wet eist dat niet altijd\./);
+  assert.match(main, /De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt\. <a href="\/veelgestelde-vragen#wet">/);
+  assert.doesNotMatch(main, /AVG|AI-verordening/, 'de wetsalinea staat alleen in de FAQ');
   assert.match(main, /wanneer de situatie daarom vraagt/);
   assert.match(main, /<!--stappen:start view=neutraal-->/);
   assert.equal((main.match(/<li class="tl-step/g) || []).length, 5);

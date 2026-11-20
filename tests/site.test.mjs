@@ -19,13 +19,16 @@ function shipped(dir = ROOT) {
   return out;
 }
 const FILES = shipped();
+const gated2 = (t) => t.replace(/<(li|div|section)[^>]*data-testenv hidden[^>]*>[\s\S]*?<\/\1>/g, '');
 const PAGES = FILES.filter((f) => f.endsWith('.html'));
 
 test('verboden woorden staan niet in uitgeleverde bestanden', () => {
   const bad = /sandbox|blockchain|v1-testtak|\/v1\/pro\b|\bRSIN\b|vestigingsnummer|test branch|tekenpagina|backup-passkey/i;
   // De bron van de functies in api/ wordt niet als bestand uitgeleverd (Vercel draait ze alleen); de weigerregels
   // moeten zulke woorden in een vraag kunnen herkennen. De kennisbasis in api/_kb.js telt wel mee.
-  for (const f of FILES.filter((f) => !f.startsWith('api/') || f === 'api/_kb.js')) { const m = read(f).match(bad); assert.equal(m, null, `${f}: "${m && m[0]}"`); }
+  // Uitzondering: de link naar de testomgeving (/v1/pro) mag alleen in een blok met data-testenv, standaard verborgen (vlag testenv uit).
+  const gated = (t) => t.replace(/<(li|div|section)[^>]*data-testenv hidden[^>]*>[\s\S]*?<\/\1>/g, '');
+  for (const f of FILES.filter((f) => !f.startsWith('api/') || f === 'api/_kb.js')) { const m = gated(read(f)).match(bad); assert.equal(m, null, `${f}: "${m && m[0]}"`); }
 });
 
 test('geen adres of postcode op de site', () => {
@@ -35,7 +38,7 @@ test('geen adres of postcode op de site', () => {
 });
 
 test('geen interne woorden, ook niet hold_2a (QA 19 nov)', () => {
-  for (const f of FILES) assert.doesNotMatch(read(f), /hold_2a|v1-testtak|test branch|\/v1\/pro\b|tekenpagina/i, f);
+  for (const f of FILES) assert.doesNotMatch(gated2(read(f)), /hold_2a|v1-testtak|test branch|\/v1\/pro\b|tekenpagina/i, f);
 });
 
 test('geen bezoekersteller of andere externe scripts: "we verzamelen geen gegevens" klopt (QA 19 nov)', () => {
@@ -63,7 +66,7 @@ test('elke pagina: noindex, banner, footer zonder adres, Inloggen met "komt eraa
     assert.ok(t.includes(banner), f + ' banner');
     assert.ok(t.includes('<p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal">'), f + ' footer');
     assert.equal(t.match(/<p class="f-legal">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, ''), 'HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · btw NL870249964B01 · Utrecht', f + ' footerregel');
-    assert.match(t, /Inloggen[\s\S]{0,400}komt eraan/, f + ' inloggen');
+    assert.match(t, /<div class="login" data-testenv hidden>/, f + ' inloggen alleen met de testvlag');
     assert.doesNotMatch(t, /fonts\.googleapis|fonts\.gstatic/, f);
     assert.equal((t.match(/<h1[ >]/g) || []).length, 1, f + ' één h1');
   }

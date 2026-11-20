@@ -39,12 +39,11 @@
 <a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
 <a class="menu-link" href="#site-nav">Menu</a>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
-<div class="login">
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile" data-testenv hidden><a href="https://humanpush-mcp-test-production.up.railway.app/v1/pro">Professionals: testomgeving</a></li></ul></nav>
+<div class="login" data-testenv hidden>
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
-<a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
-<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een toegangscode; later ook een overzicht voor jou. Komt eraan.</span></a>
+<a class="login-opt" href="https://humanpush-mcp-test-production.up.railway.app/v1/pro"><b>Professionals: testomgeving</b><span class="why">Nepgeld, geen echte opdrachten.</span></a>
 </div>
 </div>
 </div>
@@ -72,7 +71,21 @@
 </div>
 </section>
 
-<section class="section mist" aria-labelledby="status">
+<section class="section mist" id="testomgeving" aria-labelledby="test-kop" data-testenv hidden>
+<div class="wrap">
+<h2 id="test-kop">Proberen in de testomgeving</h2>
+<p class="lead">Dit is een testomgeving met nepgeld. Er lopen geen echte opdrachten.</p>
+<ol class="flowlist numbered">
+<li><strong>Maak een toegangscode voor je agent</strong><span>Open <a href="https://humanpush-mcp-test-production.up.railway.app/">de testdienst</a> en maak een toegangscode. Het is nepgeld; de organisatie mag verzonnen zijn.</span></li>
+<li><strong>Voeg de MCP-server toe</strong><span><code>https://humanpush-mcp-test-production.up.railway.app/mcp</code> met de header <code>Authorization: Bearer &lt;code&gt;</code>.</span></li>
+<li><strong>Bekijk de diensten</strong><span>Laat je agent <code>list_services</code> aanroepen.</span></li>
+<li><strong>Zet een opdracht uit</strong><span>Met <code>v1_create_order</code>.</span></li>
+<li><strong>Betaal de testbetaling</strong><span>Via de betaallink, in de testmodus van Mollie. Er wordt geen echt geld afgeschreven.</span></li>
+</ol>
+</div>
+</section>
+
+<section class="section mist" aria-labelledby="status" data-testenv-off>
 <div class="wrap">
 <div class="notice">
 <h2 id="status">Status: versie 1 is in de testfase</h2>
@@ -144,7 +157,7 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <section class="section mist" aria-labelledby="statussen">
 <div class="wrap">
 <h2 id="statussen">Statussen</h2>
-<p class="lead">Elke status, reden en foutcode heeft een vaste uitleg via <code>v1_explain</code>. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>, maar uitzonderingen per geval bestaan niet.</p>
+<p class="lead">Elke status, reden en foutcode heeft een vaste uitleg via <code>v1_explain</code>. Vragen? Een medewerker antwoordt via <a href="mailto:info@humanpush.nl">info@humanpush.nl</a>. De regels zijn voor iedereen gelijk.</p>
 <table class="table"><thead><tr><th scope="col">Status</th><th scope="col">Betekenis</th></tr></thead><tbody><tr><td data-label="Status"><code>offered</code></td><td data-label="Betekenis">Besteld, wacht op betaling (<span data-rule="payMinutes">30</span> minuten).</td></tr><tr><td data-label="Status"><code>funded</code></td><td data-label="Betekenis">Betaald. HumanPush biedt de opdracht één voor één aan, tot iemand aanneemt.</td></tr><tr><td data-label="Status"><code>active</code></td><td data-label="Betekenis">Aangenomen. Het verschil met de lagere prijs is terug. Levertermijn loopt.</td></tr><tr><td data-label="Status"><code>delivered</code></td><td data-label="Betekenis">Opgeleverd. <span data-rule="objectionHours">72</span> uur om te accepteren of bezwaar te maken.</td></tr><tr><td data-label="Status"><code>review</code></td><td data-label="Betekenis">Bezwaar gemaakt. Een beoordelaar uit hetzelfde register beslist.</td></tr><tr><td data-label="Status">Wacht na een storing</td><td data-label="Betekenis">Wacht-status na een storing: het bezwaarvenster liep af terwijl HumanPush niet kon aantonen dat zijn eigen dienst werkte. Bezwaar kan dan nog even; de uitbetaling schuift hooguit 5 werkdagen op. De exacte statusnaam geeft <code>v1_explain</code>.</td></tr><tr><td data-label="Status"><code>closed_success</code></td><td data-label="Betekenis">Afgerond. De professional krijgt zijn tarief, HumanPush houdt de afhandelfee.</td></tr><tr><td data-label="Status"><code>closed_refund</code></td><td data-label="Betekenis">Afgesloten met terugbetaling. De reden staat erbij.</td></tr><tr><td data-label="Status"><code>closed_cancelled</code></td><td data-label="Betekenis">Geannuleerd.</td></tr><tr><td data-label="Status"><code>expired</code></td><td data-label="Betekenis">Niet op tijd betaald.</td></tr></tbody></table>
 </div>
 </section>

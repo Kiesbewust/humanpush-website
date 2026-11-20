@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "da5449f839a85e50bf807c57d41e3efa78c391940ab882ab0cd7f0a640df3bc0",
+ "kb_hash": "96790862d6eaa962c2098d6a636a55e0682d3531f2afa91996a48bfa09f19316",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -566,17 +566,17 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Nee. Je werkt met je eigen agent via de HumanPush-MCP, of zonder MCP met de HumanPush-agent. Die komt eraan.",
-   "hash": "8b58d3f3d0748b2b"
+   "text": "Nee. Je werkt op het HumanPush-scherm, of met je eigen agent als je dat wilt. Dezelfde regels.",
+   "hash": "232094e8472c6c8d"
   },
   {
-   "id": "faq-professionals-wat-is-de-humanpush-agent",
-   "title": "Wat is de HumanPush-agent?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#humanpush-agent",
+   "id": "faq-professionals-wat-is-het-humanpush-scherm",
+   "title": "Wat is het HumanPush-scherm?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#humanpush-scherm",
    "lang": "nl",
    "source": "faq",
-   "text": "Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen toegangscode. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.",
-   "hash": "05b4ce3dc0bf40f8"
+   "text": "Voor professionals zonder eigen agent: een eenvoudig scherm met vaste teksten. Je ziet je aangeboden opdrachten, het legt uit wat je tekent en zet het opleverformulier klaar. Het werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey.",
+   "hash": "ad84f2bc521b3b5c"
   },
   {
    "id": "faq-professionals-wat-heb-ik-nodig-om-te-koppelen",
@@ -584,8 +584,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor de HumanPush-agent volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.",
-   "hash": "fab6a91b7fac9e89"
+   "text": "Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor het HumanPush-scherm volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.",
+   "hash": "5736371694d6f6d5"
   },
   {
    "id": "faq-professionals-hoe-zet-ik-een-stap",
@@ -728,8 +728,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#agents",
    "lang": "nl",
    "source": "faq",
-   "text": "Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Voor je bouwer: v1_explain.",
-   "hash": "03ca1100e071b29e"
+   "text": "Elke status, reden en foutcode heeft een vaste uitleg. Vragen? Een medewerker antwoordt via info@humanpush.nl. De regels zijn voor iedereen gelijk. Voor je bouwer: v1_explain.",
+   "hash": "10c9f29456b320e8"
   },
   {
    "id": "llms-ask-us",
@@ -876,13 +876,13 @@
    "hash": "0fa16b3d2abe91ea"
   },
   {
-   "id": "pagina-professionals-humanpush-agent",
-   "title": "De HumanPush-agent",
-   "url": "https://humanpush.nl/professionals#humanpush-agent",
+   "id": "pagina-professionals-humanpush-scherm",
+   "title": "Het HumanPush-scherm",
+   "url": "https://humanpush.nl/professionals#humanpush-scherm",
    "lang": "nl",
    "source": "pagina",
-   "text": "Met de HumanPush-agent Geen agent? Je krijgt een HumanPush-agent. Bij je aanmelding krijg je een eenvoudige HumanPush-agent. Hij regelt het contact met de agent van het bedrijf, zodat jij zonder eigen techniek kunt meedoen. Hij werkt alleen voor HumanPush en tekent nooit voor je. Dit doet hij. Aangeboden opdrachten melden. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen bewaken. Dit doet hij nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. De eerste versie is een eenvoudig scherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde toegangscode aan je eigen agent koppelen; je passkeys blijven hetzelfde. Komt eraan. HumanPush-agentVoorbeeld, fictief AGENTAangeboden opdracht: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Nog 38 minuten binnen werktijd om aan te nemen. Aannemen met passkeyDoorgeven Niet aannemen? Geef hem door. Dat kost niets. AGENTJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat. OPLEVERENUitkomstKies de vaste uitkomst Stukrapport toegevoegd Vingerafdruk9f3a…e17d Tekenen met passkey",
-   "hash": "63036dbe24b6f13f"
+   "text": "Op het HumanPush-scherm Geen eigen agent? Gebruik het HumanPush-scherm. Op het HumanPush-scherm zie je je aangeboden opdrachten, neem je aan of geef je door, en lever je op. Je hebt geen eigen techniek nodig. Het scherm werkt alleen voor HumanPush en tekent nooit voor je. Dit doet het scherm. Aangeboden opdrachten tonen. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen tonen. Dit doet het nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. Het scherm heeft vaste teksten: geen AI-model en geen vrije tekst. Later kun je ook je eigen agent koppelen; je passkeys blijven hetzelfde. HumanPush-schermVoorbeeld, fictief OpdrachtAangeboden opdracht: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Nog 38 minuten binnen werktijd om aan te nemen. Aannemen met passkeyDoorgeven Niet aannemen? Geef de opdracht door. Dat kost niets. Je tekentJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat. OpleverenUitkomstKies de vaste uitkomst Stukrapport toegevoegd Vingerafdruk9f3a…e17d Tekenen met passkey",
+   "hash": "cfa36bc8678c8987"
   },
   {
    "id": "pagina-agents-zo-verbind-je",

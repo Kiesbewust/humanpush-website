@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HumanPush voor professionals</title>
-<meta name="description" content="Jouw oordeel en handtekening blijven nodig: met je eigen agent of met de HumanPush-agent, aangeboden opdrachten, je geld en per register één dienst.">
+<meta name="description" content="Jouw oordeel en handtekening blijven nodig: op het HumanPush-scherm of met je eigen agent, aangeboden opdrachten, je geld en per register één dienst.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/professionals">
 <meta property="og:title" content="HumanPush voor professionals">
-<meta property="og:description" content="Jouw oordeel en handtekening blijven nodig: met je eigen agent of met de HumanPush-agent, aangeboden opdrachten, je geld en per register één dienst.">
+<meta property="og:description" content="Jouw oordeel en handtekening blijven nodig: op het HumanPush-scherm of met je eigen agent, aangeboden opdrachten, je geld en per register één dienst.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -39,12 +39,11 @@
 <a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
 <a class="menu-link" href="#site-nav">Menu</a>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals" aria-current="page">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
-<div class="login">
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals" aria-current="page">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile" data-testenv hidden><a href="https://humanpush-mcp-test-production.up.railway.app/v1/pro">Professionals: testomgeving</a></li></ul></nav>
+<div class="login" data-testenv hidden>
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
-<a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
-<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een toegangscode; later ook een overzicht voor jou. Komt eraan.</span></a>
+<a class="login-opt" href="https://humanpush-mcp-test-production.up.railway.app/v1/pro"><b>Professionals: testomgeving</b><span class="why">Nepgeld, geen echte opdrachten.</span></a>
 </div>
 </div>
 </div>
@@ -75,11 +74,10 @@
 <section class="section mist" id="manieren" aria-labelledby="manieren-kop">
 <div class="wrap">
 <h2 id="manieren-kop">Hoe wil jij werken?</h2>
-<p>Drie manieren, dezelfde regels. Je kunt later wisselen; je passkeys blijven hetzelfde.</p>
-<div class="svc tabs-only" data-svc data-view="pro"><div class="svc-bar"><nav class="svc-tabs" aria-label="Manieren van werken"><a class="svc-tab" href="#manier-zelf" id="tab-manier-zelf" data-tab="manier-zelf">Zelf, zoals je gewend bent</a><a class="svc-tab" href="#manier-eigen-agent" id="tab-manier-eigen-agent" data-tab="manier-eigen-agent">Met je eigen agent</a><a class="svc-tab" href="#manier-humanpush-agent" id="tab-manier-humanpush-agent" data-tab="manier-humanpush-agent">Met de HumanPush-agent</a></nav></div><div class="svc-panels"><section class="svc-card manier" id="manier-zelf" aria-labelledby="manier-zelf-kop"><h3 id="manier-zelf-kop">Zelf, zoals je gewend bent</h3><p class="svc-line">Je werkt zonder agent. Je gebruikt alleen het scherm van HumanPush om aan te nemen, op te leveren en te tekenen.</p>
-<ol class="flowlist"><li><strong>Je ziet de aangeboden opdracht</strong><span>Op je scherm bij HumanPush: de dienst, je prijs, de levertijd en hoeveel werktijd je nog hebt.</span></li><li><strong>Je neemt aan of geeft door</strong><span>Aannemen teken je met je passkey. Doorgeven kost niets.</span></li><li><strong>Je doet het werk</strong><span>Zoals je gewend bent, met je eigen methode en onder je eigen beroepsregels.</span></li><li><strong>Je levert op en tekent</strong><span>Je voegt je stuk toe, kiest de vaste uitkomst en tekent met je passkey.</span></li></ol></section><section class="svc-card manier" id="manier-eigen-agent" aria-labelledby="manier-eigen-agent-kop"><h3 id="manier-eigen-agent-kop">Met je eigen agent</h3><p class="svc-line">Je koppelt je eigen AI-agent (een MCP-client) met een toegangscode voor je agent. Je agent bereidt voor; jij beslist en tekent.</p>
-<ol class="flowlist"><li><strong>Je agent ziet de aangeboden opdracht</strong><span>Hij vraagt je aangeboden opdrachten op en vat ze voor je samen.</span></li><li><strong>Jij beslist</strong><span>Aannemen of doorgeven doe jij; aannemen teken je met je passkey.</span></li><li><strong>Je agent helpt bij het werk</strong><span>Hij zoekt, ordent en zet concepten klaar. Jij controleert en blijft verantwoordelijk.</span></li><li><strong>Je agent zet de oplevering klaar</strong><span>Jij kijkt het na en tekent met je passkey. Je agent kan nooit voor je tekenen.</span></li></ol></section><section class="svc-card manier" id="manier-humanpush-agent" aria-labelledby="manier-humanpush-agent-kop"><h3 id="manier-humanpush-agent-kop">Met de HumanPush-agent</h3><p class="svc-line">Geen eigen agent? Je krijgt een eenvoudige HumanPush-agent die je helpt met de stappen. Komt eraan.</p>
-<ol class="flowlist"><li><strong>Hij meldt de aangeboden opdracht</strong><span>En legt in gewone taal uit wat je gaat tekenen.</span></li><li><strong>Jij beslist en tekent</strong><span>Aannemen of doorgeven; aannemen teken je met je passkey.</span></li><li><strong>Jij doet het werk</strong><span>De HumanPush-agent schrijft het vakwerk niet; dat doe jij.</span></li><li><strong>Hij zet het opleverformulier klaar</strong><span>Jij voegt je stuk toe en tekent met je passkey. Hij tekent nooit voor je.</span></li></ol></section></div></div>
+<p>Twee manieren, dezelfde regels: op het HumanPush-scherm of met je eigen agent. Je kunt later wisselen; je passkeys blijven hetzelfde.</p>
+<div class="svc tabs-only" data-svc data-view="pro"><div class="svc-bar"><nav class="svc-tabs" aria-label="Manieren van werken"><a class="svc-tab" href="#manier-scherm" id="tab-manier-scherm" data-tab="manier-scherm">Op het HumanPush-scherm</a><a class="svc-tab" href="#manier-eigen-agent" id="tab-manier-eigen-agent" data-tab="manier-eigen-agent">Met je eigen agent</a></nav></div><div class="svc-panels"><section class="svc-card manier" id="manier-scherm" aria-labelledby="manier-scherm-kop"><h3 id="manier-scherm-kop">Op het HumanPush-scherm</h3><p class="svc-line">Je werkt zonder eigen agent. Op het HumanPush-scherm neem je aan, lever je op en teken je.</p>
+<ol class="flowlist"><li><strong>Je ziet de aangeboden opdracht</strong><span>Op het HumanPush-scherm: de dienst, je prijs, de levertijd en hoeveel tijd je nog hebt.</span></li><li><strong>Je neemt aan of geeft door</strong><span>Aannemen teken je met je passkey. Doorgeven kost niets.</span></li><li><strong>Je doet het werk</strong><span>Zoals je gewend bent, met je eigen methode en onder je eigen beroepsregels.</span></li><li><strong>Je levert op en tekent</strong><span>Je voegt je stuk toe, kiest de vaste uitkomst en tekent met je passkey.</span></li></ol></section><section class="svc-card manier" id="manier-eigen-agent" aria-labelledby="manier-eigen-agent-kop"><h3 id="manier-eigen-agent-kop">Met je eigen agent</h3><p class="svc-line">Je koppelt je eigen AI-agent met een toegangscode voor je agent. Je agent bereidt voor; jij beslist en tekent.</p>
+<ol class="flowlist"><li><strong>Je agent ziet de aangeboden opdracht</strong><span>Hij vraagt je aangeboden opdrachten op en vat ze voor je samen.</span></li><li><strong>Jij beslist</strong><span>Aannemen of doorgeven doe jij; aannemen teken je met je passkey.</span></li><li><strong>Je agent helpt bij het werk</strong><span>Hij zoekt, ordent en zet concepten klaar. Jij controleert en blijft verantwoordelijk.</span></li><li><strong>Je agent zet de oplevering klaar</strong><span>Jij kijkt het na en tekent met je passkey. Je agent kan nooit voor je tekenen.</span></li></ol></section></div></div>
 <p class="small muted" style="margin-top:16px" id="eigen-agent">Met je eigen agent krijg je een toegangscode voor je agent via een eenmalige link naar een contactadres dat wij zelf controleren, nooit naar een adres dat je zelf opgeeft. Die link dient alleen om je toegangscode op te halen en je passkey plus een verplichte tweede passkey als reserve aan te maken; tekenen doe je altijd met je passkey.</p>
 </div>
 </section>
@@ -127,25 +125,26 @@
 </div>
 </section>
 
-<section class="section mist" id="humanpush-agent" aria-labelledby="humanpush-agent-kop" data-kb="humanpush-agent|De HumanPush-agent">
+<section class="section mist" id="humanpush-scherm" aria-labelledby="humanpush-scherm-kop" data-kb="humanpush-scherm|Het HumanPush-scherm">
+<span id="humanpush-agent" class="anchor-alias"></span>
 <div class="wrap hpagent-grid">
 <div>
-<span class="eyebrow">Met de HumanPush-agent</span>
-<h2 id="humanpush-agent-kop">Geen agent? Je krijgt een HumanPush-agent.</h2>
-<p class="lead">Bij je aanmelding krijg je een eenvoudige HumanPush-agent. Hij regelt het contact met de agent van het bedrijf, zodat jij zonder eigen techniek kunt meedoen. Hij werkt alleen voor HumanPush en tekent nooit voor je.</p>
+<span class="eyebrow">Op het HumanPush-scherm</span>
+<h2 id="humanpush-scherm-kop">Geen eigen agent? Gebruik het HumanPush-scherm.</h2>
+<p class="lead">Op het HumanPush-scherm zie je je aangeboden opdrachten, neem je aan of geef je door, en lever je op. Je hebt geen eigen techniek nodig. Het scherm werkt alleen voor HumanPush en tekent nooit voor je.</p>
 <div class="dd">
-<div><h3>Dit doet hij</h3><ul><li>Aangeboden opdrachten melden</li><li>Uitleggen wat je tekent</li><li>Het opleverformulier klaarzetten</li><li>Termijnen bewaken</li></ul></div>
-<div><h3>Dit doet hij nooit</h3><ul class="no"><li>Zelf tekenen</li><li>Het vakwerk schrijven</li><li>Buiten HumanPush werken</li><li>Gegevens delen of onthouden buiten je opdrachten</li></ul></div>
+<div><h3>Dit doet het scherm</h3><ul><li>Aangeboden opdrachten tonen</li><li>Uitleggen wat je tekent</li><li>Het opleverformulier klaarzetten</li><li>Termijnen tonen</li></ul></div>
+<div><h3>Dit doet het nooit</h3><ul class="no"><li>Zelf tekenen</li><li>Het vakwerk schrijven</li><li>Buiten HumanPush werken</li><li>Gegevens delen of onthouden buiten je opdrachten</li></ul></div>
 </div>
-<p class="small muted">De eerste versie is een eenvoudig scherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde toegangscode aan je eigen agent koppelen; je passkeys blijven hetzelfde. Komt eraan.</p>
+<p class="small muted">Het scherm heeft vaste teksten: geen AI-model en geen vrije tekst. Later kun je ook je eigen agent koppelen; je passkeys blijven hetzelfde.</p>
 </div>
-<div role="img" aria-label="Voorbeeld van de HumanPush-agent, fictief">
-<div class="win"><div class="wbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>HumanPush-agent</b><em>Voorbeeld, fictief</em></div>
-<div class="msg"><span class="who">AGENT</span><p>Aangeboden opdracht: <b>oordeel over een claimbesluit, op stukken</b>. Al betaald. Lever binnen 3 werkdagen. Nog 38 minuten binnen werktijd om aan te nemen.</p>
+<div role="img" aria-label="Voorbeeld van het HumanPush-scherm, fictief">
+<div class="win"><div class="wbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b>HumanPush-scherm</b><em>Voorbeeld, fictief</em></div>
+<div class="msg"><span class="who">Opdracht</span><p>Aangeboden opdracht: <b>oordeel over een claimbesluit, op stukken</b>. Al betaald. Lever binnen 3 werkdagen. Nog 38 minuten binnen werktijd om aan te nemen.</p>
 <div class="acts"><span class="fake pri">Aannemen met passkey</span><span class="fake sec">Doorgeven</span></div>
-<p class="small muted" style="margin:10px 0 0">Niet aannemen? Geef hem door. Dat kost niets.</p></div>
-<div class="msg"><span class="who">AGENT</span><p>Je tekent: <b>aannemen</b> van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat.</p></div>
-<div class="msg"><span class="who">OPLEVEREN</span><div class="form3"><div><span class="lb">Uitkomst</span><span class="v">Kies de vaste uitkomst</span></div><div><span class="lb">Stuk</span><span class="v">rapport toegevoegd</span></div><div><span class="lb">Vingerafdruk</span><span class="v mono">9f3a…e17d</span></div></div>
+<p class="small muted" style="margin:10px 0 0">Niet aannemen? Geef de opdracht door. Dat kost niets.</p></div>
+<div class="msg"><span class="who">Je tekent</span><p>Je tekent: <b>aannemen</b> van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat.</p></div>
+<div class="msg"><span class="who">Opleveren</span><div class="form3"><div><span class="lb">Uitkomst</span><span class="v">Kies de vaste uitkomst</span></div><div><span class="lb">Stuk</span><span class="v">rapport toegevoegd</span></div><div><span class="lb">Vingerafdruk</span><span class="v mono">9f3a…e17d</span></div></div>
 <div class="acts"><span class="fake pri">Tekenen met passkey</span></div></div>
 </div>
 </div>

@@ -94,15 +94,15 @@ Ja. Reken je btw, dan is de prijs die je opgeeft inclusief btw. Die prijs ziet h
 
 ### Moet ik iets met AI doen?
 
-Nee. Je werkt met je eigen agent via de HumanPush-MCP, of zonder MCP met de HumanPush-agent. Die komt eraan.
+Nee. Je werkt op het HumanPush-scherm, of met je eigen agent als je dat wilt. Dezelfde regels.
 
-### Wat is de HumanPush-agent?
+### Wat is het HumanPush-scherm?
 
-Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen toegangscode. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.
+Voor professionals zonder eigen agent: een eenvoudig scherm met vaste teksten. Je ziet je aangeboden opdrachten, het legt uit wat je tekent en zet het opleverformulier klaar. Het werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey.
 
 ### Wat heb ik nodig om te koppelen?
 
-Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor de HumanPush-agent volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.
+Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor het HumanPush-scherm volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.
 
 ### Hoe zet ik een stap?
 
@@ -168,5 +168,5 @@ Dan wordt niets twee keer uitgevoerd, zolang je agent bij de herhaling hetzelfde
 
 ### Wat als ik een status niet begrijp?
 
-Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Voor je bouwer: v1_explain.
+Elke status, reden en foutcode heeft een vaste uitleg. Vragen? Een medewerker antwoordt via info@humanpush.nl. De regels zijn voor iedereen gelijk. Voor je bouwer: v1_explain.
 

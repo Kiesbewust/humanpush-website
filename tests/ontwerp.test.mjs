@@ -64,19 +64,21 @@ test('dienstkaarten: 5 registers in vaste volgorde, beide kanten in de HTML, det
   }
 });
 
-test('navigatie: alleen Bedrijven, Professionals, Hoe het werkt (+ Inloggen); /agents wel in footer, sitemap en llms.txt', () => {
+test('navigatie: alleen Bedrijven, Professionals, Hoe het werkt (Inloggen alleen met de testvlag); /agents wel in footer, sitemap en llms.txt', () => {
   for (const f of PAGES) {
     const t = read(f);
     const nav = t.match(/<ul class="nav-list">([\s\S]*?)<\/ul><\/nav>/)[1];
     const items = [...nav.matchAll(/<li(?: class="[^"]*")?><a href="([^"]+)"/g)].map((m) => m[1]);
-    assert.deepEqual(items, ['/bedrijven', '/professionals', '/hoe-het-werkt', '/inloggen'], f);
+    assert.deepEqual(items, ['/bedrijven', '/professionals', '/hoe-het-werkt'], f);
+    assert.match(nav, /<li class="nav-login-mobile" data-testenv hidden>/, `${f}: testomgeving alleen met de vlag`);
+    assert.match(t, /<div class="login" data-testenv hidden>/, `${f}: Inloggen standaard weg`);
     assert.match(t, /<footer[\s\S]*<a href="\/agents">/, `${f}: /agents in de footer`);
     assert.match(t, /<footer[\s\S]*<a href="\/veelgestelde-vragen">Veelgestelde vragen<\/a>/, `${f}: Veelgestelde vragen in de footer`);
   }
   assert.match(read('sitemap.xml'), /<loc>https:\/\/humanpush\.nl\/agents<\/loc>/);
   assert.match(read('llms.txt'), /humanpush\.nl\/agents|\/agents/);
   assert.match(read('bedrijven.html'), /<h1>Je AI-agent kan veel\. Tekenen kan hij niet\.<\/h1>/);
-  assert.match(read('bedrijven.html'), /id="developers"[\s\S]*Voor developers en agents[\s\S]*<pre><code>[\s\S]*v1_create_order[\s\S]*<a href="\/agents">/);
+  assert.match(read('bedrijven.html'), /id="developers"[\s\S]*Voor developers en agents[\s\S]*Bestellen in drie stappen: dienst kiezen, opdracht zetten, betaallink laten betalen\.[\s\S]*<a href="\/agents">[\s\S]*<details class="voor-bouwer" open><summary>Voor je bouwer<\/summary>[\s\S]*v1_create_order/);
   assert.match(read('professionals.html'), /<h1>Jouw registratie, ingezet waar AI het werk voorbereidt\.<\/h1>/);
 });
 

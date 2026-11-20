@@ -117,5 +117,5 @@ test('entiteit: alleen HumAgent B.V. (KvK 42222476), geen andere naam, geen plac
 });
 
 test('home: definitiezin direct onder de h1', () => {
-  assert.match(read('index.html'), /<\/h1>\n<p class="definition">HumanPush is de laag waarmee AI-agents geregistreerde professionals inschakelen, hun werk ontvangen en controleerbaar vastleggen wie waarvoor verantwoordelijk is\.<\/p>/);
+  assert.match(read('index.html'), /<h1>Je agent bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">[^<]+<\/p>/);
 });
