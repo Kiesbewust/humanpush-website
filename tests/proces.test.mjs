@@ -433,3 +433,7 @@ test('status: "Wat werkt al, en wat nog niet" op /hoe-het-werkt#status, gelinkt 
   assert.doesNotMatch(s, /\b20\d\d\b|januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december|Q[1-4]/i, 'geen beloften met datums');
   for (const f of ['index.html', 'agents.html']) assert.match(read(f), /<a href="\/hoe-het-werkt#status">Wat werkt al, en wat nog niet<\/a>/, f);
 });
+
+test('rolverdeling voor kopers in één blok: HumanPush voor het proces, de professional voor de inhoud', () => {
+  assert.match(read('bedrijven.html'), /<p class="rolverdeling" id="rolverdeling"><strong>HumanPush staat in voor het proces:<\/strong> op tijd, compleet, door een geregistreerde professional, onveranderd\. Gaat daar iets mis, dan krijg je automatisch je geld terug\. <strong>Over de inhoud oordeelt de professional,<\/strong> onder toezicht van zijn eigen register\.<\/p>/);
+});

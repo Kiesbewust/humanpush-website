@@ -719,3 +719,5 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .voorbeeld-dossier h3 { margin: 0 0 8px; }
 .small-steps { padding-left: 22px; font-size: 16px; }
 .small-steps li { margin: 0 0 6px; }
+
+.rolverdeling { margin: 8px 0 20px; padding: 16px 20px; background: var(--white); border-radius: var(--radius); font-size: 17px; max-width: 46em; }
