@@ -661,3 +661,8 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
   .demo li { grid-template-columns: 1fr; gap: 4px; }
   .demo .who { padding-top: 0; }
 }
+.codecard { margin: 0; }
+.codecard pre code { background: none; border: 0; padding: 0; color: inherit; font-size: inherit; }
+/* Met JavaScript staan de uitklappers vanaf de eerste weergave dicht (geen verspringen); zonder JavaScript open. */
+.js details.more:not([data-ready]) > :not(summary), .js details.svc-more:not([data-ready]) > :not(summary) { display: none; }
+.js details.more:not([data-ready]) > summary::after, .js details.svc-more:not([data-ready]) > summary::after { transform: none; }

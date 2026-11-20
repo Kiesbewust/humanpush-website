@@ -38,7 +38,7 @@
         "tekent": "Aanname, oplevering en de verklaring dat je onafhankelijk bent en geen lopende procedure over het document kent."
       },
       "bedrijf": {
-        "regel": "Zekerheid of één document onveranderd is, getekend door een NRGD-deskundige.",
+        "regel": "Een getekende vaststelling of één document onveranderd is, door een NRGD-deskundige.",
         "chips": ["Eén document", "Buiten rechtszaken", "Bewijs niveau 2"],
         "krijgt": "Een getekend rapport (pdf/a en json) met een van drie uitkomsten: integriteit bevestigd, niet bevestigd, of niet te beoordelen."
       },

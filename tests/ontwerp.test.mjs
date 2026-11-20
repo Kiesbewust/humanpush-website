@@ -11,8 +11,8 @@ const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 const PAGES = [...readdirSync(ROOT).filter((f) => f.endsWith('.html')), ...readdirSync(join(ROOT, 'pilot')).map((f) => 'pilot/' + f)];
 const visible = (html) => html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<code>[\s\S]*?<\/code>/g, '').replace(/<[^>]+>/g, ' ');
 
-test('publieke teksten: geen "beurt", wel "aangeboden opdracht" en "toegewezen aan een professional"', () => {
-  const files = [...PAGES, 'kb/spelregels.md', 'kb/faq.md', 'partials/swimlane-legenda.json', 'partials/diensten.json', 'partials/flow.html'];
+test('publieke teksten: geen "beurt" (alleen /voorwaarden mag, tot de jurist akkoord geeft), wel "aangeboden opdracht" en "toegewezen aan een professional"', () => {
+  const files = [...PAGES.filter((f) => f !== 'voorwaarden.html'), 'kb/spelregels.md', 'kb/faq.md', 'partials/swimlane-legenda.json', 'partials/diensten.json', 'partials/flow.html'];
   for (const f of files) {
     const t = visible(read(f)).replace(/gebeurt\w*/gi, '');
     assert.doesNotMatch(t, /\bbeurt/i, f);
@@ -21,6 +21,8 @@ test('publieke teksten: geen "beurt", wel "aangeboden opdracht" en "toegewezen a
   assert.match(read('professionals.html'), /aangeboden opdracht/i);
   assert.match(read('bedrijven.html'), /toegewezen aan een professional/);
   assert.match(read('hoe-het-werkt.html'), /toegewezen aan een (geregistreerde )?professional/);
+  // /voorwaarden blijft voorlopig gelijk aan de tekst op main (aparte PR "voorwaarden-woordkeuze", ter toetsing door jurist).
+  assert.match(read('voorwaarden.html'), /\bbeurt/);
 });
 
 test('geen "in bewaring", "escrow" of "geld vasthouden" in uitgeleverde teksten', () => {
@@ -67,7 +69,18 @@ test('/hoe-het-werkt: 4 blokken, uitklapper met het volledige schema, twee stepp
   const t = read('hoe-het-werkt.html');
   const blocks = [...t.matchAll(/<ol class="flow4"[\s\S]*?<\/ol>/g)][0][0];
   assert.deepEqual([...blocks.matchAll(/<strong>([^<]+)<\/strong>/g)].map((m) => m[1]), ['Bestelling', 'Professional accepteert', 'Getekend werk', 'Bewijs']);
-  assert.match(t, /<details class="more" id="systeem"><summary>Lees meer: wat het systeem precies doet<\/summary>[\s\S]*<!--flow:start-->[\s\S]*<!--swim:start-->[\s\S]*<\/details>/);
+  assert.match(t, /<details class="more" id="systeem" open><summary>Lees meer: wat het systeem precies doet<\/summary>[\s\S]*<!--flow:start-->[\s\S]*<!--swim:start-->[\s\S]*?<\/details>/);
+  assert.match(t, /<details class="more" id="g18" open[^>]*><summary>Lees meer: de garanties G1 tot en met G8<\/summary>\n<table class="table">/);
+  assert.match(t, /<details class="more" id="geld" open[^>]*><summary>Lees meer: waar het geld heen gaat<\/summary>\n<table class="table">/);
+  for (const m of t.matchAll(/<details class="more"[^>]*>/g)) assert.match(m[0], / open[ >]/, `zonder JS open: ${m[0]}`);
+  // Steppers, schema en professional-mockup staan buiten de uitklappers.
+  const outside = t.replace(/<details class="more"[\s\S]*?<\/details>/g, '');
+  for (const s of ['<ol class="flow4"', 'id="sa"', 'id="sb"', 'id="scherm-professional"']) assert.ok(outside.includes(s), s);
+  // Codevoorbeelden zijn echte code voor schermlezers, mockups mogen een afbeelding zijn.
+  assert.doesNotMatch(t, /class="codecard[^"]*" role="img"/);
+  assert.equal((t.match(/<figure class="codecard small-code"><figcaption class="hd">[\s\S]*?<pre><code>/g) || []).length, 4);
+  assert.match(t, /Vooraf betaald · uitbetaling na acceptatie door het bedrijf of na <span data-rule="objectionHours">72<\/span> uur/);
+  assert.doesNotMatch(t, /uitbetaling pas na acceptatie/);
   assert.match(t, /<summary>Lees meer: hoe we dit beveiligen<\/summary>/);
   assert.match(t, /HumanPush heeft geen certificering of keurmerk/);
   for (const [id, a, b] of [['sa', 'Voor de professional', 'Voor het bedrijf'], ['sb', 'Vanuit de agent', 'Vanuit het bedrijf']]) {
@@ -89,7 +102,13 @@ test('home: doelgroepkeuze, demo gelabeld "Voorbeeld" met pauzeknop, routes per 
   const t = read('index.html');
   for (const a of ['bedrijf', 'pro', 'agent']) assert.match(t, new RegExp(`data-aud="${a}"`));
   for (const id of ['route-bedrijf', 'route-professional', 'route-agent']) assert.match(t, new RegExp(`id="${id}"`));
-  assert.match(t, /<figure class="demo" data-anim[\s\S]*<b>Voorbeeld<\/b>[\s\S]*class="demo-pause"/);
+  assert.match(t, /<figure class="demo" data-anim[\s\S]*<b>Voorbeeld<\/b>[\s\S]*<button class="demo-pause" type="button" aria-pressed="false">Pauzeer animatie<\/button>/);
+  // Eén semantiek: aria-pressed wisselt, de tekst niet.
+  const demoJs = read('site.js').slice(read('site.js').indexOf('// Voorbeeld-demo'));
+  assert.doesNotMatch(demoJs.slice(0, demoJs.indexOf('// Uitklappers')), /btn\.textContent/);
+  // Home toont het 4-blokkenschema met een link, niet het volledige zesvlaksdiagram.
+  assert.match(t, /<ol class="flow4"[\s\S]*Bestelling[\s\S]*Professional accepteert[\s\S]*Getekend werk[\s\S]*Bewijs[\s\S]*<a href="\/hoe-het-werkt">Zo werkt het precies<\/a>/);
+  assert.doesNotMatch(t, /class="iflow"|<!--flow:start/);
   assert.match(t, /class="log">#0007/);
 });
 
@@ -103,8 +122,34 @@ test('site.js: verminderde beweging, geen autoplay in de stepper, keuze alleen l
   assert.match(read('privacy.html'), /onthoudt alleen je eigen browser/);
 });
 
-test('goud alleen als accent: nooit als knop- of tekstkleur', () => {
+test('goudregel: goud alleen als accent, nooit knopachtergrond of tekstkleur', () => {
   const css = read('site.css');
-  assert.doesNotMatch(css, /\.btn[^{]*\{[^}]*background:\s*var\(--gold\)/);
-  assert.doesNotMatch(css, /(^|[;{\s])color:\s*var\(--gold\)/);
+  const rules = [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)].map((m) => ({ sel: m[1].trim(), body: m[2] }));
+  const gold = /var\(--gold\)|#E0A526/i;
+  for (const { sel, body } of rules) {
+    for (const decl of body.split(';')) {
+      const [prop, val] = decl.split(':').map((s) => (s || '').trim());
+      if (!val || !gold.test(val)) continue;
+      // Nooit als tekstkleur.
+      assert.notEqual(prop, 'color', `goud als tekstkleur in ${sel}`);
+      // Nooit als achtergrond van een knop, link, de body of een tekstblok.
+      if (/^background/.test(prop)) assert.doesNotMatch(sel, /\b(btn|button|a|body|p|h[1-4]|li|login|svc-view|fake|nav)\b/, `goud als achtergrond van ${sel}`);
+    }
+  }
+  // Waar goud wel staat: stippen, strepen, focus en het handtekening-accent. Zo blijft het één accent per scherm.
+  const allowed = /focus-visible|::before|::after|signed|\.arr\.sign i|tag-mens|^:root/;
+  for (const { sel, body } of rules) if (gold.test(body)) assert.match(sel, allowed, `goud buiten een accent: ${sel}`);
+  for (const f of PAGES) assert.doesNotMatch(read(f), /style="(?:[^"]*;)?\s*(color|background[\w-]*)\s*:[^;"]*(#E0A526|--gold)/i, `${f}: geen goud als tekst- of achtergrondkleur in inline stijl`);
+});
+
+test('dienstkaart NRGD (bedrijf): vaststelling, geen "zekerheid"', () => {
+  const nrgd = JSON.parse(read('partials/diensten.json')).registers.find((r) => r.id === 'nrgd');
+  assert.equal(nrgd.bedrijf.regel, 'Een getekende vaststelling of één document onveranderd is, door een NRGD-deskundige.');
+  for (const f of ['professionals.html', 'bedrijven.html']) assert.doesNotMatch(read(f), /Zekerheid of één document/, f);
+});
+
+test('pilotpagina: geen "beurt", en valt onder de JSON-LD-test', () => {
+  assert.doesNotMatch(visible(read('pilot/second-opinion.html')).replace(/gebeurt\w*/gi, ''), /\bbeurt/i);
+  assert.match(read('tests/schema.test.mjs'), /join\(ROOT, 'pilot'\)/);
+  assert.equal((read('pilot/second-opinion.html').match(/<script type="application\/ld\+json">/g) || []).length, 1);
 });

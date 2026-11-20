@@ -108,7 +108,9 @@
         panels[j].hidden = !on;
       });
       if (focus) tabs[i].focus();
-      tabs[i].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: reduce ? 'auto' : 'smooth' });
+      // Alleen de tabrij horizontaal meeschuiven, nooit de pagina zelf.
+      var t = tabs[i], l = t.offsetLeft - nav.offsetLeft, r = l + t.offsetWidth;
+      if (l < nav.scrollLeft) nav.scrollLeft = l; else if (r > nav.scrollLeft + nav.clientWidth) nav.scrollLeft = r - nav.clientWidth;
     }
     tabs.forEach(function (t, i) {
       t.addEventListener('click', function (e) { e.preventDefault(); select(i, false); if (history.replaceState) history.replaceState(null, '', '#' + panels[i].id); });
@@ -118,7 +120,7 @@
         e.preventDefault(); select((n + tabs.length) % tabs.length, true);
       });
     });
-    svc.querySelectorAll('details.svc-more').forEach(function (d) { d.open = false; });
+    svc.querySelectorAll('details.svc-more').forEach(function (d) { d.open = false; d.setAttribute('data-ready', ''); });
     bindToggle(svc, '.svc-v');
     var start = tabs.findIndex(function (t) { return '#' + t.getAttribute('data-tab') === location.hash; });
     select(start < 0 ? 0 : start, false);
@@ -198,9 +200,11 @@
     btn.addEventListener('click', function () {
       paused = !paused;
       btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-      btn.textContent = paused ? 'Speel af' : 'Pauzeer';
     });
   });
+
+  // Uitklappers "Lees meer": zonder JavaScript open, met JavaScript eerst dicht.
+  document.querySelectorAll('details.more').forEach(function (d) { d.open = false; d.setAttribute('data-ready', ''); });
 
   // Een anker in een ingeklapte uitklapper: klap die eerst open.
   function openFor(hash) {
