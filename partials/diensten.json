@@ -1,5 +1,5 @@
 {
-  "_doc": "Eén bron voor de dienstkaarten op /professionals en /bedrijven. tools/sync-partials.mjs zet ze in <!--diensten:start view=pro|bedrijf-->. Wel- en niet-in-de-dienst volgen de catalogus van versie 1; regels die daar nog niet besloten zijn, staan hier niet. {naam} wordt een termijn uit rules.json. uitleg: in één zin wat het register is en welke sector. vanaf_cents: de laagste prijs die nu geldt (in centen), of null zolang er nog geen professionals zijn aangemeld; een latere PR vult dit uit de catalogusexport van humanpush-mcp. status: boekbaar | in_voorbereiding | in_toetsing (besluit Bob 20-11: NIVRE eerst). kort: één regel voor \"Ook in voorbereiding\".",
+  "_doc": "Eén bron voor de dienstkaarten op /professionals en /bedrijven. tools/sync-partials.mjs zet ze in <!--diensten:start view=pro|bedrijf-->. Wel- en niet-in-de-dienst volgen de catalogus van versie 1; regels die daar nog niet besloten zijn, staan hier niet. {naam} wordt een termijn uit rules.json. uitleg: in één zin wat het register is en welke sector. vanaf_cents: de laagste prijs die nu geldt (in centen), of null zolang er nog geen professionals zijn aangemeld; een latere PR vult dit uit de catalogusexport van humanpush-mcp. status: boekbaar | in_voorbereiding | in_toetsing (besluit Bob 20-11: NIVRE eerst). kort: één regel voor \"Ook in voorbereiding\". klacht: de klacht- of tuchtregeling van het register (links uit de catalogus van humanpush-mcp, V1_REGISTERS[reg].complaints).",
   "registers": [
     {
       "id": "nivre",
@@ -47,7 +47,20 @@
         "Geen herstelronde"
       ],
       "beroep": "Schade-expert",
-      "registernaam": "NIVRE"
+      "registernaam": "NIVRE",
+      "klacht": {
+        "naar": "NIVRE",
+        "links": [
+          {
+            "title": "Klachten over een NIVRE-expert",
+            "url": "https://nivre.nl/over-het-nivre/klachten/"
+          },
+          {
+            "title": "Klachtenloket NIVRE (De Geschillencommissie)",
+            "url": "https://www.degeschillencommissie.nl/klachtenloket-nivre/"
+          }
+        ]
+      }
     },
     {
       "id": "nrvt",
@@ -90,7 +103,20 @@
       ],
       "beroep": "Register-taxateur (wonen)",
       "registernaam": "NRVT",
-      "toetsing": "We laten eerst toetsen hoe deze dienst past bij de NRVT-praktijkhandreiking (bezichtiging door de taxateur zelf)."
+      "toetsing": "We laten eerst toetsen hoe deze dienst past bij de NRVT-praktijkhandreiking (bezichtiging door de taxateur zelf).",
+      "klacht": {
+        "naar": "NRVT en het tuchtrecht voor register-taxateurs",
+        "links": [
+          {
+            "title": "Niet tevreden over een register-taxateur (NRVT)",
+            "url": "https://www.nrvt.nl/voor-opdrachtgevers/niet-tevreden-over-een-register-taxateur"
+          },
+          {
+            "title": "Klacht indienen bij Tucht RT",
+            "url": "https://www.tuchtrt.nl/klacht-indienen"
+          }
+        ]
+      }
     },
     {
       "id": "nrbi",
@@ -135,7 +161,16 @@
         "Geen juridisch advies"
       ],
       "beroep": "Bouwkundig inspecteur",
-      "registernaam": "NRBI"
+      "registernaam": "NRBI",
+      "klacht": {
+        "naar": "de tucht via het Scheidsgerecht van het NRBI",
+        "links": [
+          {
+            "title": "Tucht via het Scheidsgerecht (NRBI)",
+            "url": "https://www.nrbi.nl/kwaliteit-en-toezicht/tucht-via-het-scheidsgerecht"
+          }
+        ]
+      }
     },
     {
       "id": "nrgd",
@@ -180,7 +215,16 @@
         "Een oordeel zonder referentiepunt"
       ],
       "beroep": "Gerechtelijk deskundige (digitaal onderzoek)",
-      "registernaam": "NRGD"
+      "registernaam": "NRGD",
+      "klacht": {
+        "naar": "het NRGD",
+        "links": [
+          {
+            "title": "Melding bij het NRGD (contact)",
+            "url": "https://www.nrgd.nl/service/contact"
+          }
+        ]
+      }
     },
     {
       "id": "octrooi",
@@ -223,7 +267,16 @@
         "Geen waardering in bedragen"
       ],
       "beroep": "Octrooigemachtigde",
-      "registernaam": "Register van octrooigemachtigden"
+      "registernaam": "Register van octrooigemachtigden",
+      "klacht": {
+        "naar": "de Raad van Toezicht (tuchtrecht voor octrooigemachtigden)",
+        "links": [
+          {
+            "title": "Procesreglement Raad van Toezicht octrooigemachtigden",
+            "url": "https://www.octrooigemachtigde.nl/file/87/procesreglement-rvt-versie-8-2025.pdf"
+          }
+        ]
+      }
     }
   ]
 }

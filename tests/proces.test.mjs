@@ -460,3 +460,18 @@ test('NRVT "in toetsing": label, de zin over de praktijkhandreiking, geen bestel
   assert.doesNotMatch(card, /Zo vraag je aan|voor-bouwer|v1_create_order/);
   for (const f of ['index.html', 'bedrijven.html']) assert.match(read(f), /<li><strong>Register-taxateur \(wonen\) \(NRVT\)\.<\/strong>[^<]*<span class="status prep">In toetsing: niet te boeken<\/span><\/li>/, f);
 });
+
+test('PR B: llms.txt met 5% afhandelfee en zonder H; klachtroute per register op de dienstkaart; "niet opleveren tot het compleet is"', () => {
+  const l = read('llms.txt');
+  assert.match(l, /HumanPush handling fee: 5% of the professional's price, excluding VAT; you prepay max_price \+ 5% \+ VAT on the fee; the difference is refunded when a cheaper professional accepts/);
+  assert.doesNotMatch(l, /\bH\b|fixed fee per service|price range/);
+  for (const f of ['fee_pct', 'fee_vat_pct', 'fee_excl_vat']) assert.ok(l.includes(f), f);
+  assert.match(l, /There is no public v1 endpoint yet/);
+  assert.match(l, /matches a reference point the company supplies/);
+  for (const r of DIENSTEN) {
+    assert.ok(r.klacht && r.klacht.links.length >= 1, r.id);
+    for (const k of r.klacht.links) assert.match(k.url, /^https:\/\//, r.id);
+  }
+  assert.match(read('professionals.html'), /<dt>Oneens met de inhoud<\/dt><dd>Geen grond voor geld terug\. Ga naar de professional, of naar NIVRE: <a href="https:\/\/nivre\.nl\/over-het-nivre\/klachten\/" rel="noopener">/);
+  for (const f of ['bedrijven.html', 'hoe-het-werkt.html', 'veelgestelde-vragen.html']) assert.match(read(f), /Ontbreekt er iets, dan kan de professional niet opleveren tot het compleet is\./, f);
+});

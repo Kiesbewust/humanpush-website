@@ -44,7 +44,7 @@ Dat HumanPush de professional met een vaste checklist in het openbare register h
 
 ### Wat als ik het niet eens ben met de conclusie?
 
-Dan krijg je via HumanPush geen geld terug. HumanPush oordeelt niet over de inhoud. Bespreek het met de professional, of dien een klacht in bij zijn register. Bij een objectieve fout (te laat, een verplicht onderdeel ontbreekt, de registratie was niet geldig, of verkeerd formaat) krijg je automatisch alles terug, ook de afhandelfee.
+Dan krijg je via HumanPush geen geld terug. HumanPush oordeelt niet over de inhoud. Bespreek het met de professional, of dien een klacht in bij zijn register. Bij een objectieve fout (te laat, een verplicht onderdeel ontbreekt, de registratie was niet geldig, of verkeerd formaat) krijg je automatisch alles terug, ook de afhandelfee. Ontbreekt er iets, dan kan de professional niet opleveren tot het compleet is. De klachtroute per register staat op de dienstkaart.
 
 ### Wie is waarvoor verantwoordelijk?
 
