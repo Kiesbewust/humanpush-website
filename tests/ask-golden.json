@@ -19,7 +19,7 @@
   { "question": "Wat wordt het weer morgen in Utrecht?", "expect": "out_of_scope" },
   { "question": "Write me a Python function that sorts a list", "expect": "out_of_scope" },
   { "question": "How does my agent connect?", "expect": "answer", "language": "en", "must_contain": ["list_services", "v1_create_order"] },
-  { "question": "Kan mijn agent vragen stellen?", "expect": "answer", "must_contain_any": ["/api/ask", "ask_humanpush"] },
+  { "question": "Kan mijn agent vragen stellen?", "expect": "answer", "must_contain": ["bronverwijzing"] },
   { "question": "Can my agent ask questions?", "expect": "answer", "language": "en", "must_contain": ["/api/ask"] },
   { "question": "Wat is een HumanPush-agent?", "expect": "answer", "must_cite_any": ["faq-professionals-wat-is-de-humanpush-agent", "pagina-professionals-humanpush-agent"] },
   { "question": "Tekent de HumanPush-agent zelf?", "expect": "answer", "must_contain_any": ["tekent nooit", "nooit zelf", "tekent nooit zelf"] },

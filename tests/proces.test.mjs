@@ -142,11 +142,11 @@ test('/bedrijven: zelfde opbouw vanuit het bedrijf, bewijsdossier en vier voorde
 });
 
 test('registers: op elke registertab en dienstkaart één zin wat het register is, met sector', () => {
-  for (const r of DIENSTEN) assert.match(r.uitleg, /^Het [^.]+\. Sector: [^.]+\.$/, r.id);
+  for (const r of DIENSTEN) assert.match(r.uitleg, new RegExp(`^${r.beroep.replace(/[()]/g, '\\$&')}, ingeschreven [^.]+\\. Sector: [^.]+\\.$`), r.id);
   for (const f of ['professionals.html', 'bedrijven.html']) {
     for (const r of DIENSTEN) assert.ok(read(f).includes(`<p class="svc-uitleg"><strong>${r.tab}:</strong> ${r.uitleg}</p>`), `${f}: ${r.id}`);
   }
-  assert.equal(DIENSTEN.find((r) => r.id === 'nivre').uitleg, 'Het NIVRE-register van schade-experts. Sector: schade en verzekeringen.');
+  assert.equal(DIENSTEN.find((r) => r.id === 'nivre').uitleg, 'Schade-expert, ingeschreven bij NIVRE. Sector: schade en verzekeringen.');
   assert.doesNotMatch(read('professionals.html'), /geen facturen/i);
 });
 
@@ -155,7 +155,7 @@ test('home: rij "Registers en sectoren" onder de routekaarten, als links naar de
   const row = t.match(/<nav class="sectoren"[\s\S]*?<\/nav>/)[0];
   assert.ok(t.indexOf('class="routecards"') < t.indexOf('class="sectoren"'));
   const links = [...row.matchAll(/<a href="\/bedrijven#(\w+)" data-tablink="\1"><span class="sec-name">([^<]+)<\/span><span class="sec-reg">([^<]+)<\/span><\/a>/g)].map((m) => [m[1], m[2], m[3]]);
-  assert.deepEqual(links.map((l) => l[1]), ['Schade', 'Taxatie', 'Gerechtelijke expertise', 'Bouwkundige keuring', 'Octrooien']);
+  assert.deepEqual(links.map((l) => l[1]), ['Schade-expert', 'Register-taxateur (wonen)', 'Bouwkundig inspecteur', 'Gerechtelijk deskundige (digitaal onderzoek)', 'Octrooigemachtigde']);
   for (const [id] of links) assert.ok(DIENSTEN.some((r) => r.id === id), id);
 });
 
@@ -297,4 +297,45 @@ test('/hoe-het-werkt per kant: wat je nodig hebt, wat het kost en wat er daarna 
   for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys', 'DAC7']) assert.ok(pro.includes(x), x);
   const biz = t.match(/<div class="side" data-side="bedrijf">[\s\S]*?<\/ol><\/div>\n<\/div><\/div>/)[0];
   for (const x of ['KvK-nummer', 'MCP', 'betaallink binnen <span data-rule="payMinutes">30</span> minuten']) assert.ok(biz.includes(x), x);
+});
+
+// Zichtbare tekst voor mensen: zonder "Voor je bouwer", zonder code in de voorbeelddemo's, zonder head en scripts.
+export function peopleText(html) {
+  return html.slice(html.indexOf('<body'))
+    .replace(/<script[\s\S]*?<\/script>/g, ' ')
+    .replace(/<details class="voor-bouwer"[\s\S]*?<\/details>/g, ' ')
+    .replace(/<span class="voor-bouwer">[\s\S]*?<\/span>/g, ' ')
+    .replace(/<figure class="(demo|chat)"[\s\S]*?<\/figure>/g, (m) => m.replace(/<code>[\s\S]*?<\/code>/g, ' '))
+    .replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&');
+}
+const PEOPLE = ['index.html', 'bedrijven.html', 'professionals.html', 'hoe-het-werkt.html', 'veelgestelde-vragen.html', 'pilot/second-opinion.html'];
+const JARGON = /service_id|\bv1_\w+|max_price_cents|list_services|MCP-aanroep|werkmin|\bOCNL\b|pdf\/a|pdf \+ json|\bmarkering\b|\bbinair\b/i;
+
+test('jargon: geen toolnamen, codes of interne woorden op pagina\'s voor mensen (buiten "Voor je bouwer")', () => {
+  for (const f of PEOPLE) {
+    const t = peopleText(read(f));
+    const m = t.match(JARGON);
+    // "markering" en "tekortkoming" worden alleen in de FAQ uitgelegd, in één zin.
+    if (m && f === 'veelgestelde-vragen.html' && /markering/i.test(m[0])) {
+      const rest = t.replace(/[^.]*dat heet een markering[^.]*\./i, '');
+      assert.doesNotMatch(rest, JARGON, f);
+      continue;
+    }
+    assert.equal(m, null, `${f}: "${m && m[0]}"`);
+    for (const h of read(f).matchAll(/<(h[1-4]|summary)[^>]*>([\s\S]*?)<\/\1>/g)) assert.doesNotMatch(h[2], /G1\s*(–|tot en met)\s*G8/, `${f}: G1–G8 als kop`);
+  }
+  for (const f of ['bedrijven.html', 'professionals.html']) {
+    const t = read(f);
+    assert.equal((t.match(/<details class="voor-bouwer"><summary>Voor je bouwer<\/summary>/g) || []).length, 5, `${f}: per dienstkaart een uitklap voor de bouwer`);
+    assert.match(t, /<span class="status"><span data-rule="turnWorkingMinutes">45<\/span> min binnen werktijd om aan te nemen<\/span>/);
+    assert.deepEqual([...t.matchAll(/<a class="svc-tab" href="#[\w-]+" id="tab-[\w-]+" data-tab="([\w-]+)"[^>]*>([^<]+)<\/a>/g)].filter((m) => !m[1].startsWith('manier-')).map((m) => m[2]), ['NIVRE', 'NRVT', 'NRBI', 'NRGD', 'Octrooi'], `${f}: tabvolgorde, pilot eerst`);
+  }
+  const regs = JSON.parse(read('partials/diensten.json')).registers;
+  assert.deepEqual(regs.map((r) => [r.tab, r.beroep, r.registernaam]), [
+    ['NIVRE', 'Schade-expert', 'NIVRE'], ['NRVT', 'Register-taxateur (wonen)', 'NRVT'], ['NRBI', 'Bouwkundig inspecteur', 'NRBI'],
+    ['NRGD', 'Gerechtelijk deskundige (digitaal onderzoek)', 'NRGD'], ['Octrooi', 'Octrooigemachtigde', 'Register van octrooigemachtigden']]);
+  for (const r of regs) assert.ok(r.pro.chips.includes('Rapport als pdf') && r.pro.chips.includes('Getekend met passkey') && r.bedrijf.chips.includes('Vaste uitkomst'), r.id);
+  const home = read('index.html');
+  assert.deepEqual([...home.matchAll(/<span class="sec-reg">([^<]+)<\/span>/g)].map((m) => m[1]), ['NIVRE', 'NRVT', 'NRBI', 'NRGD', 'Register van octrooigemachtigden']);
+  assert.match(read('hoe-het-werkt.html'), /<summary>De garanties in detail<\/summary>/);
 });

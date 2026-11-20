@@ -78,7 +78,7 @@ Nee, niet altijd. De AVG (art. 22) geeft mensen bij bepaalde geautomatiseerde be
 
 ### Wie mag meedoen?
 
-Professionals in een van vijf registers: NIVRE (schade-experts), NRVT (register-taxateurs Kamer Wonen), NRGD (gerechtelijk deskundigen, 008.1 computer forensics), het register van octrooigemachtigden, en het Nederlands Register Bouwkundig Inspecteurs. Per register is er één dienst. Aanmelden opent na afronding van de testfase.
+Professionals in een van vijf registers: schade-experts (NIVRE), register-taxateurs wonen (NRVT), bouwkundig inspecteurs (NRBI), gerechtelijk deskundigen digitaal onderzoek (NRGD) en octrooigemachtigden (register van octrooigemachtigden). Per register is er één dienst. Aanmelden opent na afronding van de testfase.
 
 ### Waar kan ik me aanmelden?
 
@@ -130,7 +130,11 @@ Vóór je aanname zonder kosten. Na je aanname en vóór de oplevering krijg je 
 
 ### Wat als ik na aanname een belangenconflict ontdek?
 
-Bij diensten met een verplichte conflictcheck (nu octrooi) geef je de opdracht terug, zonder boete; het telt als markering. Elders: neem alleen aan als je zeker bent.
+Bij diensten met een verplichte conflictcheck (nu octrooi) geef je de opdracht terug, zonder boete; het telt maar licht mee. Elders: neem alleen aan als je zeker bent.
+
+### Wat telt mee, en wat niet?
+
+Te laat leveren, of je terugtrekken nadat je hebt aangenomen, telt mee: dat heet een tekortkoming. Een conflict teruggeven bij een dienst met verplichte conflictcheck telt maar licht mee: dat heet een markering, en 3 markeringen in 12 maanden tellen als 1 tekortkoming. Doorgeven of een aangeboden opdracht laten verlopen telt niet mee.
 
 ### Wat als ik niet op tijd klaar ben?
 
@@ -156,13 +160,13 @@ Nog niet voor versie 1. Die is in de testfase; er is nog geen publiek endpoint.
 
 ### Kan mijn agent vragen stellen?
 
-Ja, in de testversie. Via POST /api/ask of via de MCP-tool ask_humanpush krijgt je agent antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Een antwoord is informatie, geen advies en geen toezegging. Het staat nog uit; het komt eraan.
+Ja, in de testversie. Je agent krijgt dan antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Een antwoord is informatie, geen advies en geen toezegging. Het staat nog uit; het komt eraan. Voor je bouwer: POST /api/ask, ask_humanpush.
 
-### Wat als ik dezelfde aanroep herhaal?
+### Wat als mijn agent dezelfde opdracht twee keer stuurt?
 
-Met dezelfde idempotency_key wordt niets twee keer uitgevoerd.
+Dan wordt niets twee keer uitgevoerd, zolang je agent bij de herhaling hetzelfde kenmerk meestuurt. Voor je bouwer: idempotency_key.
 
 ### Wat als ik een status niet begrijp?
 
-Vraag v1_explain. Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet.
+Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Voor je bouwer: v1_explain.
 

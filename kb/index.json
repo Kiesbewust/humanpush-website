@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "366704ae505e94d1c38d348e75f2523f7f12f9249618f1d94db6dbc6b791d6da",
+ "kb_hash": "da5449f839a85e50bf807c57d41e3efa78c391940ab882ab0cd7f0a640df3bc0",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -530,8 +530,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Professionals in een van vijf registers: NIVRE (schade-experts), NRVT (register-taxateurs Kamer Wonen), NRGD (gerechtelijk deskundigen, 008.1 computer forensics), het register van octrooigemachtigden, en het Nederlands Register Bouwkundig Inspecteurs. Per register is er één dienst. Aanmelden opent na afronding van de testfase.",
-   "hash": "574010d52f476f64"
+   "text": "Professionals in een van vijf registers: schade-experts (NIVRE), register-taxateurs wonen (NRVT), bouwkundig inspecteurs (NRBI), gerechtelijk deskundigen digitaal onderzoek (NRGD) en octrooigemachtigden (register van octrooigemachtigden). Per register is er één dienst. Aanmelden opent na afronding van de testfase.",
+   "hash": "c2fd07b456bd5016"
   },
   {
    "id": "faq-professionals-waar-kan-ik-me-aanmelden",
@@ -647,8 +647,17 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Bij diensten met een verplichte conflictcheck (nu octrooi) geef je de opdracht terug, zonder boete; het telt als markering. Elders: neem alleen aan als je zeker bent.",
-   "hash": "536bebf807b04106"
+   "text": "Bij diensten met een verplichte conflictcheck (nu octrooi) geef je de opdracht terug, zonder boete; het telt maar licht mee. Elders: neem alleen aan als je zeker bent.",
+   "hash": "365c964e3beabae0"
+  },
+  {
+   "id": "faq-professionals-wat-telt-mee-en-wat-niet",
+   "title": "Wat telt mee, en wat niet?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#tekortkoming",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Te laat leveren, of je terugtrekken nadat je hebt aangenomen, telt mee: dat heet een tekortkoming. Een conflict teruggeven bij een dienst met verplichte conflictcheck telt maar licht mee: dat heet een markering, en 3 markeringen in 12 maanden tellen als 1 tekortkoming. Doorgeven of een aangeboden opdracht laten verlopen telt niet mee.",
+   "hash": "ba71476a0b970ab6"
   },
   {
    "id": "faq-professionals-wat-als-ik-niet-op-tijd-klaar-ben",
@@ -701,17 +710,17 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#vragen-stellen",
    "lang": "nl",
    "source": "faq",
-   "text": "Ja, in de testversie. Via POST /api/ask of via de MCP-tool ask_humanpush krijgt je agent antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Een antwoord is informatie, geen advies en geen toezegging. Het staat nog uit; het komt eraan.",
-   "hash": "dcff6bef12ea5819"
+   "text": "Ja, in de testversie. Je agent krijgt dan antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Een antwoord is informatie, geen advies en geen toezegging. Het staat nog uit; het komt eraan. Voor je bouwer: POST /api/ask, ask_humanpush.",
+   "hash": "264181973e3f673a"
   },
   {
-   "id": "faq-agents-wat-als-ik-dezelfde-aanroep-herhaal",
-   "title": "Wat als ik dezelfde aanroep herhaal?",
+   "id": "faq-agents-wat-als-mijn-agent-dezelfde-opdracht-twee-keer-s",
+   "title": "Wat als mijn agent dezelfde opdracht twee keer stuurt?",
    "url": "https://humanpush.nl/veelgestelde-vragen#agents",
    "lang": "nl",
    "source": "faq",
-   "text": "Met dezelfde idempotency_key wordt niets twee keer uitgevoerd.",
-   "hash": "5948878b99d4caa7"
+   "text": "Dan wordt niets twee keer uitgevoerd, zolang je agent bij de herhaling hetzelfde kenmerk meestuurt. Voor je bouwer: idempotency_key.",
+   "hash": "6824bb3743f10562"
   },
   {
    "id": "faq-agents-wat-als-ik-een-status-niet-begrijp",
@@ -719,8 +728,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#agents",
    "lang": "nl",
    "source": "faq",
-   "text": "Vraag v1_explain. Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet.",
-   "hash": "1c1e73935daf3c4c"
+   "text": "Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Voor je bouwer: v1_explain.",
+   "hash": "03ca1100e071b29e"
   },
   {
    "id": "llms-ask-us",

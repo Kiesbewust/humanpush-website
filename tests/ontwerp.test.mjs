@@ -42,7 +42,7 @@ test('lettertypen: alleen eigen woff2-bestanden die bestaan, Inter Tight en JetB
 
 test('dienstkaarten: 5 registers in vaste volgorde, beide kanten in de HTML, details standaard open (zonder JS)', () => {
   const data = JSON.parse(read('partials/diensten.json'));
-  assert.deepEqual(data.registers.map((r) => r.tab), ['Octrooigemachtigden', 'NRGD', 'NRVT', 'NIVRE', 'Bouwkundig keurders']);
+  assert.deepEqual(data.registers.map((r) => r.tab), ['NIVRE', 'NRVT', 'NRBI', 'NRGD', 'Octrooi']);
   for (const r of data.registers) {
     assert.match(r.service_id, /^[a-z]+\.[a-z_]+$/);
     for (const k of ['pro', 'bedrijf']) assert.equal(r[k].chips.length, 3, `${r.id} ${k}: 3 chips`);
