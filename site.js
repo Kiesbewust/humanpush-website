@@ -121,7 +121,9 @@
       });
     });
     svc.querySelectorAll('details.svc-more').forEach(function (d) { d.open = false; d.setAttribute('data-ready', ''); });
-    bindToggle(svc, '.svc-v');
+    var setView = bindToggle(svc, '.svc-v');
+    var aud = store('hp-doelgroep');
+    if (aud === 'pro' || aud === 'bedrijf') setView(aud);
     var start = tabs.findIndex(function (t) { return '#' + t.getAttribute('data-tab') === location.hash; });
     select(start < 0 ? 0 : start, false);
     svc.setAttribute('data-ready', '');

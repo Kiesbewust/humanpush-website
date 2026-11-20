@@ -175,3 +175,31 @@ test('pilotpagina: geen "beurt", en valt onder de JSON-LD-test', () => {
   assert.match(read('tests/schema.test.mjs'), /join\(ROOT, 'pilot'\)/);
   assert.equal((read('pilot/second-opinion.html').match(/<script type="application\/ld\+json">/g) || []).length, 1);
 });
+
+test('geen sjabloonresten: {{ of }} in zichtbare HTML (JSON-LD uitgezonderd)', () => {
+  for (const f of PAGES) {
+    const html = read(f).replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
+    assert.doesNotMatch(html, /\{\{|\}\}/, f);
+  }
+  assert.match(read('bedrijven.html'), /v1_create_order<\/span>\(\{\n[\s\S]*inputs: \{…\}[\s\S]*\n\}\)\n[\s\S]*→<\/span> \{ state:/);
+});
+
+test('privacy noemt de routekaarten zoals ze nu heten', () => {
+  const t = read('privacy.html');
+  assert.match(t, /"Ik vertegenwoordig een bedrijf" of "Ik ben een geregistreerde professional"/);
+  assert.doesNotMatch(t, /"een agent"/);
+});
+
+test('mobiel menu zonder JS: standaard ingeklapt, opent via #site-nav', () => {
+  for (const f of PAGES) assert.match(read(f), /<a class="menu-link" href="#site-nav">Menu<\/a>\n<nav id="site-nav"/, f);
+  const css = read('site.css');
+  assert.match(css, /\.no-js \.site-nav \{ display: none; \}/);
+  assert.match(css, /\.no-js \.site-nav:target \{ display: block;/);
+});
+
+test('dienstkaarten volgen de opgeslagen doelgroep, net als de steppers', () => {
+  const js = read('site.js');
+  const svc = js.slice(js.indexOf('// Dienstkaarten'), js.indexOf('// Stepper'));
+  assert.match(svc, /store\('hp-doelgroep'\)/);
+  assert.match(svc, /aud === 'pro' \|\| aud === 'bedrijf'/);
+});
