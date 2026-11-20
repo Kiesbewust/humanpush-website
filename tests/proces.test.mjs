@@ -270,7 +270,10 @@ test('kosten: 5% afhandelfee uit rules.json, rekenvoorbeeld klopt, geen "vaste v
   const b = read('bedrijven.html');
   const k = b.match(/<section class="section" id="kosten"[\s\S]*?<\/section>/)[0];
   assert.match(k, /<h2 id="kosten-kop">Wat kost het\?<\/h2>/);
-  assert.match(k, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% van die prijs, plus btw over de fee\. Geen abonnement, geen minimum, geen andere kosten\./);
+  assert.match(k, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaal je 21% btw\. Geen abonnement, geen minimum, geen andere kosten\./);
+  assert.match(k, /Je maximumprijs is inclusief de eventuele btw van de professional\./);
+  for (const f of [...PAGES.filter((f) => f !== 'voorwaarden.html'), 'llms.txt', 'kb/spelregels.md', 'kb/faq.md', 'README.md']) assert.doesNotMatch(read(f), /van die prijs, excl\. btw|excl\. btw, plus btw|fixed HumanPush fee|excluding VAT/i, `${f}: één feezin`);
+  assert.match(read('hoe-het-werkt.html'), /G4 · 100% vooraf[\s\S]*?<span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaalt het bedrijf 21% btw\./);
   assert.match(k, /Wat is de vanaf-prijs\?/);
   assert.ok(b.indexOf('id="zo-werkt-het"') < b.indexOf('id="kosten"'), 'kosten staat onder "Zo zet je agent een opdracht uit"');
   // Rekenvoorbeeld narekenen: 5% fee, 21% btw over de fee, afronden op centen.
@@ -389,7 +392,12 @@ test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, D
   const t = read('professionals.html');
   const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/section>/)[0];
   for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys', 'DAC7']) assert.ok(begin.includes(x), x);
-  assert.match(begin, /Als platform is HumanPush wettelijk verplicht \(DAC7\) om gegevens over je opdrachten en inkomsten jaarlijks aan de Belastingdienst door te geven\./);
+  assert.match(begin, /Platforms moeten onder DAC7 mogelijk gegevens over opdrachten en inkomsten aan de Belastingdienst doorgeven\. We laten juridisch toetsen welke gegevens we daarvoor nodig hebben; dat hoor je vóór je eerste opdracht\./);
+  for (const f of PAGES) assert.doesNotMatch(read(f), /wettelijk verplicht \(DAC7\)|We slaan die versleuteld op/, f);
+  assert.match(read('hoe-het-werkt.html'), /de gegevens die nodig zijn voor de belastingregels voor platforms \(DAC7\), zodra die zijn vastgesteld/);
+  assert.match(read('veelgestelde-vragen.html'), /Het wettelijke herroepingsrecht is bedoeld voor consumenten; hoe dat voor deze dienst uitpakt, laten we juridisch toetsen\./);
+  for (const f of PAGES) assert.doesNotMatch(read(f), /binnen het bereik van de dienst|het prijsbereik/, f);
+  assert.equal((read('professionals.html').match(/Is jouw prijs de laagste die de deadline haalt/g) || []).length, 1, 'de prijsalinea staat er één keer');
   const faq = read('veelgestelde-vragen.html');
   assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot je rekening volgt na de testfase\.<\/p>/);
   assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op je scherm bij HumanPush, of je agent vraagt het op\. Er gaat nog geen mail of push\./);
@@ -459,4 +467,14 @@ test('NRVT "in toetsing": label, de zin over de praktijkhandreiking, geen bestel
   assert.match(card, /<p class="svc-toetsing">We laten eerst toetsen hoe deze dienst past bij de NRVT-praktijkhandreiking \(bezichtiging door de taxateur zelf\)\.<\/p>/);
   assert.doesNotMatch(card, /Zo vraag je aan|voor-bouwer|v1_create_order/);
   for (const f of ['index.html', 'bedrijven.html']) assert.match(read(f), /<li><strong>Register-taxateur \(wonen\) \(NRVT\)\.<\/strong>[^<]*<span class="status prep">In toetsing: niet te boeken<\/span><\/li>/, f);
+});
+
+test('NIVRE eerst, overal: "toets van een schadevaststelling" in plaats van "oordeel over een claimbesluit"; voorbeeldoverzicht alleen NIVRE', () => {
+  for (const f of ['index.html', 'bedrijven.html', 'professionals.html', 'hoe-het-werkt.html', 'pilot/second-opinion.html']) {
+    assert.doesNotMatch(read(f), /oordeel over een claimbesluit|Oordeel claimbesluit|vijf diensten/i, f);
+  }
+  const dash = read('bedrijven.html').match(/<div class="mock-body">[\s\S]*?<\/div><\/div>/)[0];
+  assert.doesNotMatch(dash, /NRVT|NRGD/);
+  assert.match(dash, /Toets schadevaststelling/);
+  assert.match(read('pilot/second-opinion.html'), /<h1>Een onafhankelijke toets van een schadevaststelling, getekend door een NIVRE-geregistreerde schade-expert\.<\/h1>/);
 });

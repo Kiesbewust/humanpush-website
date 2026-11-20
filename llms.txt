@@ -41,7 +41,7 @@ Fixed criteria per service (what the delivered document must contain; ids as in 
 - Patent attorneys: question_answered = the search report answers the search question within the given technical field; scope_respected = novelty only: no filing, no FTO, no amounts.
 - NRBI: question_answered = the review follows the 8-point checklist and answers the questions asked (at most 3), in at most 3 pages; scope_respected = existing buildings only; no inspection, no legal advice.
 
-list_services gives per service the exact service_id, inputs, outcomes, price range, in_scope and out_of_scope, the fixed HumanPush fee H (a fixed fee per service, the same for every company, excluding VAT, visible before you order; a change applies only to new orders), the review criteria, the disclaimer and the known gaps of the register.
+list_services gives per service the exact service_id, inputs, outcomes, price range, in_scope and out_of_scope, the HumanPush handling fee: 5% of the professional's price (including his VAT, if any), plus 21% VAT on the fee; the test API may still show it as H, the review criteria, the disclaimer and the known gaps of the register.
 
 ## When not to use HumanPush
 
@@ -57,7 +57,7 @@ How your agent connects: it calls list_services, then v1_create_order, pays pay_
 
 1. list_services: the bookable services and the terms of the one method.
 2. v1_create_order: service_id, inputs, deadline (ISO 8601) and max_price_cents. Optional: min_proof_level, to require a stricter registry check than the standard one (never a lighter one). You never name a professional; unknown fields are refused. Returns pay_url.
-3. Pay pay_url within 30 minutes: max_price_cents plus H. v1_pay_link returns the open payment link again (idempotency_key required); v1_link_payment links your own payment that ended on the waiting list to your order, within the waiting time. Not paid in time: the order lapses (not_paid), nobody pays anything.
+3. Pay pay_url within 30 minutes: max_price_cents plus the HumanPush handling fee: 5% of the professional's price (including his VAT, if any), plus 21% VAT on the fee; the test API may still show it as H. v1_pay_link returns the open payment link again (idempotency_key required); v1_link_payment links your own payment that ended on the waiting list to your order, within the waiting time. Not paid in time: the order lapses (not_paid), nobody pays anything.
 4. v1_get_status: state, reason, every deadline and the money; while the order is offered in turns also the turn, the round and the end of the current turn. Expired clocks are processed first. Poll it.
 5. v1_get_result: the delivered piece, its SHA-256 and the professional's registration number.
 6. verify_proof: checks the digital fingerprint, the professional's passkey signature and the evidence file.
@@ -88,16 +88,16 @@ Reasons include not_paid, no_accept, cancelled, withdrawn, late, returned_confli
 
 ## Money
 
-- 100% upfront, within 30 minutes: max_price_cents plus the fixed HumanPush fee H. A fixed fee per service, the same for every company, excluding VAT, visible before you order. A change applies only to new orders.
+- 100% upfront, within 30 minutes: max_price_cents plus the HumanPush handling fee: 5% of the professional's price (including his VAT, if any), plus 21% VAT on the fee; the test API may still show it as H. A change applies only to new orders.
 - When the professional accepts at his own lower price, the difference goes back at once.
 - If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back.
-- Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including H. No cancelling after delivery.
+- Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including the handling fee. No cancelling after delivery.
 - The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again.
 - Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%.
 - The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid.
 - Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically, including the HumanPush fee. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register.
 - HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve.
-- The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps H only when an order succeeds.
+- The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.
 
 ## Proof
 

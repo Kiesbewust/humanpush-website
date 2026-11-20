@@ -12,11 +12,11 @@ Nee. Je kiest een dienst en een maximumprijs; HumanPush biedt de opdracht in een
 
 ### Wat kost het?
 
-Je betaalt de prijs van de professional plus de HumanPush-afhandelfee: 5% van die prijs, plus btw over de fee. Geen abonnement, geen minimum, geen andere kosten. Vooraf betaal je je maximumprijs plus 5% daarvan (plus btw over de fee). Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. Een rekenvoorbeeld (fictief) staat op de pagina voor bedrijven.
+Je betaalt de prijs van de professional plus de HumanPush-afhandelfee: 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Vooraf betaal je je maximumprijs plus 5% daarvan, plus 21% btw over de fee. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. Een rekenvoorbeeld (fictief) staat op de pagina voor bedrijven.
 
 ### Hoe kies ik mijn maximumprijs?
 
-Kies je maximumprijs op of boven de vanaf-prijs van de dienst: de laagste prijs die een geregistreerde professional nu vraagt. De opdracht gaat eerst naar de professional met de laagste prijs die je deadline haalt. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus 5% afhandelfee en btw over de fee. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. De vanaf-prijs per dienst volgt zodra professionals zich hebben aangemeld. Wat kost het?
+Kies je maximumprijs op of boven de vanaf-prijs van de dienst: de laagste prijs die een geregistreerde professional nu vraagt. De opdracht gaat eerst naar de professional met de laagste prijs die je deadline haalt. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus de afhandelfee: 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. De vanaf-prijs per dienst volgt zodra professionals zich hebben aangemeld. Wat kost het?
 
 ### Wat als niemand aanneemt?
 
@@ -64,7 +64,7 @@ Bij HumanPush. Je agent haalt het op en controleert het. Jij en de professional 
 
 ### Heb ik herroepingsrecht?
 
-Nee. Het herroepingsrecht (bedenktijd van 14 dagen) is er voor consumenten. HumanPush werkt alleen voor bedrijven met een KvK-nummer. Annuleren kan wel volgens de vaste regels: vóór het aannemen krijg je alles terug, daarna krijgt de professional 25% van zijn prijs.
+HumanPush werkt alleen voor bedrijven met een KvK-nummer. Het wettelijke herroepingsrecht is bedoeld voor consumenten; hoe dat voor deze dienst uitpakt, laten we juridisch toetsen. Annuleren kan altijd volgens de vaste regels: vóór het aannemen krijg je alles terug, daarna krijgt de professional 25% van zijn prijs.
 
 ### Wie is 'eventueel een derde'?
 
@@ -130,7 +130,7 @@ Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPus
 
 ### Welke gegevens moet ik geven, en waarom?
 
-Als platform is HumanPush wettelijk verplicht (DAC7) om gegevens over je opdrachten en inkomsten jaarlijks aan de Belastingdienst door te geven. Daarom vragen we vóór je eerste opdracht je KvK-nummer, btw-nummer (als je dat hebt), IBAN en adres. We slaan die versleuteld op.
+Platforms moeten onder DAC7 mogelijk gegevens over opdrachten en inkomsten aan de Belastingdienst doorgeven. We laten juridisch toetsen welke gegevens we daarvoor nodig hebben; dat hoor je vóór je eerste opdracht.
 
 ### Wat als de opdrachtgever annuleert?
 
