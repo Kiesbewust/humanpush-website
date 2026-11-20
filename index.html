@@ -38,7 +38,7 @@
 <div class="wrap">
 <a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/agents">Agents</a></li><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/veelgestelde-vragen">Vragen</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
 <div class="login">
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
@@ -49,20 +49,33 @@
 </div>
 </header>
 <main id="inhoud">
-<section class="hero dark">
+<section class="hero dark home-hero">
 <div class="wrap">
-<nav aria-label="Kies wie je bent"><ul class="audience">
-<li><a href="#route-bedrijf" data-aud="bedrijf">Ik ben een bedrijf met een agent</a></li>
-<li><a href="#route-professional" data-aud="pro">Ik ben een professional</a></li>
-<li><a href="#route-agent" data-aud="agent">Ik ben een agent</a></li>
-</ul></nav>
-<div class="hero-grid">
-<div>
 <span class="kicker">Agent-first · de mens tekent</span>
-<h1>Je AI-agent kan veel. Tekenen kan hij niet.</h1>
+<h1>Waar AI-agenten werk doen, tekent een geregistreerde professional.</h1>
 <p class="definition">HumanPush is de laag waarmee AI-agents geregistreerde professionals inschakelen, hun werk ontvangen en controleerbaar vastleggen wie waarvoor verantwoordelijk is.</p>
-<p class="lead">Je agent bestelt, het protocol voert de regels uit, een geregistreerde professional tekent. Voldoet het niet, dan krijg je alles terug.</p>
-<div class="actions"><a class="btn btn-primary" href="/hoe-het-werkt">Zo werkt het</a><a class="btn btn-secondary" href="/agents">Voor agents</a></div>
+<nav class="routecards" aria-label="Kies je route"><ul>
+<li><a class="routecard" href="/bedrijven" data-aud="bedrijf"><span class="rc-title">Ik vertegenwoordig een bedrijf</span><span class="rc-sub">of ik bouw de AI-agent van een bedrijf</span></a></li>
+<li><a class="routecard" href="/professionals" data-aud="pro"><span class="rc-title">Ik ben een geregistreerde professional</span><span class="rc-sub">NIVRE, NRVT, NRGD, NRBI, octrooigemachtigde</span></a></li>
+</ul></nav>
+</div>
+</section>
+
+<section class="section top0" id="flow" aria-labelledby="flow4-kop">
+<div class="wrap">
+<span class="eyebrow">Hoe het werkt</span>
+<h2 id="flow4-kop">Vier stappen, voor elk register dezelfde.</h2>
+<div style="margin-top:28px"><ol class="flow4" aria-label="De vier stappen van een opdracht"><li><span class="mono">01</span><strong>Bestelling</strong><p>De agent kiest een dienst; het bedrijf betaalt vooraf.</p></li><li><span class="mono">02</span><strong>Professional accepteert</strong><p>Aangeboden aan één professional tegelijk, <span data-rule="turnWorkingMinutes">45</span> werkminuten per keer.</p></li><li><span class="mono">03</span><strong>Getekend werk</strong><p>Het stuk komt terug met hash en passkey-handtekening.</p></li><li><span class="mono">04</span><strong>Bewijs</strong><p>Het logboek legt elke stap vast; iedereen kan het controleren.</p></li></ol></div>
+<p class="linkline" style="margin-top:20px"><a href="/hoe-het-werkt">Zo werkt het precies</a></p>
+</div>
+</section>
+
+<section class="section band" id="voorbeeld" aria-labelledby="voorbeeld-kop">
+<div class="wrap hero-grid">
+<div>
+<span class="eyebrow">Voorbeeld</span>
+<h2 id="voorbeeld-kop">Eén opdracht door het protocol.</h2>
+<p class="lead">De agent bestelt, de opdracht wordt aangeboden tot iemand accepteert, de professional tekent en het logboek legt het vast. Alleen de handtekening is van een mens.</p>
 </div>
 <div>
 <figure class="demo" data-anim aria-labelledby="demo-kop">
@@ -76,24 +89,6 @@
 </figure>
 <p class="demo-cap">Voorbeeld met fictieve gegevens: zo loopt één opdracht door het protocol.</p>
 </div>
-</div>
-</div>
-</section>
-
-<section class="section top0" id="routes" aria-labelledby="routes-kop">
-<div class="wrap">
-<span class="eyebrow">Drie routes</span>
-<h2 id="routes-kop">Eén protocol, een eigen ingang per rol.</h2>
-<div class="grid three" style="margin-top:32px"><article class="card route" id="route-bedrijf"><div class="route-top"><span class="label" style="margin:0">BEDRIJF</span><span class="chip">Opent na de testfase</span></div><h3>Bedrijf met een agent</h3><p class="intro">Je agent bestelt een geregistreerde professional. Vooraf betaald, bewijs terug.</p><ul><li>Je agent kiest een dienst, nooit een persoon</li><li>Toegewezen aan een professional met registerbewijs</li><li>Getekend resultaat, of alles terug</li></ul><a class="go" href="/bedrijven">Voor bedrijven</a></article><article class="card route" id="route-professional"><div class="route-top"><span class="label" style="margin:0">PROFESSIONAL</span><span class="chip">Opent na de testfase</span></div><h3>Professional</h3><p class="intro">Jij doet het vakwerk en tekent met je passkey, met je eigen agent of met de HumanPush-agent.</p><ul><li>Aangeboden opdrachten zijn al betaald</li><li>Accepteren of doorgeven; doorgeven kost niets</li><li>Je eigen prijs, levertijd en capaciteit</li></ul><a class="go" href="/professionals">Voor professionals</a></article><article class="card route" id="route-agent"><div class="route-top"><span class="label" style="margin:0">AGENT</span><span class="chip">Opent na de testfase</span></div><h3>Agent of bouwer</h3><p class="intro">Eén MCP-server, vaste tools en statussen die je kunt laten uitleggen.</p><ul><li>list_services → v1_create_order → verify_proof</li><li>Dezelfde idempotency_key voert niets twee keer uit</li><li>Elke status uitgelegd met v1_explain</li></ul><a class="go" href="/agents">Voor agents</a></article></div>
-</div>
-</section>
-
-<section class="section mist" id="flow" aria-labelledby="flow4-kop">
-<div class="wrap">
-<span class="eyebrow">Van bestelling tot bewijs</span>
-<h2 id="flow4-kop">Vier stappen, voor elk register dezelfde.</h2>
-<div style="margin-top:28px"><ol class="flow4" aria-label="De vier stappen van een opdracht"><li><span class="mono">01</span><strong>Bestelling</strong><p>De agent kiest een dienst; het bedrijf betaalt vooraf.</p></li><li><span class="mono">02</span><strong>Professional accepteert</strong><p>Aangeboden aan één professional tegelijk, <span data-rule="turnWorkingMinutes">45</span> werkminuten per keer.</p></li><li><span class="mono">03</span><strong>Getekend werk</strong><p>Het stuk komt terug met hash en passkey-handtekening.</p></li><li><span class="mono">04</span><strong>Bewijs</strong><p>Het logboek legt elke stap vast; iedereen kan het controleren.</p></li></ol></div>
-<p class="linkline" style="margin-top:20px"><a href="/hoe-het-werkt">Zo werkt het precies</a></p>
 </div>
 </section>
 
@@ -123,7 +118,7 @@
 <footer class="site-footer">
 <div class="wrap cols">
 <div><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p>HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476). <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p></div>
-<div><p class="h">Over</p><ul><li><a href="/voorwaarden">Voorwaarden</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/inloggen">Inloggen</a></li></ul></div>
+<div><p class="h">Over</p><ul><li><a href="/veelgestelde-vragen">Vragen</a></li><li><a href="/voorwaarden">Voorwaarden</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/inloggen">Inloggen</a></li></ul></div>
 <div><p class="h">Voor agents</p><ul><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li><li><a href="/agents">Voor agents en bouwers</a></li></ul></div>
 </div>
 <div class="wrap"><div class="meta"><span>Regelversie 2026-11-19</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>

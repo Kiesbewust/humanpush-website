@@ -98,18 +98,40 @@ test('/hoe-het-werkt: 4 blokken, uitklapper met het volledige schema, twee stepp
   assert.match(t, /id="scherm-professional"[\s\S]*Accepteren[\s\S]*Doorgeven[\s\S]*Bevestig met je passkey/);
 });
 
-test('home: doelgroepkeuze, demo gelabeld "Voorbeeld" met pauzeknop, routes per doelgroep', () => {
+test('home: generieke hero, twee routekaarten als gewone links, daarna 4 blokken en de demo', () => {
   const t = read('index.html');
-  for (const a of ['bedrijf', 'pro', 'agent']) assert.match(t, new RegExp(`data-aud="${a}"`));
-  for (const id of ['route-bedrijf', 'route-professional', 'route-agent']) assert.match(t, new RegExp(`id="${id}"`));
+  assert.match(t, /<h1>Waar AI-agenten werk doen, tekent een geregistreerde professional\.<\/h1>\n<p class="definition">/);
+  const cards = [...t.matchAll(/<a class="routecard" href="([^"]+)" data-aud="(\w+)"><span class="rc-title">([^<]+)<\/span><span class="rc-sub">([^<]+)<\/span><\/a>/g)].map((m) => m.slice(1));
+  assert.deepEqual(cards, [
+    ['/bedrijven', 'bedrijf', 'Ik vertegenwoordig een bedrijf', 'of ik bouw de AI-agent van een bedrijf'],
+    ['/professionals', 'pro', 'Ik ben een geregistreerde professional', 'NIVRE, NRVT, NRGD, NRBI, octrooigemachtigde']
+  ]);
+  // Volgorde: hero met routekaarten, dan het 4-blokkenschema, dan de demo.
+  const iCards = t.indexOf('class="routecards"'), iFlow = t.indexOf('<ol class="flow4"'), iDemo = t.indexOf('<figure class="demo"');
+  assert.ok(iCards > 0 && iCards < iFlow && iFlow < iDemo, 'routekaarten → 4 blokken → demo');
+  assert.ok(iCards < t.indexOf('</section>'), 'routekaarten staan in de hero');
   assert.match(t, /<figure class="demo" data-anim[\s\S]*<b>Voorbeeld<\/b>[\s\S]*<button class="demo-pause" type="button" aria-pressed="false">Pauzeer animatie<\/button>/);
-  // Eén semantiek: aria-pressed wisselt, de tekst niet.
+  assert.match(t, /class="log">#0007/);
   const demoJs = read('site.js').slice(read('site.js').indexOf('// Voorbeeld-demo'));
   assert.doesNotMatch(demoJs.slice(0, demoJs.indexOf('// Uitklappers')), /btn\.textContent/);
-  // Home toont het 4-blokkenschema met een link, niet het volledige zesvlaksdiagram.
   assert.match(t, /<ol class="flow4"[\s\S]*Bestelling[\s\S]*Professional accepteert[\s\S]*Getekend werk[\s\S]*Bewijs[\s\S]*<a href="\/hoe-het-werkt">Zo werkt het precies<\/a>/);
-  assert.doesNotMatch(t, /class="iflow"|<!--flow:start/);
-  assert.match(t, /class="log">#0007/);
+  assert.doesNotMatch(t, /class="iflow"|<!--flow:start|class="audience"/);
+});
+
+test('navigatie: alleen Bedrijven, Professionals, Hoe het werkt (+ Inloggen); /agents wel in footer, sitemap en llms.txt', () => {
+  for (const f of PAGES) {
+    const t = read(f);
+    const nav = t.match(/<ul class="nav-list">([\s\S]*?)<\/ul><\/nav>/)[1];
+    const items = [...nav.matchAll(/<li(?: class="[^"]*")?><a href="([^"]+)"/g)].map((m) => m[1]);
+    assert.deepEqual(items, ['/bedrijven', '/professionals', '/hoe-het-werkt', '/inloggen'], f);
+    assert.match(t, /<footer[\s\S]*<a href="\/agents">/, `${f}: /agents in de footer`);
+    assert.match(t, /<footer[\s\S]*<a href="\/veelgestelde-vragen">Vragen<\/a>/, `${f}: Vragen in de footer`);
+  }
+  assert.match(read('sitemap.xml'), /<loc>https:\/\/humanpush\.nl\/agents<\/loc>/);
+  assert.match(read('llms.txt'), /humanpush\.nl\/agents|\/agents/);
+  assert.match(read('bedrijven.html'), /<h1>Je AI-agent kan veel\. Tekenen kan hij niet\.<\/h1>/);
+  assert.match(read('bedrijven.html'), /id="developers"[\s\S]*Voor developers en agents[\s\S]*<pre><code>[\s\S]*v1_create_order[\s\S]*<a href="\/agents">/);
+  assert.match(read('professionals.html'), /<h1>Jouw registratie, ingezet waar AI het werk voorbereidt\.<\/h1>/);
 });
 
 test('site.js: verminderde beweging, geen autoplay in de stepper, keuze alleen lokaal bewaard', () => {
