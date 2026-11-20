@@ -18,7 +18,7 @@ test('pilot: noindex, één h1, gelinkt vanaf /bedrijven en in de sitemap', () =
   assert.match(read('sitemap.xml'), /<loc>https:\/\/humanpush\.nl\/pilot\/second-opinion<\/loc>/);
 });
 
-test('pilot: doelgroep, probleem zonder "de wet eist altijd", 4 stappen met de flowcomponent', () => {
+test('pilot: doelgroep, probleem zonder "de wet eist altijd", 4 stappen', () => {
   for (const s of ['Gevolmachtigde agenten', 'Schadebehandelaars', 'Leveranciers van claimsoftware']) assert.ok(main.includes(s), s);
   for (const s of ['geschil', 'complexe claim', 'tekort aan capaciteit', 'contract onafhankelijkheid']) assert.ok(main.includes(s), s);
   assert.match(main, /De wet eist dat niet altijd\./);
@@ -27,8 +27,8 @@ test('pilot: doelgroep, probleem zonder "de wet eist altijd", 4 stappen met de f
   assert.match(main, /NIVRE-geregistreerde schade-expert tegelijk aan, telkens <span data-rule="turnWorkingMinutes">\d+<\/span> werkminuten/);
   assert.doesNotMatch(main.replace(/gebeurtenis/g, ''), /beurt/i);
   assert.match(main, /tekent met de passkey/);
-  assert.match(main, /logboek/);
-  assert.match(P, /<!--flow:start variant=pilot-->\n<section class="section flow"/);
+  assert.match(main, /bewijsdossier/);
+  assert.doesNotMatch(P, /<!--flow:start/);
 });
 
 test('pilot: hoe een pilot eruitziet, prijs zonder bedragen, CTA alleen mailto', () => {

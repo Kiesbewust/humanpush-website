@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Inloggen bij HumanPush</title>
-<meta name="description" content="Inloggen komt na de testfase: twee soorten toegang, voor professionals met een passkey en voor bedrijven met een sleutel voor hun agent.">
+<meta name="description" content="Inloggen komt na de testfase: twee soorten toegang, voor professionals met een passkey en voor bedrijven met een toegangscode voor hun agent.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/inloggen">
 <meta property="og:title" content="Inloggen bij HumanPush">
-<meta property="og:description" content="Inloggen komt na de testfase: twee soorten toegang, voor professionals met een passkey en voor bedrijven met een sleutel voor hun agent.">
+<meta property="og:description" content="Inloggen komt na de testfase: twee soorten toegang, voor professionals met een passkey en voor bedrijven met een toegangscode voor hun agent.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -44,7 +44,7 @@
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
 <a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
-<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een sleutel; later ook een overzicht voor jou. Komt eraan.</span></a>
+<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een toegangscode; later ook een overzicht voor jou. Komt eraan.</span></a>
 </div>
 </div>
 </div>
@@ -61,17 +61,19 @@
 <div class="wrap">
 <h2 id="soorten">Twee soorten toegang</h2>
 <div class="grid" style="margin-top:24px">
-<div class="card" id="professionals"><h3>Voor professionals <span class="soon">komt eraan</span></h3><p>Inloggen met je passkey. Je werkt met je eigen agent, of zonder MCP met de HumanPush-agent op het tekenscherm. Elke stap teken je met de passkey op je eigen apparaat; je hebt een tweede passkey als reserve. Je sleutel krijg je via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van je kantoor), nooit naar een adres dat je zelf opgeeft. Die link dient alleen om je sleutel op te halen en je passkey plus een verplichte tweede passkey als reserve aan te maken; tekenen doe je altijd met je passkey.</p></div>
-<div class="card" id="bedrijven"><h3>Voor bedrijven <span class="soon">komt eraan</span></h3><p>Je agent gebruikt een sleutel voor de HumanPush-MCP, gekoppeld aan het KvK-nummer van je bedrijf. De agent logt niet in; hij gebruikt die sleutel. Later komt er ook een overzicht voor jou.</p></div>
+<div class="card" id="professionals"><h3>Voor professionals <span class="soon">komt eraan</span></h3><p>Inloggen met je passkey. Je werkt met je eigen agent, of zonder MCP met de HumanPush-agent op het scherm van HumanPush. Elke stap teken je met de passkey op je eigen apparaat; je hebt een tweede passkey als reserve. Je toegangscode voor je agent krijg je via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van je kantoor), nooit naar een adres dat je zelf opgeeft. Die link dient alleen om je toegangscode op te halen en je passkey plus een verplichte tweede passkey als reserve aan te maken; tekenen doe je altijd met je passkey.</p></div>
+<div class="card" id="bedrijven"><h3>Voor bedrijven <span class="soon">komt eraan</span></h3><p>Je agent gebruikt een toegangscode voor de HumanPush-MCP, gekoppeld aan het KvK-nummer van je bedrijf. De agent logt niet in; hij gebruikt die toegangscode. Later komt er ook een overzicht voor jou.</p></div>
 </div>
 </div>
 </section>
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
-<div><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p>HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476). <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p></div>
-<div><p class="h">Over</p><ul><li><a href="/veelgestelde-vragen">Vragen</a></li><li><a href="/voorwaarden">Voorwaarden</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/inloggen">Inloggen</a></li></ul></div>
-<div><p class="h">Voor agents</p><ul><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li><li><a href="/agents">Voor agents en bouwers</a></li></ul></div>
+<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p>HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476). <a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p></div>
+<nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#bewijsdossier">Het bewijsdossier</a></li></ul></nav>
+<nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
+<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot second opinion</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>
+<nav aria-label="Juridisch"><p class="h">Juridisch</p><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Voorwaarden</a></li></ul></nav>
 </div>
 <div class="wrap"><div class="meta"><span>Regelversie 2026-11-19</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>
 </footer>

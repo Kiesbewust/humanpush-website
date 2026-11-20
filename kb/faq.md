@@ -8,7 +8,7 @@ Nee. HumanPush is in de testfase. Er lopen geen echte opdrachten of betalingen. 
 
 ### Kiest mijn agent de professional?
 
-Nee. Je kiest een dienst en een maximumprijs; het protocol kiest in een vaste volgorde uit professionals met een geldig registerbewijs.
+Nee. Je kiest een dienst en een maximumprijs; HumanPush biedt de opdracht in een vaste volgorde aan professionals met een geldige registercheck.
 
 ### Wat kost het?
 
@@ -34,9 +34,9 @@ Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering ho
 
 Dan krijg je alles terug en kun je opnieuw bestellen. Er wordt onderweg niets verschoven en niemand anders ingezet.
 
-### Wat bewijst het registerbewijs precies?
+### Wat bewijst de registercheck precies?
 
-Dat een mens de professional met een vaste checklist in het openbare register heeft gevonden, op een vastgelegde datum, en dat dit bij de aanname opnieuw is gecontroleerd. Het is geen live koppeling met het register.
+Dat HumanPush de professional met een vaste checklist in het openbare register heeft gevonden, op een vastgelegde datum, en dat dit bij de aanname opnieuw is gecontroleerd. Het is geen live koppeling met het register.
 
 ### Kan ik bezwaar maken als ik het niet eens ben met de conclusie?
 
@@ -44,7 +44,7 @@ Nee. Bezwaar kan alleen op de vaste toetsingspunten van die dienst; per dienst s
 
 ### Wie is waarvoor verantwoordelijk?
 
-De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registerbewijs, termijnen, geld en logboek.
+De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het bewijsdossier.
 
 ### Is dit ook voor particulieren?
 
@@ -74,19 +74,19 @@ Nee. Je werkt met je eigen agent via de HumanPush-MCP, of zonder MCP met de Huma
 
 ### Wat is de HumanPush-agent?
 
-Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen sleutel. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.
+Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen toegangscode. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.
 
 ### Wat heb ik nodig om te koppelen?
 
-Voor je eigen agent: een MCP-client, je sleutel en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor de HumanPush-agent volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.
+Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor de HumanPush-agent volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.
 
 ### Hoe zet ik een stap?
 
-Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het tekenscherm.
+Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.
 
 ### Hoe weet ik dat er een opdracht voor mij is?
 
-Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het tekenscherm. Er gaat geen mail of sms.
+Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het scherm van HumanPush. Er gaat geen mail of sms.
 
 ### Hoeveel tijd heb ik om te reageren?
 
@@ -124,7 +124,7 @@ In llms.txt (Engels) en op de pagina voor agents.
 
 ### Is er een endpoint om te testen?
 
-Nog niet voor v1. Protocol v1 is in de testfase; er is nog geen publiek endpoint.
+Nog niet voor versie 1. Die is in de testfase; er is nog geen publiek endpoint.
 
 ### Kan mijn agent vragen stellen?
 
@@ -136,5 +136,5 @@ Met dezelfde idempotency_key wordt niets twee keer uitgevoerd.
 
 ### Wat als ik een status niet begrijp?
 
-Vraag v1_explain. Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een mens beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet.
+Vraag v1_explain. Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet.
 

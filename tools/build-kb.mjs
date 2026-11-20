@@ -36,7 +36,7 @@ export function htmlToText(h) {
 const slug = (s) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48);
 
 // Waar elk hoofdstuk van de spelregels op de site staat.
-const RULE_URL = { 1: '/hoe-het-werkt#logboek', 2: '/hoe-het-werkt#g18', 3: '/bedrijven#hoe', 4: '/hoe-het-werkt#aannemen', 5: '/hoe-het-werkt#stappen', 6: '/hoe-het-werkt#g18', 7: '/hoe-het-werkt#geld', 8: '/hoe-het-werkt#geld', 9: '/professionals#betrouwbaar', 10: '/hoe-het-werkt#logboek' };
+const RULE_URL = { 1: '/hoe-het-werkt#garanties', 2: '/hoe-het-werkt#g18', 3: '/bedrijven#hoe', 4: '/hoe-het-werkt#aannemen', 5: '/hoe-het-werkt#stappen', 6: '/hoe-het-werkt#g18', 7: '/hoe-het-werkt#geld', 8: '/hoe-het-werkt#geld', 9: '/professionals#te-laat', 10: '/hoe-het-werkt#vastgelegd' };
 
 function fromSpelregels() {
   const out = [];

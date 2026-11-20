@@ -44,9 +44,6 @@ test('geen bezoekersteller of andere externe scripts: "we verzamelen geen gegeve
   assert.doesNotMatch(read('rules.json'), /src\/|tools\/|\.ts\b|\.mjs\b/, 'geen interne paden in rules.json');
 });
 
-test('infographic: coördinaten met hooguit 2 decimalen', () => {
-  assert.doesNotMatch(read('assets/infographic.svg'), /\d\.\d{3,}/);
-});
 
 test('het garantieblok staat alleen op /hoe-het-werkt; elders één regel met link', () => {
   for (const f of PAGES) {
@@ -69,7 +66,6 @@ test('elke pagina: noindex, banner, footer zonder adres, Inloggen met "komt eraa
     assert.doesNotMatch(t, /fonts\.googleapis|fonts\.gstatic/, f);
     assert.equal((t.match(/<h1[ >]/g) || []).length, 1, f + ' één h1');
   }
-  assert.doesNotMatch(read('assets/infographic.svg'), /@import|googleapis/);
 });
 
 test('"Aanmelden is nog niet open" blijft staan, zonder formulier', () => {

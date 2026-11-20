@@ -34,8 +34,11 @@
   { "question": "Kan een professional een beurt laten gaan?", "expect": "answer", "must_contain_any": ["doorgeven", "geef hem door", "doorgegeven"] },
   { "question": "Hoe weet een professional dat hij aan de beurt is?", "expect": "answer", "must_contain": ["get_my_turns"] },
   { "question": "Heb ik een tweede passkey nodig?", "expect": "answer", "must_contain": ["tweede passkey"] },
-  { "question": "Kiest mijn agent de professional?", "expect": "answer", "must_contain": ["protocol"] },
+  { "question": "Kiest mijn agent de professional?", "expect": "answer", "must_contain": ["vaste volgorde"] },
   { "question": "Is HumanPush ook voor particulieren?", "expect": "answer", "must_contain": ["KvK"] },
   { "question": "Hoe oud mag een registerbewijs zijn?", "expect": "answer", "must_contain": ["30 dagen"] },
-  { "question": "Wat zegt de meteorologie over Mars?", "expect": "out_of_scope" }
+  { "question": "Wat zegt de meteorologie over Mars?", "expect": "out_of_scope" },
+  { "question": "Wat is het bewijsdossier?", "expect": "answer", "must_contain": ["bewijsdossier"] },
+  { "question": "Wat is een digitale vingerafdruk?", "expect": "answer", "must_contain": ["vingerafdruk"] },
+  { "question": "Wat is een hash?", "expect": "answer", "must_contain": ["vingerafdruk"] }
 ]
