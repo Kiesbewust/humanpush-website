@@ -186,8 +186,9 @@
       rows.forEach(function (r) { r.classList.remove('on'); });
       tA.className = ''; tB.className = ''; tA.textContent = 'Expert A'; tB.textContent = 'Expert B';
     }
-    var f = 0, paused = false, hover = false;
+    var f = 1, paused = false, hover = false;
     reset();
+    frames[0]();
     setInterval(function () {
       if (paused || hover || document.hidden) return;
       if (f === 0) reset();

@@ -684,3 +684,4 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
   .rc-sub { font-size: 14px; }
 }
 @media (max-width: 760px) { .home-hero .kicker { display: none; } .home-hero h1 { margin-top: 0; } }
+.demo-pause { white-space: nowrap; flex: none; }
