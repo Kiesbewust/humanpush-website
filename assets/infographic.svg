@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" font-family="'Instrument Sans', Inter, 'Helvetica Neue', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" font-family="'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif">
 <title>Zo loopt een opdracht bij HumanPush</title>
 <desc>De stroom van een opdracht: het bedrijf zet een agent in, de agent bestelt en betaalt vooraf via de HumanPush-MCP, een geregistreerde professional neemt aan, werkt en tekent met zijn passkey, het bedrijf heeft 72 uur, daarna wordt de professional betaald. Elke stap staat in het logboek.</desc>
 <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0B2A5B"/></marker></defs>
@@ -47,7 +47,7 @@
 <circle cx="594.8" cy="382" r="18" fill="#E0A526"/>
 <text x="594.8" y="389" font-size="20" font-weight="700" fill="#0B2A5B" text-anchor="middle" >3</text>
 <text x="622.8" y="388" font-size="20" font-weight="700" fill="#0B2A5B" text-anchor="start" >Aannemen</text>
-<text x="580.8" y="436" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >Beurten van 45 werkminuten,</text>
+<text x="580.8" y="436" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >Telkens 45 werkminuten,</text>
 <text x="580.8" y="457" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >na elkaar, tot iemand</text>
 <text x="580.8" y="478" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >aanneemt. Vangnet:</text>
 <text x="580.8" y="499" font-size="15.5" font-weight="400" fill="#0B2A5B" text-anchor="start" >3 werkdagen.</text>

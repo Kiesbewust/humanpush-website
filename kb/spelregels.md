@@ -28,7 +28,7 @@ Het bedrijf werkt via de sleutel van zijn agent. De professional werkt met zijn 
 ## 2. Registerbewijs
 
 ### R2.1 · Bewijsvloer niveau 2, voor iedereen
-Zonder geldig registerbewijs van minstens niveau 2 krijgt niemand een beurt, ook niet als beoordelaar. Niveau 2 betekent: een mens zocht de professional met een vaste checklist op in het openbare register.
+Zonder geldig registerbewijs van minstens niveau 2 krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. Niveau 2 betekent: een mens zocht de professional met een vaste checklist op in het openbare register.
 
 ### R2.2 · Alleen de agent mag het niveau verhogen
 Een agent kan per opdracht een hoger bewijsniveau eisen (min_proof_level 3 of 4), nooit een lager. Bij de start biedt geen register een hoger niveau, dus wie hoger eist, vindt nu niemand en krijgt alles terug.
@@ -37,13 +37,13 @@ Een agent kan per opdracht een hoger bewijsniveau eisen (min_proof_level 3 of 4)
 Een registerbewijs telt hooguit 30 dagen. Bij octrooigemachtigden geldt daarbovenop: de peildatum van de lijst is bij de controle hooguit 120 dagen oud. Het is een registerverklaring met geldigheidsduur, geen live koppeling met het register.
 
 ### R2.7 · Hercontrole bij elke aanname
-Vlak voor een aanname wordt het register opnieuw gecontroleerd. Doorgehaald of geschorst: de beurt eindigt.
+Vlak voor een aanname wordt het register opnieuw gecontroleerd. Doorgehaald of geschorst: de aangeboden opdracht vervalt.
 
 ### R2.8 · Schorsing en doorhaling
 Meldt het register een schorsing of doorhaling, dan krijgt de professional geen nieuwe opdrachten. Een lopende opdracht die nog niet is opgeleverd, stopt: het bedrijf krijgt alles terug, de professional krijgt niets.
 
 ### R2.12 · Twee passkeys
-Een professional maakt een passkey aan op zijn eigen telefoon of computer, en een tweede passkey als reserve. Zonder tweede passkey krijgt hij geen beurt.
+Een professional maakt een passkey aan op zijn eigen telefoon of computer, en een tweede passkey als reserve. Zonder tweede passkey krijgt hij geen opdracht aangeboden.
 
 ## 3. Bestellen en betalen
 
@@ -59,16 +59,16 @@ Per dienst één vaste vergoeding, voor elk bedrijf hetzelfde, excl. btw, zichtb
 ### R3.5 · Herhaalde aanroep is één uitvoering
 Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert niets twee keer uit.
 
-## 4. Beurt en aanname
+## 4. Aanbieden en aanname
 
 ### R4.1 · Vaste volgorde
 Het protocol zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldig registerbewijs, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.
 
-### R4.2 · Beurten van 45 werkminuten, tot iemand aanneemt
-Na de betaling krijgt één passende professional tegelijk een beurt. Een beurt duurt 45 werkminuten. Neemt hij niet aan, of laat hij de beurt gaan, dan gaat de beurt meteen naar de volgende. Na elke ronde bouwt het protocol de volgorde opnieuw. Elke professional krijgt hooguit 2 beurten per opdracht. Dat gaat door tot iemand aanneemt of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.
+### R4.2 · Telkens 45 werkminuten aangeboden, tot iemand aanneemt
+Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde bouwt het protocol de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.
 
-### R4.4 · Niet aannemen kost niets: laat de beurt gaan
-Een professional kan een beurt laten gaan. Dat is een getekende stap, staat in het logboek en kost niets: de beurt gaat direct naar de volgende. Een beurt laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je in je beurt een belang melden; ook dat kost niets.
+### R4.4 · Niet aannemen kost niets: doorgeven
+Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het logboek en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.
 
 ### R4.5 · Aannemen is tekenen
 De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
@@ -76,8 +76,8 @@ De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen g
 ### R4.6 · Niemand neemt aan: alles terug
 Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de vaste vergoeding.
 
-### R4.7 · Hoe een professional hoort dat hij aan de beurt is
-De agent van de professional vraagt zijn beurten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de beurt op het tekenscherm. Er gaat geen mail of sms.
+### R4.7 · Hoe een professional een aangeboden opdracht ziet
+De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het tekenscherm. Er gaat geen mail of sms.
 
 ## 5. Werk en oplevering
 
@@ -132,7 +132,7 @@ De professional krijgt zijn prijs na acceptatie, na 72 uur zonder bezwaar, of na
 Na 3 tekortkomingen in 12 maanden volgt een afkoelperiode van 3 maanden zonder nieuwe opdrachten. Daarna automatisch weer open.
 
 ### R9.2 · Wat geen tekortkoming is
-Een beurt laten gaan of laten verlopen, een belang melden in je beurt, een geslaagde conflictteruggave (markering), een doorhaling of schorsing.
+Een aangeboden opdracht doorgeven of laten verlopen, een belang melden bij een aangeboden opdracht, een geslaagde conflictteruggave (markering), een doorhaling of schorsing.
 
 ## 10. Bewijs
 

@@ -12,7 +12,7 @@ const STOP = new Set(('zegt zeggen hoeveel gebeurt gebeuren happens happen de he
 const SYN = [
   [/^(aanne\w*|aanname\w*|aangenomen|nemen|accept\w*)$/, 'aanname'],
   [/^(werkuur|werkuren|werktijd|working|werkminuten|werkdagen)$/, 'werkuren'],
-  [/^(beurt\w*|turns?)$/, 'beurt'],
+  [/^(beurt\w*|turns?|aangeboden|aanbied\w*|aanbieding\w*|aanbod|doorge\w*|doorgeeft|doorgaf)$/, 'beurt'],
   [/^(betaa?l\w*|pay\w*|paid)$/, 'betalen'],
   [/^(annule\w*|cancel\w*)$/, 'annuleren'],
   [/^(bezwaar\w*|dispute\w*|object\w*)$/, 'bezwaar'],

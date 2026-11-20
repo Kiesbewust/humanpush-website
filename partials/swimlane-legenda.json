@@ -3,7 +3,7 @@
   "De agent bestelt een dienst met invoer, uiterste datum en maximumprijs P_max. Hij kiest geen persoon. Regels en bedragen liggen nu vast voor deze opdracht.",
   "Het bedrijf betaalt P_max + H vooraf, binnen {payMinutes} minuten. Anders vervalt de bestelling zonder gevolgen.",
   "HumanPush zet passende professionals op volgorde: laagste eigen prijs, kortste levertijd, eerlijke rotatie. Alleen wie het register aantoont en op tijd kan leveren, komt in aanmerking.",
-  "Elke professional krijgt een beurt van {turnWorkingMinutes} werkminuten (ma–vr 09:00–17:00). Neemt hij niet aan, of laat hij de beurt gaan, dan gaat de beurt zonder gevolgen naar de volgende, tot iemand aanneemt. Hooguit {maxTurnsPerPro} beurten per professional; vangnet {acceptCeilingWorkdays} werkdagen.",
+  "De opdracht wordt telkens {turnWorkingMinutes} werkminuten aangeboden aan één professional (ma–vr 09:00–17:00). Neemt hij niet aan, of geeft hij hem door, dan gaat de opdracht zonder gevolgen naar de volgende, tot iemand aanneemt. Hooguit {maxTurnsPerPro} keer aangeboden per professional; vangnet {acceptCeilingWorkdays} werkdagen.",
   "Aannemen is tekenen: de professional tekent met zijn passkey. Dit doet altijd een mens, via zijn eigen agent of het tekenscherm.",
   "Neemt hij aan tegen een lagere eigen prijs P, dan gaat het verschil P_max min P direct terug naar het bedrijf.",
   "De professional levert het stuk op en tekent het met zijn passkey.",

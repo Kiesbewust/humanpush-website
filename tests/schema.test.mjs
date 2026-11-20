@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
-const PAGES = readdirSync(ROOT).filter((f) => f.endsWith('.html'));
+const PAGES = [...readdirSync(ROOT).filter((f) => f.endsWith('.html')), ...readdirSync(join(ROOT, 'pilot')).filter((f) => f.endsWith('.html')).map((f) => 'pilot/' + f)];
 const TEXT_FILES = [...PAGES, 'llms.txt', 'kb/spelregels.md', 'kb/faq.md', 'kb/index.json'];
 const unescape = (s) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').trim();
 
@@ -97,7 +97,10 @@ test('juridisch kader: nergens "de wet eist altijd", wel de genuanceerde formule
 
 test('authenticatie: tekenen met passkey plus verplichte reserve; nergens een code per mail', () => {
   for (const f of TEXT_FILES) assert.doesNotMatch(read(f), /e-?mail-?code|code (per|via) (e-)?mail|email code|verificatiecode|sms-code|one-time code|eenmalige code/i, f);
-  for (const f of ['index.html', 'agents.html', 'inloggen.html', 'professionals.html']) assert.match(read(f), /link dient alleen om (je|de) sleutel op te halen/, f);
+  // Waar de eenmalige link genoemd wordt, staat er ook waarvoor hij dient.
+  const pages = TEXT_FILES.filter((f) => f.endsWith('.html'));
+  for (const f of pages) if (/eenmalig(e)? (een )?link/i.test(read(f))) assert.match(read(f), /link dient alleen om (je|de) sleutel op te halen/, f);
+  for (const f of ['agents.html', 'inloggen.html', 'professionals.html']) assert.match(read(f), /link dient alleen om (je|de) sleutel op te halen/, f);
 });
 
 test('entiteit: alleen HumAgent B.V. (KvK 42222476), geen andere naam, geen placeholders', () => {
