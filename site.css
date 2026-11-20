@@ -542,7 +542,7 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .c-msg .status { margin-top: 4px; }
 .c-me { background: var(--page); }
 .c-code { margin: 4px 0 0; padding: 8px 10px; background: var(--ink-deep); color: #E6ECF7; border-radius: 3px; font-family: var(--mono); font-size: 12px; overflow-x: auto; }
-.c-code code { background: none; border: 0; padding: 0; color: inherit; }
+.c-code code { background: none; border: 0; padding: 0; color: inherit; font-size: inherit; }
 @media (max-width: 520px) { .chat li { grid-template-columns: 1fr; gap: 2px; } }
 
 /* Genummerde flow, uitbetalingsschema, citaat */

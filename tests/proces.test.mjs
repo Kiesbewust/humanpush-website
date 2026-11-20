@@ -195,3 +195,19 @@ test('site.css: accolades in balans, geen @media binnen een regel', () => {
   }
   assert.equal(depth, 0);
 });
+
+test('/hoe-het-werkt: in de uitklappers termijnen, G1–G8 en geld heet het bedrijf "het bedrijf", niet "je"', () => {
+  const t = read('hoe-het-werkt.html');
+  for (const id of ['termijnen', 'g18', 'geld']) {
+    const block = t.match(new RegExp(`<details class="more" id="${id}"[\\s\\S]*?</details>`))[0];
+    assert.doesNotMatch(visible(block), /\b(je|jij|jou|jouw)\b/i, id);
+  }
+  assert.match(t, /<strong>Snelle duidelijkheid\.<\/strong>/);
+  assert.doesNotMatch(t, /Snel duidelijkheid/);
+});
+
+test('codevoorbeeld in de bedrijf-mockup: minstens 12px', () => {
+  const css = read('site.css');
+  assert.match(css, /\.c-code \{[^}]*font-size: (1[2-9]|[2-9]\d)px/);
+  assert.match(css, /\.c-code code \{[^}]*font-size: inherit;/);
+});

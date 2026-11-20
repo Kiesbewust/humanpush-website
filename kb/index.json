@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "7b7da021bdaf28129e5869b8933e2ff42c64fda095ac97eaad6a0d632573073f",
+ "kb_hash": "7982d774a21482b90496011fa26cd88950a40322e4922a70d71f2b75a03fe4a9",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -755,8 +755,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "pagina",
-   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 werkminuten open. Accepteert hij niet, of geeft hij hem door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde maakt HumanPush de volgorde opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot jij annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
-   "hash": "6ebad80ef8413a96"
+   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 werkminuten open. Accepteert hij niet, of geeft hij hem door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde maakt HumanPush de volgorde opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot het bedrijf annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijgt het bedrijf alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
+   "hash": "1f31882bb6f7a87d"
   },
   {
    "id": "pagina-hoe-het-werkt-werkuren",
@@ -764,8 +764,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#werkuren",
    "lang": "nl",
    "source": "pagina",
-   "text": "Wat zijn werkuren? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Voorbeeld (fictief): betaal je maandag om 10:00, dan staat de opdracht tot 10:45 open voor de eerste professional. Betaal je vrijdag om 16:30, dan staat hij tot maandag 09:15 open. Het vangnet van 3 werkdagen: betaal je maandag om 10:00 en neemt niemand aan, dan krijg je uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
-   "hash": "1b65b0d1b83a606c"
+   "text": "Wat zijn werkuren? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Voorbeeld (fictief): betaalt het bedrijf maandag om 10:00, dan staat de opdracht tot 10:45 open voor de eerste professional. Betaalt het bedrijf vrijdag om 16:30, dan staat hij tot maandag 09:15 open. Het vangnet van 3 werkdagen: betaalt het bedrijf maandag om 10:00 en neemt niemand aan, dan krijgt het uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
+   "hash": "c76d6889472d8966"
   },
   {
    "id": "pagina-bedrijven-hoe",
