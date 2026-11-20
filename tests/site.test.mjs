@@ -51,7 +51,7 @@ test('het garantieblok staat alleen op /hoe-het-werkt; elders één regel met li
     assert.equal(has, f === 'hoe-het-werkt.html', f);
   }
   for (const f of ['index.html', 'agents.html', 'bedrijven.html', 'professionals.html', 'veelgestelde-vragen.html']) {
-    assert.match(read(f), /Wat het systeem garandeert staat op <a href="\/hoe-het-werkt#garanties">/, f);
+    assert.match(read(f), /<a href="\/hoe-het-werkt#garanties">Lees wat HumanPush garandeert<\/a>/, f);
   }
 });
 

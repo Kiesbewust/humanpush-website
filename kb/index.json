@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "7982d774a21482b90496011fa26cd88950a40322e4922a70d71f2b75a03fe4a9",
+ "kb_hash": "136d0e92af5b45d86e75a33e3d48551b90bbe68e69035f5c7928241f426c77bd",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -8,8 +8,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#garanties",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het bewijsdossier van de opdracht, en elke stap verwijst naar de vorige.",
-   "hash": "8305353662cff844"
+   "text": "Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het dossier van de opdracht, en elke stap verwijst naar de vorige.",
+   "hash": "ed5fabc8948aa8b3"
   },
   {
    "id": "spelregels-r1-2",
@@ -166,12 +166,12 @@
   },
   {
    "id": "spelregels-r4-2",
-   "title": "R4.2 Telkens 45 werkminuten aangeboden, tot iemand aanneemt",
+   "title": "R4.2 Telkens 45 minuten binnen werktijd aangeboden, tot iemand aanneemt",
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.",
-   "hash": "1281eae936e1c0c7"
+   "text": "Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. De professional heeft 45 minuten binnen werktijd om aan te nemen of door te geven. Neemt hij niet aan, of geeft hij de opdracht door, dan gaat de opdracht meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werktijd is maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werktijd staat de klok stil.",
+   "hash": "69ce270ec323688e"
   },
   {
    "id": "spelregels-r4-4",
@@ -179,8 +179,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het bewijsdossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.",
-   "hash": "f27ad6fb97880aef"
+   "text": "Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het dossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.",
+   "hash": "758bdf4a21fd35fb"
   },
   {
    "id": "spelregels-r4-5",
@@ -350,17 +350,17 @@
    "url": "https://humanpush.nl/hoe-het-werkt#vastgelegd",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het bewijsdossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.",
-   "hash": "56db6a3967e690d1"
+   "text": "Het dossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.",
+   "hash": "b59911c183fdd50e"
   },
   {
    "id": "spelregels-r10-3",
-   "title": "R10.3 Persoonsgegevens niet leesbaar in het bewijsdossier",
+   "title": "R10.3 Persoonsgegevens niet leesbaar in het dossier",
    "url": "https://humanpush.nl/hoe-het-werkt#vastgelegd",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De stappen in het bewijsdossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.",
-   "hash": "0b34c8cbd6ca696e"
+   "text": "De stappen in het dossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.",
+   "hash": "d0fe7f22e7f37bba"
   },
   {
    "id": "faq-bedrijven-is-het-al-te-gebruiken",
@@ -404,17 +404,17 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
    "lang": "nl",
    "source": "faq",
-   "text": "Je opdracht wordt één voor één aangeboden tot hij is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.",
-   "hash": "a6578cb2b6433dd7"
+   "text": "Je opdracht wordt één voor één aangeboden tot de opdracht is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.",
+   "hash": "4250a2e8e01549a2"
   },
   {
-   "id": "faq-bedrijven-wat-zijn-werkuren",
-   "title": "Wat zijn werkuren?",
+   "id": "faq-bedrijven-wat-is-werktijd",
+   "title": "Wat is werktijd?",
    "url": "https://humanpush.nl/veelgestelde-vragen#werkuren",
    "lang": "nl",
    "source": "faq",
-   "text": "Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.",
-   "hash": "4284e83361a054ba"
+   "text": "Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.",
+   "hash": "a8c96fa7ec9093fc"
   },
   {
    "id": "faq-bedrijven-wat-als-we-annuleren",
@@ -458,8 +458,53 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
    "lang": "nl",
    "source": "faq",
-   "text": "De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het bewijsdossier.",
-   "hash": "734a457198224a34"
+   "text": "De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het dossier.",
+   "hash": "331177b37d882b7b"
+  },
+  {
+   "id": "faq-bedrijven-moet-ik-het-opgeleverde-stuk-goedkeuren",
+   "title": "Moet ik het opgeleverde stuk goedkeuren?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Ja, binnen 72 uur. Je agent accepteert het namens jou. Zeg je niets, dan geldt het na 72 uur als geaccepteerd en wordt de professional uitbetaald. Voor je bouwer: v1_accept_result.",
+   "hash": "664e83b11c046d1a"
+  },
+  {
+   "id": "faq-bedrijven-controleert-humanpush-het-opgeleverde-stuk",
+   "title": "Controleert HumanPush het opgeleverde stuk?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Alleen wat objectief na te gaan is: op tijd, een stuk met een vaste uitkomst, getekend door de professional die aannam, met een kloppende vingerafdruk, door iemand met een geldige registercheck. Over de inhoud oordeelt HumanPush niet. Zie wat HumanPush controleert.",
+   "hash": "819711d4085140e0"
+  },
+  {
+   "id": "faq-bedrijven-waar-komt-het-stuk-binnen",
+   "title": "Waar komt het stuk binnen?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Bij HumanPush. Je agent haalt het op en controleert het. Jij en de professional sturen elkaar niets rechtstreeks. Voor je bouwer: v1_get_result, verify_proof.",
+   "hash": "3ac2a39d01ac3bf2"
+  },
+  {
+   "id": "faq-bedrijven-heb-ik-herroepingsrecht",
+   "title": "Heb ik herroepingsrecht?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#herroeping",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Nee. Het herroepingsrecht (bedenktijd van 14 dagen) is er voor consumenten. HumanPush werkt alleen voor bedrijven met een KvK-nummer. Annuleren kan wel volgens de vaste regels: vóór het aannemen krijg je alles terug, daarna krijgt de professional 25% van zijn prijs.",
+   "hash": "da17fcd547b97526"
+  },
+  {
+   "id": "faq-bedrijven-wie-is-eventueel-een-derde",
+   "title": "Wie is 'eventueel een derde'?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#derde",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Iemand aan wie jij later moet laten zien hoe een besluit tot stand kwam, zoals je accountant, je verzekeraar, een toezichthouder of een rechter. Jij bepaalt of je het dossier deelt.",
+   "hash": "c1fe975f2f186d17"
   },
   {
    "id": "faq-bedrijven-is-dit-ook-voor-particulieren",
@@ -539,8 +584,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.",
-   "hash": "7dd357267b5bcccb"
+   "text": "Aannemen, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.",
+   "hash": "be13e11fd34d4ec0"
   },
   {
    "id": "faq-professionals-hoe-weet-ik-dat-er-een-opdracht-voor-mij-is",
@@ -548,8 +593,17 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#aangeboden",
    "lang": "nl",
    "source": "faq",
-   "text": "Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het scherm van HumanPush. Er gaat geen mail of sms.",
-   "hash": "a7aff0249864ed0b"
+   "text": "Op je scherm bij HumanPush, of je agent vraagt het op. Er gaat nog geen mail of push. Voor je bouwer: get_my_turns.",
+   "hash": "13e1b0af8b99a79f"
+  },
+  {
+   "id": "faq-professionals-waar-lever-ik-op",
+   "title": "Waar lever ik op?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#opleveren",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Bij HumanPush, op je scherm of via je eigen agent. Je tekent de oplevering met je passkey. Je stuurt het bedrijf niets rechtstreeks.",
+   "hash": "0dc4797befb40efa"
   },
   {
    "id": "faq-professionals-hoeveel-tijd-heb-ik-om-te-reageren",
@@ -557,8 +611,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Je hebt 45 werkminuten om een aangeboden opdracht te accepteren of door te geven (zie Wat zijn werkuren?). Niet aannemen kost niets: geef hem door, dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.",
-   "hash": "a3b5ae77426c6b6f"
+   "text": "Je hebt 45 minuten binnen werktijd om een aangeboden opdracht aan te nemen of door te geven (zie Wat is werktijd?). Niet aannemen kost niets: geef de opdracht door, dan gaat die meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.",
+   "hash": "77cfa6d5874437c3"
   },
   {
    "id": "faq-professionals-wanneer-krijg-ik-mijn-geld",
@@ -750,22 +804,40 @@
    "hash": "14e2ab350f737dbf"
   },
   {
+   "id": "pagina-hoe-het-werkt-via",
+   "title": "Alles loopt via HumanPush",
+   "url": "https://humanpush.nl/hoe-het-werkt#via",
+   "lang": "nl",
+   "source": "pagina",
+   "text": "Alles loopt via HumanPush. De agent van het bedrijf praat met HumanPush via MCP, met een toegangscode voor je agent. Hij bestelt, vraagt de status op, haalt het opgeleverde stuk op en accepteert. De professional ziet een aangeboden opdracht op zijn scherm bij HumanPush, of via zijn eigen agent. Daar neemt hij aan, levert hij op en tekent hij. Het bedrijf en de professional sturen elkaar niets rechtstreeks. Het stuk gaat via HumanPush, zodat het in het dossier staat en de vingerafdruk klopt. Een melding per mail of push als er een opdracht klaarstaat, is er nog niet. Je ziet het op je scherm, of je agent vraagt het op. Wat HumanPush controleert, en wat niet. HumanPush controleert alleen wat objectief na te gaan is: staat de professional in het openbare register, bij aanmelding en opnieuw vlak voor het aannemen; is er op tijd opgeleverd; is er een stuk met een van de vaste uitkomsten van de dienst; is het getekend met de passkey van de professional die de opdracht aannam; klopt de digitale vingerafdruk. HumanPush oordeelt niet over de inhoud. Of een conclusie juist is, beoordeelt de professional onder zijn eigen beroepsregels.",
+   "hash": "ce9132e29f925e35"
+  },
+  {
+   "id": "pagina-hoe-het-werkt-controle",
+   "title": "Wat HumanPush controleert, en wat niet",
+   "url": "https://humanpush.nl/hoe-het-werkt#controle",
+   "lang": "nl",
+   "source": "pagina",
+   "text": "Wat HumanPush controleert, en wat niet. HumanPush controleert alleen wat objectief na te gaan is: staat de professional in het openbare register, bij aanmelding en opnieuw vlak voor het aannemen; is er op tijd opgeleverd; is er een stuk met een van de vaste uitkomsten van de dienst; is het getekend met de passkey van de professional die de opdracht aannam; klopt de digitale vingerafdruk. HumanPush oordeelt niet over de inhoud. Of een conclusie juist is, beoordeelt de professional onder zijn eigen beroepsregels.",
+   "hash": "5c6d64e9c82b1833"
+  },
+  {
    "id": "pagina-hoe-het-werkt-aannemen",
    "title": "Aannemen",
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "pagina",
-   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 werkminuten open. Accepteert hij niet, of geeft hij hem door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde maakt HumanPush de volgorde opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot het bedrijf annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijgt het bedrijf alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
-   "hash": "1f31882bb6f7a87d"
+   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 minuten binnen werktijd open. Neemt de professional niet aan, of geeft hij de opdracht door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde maakt HumanPush de volgorde opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot het bedrijf annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijgt het bedrijf alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
+   "hash": "0e5c441519eed852"
   },
   {
    "id": "pagina-hoe-het-werkt-werkuren",
-   "title": "Wat zijn werkuren?",
+   "title": "Wat is werktijd?",
    "url": "https://humanpush.nl/hoe-het-werkt#werkuren",
    "lang": "nl",
    "source": "pagina",
-   "text": "Wat zijn werkuren? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Voorbeeld (fictief): betaalt het bedrijf maandag om 10:00, dan staat de opdracht tot 10:45 open voor de eerste professional. Betaalt het bedrijf vrijdag om 16:30, dan staat hij tot maandag 09:15 open. Het vangnet van 3 werkdagen: betaalt het bedrijf maandag om 10:00 en neemt niemand aan, dan krijgt het uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
-   "hash": "c76d6889472d8966"
+   "text": "Wat is werktijd? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Voorbeeld (fictief): betaalt het bedrijf maandag om 10:00, dan staat de opdracht tot 10:45 open voor de eerste professional. Betaalt het bedrijf vrijdag om 16:30, dan staat hij tot maandag 09:15 open. Het vangnet van 3 werkdagen: betaalt het bedrijf maandag om 10:00 en neemt niemand aan, dan krijgt het uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
+   "hash": "79b7f9b77b9d151b"
   },
   {
    "id": "pagina-bedrijven-hoe",
@@ -791,8 +863,8 @@
    "url": "https://humanpush.nl/professionals#humanpush-agent",
    "lang": "nl",
    "source": "pagina",
-   "text": "Met de HumanPush-agent Geen agent? Je krijgt een HumanPush-agent. Bij je aanmelding krijg je een eenvoudige HumanPush-agent. Hij regelt het contact met de agent van het bedrijf, zodat jij zonder eigen techniek kunt meedoen. Hij werkt alleen voor HumanPush en tekent nooit voor je. Dit doet hij. Aangeboden opdrachten melden. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen bewaken. Dit doet hij nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. De eerste versie is een eenvoudig scherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde toegangscode aan je eigen agent koppelen; je passkeys blijven hetzelfde. Komt eraan. HumanPush-agentVoorbeeld, fictief AGENTAangeboden opdracht: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Nog 38 werkminuten om te accepteren. Aannemen met passkeyDoorgeven Niet aannemen? Geef hem door. Dat kost niets. AGENTJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat. OPLEVERENUitkomstKies de vaste uitkomst Stukrapport.pdf toegevoegd Vingerafdruk9f3a…e17d Tekenen met passkey",
-   "hash": "0a5e038556e30e42"
+   "text": "Met de HumanPush-agent Geen agent? Je krijgt een HumanPush-agent. Bij je aanmelding krijg je een eenvoudige HumanPush-agent. Hij regelt het contact met de agent van het bedrijf, zodat jij zonder eigen techniek kunt meedoen. Hij werkt alleen voor HumanPush en tekent nooit voor je. Dit doet hij. Aangeboden opdrachten melden. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen bewaken. Dit doet hij nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. De eerste versie is een eenvoudig scherm met vaste teksten: geen AI-model en geen vrije tekst. Later kun je dezelfde toegangscode aan je eigen agent koppelen; je passkeys blijven hetzelfde. Komt eraan. HumanPush-agentVoorbeeld, fictief AGENTAangeboden opdracht: oordeel over een claimbesluit, op stukken. Al betaald. Lever binnen 3 werkdagen. Nog 38 minuten binnen werktijd om aan te nemen. Aannemen met passkeyDoorgeven Niet aannemen? Geef hem door. Dat kost niets. AGENTJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat. OPLEVERENUitkomstKies de vaste uitkomst Stukrapport toegevoegd Vingerafdruk9f3a…e17d Tekenen met passkey",
+   "hash": "63036dbe24b6f13f"
   },
   {
    "id": "pagina-agents-zo-verbind-je",

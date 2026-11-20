@@ -133,7 +133,7 @@ test('api: llm-modus zonder sleutel geeft 503, niet een antwoord', async () => {
 });
 
 test('api: dagplafond in llm-modus geeft 503 busy', async () => {
-  const llm = async () => ({ answerable: true, answer: 'Maandag tot en met vrijdag.', source_ids: ['faq-bedrijven-wat-zijn-werkuren'] });
+  const llm = async () => ({ answerable: true, answer: 'Maandag tot en met vrijdag.', source_ids: ['faq-bedrijven-wat-is-werktijd'] });
   const env = { ASK_ENABLED: 'true', ASK_MODE: 'llm', ASK_DAILY_CAP: '1' };
   const a = await call({ question: 'Wat zijn werkuren?' }, env, 'POST', {}, { llm });
   assert.equal(a.status, 200);

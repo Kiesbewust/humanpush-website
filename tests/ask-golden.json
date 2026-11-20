@@ -1,6 +1,6 @@
 [
   { "question": "Wat zijn werkuren?", "expect": "answer", "must_contain": ["09:00", "feestdagen"] },
-  { "question": "Hoe lang heeft een professional om aan te nemen?", "expect": "answer", "must_contain": ["45 werkminuten"] },
+  { "question": "Hoe lang heeft een professional om aan te nemen?", "expect": "answer", "must_contain": ["45 minuten binnen werktijd"] },
   { "question": "Wat gebeurt er als niemand aanneemt?", "expect": "answer", "must_contain": ["alles terug"] },
   { "question": "Hoeveel kost het?", "expect": "amounts" },
   { "question": "Wat kost een NIVRE-oordeel?", "expect": "amounts" },
@@ -32,13 +32,13 @@
   { "question": "What are working hours?", "expect": "answer", "language": "en", "must_contain": ["09:00"] },
   { "question": "Wat als we annuleren na de aanname?", "expect": "answer", "must_contain": ["25%"] },
   { "question": "Kan een professional een beurt laten gaan?", "expect": "answer", "must_contain_any": ["doorgeven", "geef hem door", "doorgegeven"] },
-  { "question": "Hoe weet een professional dat hij aan de beurt is?", "expect": "answer", "must_contain": ["get_my_turns"] },
+  { "question": "Hoe weet een professional dat hij aan de beurt is?", "expect": "answer", "must_contain": ["scherm"] },
   { "question": "Heb ik een tweede passkey nodig?", "expect": "answer", "must_contain": ["tweede passkey"] },
   { "question": "Kiest mijn agent de professional?", "expect": "answer", "must_contain": ["vaste volgorde"] },
   { "question": "Is HumanPush ook voor particulieren?", "expect": "answer", "must_contain": ["KvK"] },
   { "question": "Hoe oud mag een registerbewijs zijn?", "expect": "answer", "must_contain": ["30 dagen"] },
   { "question": "Wat zegt de meteorologie over Mars?", "expect": "out_of_scope" },
-  { "question": "Wat is het bewijsdossier?", "expect": "answer", "must_contain": ["bewijsdossier"] },
+  { "question": "Wat is het dossier van de opdracht?", "expect": "answer", "must_contain": ["dossier"] },
   { "question": "Wat is een digitale vingerafdruk?", "expect": "answer", "must_contain": ["vingerafdruk"] },
   { "question": "Wat is een hash?", "expect": "answer", "must_contain": ["vingerafdruk"] }
 ]

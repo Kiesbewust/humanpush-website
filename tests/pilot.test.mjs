@@ -18,21 +18,24 @@ test('pilot: noindex, één h1, gelinkt vanaf /bedrijven en in de sitemap', () =
   assert.match(read('sitemap.xml'), /<loc>https:\/\/humanpush\.nl\/pilot\/second-opinion<\/loc>/);
 });
 
-test('pilot: doelgroep, probleem zonder "de wet eist altijd", 4 stappen', () => {
+test('pilot: doelgroep, probleem zonder "de wet eist altijd", het stappenblok met vijf stappen', () => {
   for (const s of ['Gevolmachtigde agenten', 'Schadebehandelaars', 'Leveranciers van claimsoftware']) assert.ok(main.includes(s), s);
   for (const s of ['geschil', 'complexe claim', 'tekort aan capaciteit', 'contract onafhankelijkheid']) assert.ok(main.includes(s), s);
   assert.match(main, /De wet eist dat niet altijd\./);
   assert.match(main, /wanneer de situatie daarom vraagt/);
-  assert.equal((main.match(/<span class="pi">\d<\/span>/g) || []).length, 4);
-  assert.match(main, /NIVRE-geregistreerde schade-expert tegelijk aan, telkens <span data-rule="turnWorkingMinutes">\d+<\/span> werkminuten/);
+  assert.match(main, /<!--stappen:start view=neutraal-->/);
+  assert.equal((main.match(/<li class="tl-step/g) || []).length, 5);
+  assert.match(main, /NIVRE-geregistreerde schade-expert/);
+  assert.match(main, /<span data-rule="turnWorkingMinutes">\d+<\/span> minuten binnen werktijd/);
   assert.doesNotMatch(main.replace(/gebeurtenis/g, ''), /beurt/i);
-  assert.match(main, /tekent met de passkey/);
-  assert.match(main, /bewijsdossier/);
+  assert.match(main, /tekent met zijn passkey/);
+  assert.match(main, /dossier van de opdracht/);
+  assert.doesNotMatch(main, /bewijsdossier|controleur/);
   assert.doesNotMatch(P, /<!--flow:start/);
 });
 
 test('pilot: hoe een pilot eruitziet, prijs zonder bedragen, CTA alleen mailto', () => {
-  for (const s of ['Eén concrete workflow', 'beperkt aantal dossiers', 'doorlooptijd', 'kosten', 'matchsucces', 'dossier terugkomt', 'Samen evalueren']) assert.ok(main.includes(s), s);
+  for (const s of ['Eén concrete workflow', 'beperkt aantal schadezaken', 'doorlooptijd', 'kosten', 'matchsucces', 'zaak terugkomt', 'Samen evalueren']) assert.ok(main.includes(s), s);
   assert.ok(main.includes('Vaste platformvergoeding per afgeronde opdracht plus het tarief van de professional; pilotvoorwaarden in overleg.'));
   const text = main.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ');
   assert.doesNotMatch(text, /€|\bEUR\b|\d+[.,]\d{2}\b|euro|\d+ ?%/i);

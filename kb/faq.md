@@ -20,11 +20,11 @@ Je agent kiest een dienst en stelt een maximumprijs in. Je betaalt vooraf, binne
 
 ### Wat als niemand aanneemt?
 
-Je opdracht wordt één voor één aangeboden tot hij is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.
+Je opdracht wordt één voor één aangeboden tot de opdracht is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.
 
-### Wat zijn werkuren?
+### Wat is werktijd?
 
-Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.
+Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.
 
 ### Wat als we annuleren?
 
@@ -44,7 +44,27 @@ Nee. Bezwaar kan alleen op de vaste toetsingspunten van die dienst; per dienst s
 
 ### Wie is waarvoor verantwoordelijk?
 
-De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het bewijsdossier.
+De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het dossier.
+
+### Moet ik het opgeleverde stuk goedkeuren?
+
+Ja, binnen 72 uur. Je agent accepteert het namens jou. Zeg je niets, dan geldt het na 72 uur als geaccepteerd en wordt de professional uitbetaald. Voor je bouwer: v1_accept_result.
+
+### Controleert HumanPush het opgeleverde stuk?
+
+Alleen wat objectief na te gaan is: op tijd, een stuk met een vaste uitkomst, getekend door de professional die aannam, met een kloppende vingerafdruk, door iemand met een geldige registercheck. Over de inhoud oordeelt HumanPush niet. Zie wat HumanPush controleert.
+
+### Waar komt het stuk binnen?
+
+Bij HumanPush. Je agent haalt het op en controleert het. Jij en de professional sturen elkaar niets rechtstreeks. Voor je bouwer: v1_get_result, verify_proof.
+
+### Heb ik herroepingsrecht?
+
+Nee. Het herroepingsrecht (bedenktijd van 14 dagen) is er voor consumenten. HumanPush werkt alleen voor bedrijven met een KvK-nummer. Annuleren kan wel volgens de vaste regels: vóór het aannemen krijg je alles terug, daarna krijgt de professional 25% van zijn prijs.
+
+### Wie is 'eventueel een derde'?
+
+Iemand aan wie jij later moet laten zien hoe een besluit tot stand kwam, zoals je accountant, je verzekeraar, een toezichthouder of een rechter. Jij bepaalt of je het dossier deelt.
 
 ### Is dit ook voor particulieren?
 
@@ -82,15 +102,19 @@ Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee pass
 
 ### Hoe zet ik een stap?
 
-Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.
+Aannemen, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.
 
 ### Hoe weet ik dat er een opdracht voor mij is?
 
-Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het scherm van HumanPush. Er gaat geen mail of sms.
+Op je scherm bij HumanPush, of je agent vraagt het op. Er gaat nog geen mail of push. Voor je bouwer: get_my_turns.
+
+### Waar lever ik op?
+
+Bij HumanPush, op je scherm of via je eigen agent. Je tekent de oplevering met je passkey. Je stuurt het bedrijf niets rechtstreeks.
 
 ### Hoeveel tijd heb ik om te reageren?
 
-Je hebt 45 werkminuten om een aangeboden opdracht te accepteren of door te geven (zie Wat zijn werkuren?). Niet aannemen kost niets: geef hem door, dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.
+Je hebt 45 minuten binnen werktijd om een aangeboden opdracht aan te nemen of door te geven (zie Wat is werktijd?). Niet aannemen kost niets: geef de opdracht door, dan gaat die meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.
 
 ### Wanneer krijg ik mijn geld?
 

@@ -64,7 +64,7 @@
 <h2 id="voor-wie">Voor wie</h2>
 <ul class="reasons">
 <li><strong>Gevolmachtigde agenten.</strong> Je neemt schadebesluiten namens verzekeraars en zet daar AI bij in.</li>
-<li><strong>Schadebehandelaars.</strong> Je wilt bij een betwist of complex dossier een onafhankelijk oordeel, zonder eerst een expert te zoeken.</li>
+<li><strong>Schadebehandelaars.</strong> Je wilt bij een betwiste of complexe schadezaak een onafhankelijk oordeel, zonder eerst een expert te zoeken.</li>
 <li><strong>Leveranciers van claimsoftware.</strong> Je software neemt of bereidt besluiten voor en heeft een route naar een geregistreerde deskundige nodig.</li>
 </ul>
 </div>
@@ -86,13 +86,15 @@
 
 <section class="section mist" aria-labelledby="stappen">
 <div class="wrap">
-<h2 id="stappen">Zo werkt het, in 4 stappen</h2>
-<div class="grid four" style="margin-top:28px">
-<div class="card proof"><span class="pi">1</span><h3>Je agent vraagt aan</h3><p>Je agent bestelt de dienst "onafhankelijk oordeel over een claimbesluit, op stukken", met de stukken, een uiterste datum en een maximumprijs. Hij kiest geen persoon.</p></div>
-<div class="card proof"><span class="pi">2</span><h3>Aangeboden aan een schade-expert</h3><p>HumanPush biedt de opdracht aan één passende NIVRE-geregistreerde schade-expert tegelijk aan, telkens <span data-rule="turnWorkingMinutes">45</span> werkminuten, tot hij is toegewezen aan een professional. Vlak voor de aanname wordt het register opnieuw gecontroleerd.</p></div>
-<div class="card proof"><span class="pi">3</span><h3>Hij levert en tekent</h3><p>De schade-expert levert zijn oordeel met een vaste uitkomst en tekent met de passkey op zijn eigen apparaat. Het stuk krijgt een digitale vingerafdruk: verandert er later één letter, dan klopt die niet meer.</p></div>
-<div class="card proof"><span class="pi">4</span><h3>Controleerbaar bewijs</h3><p>Stuk, handtekening en registercheck staan in het bewijsdossier van de opdracht. Het bedrijf, de schade-expert en een controleur kunnen het zelf nagaan.</p></div>
+<h2 id="stappen">Zo werkt het, in vijf stappen</h2>
+<p>In de pilot is de dienst het onafhankelijke oordeel over een claimbesluit, op stukken. De professional is een NIVRE-geregistreerde schade-expert.</p>
+<!--stappen:start view=neutraal-->
+<div class="stappen" data-view="neutraal">
+<ol class="tl"><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">1</span><span class="tl-role">Bedrijf</span><h3>Opdracht</h3><p>De agent van het bedrijf zet een opdracht uit bij HumanPush. Hij kiest een dienst, levert de stukken aan en geeft een uiterste datum en een maximumprijs. Het bedrijf betaalt vooraf via een betaallink.</p></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">2</span><span class="tl-role">Professional</span><h3>Aannemen</h3><p>HumanPush biedt de opdracht aan één geregistreerde professional die deze dienst aanbiedt. Die heeft <span data-rule="turnWorkingMinutes">45</span> minuten binnen werktijd (ma–vr 9–17 uur) om aan te nemen of door te geven. Buiten werktijd staat de klok stil. Reageert de professional niet, dan gaat de opdracht automatisch naar de volgende professional. Doorgeven kost niets. Dezelfde opdracht krijgt iemand hooguit <span data-rule="maxTurnsPerPro">2</span> keer aangeboden.</p><span class="tl-time"><span data-rule="turnWorkingMinutes">45</span> min werktijd</span></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">3</span><span class="tl-role">Professional</span><h3>Uitvoeren en tekenen</h3><p>De professional doet het werk, zelf of met hulp van een agent, en levert het op via HumanPush. Hij tekent met zijn passkey. Daarmee staat hij er als geregistreerde professional voor in.</p><span class="tl-time"><span data-rule="objectionHours">72</span> uur</span></li><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">4</span><span class="tl-role">Bedrijf</span><h3>Akkoord</h3><p>Het bedrijf (of zijn agent) heeft <span data-rule="objectionHours">72</span> uur om het opgeleverde stuk te accepteren. Zegt het niets, dan geldt het na <span data-rule="objectionHours">72</span> uur als geaccepteerd. Daarna wordt de professional uitbetaald.</p></li><li class="tl-step r-iedereen"><span class="tl-dot" aria-hidden="true">5</span><span class="tl-role">Voor iedereen</span><h3>Dossier</h3><p>Elke stap staat met datum, tijd en handtekening in het dossier van de opdracht. Het dossier bevat ook de digitale vingerafdruk van het opgeleverde stuk. Zo kunnen het bedrijf, de professional en eventueel een derde (bijvoorbeeld een accountant, verzekeraar of rechter) zelf nagaan wie wat wanneer deed, en dat het stuk sindsdien niet is veranderd.</p></li></ol>
+<p class="tl-band"><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="4" width="11" height="8" rx="1.5"/><path d="M6 8h.01M10 8h.01M8 2v2"/></svg>Agent</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3v10M13 3v10M3 8h10"/></svg>HumanPush</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 13.5c.6-2.4 2.6-3.7 5-3.7s4.4 1.3 5 3.7"/></svg>Professional</span><span class="tl-band-t">Voor elk register hetzelfde. Alles loopt via HumanPush.</span></p>
+<p class="tl-rule">HumanPush controleert het proces, niet de inhoud. <a href="/hoe-het-werkt#controle">Lees wat HumanPush controleert</a></p>
 </div>
+<!--stappen:end-->
 <p class="small muted" style="margin-top:20px;max-width:44em">Oordeel op stukken, geen opname ter plaatse. Geen personenschade. Een andere conclusie willen is geen grond voor bezwaar; bezwaar kan alleen op de vaste toetsingspunten van de dienst.</p>
 </div>
 </section>
@@ -103,8 +105,8 @@
 <h2 id="pilot">Hoe een pilot eruitziet</h2>
 <ul>
 <li><strong>Eén concrete workflow</strong>, bijvoorbeeld de second opinion bij een betwiste afwijzing.</li>
-<li><strong>Een beperkt aantal dossiers</strong>, vooraf samen afgesproken.</li>
-<li><strong>We meten</strong> de doorlooptijd, de kosten, het matchsucces (hoe vaak een schade-expert aanneemt) en hoe vaak een dossier terugkomt.</li>
+<li><strong>Een beperkt aantal schadezaken</strong>, vooraf samen afgesproken.</li>
+<li><strong>We meten</strong> de doorlooptijd, de kosten, het matchsucces (hoe vaak een schade-expert aanneemt) en hoe vaak een zaak terugkomt.</li>
 <li><strong>Samen evalueren</strong> na afloop: wat werkte, wat niet, en of het verder gaat.</li>
 </ul>
 <p>HumanPush is nu in de testfase. Een pilot plannen we in overleg.</p>
@@ -125,14 +127,14 @@
 <p><strong>Interesse in een pilot? Mail <a href="mailto:info@humanpush.nl?subject=Pilot%20second%20opinion">info@humanpush.nl</a></strong></p>
 <p class="small muted">Er is geen formulier en we verzamelen via deze pagina geen gegevens.</p>
 </div>
-<p class="linkline">Wat het systeem garandeert staat op <a href="/hoe-het-werkt#garanties">/hoe-het-werkt</a>.</p>
+<p class="linkline"><a href="/hoe-het-werkt#garanties">Lees wat HumanPush garandeert</a></p>
 </div>
 </section>
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
 <div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V.</span> <span>· KvK 42222476</span> <span>· btw NL870249964B01</span> <span>· Utrecht</span></p></div>
-<nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#bewijsdossier">Het bewijsdossier</a></li></ul></nav>
+<nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#dossier">Het dossier</a></li></ul></nav>
 <nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
 <nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot second opinion</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>
 <nav aria-label="Juridisch"><p class="h">Juridisch</p><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Voorwaarden</a></li></ul></nav>

@@ -39,8 +39,8 @@ function dienstenBlock(view) {
   const panels = registers.map((r) => {
     const p = r.pro, b = r.bedrijf;
     const scope = `<div class="svc-scope"><div><p class="label">Valt in de dienst</p><ul class="ticks">${li(r.in_scope)}</ul></div><div><p class="label">Valt erbuiten</p><ul class="crosses">${li(r.out_of_scope)}</ul></div></div>`;
-    const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} werkminuten per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', 'Je zet zelf je prijs en levertijd, binnen het bereik van de dienst. Er gaat niets van af.')}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
-    const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${row('Zo vraag je aan', `<code>v1_create_order</code> met <code>service_id="${esc(r.service_id)}"</code>, de invoer, een uiterste datum en <code>max_price_cents</code>.`)}${row('Bewijs', `Registercheck (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gedaan bij de aanname), de digitale vingerafdruk van het stuk, de handtekening met de passkey van de professional en het bewijsdossier.`)}</dl>`;
+    const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} minuten binnen werktijd per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', 'Je zet zelf je prijs en levertijd, binnen het bereik van de dienst. Er gaat niets van af.')}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
+    const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${row('Zo vraag je aan', `<code>v1_create_order</code> met <code>service_id="${esc(r.service_id)}"</code>, de invoer, een uiterste datum en <code>max_price_cents</code>.`)}${row('Bewijs', `Registercheck (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gedaan bij de aanname), de digitale vingerafdruk van het stuk, de handtekening met de passkey van de professional en het dossier van de opdracht.`)}</dl>`;
     const part = (v, x, body) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p><details class="svc-more" open><summary>Details</summary>${body}${scope}</details></div>`;
     return `<section class="svc-card" id="${r.id}" aria-labelledby="${r.id}-kop" data-panel="${r.id}">`
       + `<header class="svc-top"><span class="badge">${esc(r.badge)}</span><span class="status">Aangeboden · ${span('turnWorkingMinutes')} werkmin · getekend met passkey</span></header>`
@@ -50,8 +50,30 @@ function dienstenBlock(view) {
   return `<div class="svc" data-svc data-view="${view}">\n<div class="svc-bar"><nav class="svc-tabs" aria-label="Registers">${tabs}</nav><div class="svc-toggle" role="group" aria-label="Bekijk de dienst als">${toggle}</div></div>\n<div class="svc-panels">\n${panels}\n</div>\n</div>`;
 }
 
+// Stappenblok: één bron (partials/stappen.json), twee kijkrichtingen (neutraal voor bedrijven en agents, pro met "jij").
+// Een tijdlijn met vijf stappen, per stap een rol. Zonder JavaScript gewoon een genummerde lijst.
+const ICON = {
+  agent: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="4" width="11" height="8" rx="1.5"/><path d="M6 8h.01M10 8h.01M8 2v2"/></svg>',
+  hp: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3v10M13 3v10M3 8h10"/></svg>',
+  pro: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 13.5c.6-2.4 2.6-3.7 5-3.7s4.4 1.3 5 3.7"/></svg>'
+};
+function stappenBlock(view) {
+  const s = JSON.parse(read('partials/stappen.json'));
+  const steps = s[view];
+  if (!steps) throw new Error(`onbekende stappenweergave: ${view}`);
+  const lis = steps.map((st, i) => {
+    const t = s.tijden[String(i + 1)];
+    const time = t ? `<span class="tl-time">${withRules(t)}</span>` : '';
+    return `<li class="tl-step r-${st.rol}${st.rol === 'professional' ? ' signed' : ''}"><span class="tl-dot" aria-hidden="true">${i + 1}</span><span class="tl-role">${esc(st.rolnaam)}</span><h3>${esc(st.titel)}</h3><p>${withRules(st.tekst)}</p>${time}</li>`;
+  }).join('');
+  const band = `<p class="tl-band"><span class="tl-ic">${ICON.agent}Agent</span><span aria-hidden="true">↔</span><span class="tl-ic">${ICON.hp}HumanPush</span><span aria-hidden="true">↔</span><span class="tl-ic">${ICON.pro}Professional</span><span class="tl-band-t">${esc(s.onderkop)}</span></p>`;
+  const rule = `<p class="tl-rule">${esc(s.regel)} <a href="${s.regel_link.href}">${esc(s.regel_link.tekst)}</a></p>`;
+  return `<div class="stappen" data-view="${view}">\n<ol class="tl">${lis}</ol>\n${band}\n${rule}\n</div>`;
+}
+
 function fill(html, file) {
   let out = html;
+  out = out.replace(/<!--stappen:start view=(\w+)-->[\s\S]*?<!--stappen:end-->/g, (m, v) => `<!--stappen:start view=${v}-->\n${stappenBlock(v)}\n<!--stappen:end-->`);
   out = out.replace(/<!--diensten:start view=(\w+)-->[\s\S]*?<!--diensten:end-->/g, (m, v) => `<!--diensten:start view=${v}-->\n${dienstenBlock(v)}\n<!--diensten:end-->`);
   out = out.replace(/<(span|tspan) data-rule="(\w+)">[^<]*<\/\1>/g, (m, tag, k) => `<${tag} data-rule="${k}">${rv(k)}</${tag}>`);
   if (/<!--(flow|flowsvg|swim):start/.test(out)) throw new Error(`${file}: het oude stroomdiagram of de swimlane staat er nog`);
@@ -82,7 +104,7 @@ const required = {
     'Monday–Friday 09:00–17:00 Europe/Amsterdam'
   ],
   'kb/spelregels.md': [
-    `${rules.turnWorkingMinutes} werkminuten`,
+    `${rules.turnWorkingMinutes} minuten binnen werktijd`,
     `hooguit ${rules.maxTurnsPerPro} keer aangeboden`,
     `${rules.acceptCeilingWorkdays} werkdagen`,
     `${rules.payMinutes} minuten`,

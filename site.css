@@ -496,17 +496,58 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .twocol > :last-child { grid-column: 7 / span 6; }
 @media (max-width: 960px) { .twocol > :first-child, .twocol > :last-child { grid-column: 1 / -1; } }
 
-/* De vier stappen: leesbaar, niet in kleine labels */
-.steps4 { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); counter-reset: none; }
-.steps4 li { padding: 24px 24px 26px; min-width: 0; }
-.steps4 li + li { border-left: 1px solid var(--line); }
-.steps4 h3 { font-size: 19px; margin: 12px 0 8px; }
-.steps4 p { font-size: 16.5px; line-height: 1.55; color: var(--body); margin: 0; }
+/* De vijf stappen: tijdlijn met per stap een rol (bron: partials/stappen.json) */
 .s4-num { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--white); font-weight: 600; font-size: 16px; }
-.same { margin: 16px 0 0; font-size: 16.5px; font-weight: 500; color: var(--ink); }
-.steps4 + .same + .linkline { margin-top: 8px; }
-@media (max-width: 960px) { .steps4 { grid-template-columns: 1fr 1fr; } .steps4 li:nth-child(3) { border-left: 0; } .steps4 li:nth-child(n+3) { border-top: 1px solid var(--line); } }
-@media (max-width: 600px) { .steps4 { grid-template-columns: 1fr; } .steps4 li + li { border-left: 0; border-top: 1px solid var(--line); } }
+.stappen { margin-top: 24px; }
+.tl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 20px; position: relative; }
+.tl::before { content: ""; position: absolute; left: 14px; right: 14px; top: 14px; height: 1px; background: var(--line-color); }
+.tl-step { position: relative; min-width: 0; padding: 0 0 4px; }
+.tl-dot { position: relative; z-index: 1; display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--page); border: 1.5px solid var(--ink); color: var(--ink); font-family: var(--mono); font-size: 12px; font-weight: 500; }
+.section.mist .tl-dot { background: var(--mist); }
+.tl-step.signed .tl-dot { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(224, 165, 38, .25); }
+.tl-step.r-iedereen .tl-dot { background: var(--ink); color: var(--white); }
+.tl-role { display: block; margin: 12px 0 2px; font-size: 14px; font-weight: 500; color: var(--muted); }
+.tl-step.r-professional .tl-role { color: #7A5A12; }
+.tl-step h3 { font-size: 18px; font-weight: 600; margin: 0 0 6px; color: var(--ink); }
+.tl-step p { font-size: 15px; line-height: 1.55; color: var(--body); margin: 0; }
+.tl-time { position: absolute; top: 4px; right: -16px; transform: translateX(50%); z-index: 1; font-family: var(--mono); font-size: 12px; color: var(--muted); background: var(--page); padding: 0 6px; white-space: nowrap; }
+.section.mist .tl-time { background: var(--mist); }
+.tl-band { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 24px 0 0; padding: 12px 0 0; font-size: 15px; color: var(--ink); }
+.tl-ic { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+.tl-ic svg { width: 16px; height: 16px; fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.tl-band-t { color: var(--muted); }
+.tl-rule { margin: 8px 0 0; font-size: 15.5px; color: var(--body); }
+.stappen + .linkline { margin-top: 8px; }
+@media (max-width: 960px) {
+  .tl { grid-template-columns: 1fr; gap: 0; }
+  .tl::before { left: 14px; right: auto; top: 14px; bottom: 14px; width: 1px; height: auto; }
+  .tl-step { padding: 0 0 22px 44px; }
+  .tl-dot { position: absolute; left: 0; top: 0; }
+  .tl-role { margin-top: 3px; }
+  .tl-time { position: static; transform: none; display: inline-block; margin-top: 6px; padding: 0; background: none; }
+}
+.tl-with-card { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 8px; }
+.tl-with-card > :last-child { max-width: 380px; }
+
+/* Dossierkaart: fictief voorbeeld van het dossier van een opdracht */
+.dossierkaart { margin: 0; background: var(--white); border: 1px solid var(--line-color); border-radius: var(--radius); font-size: 13px; max-width: 380px; }
+.dossierkaart figcaption { background: var(--ink-deep); color: var(--white); font-family: var(--mono); font-size: 12px; padding: 10px 14px; border-radius: var(--radius) var(--radius) 0 0; }
+.dossierkaart figcaption span { color: var(--on-dark-muted); }
+.dossierkaart dl { margin: 0; padding: 6px 14px; }
+.dossierkaart dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 8px; padding: 6px 0; border-top: 1px dashed var(--line-color); }
+.dossierkaart dl > div:first-child { border-top: 0; }
+.dossierkaart dt { color: var(--muted); font-size: 13px; }
+.dossierkaart dd { margin: 0; font-family: var(--mono); font-size: 13px; color: var(--ink); overflow-wrap: anywhere; }
+.dossierkaart dd b { color: #9A6E0E; font-weight: 500; }
+.dossierkaart .dk-w { color: var(--body); }
+.dossierkaart .fp { position: relative; }
+.dossierkaart .fp::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; background: var(--gold); }
+.dossierkaart .dk-foot { margin: 0; padding: 8px 14px 12px; border-top: 1px solid var(--line-color); font-size: 13px; color: var(--muted); }
+.dk-cap { font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+
+/* Voor je bouwer: technische regel, alleen voor wie de agent bouwt */
+.voor-bouwer { display: block; margin-top: 6px; font-size: 14px; color: var(--muted); }
+.anchor-alias { display: block; position: relative; top: -80px; height: 0; }
 
 /* Wat wordt er vastgelegd */
 .vastgelegd { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }

@@ -1,11 +1,11 @@
 # Spelregels van HumanPush (publieke versie)
 
-Testversie. Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Rangorde: eerst de voorwaarden, dan het systeem van HumanPush, dan de site. Elke regel heeft een vast nummer. HumanPush voert de regels automatisch uit; het bewijsdossier van elke opdracht is het bewijs.
+Testversie. Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Rangorde: eerst de voorwaarden, dan het systeem van HumanPush, dan de site. Elke regel heeft een vast nummer. HumanPush voert de regels automatisch uit; het dossier van elke opdracht is het bewijs.
 
 ## 1. Grondregels
 
 ### R1.1 · HumanPush voert de voorwaarden uit
-Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het bewijsdossier van de opdracht, en elke stap verwijst naar de vorige.
+Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het dossier van de opdracht, en elke stap verwijst naar de vorige.
 
 ### R1.2 · Geen uitzonderingen per geval
 Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.
@@ -64,11 +64,11 @@ Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert
 ### R4.1 · Vaste volgorde
 HumanPush zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldige registercheck, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.
 
-### R4.2 · Telkens 45 werkminuten aangeboden, tot iemand aanneemt
-Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.
+### R4.2 · Telkens 45 minuten binnen werktijd aangeboden, tot iemand aanneemt
+Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. De professional heeft 45 minuten binnen werktijd om aan te nemen of door te geven. Neemt hij niet aan, of geeft hij de opdracht door, dan gaat de opdracht meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werktijd is maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werktijd staat de klok stil.
 
 ### R4.4 · Niet aannemen kost niets: doorgeven
-Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het bewijsdossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.
+Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het dossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.
 
 ### R4.5 · Aannemen is tekenen
 De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
@@ -137,7 +137,7 @@ Een aangeboden opdracht doorgeven of laten verlopen, een belang melden bij een a
 ## 10. Bewijs
 
 ### R10.1 · Iedereen kan het bewijs zelf controleren
-Het bewijsdossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.
+Het dossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.
 
-### R10.3 · Persoonsgegevens niet leesbaar in het bewijsdossier
-De stappen in het bewijsdossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.
+### R10.3 · Persoonsgegevens niet leesbaar in het dossier
+De stappen in het dossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.

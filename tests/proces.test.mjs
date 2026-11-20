@@ -34,52 +34,81 @@ test('woordenlijst: "sleutel" alleen als API-sleutel op /agents; elders "toegang
   assert.match(read('professionals.html'), /toegangscode voor je agent/);
 });
 
-test('woordenlijst: uitleg van digitale vingerafdruk, handtekening met je passkey en bewijsdossier', () => {
-  const vinger = 'Een unieke code van het opgeleverde stuk. Verandert er later één letter, dan klopt de vingerafdruk niet meer. Zo is aantoonbaar dat het stuk niet is aangepast.';
-  const passkey = 'Daarmee bevestig jij als geregistreerde professional dat jij dit werk levert en ervoor instaat. HumanPush controleert vooraf dat je in het register staat.';
+test('woordenlijst: uitleg van digitale vingerafdruk, handtekening met je passkey en dossier', () => {
+  const vinger = 'Bij de oplevering berekent HumanPush uit het stuk een unieke code van 64 tekens. Verander je één komma, dan komt er een totaal andere code uit.';
+  const passkey = 'Daarmee bevestig jij als geregistreerde professional dat jij de opdracht aanneemt, dat jij het opgeleverde werk hebt gemaakt of gecontroleerd, en dat jij ervoor instaat.';
   for (const f of ['index.html', 'hoe-het-werkt.html']) {
     const t = read(f);
     assert.ok(t.includes(vinger), `${f}: vingerafdruk`);
     assert.ok(t.includes(passkey), `${f}: passkey`);
-    assert.match(t, /Bewijsdossier<\/h3><p>Per opdracht de afspraken en elke getekende stap\./, `${f}: bewijsdossier`);
+    assert.match(t, /Dossier<\/h3><p>Per opdracht de afspraken en elke getekende stap in het proces\./, `${f}: dossier`);
   }
   assert.ok(read('bedrijven.html').includes(vinger));
 });
 
-test('de vier stappen op home en /hoe-het-werkt: vaste tekst, in gewone lettergrootte, en "hetzelfde voor elk register"', () => {
-  const steps = [
-    ['Opdracht', 'De agent van een bedrijf zet een opdracht uit bij HumanPush. Het bedrijf betaalt vooraf.'],
-    ['Aannemen', 'HumanPush biedt de opdracht aan één geregistreerde professional aan. Die heeft <span data-rule="turnWorkingMinutes">45</span> werkminuten om ja te zeggen. Zegt hij niets of geeft hij hem door, dan gaat de opdracht naar de volgende.'],
-    ['Uitvoeren en tekenen', 'De professional doet het werk, zelf of met hulp van een agent, en levert het op. Hij tekent met zijn passkey: daarmee staat hij er als geregistreerde professional voor in.'],
-    ['Bewijs', 'Elke stap komt in het bewijsdossier van de opdracht. Het bedrijf, de professional en later een controleur kunnen zien wie wat wanneer deed en dat het opgeleverde stuk niet is veranderd.']
-  ];
-  for (const f of ['index.html', 'hoe-het-werkt.html', 'professionals.html', 'bedrijven.html']) {
-    const t = read(f);
-    const ol = t.match(/<ol class="steps4"[\s\S]*?<\/ol>/);
-    assert.ok(ol, f);
-    const found = [...ol[0].matchAll(/<h3>([^<]+)<\/h3><p>([\s\S]*?)<\/p>/g)].map((m) => [m[1], m[2]]);
-    assert.deepEqual(found, steps, f);
-    assert.match(t, /<\/ol>\n<p class="same">Dit proces is hetzelfde voor elk register\.<\/p>/, f);
+test('stappenblok: één bron (partials/stappen.json), vijf stappen met rol, op elke pagina via sync-partials', () => {
+  const src = JSON.parse(read('partials/stappen.json'));
+  for (const v of ['neutraal', 'pro']) {
+    assert.deepEqual(src[v].map((x) => x.titel), ['Opdracht', 'Aannemen', 'Uitvoeren en tekenen', 'Akkoord', 'Dossier'], v);
+    assert.deepEqual(src[v].map((x) => x.rol), ['bedrijf', 'professional', 'professional', 'bedrijf', 'iedereen'], v);
   }
+  assert.ok(src.pro.some((x) => x.rolnaam === 'Jij'), 'pro-variant spreekt de professional aan met jij');
+  const pages = { 'index.html': ['neutraal'], 'hoe-het-werkt.html': ['pro', 'neutraal'], 'bedrijven.html': ['neutraal'], 'professionals.html': ['pro'], 'agents.html': ['neutraal'], 'pilot/second-opinion.html': ['neutraal'] };
+  for (const [f, views] of Object.entries(pages)) {
+    const t = read(f);
+    assert.deepEqual([...t.matchAll(/<!--stappen:start view=(\w+)-->/g)].map((m) => m[1]), views, f);
+    assert.equal((t.match(/<li class="tl-step/g) || []).length, 5 * views.length, f);
+    assert.doesNotMatch(t, /class="steps4"|in vier stappen|De vier stappen/, f);
+  }
+  const step2 = read('index.html').match(/<h3>Aannemen<\/h3><p>([\s\S]*?)<\/p>/)[1];
+  assert.match(step2, /<span data-rule="turnWorkingMinutes">\d+<\/span> minuten binnen werktijd \(ma–vr 9–17 uur\)/);
+  assert.match(read('index.html'), /<p class="tl-rule">HumanPush controleert het proces, niet de inhoud\. <a href="\/hoe-het-werkt#controle">Lees wat HumanPush controleert<\/a><\/p>/);
   const css = read('site.css');
-  const px = Number(css.match(/\.steps4 p \{ font-size: ([\d.]+)px/)[1]);
-  assert.ok(px >= 16, `stappen in leesbare grootte (${px}px)`);
+  assert.ok(Number(css.match(/\.tl-step p \{ font-size: ([\d.]+)px/)[1]) >= 15, 'stappen in leesbare grootte');
+});
+
+test('demo op home: elke rij krijgt een frame, "Bewijs" is geen actor, zonder JS alles zichtbaar', () => {
+  const t = read('index.html');
+  const demo = t.match(/<figure class="demo" data-anim[\s\S]*?<\/figure>/)[0];
+  const who = [...demo.matchAll(/<span class="who">([^<]+)<\/span>/g)].map((m) => m[1]);
+  assert.deepEqual(who, ['Agent van het bedrijf', 'HumanPush', 'Expert B', 'Bedrijf', 'HumanPush']);
+  const js = read('site.js');
+  const anim = js.slice(js.indexOf(".demo[data-anim]"), js.indexOf('details.more'));
+  assert.doesNotMatch(anim, /rows\[\d\]/, 'geen vaste rijnummers: elke rij krijgt een frame');
+  assert.match(anim, /rows\.forEach\(function \(row\) \{\s*frames\.push/);
+  assert.match(js, /if \(reduce\) \{ demo\.removeAttribute\('data-anim'\)/, 'bij verminderde beweging staat alles stil en zichtbaar');
+  assert.match(read('site.css'), /\.js \.demo\[data-anim\] li:not\(\.on\) \.what \{ visibility: hidden; \}/, 'verbergen alleen met JS');
+});
+
+test('geen zichtbare backslash in de tekst van een pagina; linkregel is gewone tekst', () => {
+  for (const f of PAGES) {
+    const visible = read(f).replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ');
+    assert.doesNotMatch(visible, /\\/, f);
+    assert.doesNotMatch(read(f), /Wat het systeem garandeert staat op/, f);
+  }
 });
 
 test('/hoe-het-werkt: kant-keuze bovenaan, een gesprek per kant tot de uitbetaling, en 4 punten "Wat wordt er vastgelegd"', () => {
   const t = read('hoe-het-werkt.html');
   assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">[^<]*<\/p>\n<div class="svc-toggle side-toggle" role="group" aria-label="Kies je kant"><button type="button" class="svc-view" data-view="pro" aria-pressed="false">Ik ben professional<\/button><button type="button" class="svc-view" data-view="bedrijf" aria-pressed="true">Ik ben een bedrijf \(of zijn agent\)<\/button><\/div>/);
-  assert.ok(t.indexOf('data-side-root') < t.indexOf('class="steps4"'), 'keuze staat bovenaan');
+  assert.ok(t.indexOf('data-side-root') < t.indexOf('class="tl"'), 'keuze staat bovenaan');
   for (const side of ['pro', 'bedrijf']) {
-    const s = t.match(new RegExp(`<div class="side" data-side="${side}">[\\s\\S]*?<\\/figure>`))[0];
+    const vb = t.slice(t.indexOf('id="voorbeeld"'));
+    const s = vb.match(new RegExp(`<div class="side" data-side="${side}">[\\s\\S]*?<\\/figure>`))[0];
     assert.match(s, /<figure class="chat"[\s\S]*class="fictief">Voorbeeld<\/span>/, side);
     assert.match(s, /uitbetaald/, `${side}: tot de uitbetaling`);
     assert.match(s, /Expert B|jij bent Expert B/i, side);
   }
   assert.match(t, /Expert B heeft het rapport opgeleverd en getekend[\s\S]*Accepteren\.[\s\S]*Expert B wordt uitbetaald/);
+  assert.match(t, /Aannemen<\/span><span class="fake sec">Doorgeven/, 'professional neemt aan, het bedrijf accepteert');
+  assert.doesNotMatch(t, /rapport\.pdf|uploadt|Bewijsdossier downloaden/);
+  assert.match(t, /id="controle"[\s\S]*HumanPush oordeelt niet over de inhoud/);
+  assert.match(t, /<h2 id="via-kop">Alles loopt via HumanPush<\/h2>/);
+  assert.match(t, /<figure class="dossierkaart"/);
   const v = t.match(/<ol class="vastgelegd">[\s\S]*?<\/ol>/)[0];
-  assert.deepEqual([...v.matchAll(/<h3>([^<]+)<\/h3>/g)].map((m) => m[1]), ['Registercheck', 'Digitale vingerafdruk', 'Handtekening met je passkey', 'Bewijsdossier']);
-  assert.equal((v.match(/Waarom het telt:/g) || []).length, 4);
+  assert.deepEqual([...v.matchAll(/<h3>([^<]+)<\/h3>/g)].map((m) => m[1]), ['Registercheck', 'Digitale vingerafdruk', 'Handtekening met je passkey', 'Dossier']);
+  assert.equal((v.match(/Waarom het belangrijk is:/g) || []).length, 4);
+  assert.doesNotMatch(t, /Waarom het telt/);
   assert.doesNotMatch(t, /class="infographic"|class="swimcard"|<!--(flow|swim)/, 'geen oude schema-onderdelen');
   const js = read('site.js');
   assert.match(js, /\[data-side-root\][\s\S]*store\('hp-doelgroep', v\)/, 'keuze wordt bewaard');
