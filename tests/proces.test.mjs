@@ -282,3 +282,19 @@ test('vanaf-prijs: veld vanaf_cents per dienst (nu null), regel op elke kaart in
     assert.equal((t.match(/<p class="svc-vanaf">Vanaf-prijs: volgt zodra professionals zich hebben aangemeld<\/p>/g) || []).length, regs.length * 2, f);
   }
 });
+
+test('/hoe-het-werkt per kant: wat je nodig hebt, wat het kost en wat er daarna gebeurt (termijnen uit rules.json)', () => {
+  const t = read('hoe-het-werkt.html');
+  for (const side of ['pro', 'bedrijf']) {
+    const s = t.match(new RegExp(`<div class="side" data-side="${side}"><p class="side-for">[^<]+</p><!--stappen:start[\\s\\S]*?<div class="next-grid">([\\s\\S]*?)</div>\\n</div></div>`))[1];
+    for (const h of ['Wat je nodig hebt', 'Wat het kost', 'Wat er daarna gebeurt']) assert.ok(s.includes(`<h3>${h}</h3>`), `${side}: ${h}`);
+    assert.equal((s.match(/<ol class="next-steps">[\s\S]*?<\/ol>/)[0].match(/<li>/g) || []).length, 5, `${side}: één zin per stap`);
+    assert.match(s, /<span data-rule="turnWorkingMinutes">\d+<\/span> minuten binnen werktijd \(ma–vr 9–17 uur\)/, side);
+    assert.match(s, /<span data-rule="objectionHours">\d+<\/span> uur/, side);
+    assert.match(s, /href="\/bedrijven#kosten"/, side);
+  }
+  const pro = t.match(/<div class="side" data-side="pro">[\s\S]*?<\/ol><\/div>\n<\/div><\/div>/)[0];
+  for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys', 'DAC7']) assert.ok(pro.includes(x), x);
+  const biz = t.match(/<div class="side" data-side="bedrijf">[\s\S]*?<\/ol><\/div>\n<\/div><\/div>/)[0];
+  for (const x of ['KvK-nummer', 'MCP', 'betaallink binnen <span data-rule="payMinutes">30</span> minuten']) assert.ok(biz.includes(x), x);
+});
