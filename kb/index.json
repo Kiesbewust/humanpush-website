@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "136d0e92af5b45d86e75a33e3d48551b90bbe68e69035f5c7928241f426c77bd",
+ "kb_hash": "366704ae505e94d1c38d348e75f2523f7f12f9249618f1d94db6dbc6b791d6da",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -134,17 +134,17 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het bedrijf betaalt vooraf de maximumprijs plus de vaste vergoeding van HumanPush, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.",
-   "hash": "0f2c050da2a86118"
+   "text": "Het bedrijf betaalt vooraf de maximumprijs plus de HumanPush-afhandelfee (5% daarvan) en btw over de fee, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.",
+   "hash": "ed0e3dabca811453"
   },
   {
    "id": "spelregels-r3-3",
-   "title": "R3.3 De vaste vergoeding",
+   "title": "R3.3 De HumanPush-afhandelfee",
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Per dienst één vaste vergoeding, voor elk bedrijf hetzelfde, excl. btw, zichtbaar in list_services vóór het bestellen. Bedragen volgen na de testfase. HumanPush houdt de vergoeding alleen als een opdracht slaagt.",
-   "hash": "eeed6db37740c615"
+   "text": "De afhandelfee is 5% van de prijs van de professional, excl. btw; het bedrijf betaalt btw over de fee. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil in prijs en fee meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.",
+   "hash": "57169338bdf23fb3"
   },
   {
    "id": "spelregels-r3-5",
@@ -197,8 +197,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de vaste vergoeding.",
-   "hash": "feb2a16a8e42baa4"
+   "text": "Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de afhandelfee.",
+   "hash": "bf6174ca6646cf18"
   },
   {
    "id": "spelregels-r4-7",
@@ -260,8 +260,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het bedrijf krijgt alles terug, ook de vaste vergoeding. De professional krijgt niets.",
-   "hash": "33cdae5ed764c2fc"
+   "text": "Het bedrijf krijgt alles terug, ook de afhandelfee. De professional krijgt niets.",
+   "hash": "0116d87496c811c2"
   },
   {
    "id": "spelregels-r6-6",
@@ -287,8 +287,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#geld",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de vaste vergoeding.",
-   "hash": "58b3a25b7874502a"
+   "text": "De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de afhandelfee.",
+   "hash": "dda1ddfcac670826"
   },
   {
    "id": "spelregels-r7-3",
@@ -383,20 +383,20 @@
   {
    "id": "faq-bedrijven-wat-kost-het",
    "title": "Wat kost het?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "url": "https://humanpush.nl/veelgestelde-vragen#kosten",
    "lang": "nl",
    "source": "faq",
-   "text": "Het tarief van de professional plus een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt. Een wijziging geldt alleen voor nieuwe opdrachten. Je stelt zelf een maximum in en betaalt nooit meer. Neemt de professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug.",
-   "hash": "044c501242ee8edf"
+   "text": "Je betaalt de prijs van de professional plus de HumanPush-afhandelfee: 5% van die prijs, plus btw over de fee. Geen abonnement, geen minimum, geen andere kosten. Vooraf betaal je je maximumprijs plus 5% daarvan (plus btw over de fee). Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. Een rekenvoorbeeld (fictief) staat op de pagina voor bedrijven.",
+   "hash": "42fda915ef5cfc94"
   },
   {
-   "id": "faq-bedrijven-hoe-werkt-betalen-zonder-dat-ik-bedragen-zie",
-   "title": "Hoe werkt betalen zonder dat ik bedragen zie?",
+   "id": "faq-bedrijven-hoe-kies-ik-mijn-maximumprijs",
+   "title": "Hoe kies ik mijn maximumprijs?",
    "url": "https://humanpush.nl/veelgestelde-vragen#betalen",
    "lang": "nl",
    "source": "faq",
-   "text": "Je agent kiest een dienst en stelt een maximumprijs in. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus een vaste vergoeding voor HumanPush. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug. De vaste vergoeding zie je in list_services vóór je bestelt. Bedragen staan niet op de site: die volgen na de testfase.",
-   "hash": "49ba5174e68b8f7a"
+   "text": "Kies je maximumprijs op of boven de vanaf-prijs van de dienst: de laagste prijs die een geregistreerde professional nu vraagt. De opdracht gaat eerst naar de professional met de laagste prijs die je deadline haalt. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus 5% afhandelfee en btw over de fee. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. De vanaf-prijs per dienst volgt zodra professionals zich hebben aangemeld. Wat kost het?",
+   "hash": "2c1ded1a23563896"
   },
   {
    "id": "faq-bedrijven-wat-als-niemand-aanneemt",
@@ -422,8 +422,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
    "lang": "nl",
    "source": "faq",
-   "text": "Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering houdt de professional 25% van zijn tarief en krijg je de rest terug, ook de vaste vergoeding van HumanPush. Na de oplevering kun je niet meer annuleren.",
-   "hash": "62bf2eb0b52c7513"
+   "text": "Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering houdt de professional 25% van zijn tarief en krijg je de rest terug, ook de afhandelfee. Na de oplevering kun je niet meer annuleren.",
+   "hash": "50a6aca5edf621b4"
   },
   {
    "id": "faq-bedrijven-wat-als-de-professional-te-laat-is-of-uitvalt",
@@ -548,8 +548,17 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Nee. Je krijgt je eigen tarief volledig. Het bedrijf betaalt HumanPush apart.",
-   "hash": "193d7535d9df97f8"
+   "text": "Nee. Je krijgt je eigen prijs volledig. De afhandelfee van 5% betaalt het bedrijf bovenop je prijs.",
+   "hash": "b9e55f98662d617d"
+  },
+  {
+   "id": "faq-professionals-is-mijn-prijs-inclusief-btw",
+   "title": "Is mijn prijs inclusief btw?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#btw",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Ja. Reken je btw, dan is de prijs die je opgeeft inclusief btw. Die prijs ziet het bedrijf, en daarover rekent HumanPush de afhandelfee. Reken je geen btw (bijvoorbeeld met de kleineondernemersregeling), dan is je prijs gewoon je prijs.",
+   "hash": "08c712291275e621"
   },
   {
    "id": "faq-professionals-moet-ik-iets-met-ai-doen",
@@ -845,8 +854,8 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Betaling en geld terug. Vooraf betalen. Je maximumprijs plus een vaste vergoeding voor HumanPush, voor elk bedrijf hetzelfde, excl. btw. Je betaalt nooit meer. Niemand neemt aan. Neemt niemand aan binnen 3 werkdagen, of kan niemand meer op tijd leveren: alles terug. Annuleren. Vóór de aanname: alles terug. Daarna houdt de professional 25% van zijn prijs en krijg je de rest terug. Voldoet het niet? Maak binnen 72 uur bezwaar op de vaste toetsingspunten. Een collega uit hetzelfde register beslist; voldoet het niet, dan krijg je alles terug. Te laat of teruggetrokken. Alles terug. Je kunt opnieuw bestellen.",
-   "hash": "57011fc9c973a83d"
+   "text": "Betaling en geld terug. Vooraf betalen. Je maximumprijs plus de HumanPush-afhandelfee van 5% daarvan, plus btw over de fee. Je betaalt nooit meer. Wat kost het? Niemand neemt aan. Neemt niemand aan binnen 3 werkdagen, of kan niemand meer op tijd leveren: alles terug. Annuleren. Vóór de aanname: alles terug. Daarna houdt de professional 25% van zijn prijs en krijg je de rest terug. Voldoet het niet? Maak binnen 72 uur bezwaar op de vaste toetsingspunten. Een collega uit hetzelfde register beslist; voldoet het niet, dan krijg je alles terug. Te laat of teruggetrokken. Alles terug. Je kunt opnieuw bestellen.",
+   "hash": "82c0e7bab6195093"
   },
   {
    "id": "pagina-bedrijven-niet-geschikt",

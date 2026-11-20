@@ -79,7 +79,8 @@ test('vercel.json: noindex-headers en de humanpush.eu-redirect staan er nog', ()
   const v = JSON.parse(read('vercel.json'));
   assert.equal(v.headers[0].headers[0].value, 'noindex, nofollow');
   assert.equal(v.redirects[0].destination, 'https://humanpush.nl/bedrijven');
-  assert.equal(v.redirects.length, 2);
+  assert.equal(v.redirects.length, 4);
+  assert.deepEqual(v.redirects.slice(2).map((r) => [r.source, r.destination]), [['/prijzen', '/bedrijven#kosten'], ['/diensten', '/bedrijven#diensten']]);
 });
 
 test('interne links verwijzen naar een bestaande pagina en een bestaand anker', () => {

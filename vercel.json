@@ -23,6 +23,16 @@
       ],
       "destination": "https://humanpush.nl/bedrijven",
       "permanent": false
+    },
+    {
+      "source": "/prijzen",
+      "destination": "/bedrijven#kosten",
+      "permanent": false
+    },
+    {
+      "source": "/diensten",
+      "destination": "/bedrijven#diensten",
+      "permanent": false
     }
   ],
   "headers": [

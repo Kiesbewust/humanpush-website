@@ -51,10 +51,10 @@ Een professional maakt een passkey aan op zijn eigen telefoon of computer, en ee
 Bestellen is: dienst, invoer, uiterste datum en maximumprijs. Onbekende velden worden geweigerd. De agent kiest nooit zelf een professional.
 
 ### R3.2 · 100% vooraf, binnen 30 minuten
-Het bedrijf betaalt vooraf de maximumprijs plus de vaste vergoeding van HumanPush, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
+Het bedrijf betaalt vooraf de maximumprijs plus de HumanPush-afhandelfee (5% daarvan) en btw over de fee, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
 
-### R3.3 · De vaste vergoeding
-Per dienst één vaste vergoeding, voor elk bedrijf hetzelfde, excl. btw, zichtbaar in list_services vóór het bestellen. Bedragen volgen na de testfase. HumanPush houdt de vergoeding alleen als een opdracht slaagt.
+### R3.3 · De HumanPush-afhandelfee
+De afhandelfee is 5% van de prijs van de professional, excl. btw; het bedrijf betaalt btw over de fee. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil in prijs en fee meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.
 
 ### R3.5 · Herhaalde aanroep is één uitvoering
 Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert niets twee keer uit.
@@ -74,7 +74,7 @@ Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende sta
 De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
 
 ### R4.6 · Niemand neemt aan: alles terug
-Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de vaste vergoeding.
+Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de afhandelfee.
 
 ### R4.7 · Hoe een professional een aangeboden opdracht ziet
 De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het scherm van HumanPush. Er gaat geen mail of sms.
@@ -99,7 +99,7 @@ Bezwaar kan alleen op de vaste toetsingspunten van de dienst: vorm compleet, vra
 HumanPush kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.
 
 ### R6.4 · Voldoet niet: alles terug
-Het bedrijf krijgt alles terug, ook de vaste vergoeding. De professional krijgt niets.
+Het bedrijf krijgt alles terug, ook de afhandelfee. De professional krijgt niets.
 
 ### R6.6 · Geen beoordelaar of storing bij HumanPush
 Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
@@ -110,7 +110,7 @@ Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen 
 Annuleren vóór de aanname kost niets.
 
 ### R7.2 · Annuleren na aanname, vóór oplevering: 25% van de prijs
-De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de vaste vergoeding.
+De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de afhandelfee.
 
 ### R7.3 · Na oplevering kan niet meer worden geannuleerd
 Na de oplevering blijft alleen accepteren of bezwaar over.

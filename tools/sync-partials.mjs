@@ -10,7 +10,7 @@
 //   <span data-rule="turnWorkingMinutes">45</span>      (overal waar een termijn genoemd wordt)
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -27,6 +27,13 @@ const span = (k) => `<span data-rule="${k}">${rv(k)}</span>`;
 // Dienstkaarten: één bron (partials/diensten.json), twee kijkrichtingen. Zonder JavaScript staat alles open en zichtbaar;
 // site.js maakt er tabs (per register), een schakelaar (professional | bedrijf) en ingeklapte details van.
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// Vanaf-prijs op elke dienstkaart: de laagste prijs die nu geldt, voor iedereen dezelfde. null = nog geen professionals aangemeld.
+export function vanafLine(cents) {
+  if (cents === null || cents === undefined) return '<p class="svc-vanaf">Vanaf-prijs: volgt zodra professionals zich hebben aangemeld</p>';
+  if (!Number.isInteger(cents) || cents <= 0) throw new Error(`ongeldige vanaf_cents: ${cents}`);
+  const euro = (cents % 100 === 0 ? String(cents / 100) : (cents / 100).toFixed(2).replace('.', ',')).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return `<p class="svc-vanaf">Vanaf € ${euro} · laagste prijs die nu geldt</p>`;
+}
 const withRules = (s) => esc(s).replace(/\{(\w+)\}/g, (_, k) => span(k));
 function dienstenBlock(view) {
   if (view !== 'pro' && view !== 'bedrijf') throw new Error(`onbekende dienstenweergave: ${view}`);
@@ -39,13 +46,13 @@ function dienstenBlock(view) {
   const panels = registers.map((r) => {
     const p = r.pro, b = r.bedrijf;
     const scope = `<div class="svc-scope"><div><p class="label">Valt in de dienst</p><ul class="ticks">${li(r.in_scope)}</ul></div><div><p class="label">Valt erbuiten</p><ul class="crosses">${li(r.out_of_scope)}</ul></div></div>`;
-    const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} minuten binnen werktijd per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', 'Je zet zelf je prijs en levertijd, binnen het bereik van de dienst. Er gaat niets van af.')}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
+    const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} minuten binnen werktijd per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', `Je zet zelf je prijs en levertijd. Er gaat niets van af: de afhandelfee van ${span('feePct')}% betaalt het bedrijf bovenop je prijs. Reken je btw, dan is je prijs inclusief btw.`)}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
     const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${row('Zo vraag je aan', `<code>v1_create_order</code> met <code>service_id="${esc(r.service_id)}"</code>, de invoer, een uiterste datum en <code>max_price_cents</code>.`)}${row('Bewijs', `Registercheck (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gedaan bij de aanname), de digitale vingerafdruk van het stuk, de handtekening met de passkey van de professional en het dossier van de opdracht.`)}</dl>`;
-    const part = (v, x, body) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p><details class="svc-more" open><summary>Details</summary>${body}${scope}</details></div>`;
+    const part = (v, x, body, r) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p>${vanafLine(r.vanaf_cents)}<details class="svc-more" open><summary>Details</summary>${body}${scope}</details></div>`;
     return `<section class="svc-card" id="${r.id}" aria-labelledby="${r.id}-kop" data-panel="${r.id}">`
       + `<header class="svc-top"><span class="badge">${esc(r.badge)}</span><span class="status">Aangeboden · ${span('turnWorkingMinutes')} werkmin · getekend met passkey</span></header>`
       + `<h3 id="${r.id}-kop">${esc(r.dienst)}</h3><p class="svc-uitleg"><strong>${esc(r.tab)}:</strong> ${esc(r.uitleg)}</p><p class="svc-reg">${esc(r.register)} · <code>${esc(r.service_id)}</code></p>`
-      + part('pro', p, proBody) + part('bedrijf', b, bizBody) + `</section>`;
+      + part('pro', p, proBody, r) + part('bedrijf', b, bizBody, r) + `</section>`;
   }).join('\n');
   return `<div class="svc" data-svc data-view="${view}">\n<div class="svc-bar"><nav class="svc-tabs" aria-label="Registers">${tabs}</nav><div class="svc-toggle" role="group" aria-label="Bekijk de dienst als">${toggle}</div></div>\n<div class="svc-panels">\n${panels}\n</div>\n</div>`;
 }
@@ -80,6 +87,7 @@ function fill(html, file) {
   return out;
 }
 
+function main() {
 const problems = [];
 const pages = [...readdirSync(ROOT).filter((f) => f.endsWith('.html')),
   ...(existsSync(join(ROOT, 'pilot')) ? readdirSync(join(ROOT, 'pilot')).filter((f) => f.endsWith('.html')).map((f) => 'pilot/' + f) : [])];
@@ -132,3 +140,6 @@ if (problems.length) {
   process.exit(1);
 }
 console.log(CHECK ? `✓ partials en termijnen kloppen (${pages.length} pagina's)` : `✓ bijgewerkt (${pages.length} pagina's)`);
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();

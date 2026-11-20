@@ -1,5 +1,5 @@
 {
-  "_doc": "Eén bron voor de dienstkaarten op /professionals en /bedrijven. tools/sync-partials.mjs zet ze in <!--diensten:start view=pro|bedrijf-->. Wel- en niet-in-de-dienst volgen de catalogus van versie 1; regels die daar nog niet besloten zijn, staan hier niet. {naam} wordt een termijn uit rules.json. uitleg: in één zin wat het register is en welke sector.",
+  "_doc": "Eén bron voor de dienstkaarten op /professionals en /bedrijven. tools/sync-partials.mjs zet ze in <!--diensten:start view=pro|bedrijf-->. Wel- en niet-in-de-dienst volgen de catalogus van versie 1; regels die daar nog niet besloten zijn, staan hier niet. {naam} wordt een termijn uit rules.json. uitleg: in één zin wat het register is en welke sector. vanaf_cents: de laagste prijs die nu geldt (in centen), of null zolang er nog geen professionals zijn aangemeld; een latere PR vult dit uit de catalogusexport van humanpush-mcp.",
   "registers": [
     {
       "id": "octrooi",
@@ -9,6 +9,7 @@
       "badge": "OCNL",
       "service_id": "ocnl.novelty_quickscan",
       "dienst": "Nieuwheidsquickscan met getekend zoekrapport",
+      "vanaf_cents": null,
       "pro": {
         "regel": "Je zoekt naar bekende stand van de techniek en tekent het zoekrapport.",
         "chips": [
@@ -47,6 +48,7 @@
       "badge": "NRGD 008.1",
       "service_id": "nrgd.document_integrity",
       "dienst": "Integriteits- en tijdstempelcheck van één document",
+      "vanaf_cents": null,
       "pro": {
         "regel": "Je stelt vast of één aangeleverd document sinds een tijdstip ongewijzigd is.",
         "chips": [
@@ -86,6 +88,7 @@
       "badge": "NRVT · Wonen",
       "service_id": "nrvt.residential_valuation_non_nwwi",
       "dienst": "Taxatie van een woning, niet-NWWI",
+      "vanaf_cents": null,
       "pro": {
         "regel": "Je taxeert een woning; het rapport is niet voor hypotheek of NHG.",
         "chips": [
@@ -123,6 +126,7 @@
       "badge": "NIVRE",
       "service_id": "nivre.independent_opinion",
       "dienst": "Onafhankelijk oordeel over een claimbesluit, op stukken",
+      "vanaf_cents": null,
       "pro": {
         "regel": "Je beoordeelt op stukken of een claimbesluit standhoudt.",
         "chips": [
@@ -163,6 +167,7 @@
       "badge": "NRBI",
       "service_id": "nrbi.report_desk_review",
       "dienst": "Rapporttoets op afstand van een bouwkundig keuringsrapport",
+      "vanaf_cents": null,
       "pro": {
         "regel": "Je toetst een bestaand keuringsrapport van een bestaande woning, zonder nieuwe keuring.",
         "chips": [

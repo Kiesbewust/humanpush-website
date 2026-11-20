@@ -639,3 +639,13 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 /* Footer: juridische regel in de gedempte footerstijl; breekt per onderdeel af op mobiel */
 .site-footer .f-legal { margin-top: 14px; color: var(--on-dark-muted); font-size: 13px; line-height: 1.6; }
 .site-footer .f-legal span { white-space: nowrap; }
+
+/* Kosten: afhandelfee, vanaf-prijs en een fictief rekenvoorbeeld */
+.svc-vanaf { margin: 8px 0 0; font-size: 15px; font-weight: 500; color: var(--ink); }
+.rekenvoorbeeld { background: var(--white); border: 1px solid var(--line-color); border-radius: var(--radius); padding: 16px 18px; }
+.rekenvoorbeeld .label { margin: 0 0 8px; }
+.table.reken { margin: 0; }
+.table.reken th { text-align: left; font-weight: 400; color: var(--body); font-size: 15px; padding: 7px 12px 7px 0; }
+.table.reken td { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 15px; padding: 7px 0; }
+.table.reken tr.sum th, .table.reken tr.sum td { font-weight: 600; color: var(--ink); }
+.pro-prijs { margin: 20px 0 0; max-width: 46em; }

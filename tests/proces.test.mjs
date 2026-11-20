@@ -240,3 +240,45 @@ test('codevoorbeeld in de bedrijf-mockup: minstens 12px', () => {
   assert.match(css, /\.c-code \{[^}]*font-size: (1[2-9]|[2-9]\d)px/);
   assert.match(css, /\.c-code code \{[^}]*font-size: inherit;/);
 });
+
+test('kosten: 5% afhandelfee uit rules.json, rekenvoorbeeld klopt, geen "vaste vergoeding", "platformvergoeding" of "H"', () => {
+  const rules = JSON.parse(read('rules.json'));
+  assert.equal(rules.feePct, 5);
+  const b = read('bedrijven.html');
+  const k = b.match(/<section class="section" id="kosten"[\s\S]*?<\/section>/)[0];
+  assert.match(k, /<h2 id="kosten-kop">Wat kost het\?<\/h2>/);
+  assert.match(k, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% van die prijs, plus btw over de fee\. Geen abonnement, geen minimum, geen andere kosten\./);
+  assert.match(k, /Wat is de vanaf-prijs\?/);
+  assert.ok(b.indexOf('id="zo-werkt-het"') < b.indexOf('id="kosten"'), 'kosten staat onder "Zo zet je agent een opdracht uit"');
+  // Rekenvoorbeeld narekenen: 5% fee, 21% btw over de fee, afronden op centen.
+  const c = (x) => Math.round(x);
+  const pre = 50000 + c(50000 * 0.05) + c(c(50000 * 0.05) * 0.21), post = 45000 + c(45000 * 0.05) + c(c(45000 * 0.05) * 0.21);
+  assert.equal(pre, 53025); assert.equal(post, 47723); assert.equal(pre - post, 5302);
+  for (const amt of ['€ 530,25', '€ 53,02', '€ 477,23']) assert.ok(k.includes(amt), amt);
+  const people = ['index.html', 'bedrijven.html', 'professionals.html', 'hoe-het-werkt.html', 'veelgestelde-vragen.html', 'pilot/second-opinion.html', 'inloggen.html'];
+  for (const f of [...people, 'agents.html', 'kb/spelregels.md', 'kb/faq.md']) assert.doesNotMatch(read(f), /vaste vergoeding|platformvergoeding/i, f);
+  for (const f of people) {
+    const visible = read(f).replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
+    assert.doesNotMatch(visible, /(^|[\s(])H([\s).,;]|$)/, `${f}: geen "H" voor de fee`);
+  }
+  for (const f of read('veelgestelde-vragen.html').match(/<summary>[^<]+<\/summary>/g)) assert.doesNotMatch(f, /zonder dat ik bedragen zie/);
+  const faq = read('veelgestelde-vragen.html');
+  for (const q of ['Wat kost het?', 'Hoe kies ik mijn maximumprijs?', 'Is mijn prijs inclusief btw?']) assert.ok(faq.includes(`<summary>${q}</summary>`), q);
+  assert.match(read('professionals.html'), /Er gaat niets van je prijs af: de afhandelfee van <span data-rule="feePct">5<\/span>% betaalt het bedrijf bovenop je prijs\. Reken je btw, dan is je prijs inclusief btw\./);
+  const v = JSON.parse(read('vercel.json')).redirects;
+  assert.ok(v.some((r) => r.source === '/prijzen' && r.destination === '/bedrijven#kosten'));
+  assert.ok(v.some((r) => r.source === '/diensten' && r.destination === '/bedrijven#diensten'));
+});
+
+test('vanaf-prijs: veld vanaf_cents per dienst (nu null), regel op elke kaart in beide kijkrichtingen', async () => {
+  const { vanafLine } = await import('../tools/sync-partials.mjs');
+  assert.equal(vanafLine(null), '<p class="svc-vanaf">Vanaf-prijs: volgt zodra professionals zich hebben aangemeld</p>');
+  assert.equal(vanafLine(45000), '<p class="svc-vanaf">Vanaf € 450 · laagste prijs die nu geldt</p>');
+  assert.throws(() => vanafLine(-1));
+  const regs = JSON.parse(read('partials/diensten.json')).registers;
+  for (const r of regs) assert.ok('vanaf_cents' in r && r.vanaf_cents === null, `${r.id}: geen verzonnen bedrag in de testfase`);
+  for (const f of ['bedrijven.html', 'professionals.html']) {
+    const t = read(f);
+    assert.equal((t.match(/<p class="svc-vanaf">Vanaf-prijs: volgt zodra professionals zich hebben aangemeld<\/p>/g) || []).length, regs.length * 2, f);
+  }
+});

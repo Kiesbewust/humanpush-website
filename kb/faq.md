@@ -12,11 +12,11 @@ Nee. Je kiest een dienst en een maximumprijs; HumanPush biedt de opdracht in een
 
 ### Wat kost het?
 
-Het tarief van de professional plus een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt. Een wijziging geldt alleen voor nieuwe opdrachten. Je stelt zelf een maximum in en betaalt nooit meer. Neemt de professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug.
+Je betaalt de prijs van de professional plus de HumanPush-afhandelfee: 5% van die prijs, plus btw over de fee. Geen abonnement, geen minimum, geen andere kosten. Vooraf betaal je je maximumprijs plus 5% daarvan (plus btw over de fee). Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. Een rekenvoorbeeld (fictief) staat op de pagina voor bedrijven.
 
-### Hoe werkt betalen zonder dat ik bedragen zie?
+### Hoe kies ik mijn maximumprijs?
 
-Je agent kiest een dienst en stelt een maximumprijs in. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus een vaste vergoeding voor HumanPush. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug. De vaste vergoeding zie je in list_services vóór je bestelt. Bedragen staan niet op de site: die volgen na de testfase.
+Kies je maximumprijs op of boven de vanaf-prijs van de dienst: de laagste prijs die een geregistreerde professional nu vraagt. De opdracht gaat eerst naar de professional met de laagste prijs die je deadline haalt. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus 5% afhandelfee en btw over de fee. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. De vanaf-prijs per dienst volgt zodra professionals zich hebben aangemeld. Wat kost het?
 
 ### Wat als niemand aanneemt?
 
@@ -28,7 +28,7 @@ Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederla
 
 ### Wat als we annuleren?
 
-Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering houdt de professional 25% van zijn tarief en krijg je de rest terug, ook de vaste vergoeding van HumanPush. Na de oplevering kun je niet meer annuleren.
+Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering houdt de professional 25% van zijn tarief en krijg je de rest terug, ook de afhandelfee. Na de oplevering kun je niet meer annuleren.
 
 ### Wat als de professional te laat is of uitvalt?
 
@@ -86,7 +86,11 @@ Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formuli
 
 ### Kost het mij iets?
 
-Nee. Je krijgt je eigen tarief volledig. Het bedrijf betaalt HumanPush apart.
+Nee. Je krijgt je eigen prijs volledig. De afhandelfee van 5% betaalt het bedrijf bovenop je prijs.
+
+### Is mijn prijs inclusief btw?
+
+Ja. Reken je btw, dan is de prijs die je opgeeft inclusief btw. Die prijs ziet het bedrijf, en daarover rekent HumanPush de afhandelfee. Reken je geen btw (bijvoorbeeld met de kleineondernemersregeling), dan is je prijs gewoon je prijs.
 
 ### Moet ik iets met AI doen?
 
