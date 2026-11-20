@@ -25,7 +25,7 @@ function graphOf(file) {
 
 // Minimale schema.org-controle per type: verplichte velden, toegestane velden, verwijzingen die bestaan.
 const SCHEMA = {
-  Organization: { required: ['@id', 'name', 'legalName', 'identifier', 'url'], allowed: ['@type', '@id', 'name', 'legalName', 'identifier', 'url', 'email', 'logo', 'sameAs'] },
+  Organization: { required: ['@id', 'name', 'legalName', 'identifier', 'url'], allowed: ['@type', '@id', 'name', 'legalName', 'identifier', 'vatID', 'address', 'url', 'email', 'logo', 'sameAs'] },
   WebSite: { required: ['@id', 'name', 'url', 'publisher'], allowed: ['@type', '@id', 'name', 'url', 'inLanguage', 'publisher'] },
   FAQPage: { required: ['mainEntity'], allowed: ['@type', '@id', 'inLanguage', 'mainEntity'] },
   Service: { required: ['@id', 'name', 'serviceType', 'provider', 'description'], allowed: ['@type', '@id', 'name', 'serviceType', 'description', 'provider', 'areaServed', 'audience'] }
@@ -41,10 +41,12 @@ function validate(file, graph) {
     for (const k of ['url', 'logo']) if (node[k]) assert.match(node[k], /^https:\/\/humanpush\.nl\//, `${file}: ${k}`);
     for (const ref of [node.publisher, node.provider]) if (ref) assert.ok(ids.has(ref['@id']), `${file}: verwijzing ${ref['@id']} bestaat niet`);
   }
-  assert.doesNotMatch(JSON.stringify(graph), /"address"|PostalAddress|RSIN|vestigingsnummer|streetAddress|postalCode/i, `${file}: geen adres in JSON-LD`);
+  // Alleen plaats en land: geen straat, postcode, RSIN of vestigingsnummer.
+  assert.doesNotMatch(JSON.stringify(graph), /RSIN|vestigingsnummer|streetAddress|postalCode|postOfficeBox|addressRegion/i, `${file}: geen adres in JSON-LD`);
+  for (const n of graph) if (n.address) assert.deepEqual(n.address, { '@type': 'PostalAddress', addressLocality: 'Utrecht', addressCountry: 'NL' }, `${file}: alleen plaats en land`);
 }
 
-test('JSON-LD: Organization en WebSite op elke pagina, geldig en zonder adres', () => {
+test('JSON-LD: Organization en WebSite op elke pagina, geldig, met btw-nummer en alleen plaats en land', () => {
   for (const f of PAGES) {
     const g = graphOf(f);
     validate(f, g);
@@ -54,6 +56,8 @@ test('JSON-LD: Organization en WebSite op elke pagina, geldig en zonder adres', 
     assert.deepEqual(org.identifier, { '@type': 'PropertyValue', propertyID: 'KvK', value: '42222476' });
     assert.equal(org.url, 'https://humanpush.nl/');
     assert.deepEqual(org.sameAs, []);
+    assert.equal(org.vatID, 'NL870249964B01');
+    assert.deepEqual(org.address, { '@type': 'PostalAddress', addressLocality: 'Utrecht', addressCountry: 'NL' });
     assert.ok(g.some((n) => n['@type'] === 'WebSite'), `${f}: WebSite`);
   }
 });
@@ -107,9 +111,9 @@ test('entiteit: alleen HumAgent B.V. (KvK 42222476), geen andere naam, geen plac
   for (const f of TEXT_FILES) {
     const t = read(f).replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '');
     assert.doesNotMatch(t, /AgentPush B\.V\.|in oprichting|\bTODO\b|\bXXX\b|\[\.\.\.\]|\[…\]|\bRSIN\b|vestigingsnummer/i, f);
-    for (const m of t.matchAll(/HumAgent B\.V\.[^<\n]{0,20}/g)) assert.match(m[0], /^HumAgent B\.V\.( \(KvK 42222476\)|", )/, `${f}: ${m[0]}`);
+    for (const m of t.matchAll(/HumAgent B\.V\.[^<\n]{0,60}/g)) assert.match(m[0], /^HumAgent B\.V\.( \(KvK 42222476\)| · KvK 42222476 · btw NL870249964B01 · Utrecht$|", )/, `${f}: ${m[0]}`);
   }
-  for (const f of PAGES) assert.ok(read(f).includes('HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476).'), f);
+  for (const f of PAGES) assert.ok(read(f).includes('<p>HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · btw NL870249964B01 · Utrecht</p>'), f);
 });
 
 test('home: definitiezin direct onder de h1', () => {
