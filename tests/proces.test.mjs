@@ -350,7 +350,7 @@ test('jargon: geen toolnamen, codes of interne woorden op pagina\'s voor mensen 
   }
   for (const f of ['bedrijven.html', 'professionals.html']) {
     const t = read(f);
-    assert.equal((t.match(/<details class="voor-bouwer"><summary>Voor je bouwer<\/summary>/g) || []).length, (t.match(/<section class="svc-card"/g) || []).length - (t.includes('In toetsing: niet te boeken') ? 1 : 0), `${f}: per te bestellen dienstkaart een uitklap voor de bouwer`);
+    assert.equal((t.match(/<details class="voor-bouwer"><summary>Voor je bouwer<\/summary>/g) || []).length, (t.match(/<section class="svc-card"/g) || []).length - (t.match(/<p class="svc-toetsing">/g) || []).length, `${f}: per te bestellen dienstkaart een uitklap voor de bouwer`);
     assert.match(t, /<span class="status"><span data-rule="turnWorkingMinutes">45<\/span> min binnen werktijd om aan te nemen<\/span>/);
     assert.deepEqual([...t.matchAll(/<a class="svc-tab" href="#[\w-]+" id="tab-[\w-]+" data-tab="([\w-]+)"[^>]*>([^<]+)<\/a>/g)].filter((m) => !m[1].startsWith('manier-')).map((m) => m[2]), f === 'bedrijven.html' ? ['NIVRE'] : ['NIVRE', 'NRVT', 'NRBI', 'NRGD', 'Octrooi'], `${f}: tabvolgorde, pilot eerst`);
   }
@@ -448,4 +448,15 @@ test('status: "Wat werkt al, en wat nog niet" op /hoe-het-werkt#status, gelinkt 
 
 test('rolverdeling voor kopers in één blok: HumanPush voor het proces, de professional voor de inhoud', () => {
   assert.match(read('bedrijven.html'), /<p class="rolverdeling" id="rolverdeling"><strong>HumanPush staat in voor het proces:<\/strong> op tijd, compleet, door een geregistreerde professional, onveranderd\. Gaat daar iets mis, dan krijg je automatisch je geld terug\. <strong>Over de inhoud oordeelt de professional,<\/strong> onder toezicht van zijn eigen register\.<\/p>/);
+});
+
+test('NRVT "in toetsing": label, de zin over de praktijkhandreiking, geen bestelinstructies', () => {
+  const r = DIENSTEN.find((x) => x.id === 'nrvt');
+  assert.equal(r.status, 'in_toetsing');
+  const p = read('professionals.html');
+  const card = p.match(/<section class="svc-card" id="nrvt"[\s\S]*?<\/section>/)[0];
+  assert.match(card, /<span class="status prep">In toetsing: niet te boeken<\/span>/);
+  assert.match(card, /<p class="svc-toetsing">We laten eerst toetsen hoe deze dienst past bij de NRVT-praktijkhandreiking \(bezichtiging door de taxateur zelf\)\.<\/p>/);
+  assert.doesNotMatch(card, /Zo vraag je aan|voor-bouwer|v1_create_order/);
+  for (const f of ['index.html', 'bedrijven.html']) assert.match(read(f), /<li><strong>Register-taxateur \(wonen\) \(NRVT\)\.<\/strong>[^<]*<span class="status prep">In toetsing: niet te boeken<\/span><\/li>/, f);
 });

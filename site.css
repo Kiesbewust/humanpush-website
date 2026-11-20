@@ -727,3 +727,4 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .voorbereiding li { padding: 10px 0; font-size: 16px; }
 .voorbereiding li + li { border-top: 1px solid var(--line-soft); }
 .status.prep::before { background: var(--muted); }
+.svc-toetsing { margin: 8px 0 0; font-size: 16px; color: var(--body); }

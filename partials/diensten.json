@@ -56,7 +56,7 @@
       "uitleg": "Register-taxateur (wonen), ingeschreven bij NRVT. Sector: taxatie van woningen.",
       "badge": "NRVT",
       "service_id": "nrvt.residential_valuation_non_nwwi",
-      "status": "in_voorbereiding",
+      "status": "in_toetsing",
       "kort": "Taxatie van een woning door een register-taxateur.",
       "dienst": "Taxatie van een woning, niet-NWWI",
       "vanaf_cents": null,
@@ -89,7 +89,8 @@
         "Geen NWWI-gevalideerde taxatie"
       ],
       "beroep": "Register-taxateur (wonen)",
-      "registernaam": "NRVT"
+      "registernaam": "NRVT",
+      "toetsing": "We laten eerst toetsen hoe deze dienst past bij de NRVT-praktijkhandreiking (bezichtiging door de taxateur zelf)."
     },
     {
       "id": "nrbi",

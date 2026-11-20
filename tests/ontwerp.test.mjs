@@ -56,7 +56,7 @@ test('dienstkaarten: 5 registers in vaste volgorde, beide kanten in de HTML, det
     for (const r of regs) {
       assert.match(t, new RegExp(`<section class="svc-card" id="${r.id}"`), `${f}: ${r.id}`);
       assert.match(t, new RegExp(`<a class="svc-tab" href="#${r.id}"`), `${f}: tab ${r.id}`);
-      assert.ok(t.includes(r.service_id), `${f}: ${r.service_id}`);
+      if (r.status !== 'in_toetsing') assert.ok(t.includes(r.service_id), `${f}: ${r.service_id}`);
     }
     assert.equal((t.match(/<div class="svc-v" data-v="pro"/g) || []).length, regs.length, f);
     assert.equal((t.match(/<div class="svc-v" data-v="bedrijf"/g) || []).length, regs.length, f);
