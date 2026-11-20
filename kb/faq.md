@@ -38,9 +38,9 @@ Dan krijg je alles terug en kun je opnieuw bestellen. Er wordt onderweg niets ve
 
 Dat HumanPush de professional met een vaste checklist in het openbare register heeft gevonden, op een vastgelegde datum, en dat dit bij de aanname opnieuw is gecontroleerd. Het is geen live koppeling met het register.
 
-### Kan ik bezwaar maken als ik het niet eens ben met de conclusie?
+### Wat als ik het niet eens ben met de conclusie?
 
-Nee. Bezwaar kan alleen op de vaste toetsingspunten van die dienst; per dienst staan ze op de pagina voor professionals. Een collega uit hetzelfde register beslist voldoet of voldoet niet. Voldoet niet: alles terug.
+Dan krijg je via HumanPush geen geld terug. HumanPush oordeelt niet over de inhoud. Bespreek het met de professional, of dien een klacht in bij zijn register. Bij een objectieve fout (te laat, een verplicht onderdeel ontbreekt, de registratie was niet geldig, of verkeerd formaat) krijg je automatisch alles terug, ook de afhandelfee.
 
 ### Wie is waarvoor verantwoordelijk?
 
@@ -106,7 +106,7 @@ Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee pass
 
 ### Hoe zet ik een stap?
 
-Aannemen, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.
+Aannemen, doorgeven en opleveren zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.
 
 ### Hoe weet ik dat er een opdracht voor mij is?
 

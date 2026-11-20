@@ -592,15 +592,6 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .flowlist li::before { content: counter(fl); position: absolute; left: 0; top: 14px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--ink); color: var(--ink); display: grid; place-items: center; font-weight: 600; font-size: 14.5px; }
 .flowlist strong { display: block; color: var(--ink); font-size: 17px; margin-bottom: 2px; }
 .flowlist li > span { display: block; font-size: 16px; color: var(--body); max-width: 40em; }
-.payschema { list-style: none; margin: 24px 0 20px; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
-.payschema li { position: relative; padding: 20px 24px; }
-.payschema li + li { border-left: 1px solid var(--line); }
-.payschema li + li::before { content: ""; position: absolute; left: -9px; top: 24px; width: 16px; height: 16px; background: var(--page); border: 1px solid var(--line); border-radius: 50%; }
-.payschema li + li::after { content: ""; position: absolute; left: -6px; top: 27px; width: 10px; height: 10px; background: var(--ink); -webkit-mask: var(--i-arrow) center / contain no-repeat; mask: var(--i-arrow) center / contain no-repeat; }
-.payschema strong { display: block; color: var(--ink); font-size: 17px; margin-bottom: 4px; }
-.payschema li > span { font-size: 16px; }
-.payschema .pay { box-shadow: inset 0 -2px 0 var(--ink); }
-@media (max-width: 760px) { .payschema { grid-template-columns: 1fr; } .payschema li + li { border-left: 0; border-top: 1px solid var(--line); } .payschema li + li::before { left: 24px; top: -9px; } .payschema li + li::after { left: 27px; top: -6px; transform: rotate(90deg); } }
 .quote { margin: 20px 0 24px; padding: 4px 0 4px 20px; border-left: 2px solid var(--ink); max-width: 40em; }
 .quote p { margin: 0; font-size: 20px; line-height: 1.45; font-weight: 500; color: var(--ink); }
 .ticks.small li { font-size: 16px; }
@@ -658,3 +649,16 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .next-steps { margin: 0; padding-left: 20px; }
 .next-steps li { margin: 0 0 8px; }
 @media (max-width: 960px) { .next-grid { grid-template-columns: 1fr; gap: 20px; } }
+
+/* Zo word je uitbetaald: drie kaarten, elk zonder uitklap te begrijpen; detail achter "Hoe precies?" (tikken, geen hover) */
+.paycards { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pay-card { background: var(--white); border: 1px solid var(--line-color); border-radius: var(--radius); padding: 18px 18px 14px; min-width: 0; }
+.pay-n { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--ink); color: var(--ink); font-family: var(--mono); font-size: 12px; }
+.pay-t { margin: 10px 0 6px; font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.pay-more summary, .pay-q summary { cursor: pointer; font-size: 15px; font-weight: 500; color: var(--ink); min-height: 44px; display: flex; align-items: center; }
+.pay-more p { margin: 0 0 4px; font-size: 15.5px; }
+.pay-qs { margin-top: 20px; max-width: 46em; }
+.pay-q { border-top: 1px solid var(--line); }
+.pay-q:last-child { border-bottom: 1px solid var(--line); }
+.pay-q p { margin: 0 0 14px; font-size: 16px; }
+@media (max-width: 760px) { .paycards { grid-template-columns: 1fr; } }

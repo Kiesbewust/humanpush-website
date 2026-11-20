@@ -124,7 +124,15 @@ test('/professionals: twee manieren met eigen flow, onboarding, uitbetaling, te 
   for (const k of ['scherm', 'eigen-agent']) assert.equal((t.match(new RegExp(`id="manier-${k}"[\\s\\S]*?</section>`))[0].match(/<li>/g) || []).length, 4, k);
   const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/ol>/)[0];
   assert.deepEqual([...begin.matchAll(/<li><strong>([^<]+)<\/strong>/g)].map((m) => m[1]), ['Aanmelden', 'Registercheck', 'Twee passkeys instellen', 'Je eerste aangeboden opdracht']);
-  assert.match(t, /<ol class="payschema"[\s\S]*Het bedrijf accepteert[\s\S]*<span data-rule="objectionHours">72<\/span> uur niets[\s\S]*Je wordt uitbetaald/);
+  // Zo word je uitbetaald: drie kaarten, elk zonder uitklap te begrijpen; detail achter "Hoe precies?" (een <details>, tikken, geen hover).
+  const pay = t.match(/<ol class="paycards"[\s\S]*?<\/ol>/)[0];
+  assert.deepEqual([...pay.matchAll(/<p class="pay-t">([\s\S]*?)<\/p>/g)].map((m) => m[1].replace(/<[^>]+>/g, '')), ['Je levert op.', 'Het bedrijf heeft 72 uur om te reageren.', 'Je krijgt je volledige prijs.']);
+  assert.equal((pay.match(/<details class="pay-more"><summary>Hoe precies\?<\/summary>/g) || []).length, 3);
+  assert.match(pay, /Zegt het niets, dan geldt je werk als geaccepteerd\./);
+  const qs = [...t.matchAll(/<details class="pay-q"><summary>([^<]+)<\/summary>/g)].map((m) => m[1]);
+  assert.deepEqual(qs, ['Wanneer krijg ik niets?', 'En als het bedrijf het inhoudelijk oneens is?', 'Annuleert het bedrijf nadat je hebt aangenomen?', 'Wie bepaalt mijn prijs?']);
+  assert.match(t, /Alleen als iets objectief misgaat: deadline gemist, bewijs ontbreekt, verkeerd formaat of registerinschrijving ongeldig\. Het systeem checkt dat automatisch en het bedrijf krijgt zijn geld terug\. Niemand beoordeelt de inhoud van je werk\./);
+  assert.doesNotMatch(read('site.css'), /\.pay-(card|more|q)[^{]*:hover/, 'geen hover-uitklap');
   assert.match(t, /Een agent werkt namens een bedrijf door zodra jouw handtekening er is\. Elke vertraging houdt het hele proces op\./);
   const laat = t.match(/id="te-laat"[\s\S]*?<\/section>/)[0];
   for (const k of ['turnWorkingMinutes', 'maxTurnsPerPro']) assert.match(laat, new RegExp(`data-rule="${k}"`), k);
@@ -373,4 +381,16 @@ test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, D
   assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot je rekening volgt na de testfase\.<\/p>/);
   assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op je scherm bij HumanPush, of je agent vraagt het op\. Er gaat nog geen mail of push\./);
   for (const f of PAGES.filter((f) => f !== 'voorwaarden.html')) assert.doesNotMatch(read(f), /factur/i, `${f}: wie factureert wacht op jurist en fiscalist`);
+});
+
+test('code is law: nergens meer een collega of beoordelaar die beslist, geen "voldoet / voldoet niet" (site, kennisbank, llms.txt)', () => {
+  for (const f of [...PAGES.filter((f) => f !== 'voorwaarden.html'), 'kb/spelregels.md', 'kb/faq.md']) {
+    const t = read(f).replace(/er is geen beoordelaar/g, '');
+    assert.doesNotMatch(t, /collega uit (jouw|hetzelfde) register|collega van de professional|beoordelaar|"?voldoet( niet)?"?\b|binair/i, f);
+  }
+  const llms = read('llms.txt');
+  assert.doesNotMatch(llms, /reviewer|meets|no_reviewer|review_fails|binary/i);
+  for (const c of ['deadline_gemist', 'bewijs_ontbreekt', 'registerstatus_ongeldig', 'formaat_onjuist']) assert.ok(llms.includes(c), c);
+  assert.match(read('hoe-het-werkt.html'), /G6 · 72 uur bezwaar, alleen objectieve fouten/);
+  assert.match(read('veelgestelde-vragen.html'), /<summary>Wat als ik het niet eens ben met de conclusie\?<\/summary>/);
 });

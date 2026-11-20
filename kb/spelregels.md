@@ -28,7 +28,7 @@ Het bedrijf werkt via de toegangscode van zijn agent. De professional werkt met 
 ## 2. Registercheck
 
 ### R2.1 · Registercheck vooraf, voor iedereen
-Zonder geldige registercheck krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.
+Zonder geldige registercheck krijgt niemand een opdracht aangeboden. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.
 
 ### R2.2 · Alleen de agent mag een strengere check eisen
 Een agent kan per opdracht een strengere registercheck eisen (min_proof_level), nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand en krijgt alles terug.
@@ -92,17 +92,17 @@ De professional levert het stuk, kiest een vaste uitkomst van de dienst en teken
 ### R6.1 · 72 uur na oplevering
 Het bedrijf accepteert, of maakt bezwaar. Zegt het niets, dan geldt het werk na 72 uur als geaccepteerd. De 72 uur zijn gewone klokuren.
 
-### R6.2 · Bezwaar alleen op vaste toetsingspunten
-Bezwaar kan alleen op de vaste toetsingspunten van de dienst: vorm compleet, vraag beantwoord, binnen de scope, disclaimer aanwezig, en per dienst soms een verklaring. Een andere conclusie willen is geen grond.
+### R6.2 · Bezwaar alleen bij een objectieve fout
+Een bezwaar telt alleen bij een fout die het systeem zelf vaststelt: te laat (geen levering vóór de deadline), een verplicht onderdeel van de dienstkaart ontbreekt, de registratie van de professional was bij aanname niet geldig, of het formaat klopt niet (documenttype, handtekening met de passkey of digitale vingerafdruk). Een andere conclusie willen is geen grond.
 
-### R6.3 · Eén beoordelaar, binair oordeel
-HumanPush kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.
+### R6.3 · Niemand beoordeelt de inhoud
+HumanPush oordeelt niet over de inhoud en er is geen beoordelaar. Is het bedrijf het inhoudelijk oneens, dan wordt de professional na 72 uur betaald. Het bedrijf gaat naar de professional, of naar de klacht- of tuchtregeling van het register van de professional.
 
-### R6.4 · Voldoet niet: alles terug
-Het bedrijf krijgt alles terug, ook de afhandelfee. De professional krijgt niets.
+### R6.4 · Objectieve fout: alles terug
+Bij een objectieve fout krijgt het bedrijf automatisch alles terug, ook de afhandelfee. Niemand hoeft te beslissen. De professional krijgt niets.
 
-### R6.6 · Geen beoordelaar of storing bij HumanPush
-Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
+### R6.6 · Storing bij HumanPush
+Kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
 
 ## 7. Annuleren, terugtrekken, te laat
 
@@ -124,7 +124,7 @@ Nu alleen bij octrooigemachtigden. Vóór oplevering mag de professional terugge
 ## 8. Uitbetaling
 
 ### R8.1 · Na het venster
-De professional krijgt zijn prijs na acceptatie, na 72 uur zonder bezwaar, of na een oordeel voldoet. Er gaat niets van af.
+De professional krijgt zijn prijs na acceptatie, of na 72 uur zonder geldig bezwaar. Er gaat niets van af.
 
 ## 9. Betrouwbaarheid
 

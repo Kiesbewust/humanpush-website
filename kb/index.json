@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "822ffb0b2150f2a16973a60e167023ffa870d44367f2de8a7ed48010c2b4fd80",
+ "kb_hash": "802619f865d46516207660d32b5d08c2915c14da46fb27d0a0ff5b8fd525dd6e",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -71,8 +71,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Zonder geldige registercheck krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.",
-   "hash": "e9722ed8560daff5"
+   "text": "Zonder geldige registercheck krijgt niemand een opdracht aangeboden. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.",
+   "hash": "79b05512678093e0"
   },
   {
    "id": "spelregels-r2-2",
@@ -238,39 +238,39 @@
   },
   {
    "id": "spelregels-r6-2",
-   "title": "R6.2 Bezwaar alleen op vaste toetsingspunten",
+   "title": "R6.2 Bezwaar alleen bij een objectieve fout",
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Bezwaar kan alleen op de vaste toetsingspunten van de dienst: vorm compleet, vraag beantwoord, binnen de scope, disclaimer aanwezig, en per dienst soms een verklaring. Een andere conclusie willen is geen grond.",
-   "hash": "3b96c553d67bf36c"
+   "text": "Een bezwaar telt alleen bij een fout die het systeem zelf vaststelt: te laat (geen levering vóór de deadline), een verplicht onderdeel van de dienstkaart ontbreekt, de registratie van de professional was bij aanname niet geldig, of het formaat klopt niet (documenttype, handtekening met de passkey of digitale vingerafdruk). Een andere conclusie willen is geen grond.",
+   "hash": "59bde41324e14401"
   },
   {
    "id": "spelregels-r6-3",
-   "title": "R6.3 Eén beoordelaar, binair oordeel",
+   "title": "R6.3 Niemand beoordeelt de inhoud",
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "HumanPush kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.",
-   "hash": "08d6931d6052d4c0"
+   "text": "HumanPush oordeelt niet over de inhoud en er is geen beoordelaar. Is het bedrijf het inhoudelijk oneens, dan wordt de professional na 72 uur betaald. Het bedrijf gaat naar de professional, of naar de klacht- of tuchtregeling van het register van de professional.",
+   "hash": "6f40133901529921"
   },
   {
    "id": "spelregels-r6-4",
-   "title": "R6.4 Voldoet niet: alles terug",
+   "title": "R6.4 Objectieve fout: alles terug",
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Het bedrijf krijgt alles terug, ook de afhandelfee. De professional krijgt niets.",
-   "hash": "0116d87496c811c2"
+   "text": "Bij een objectieve fout krijgt het bedrijf automatisch alles terug, ook de afhandelfee. Niemand hoeft te beslissen. De professional krijgt niets.",
+   "hash": "8c18c5a929c59935"
   },
   {
    "id": "spelregels-r6-6",
-   "title": "R6.6 Geen beoordelaar of storing bij HumanPush",
+   "title": "R6.6 Storing bij HumanPush",
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.",
-   "hash": "95ffc395c49fe4a1"
+   "text": "Kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.",
+   "hash": "39b93cc2166d86e8"
   },
   {
    "id": "spelregels-r7-1",
@@ -323,8 +323,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#geld",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De professional krijgt zijn prijs na acceptatie, na 72 uur zonder bezwaar, of na een oordeel voldoet. Er gaat niets van af.",
-   "hash": "789f1a939a129891"
+   "text": "De professional krijgt zijn prijs na acceptatie, of na 72 uur zonder geldig bezwaar. Er gaat niets van af.",
+   "hash": "6cf0bf7276dad0a0"
   },
   {
    "id": "spelregels-r9-1",
@@ -444,13 +444,13 @@
    "hash": "b4ead0365df555d3"
   },
   {
-   "id": "faq-bedrijven-kan-ik-bezwaar-maken-als-ik-het-niet-eens-ben-me",
-   "title": "Kan ik bezwaar maken als ik het niet eens ben met de conclusie?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "id": "faq-bedrijven-wat-als-ik-het-niet-eens-ben-met-de-conclusie",
+   "title": "Wat als ik het niet eens ben met de conclusie?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#oneens",
    "lang": "nl",
    "source": "faq",
-   "text": "Nee. Bezwaar kan alleen op de vaste toetsingspunten van die dienst; per dienst staan ze op de pagina voor professionals. Een collega uit hetzelfde register beslist voldoet of voldoet niet. Voldoet niet: alles terug.",
-   "hash": "15e8b096d1fd76eb"
+   "text": "Dan krijg je via HumanPush geen geld terug. HumanPush oordeelt niet over de inhoud. Bespreek het met de professional, of dien een klacht in bij zijn register. Bij een objectieve fout (te laat, een verplicht onderdeel ontbreekt, de registratie was niet geldig, of verkeerd formaat) krijg je automatisch alles terug, ook de afhandelfee.",
+   "hash": "58a11446db105b22"
   },
   {
    "id": "faq-bedrijven-wie-is-waarvoor-verantwoordelijk",
@@ -593,8 +593,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Aannemen, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.",
-   "hash": "be13e11fd34d4ec0"
+   "text": "Aannemen, doorgeven en opleveren zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.",
+   "hash": "0eec3e268a34613b"
   },
   {
    "id": "faq-professionals-hoe-weet-ik-dat-er-een-opdracht-voor-mij-is",
@@ -773,8 +773,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "One service per register. HumanPush is not part of any register and uses no register logos. list_services gives per service in_scope and out_of_scope: what is and is not part of the service. NIVRE (claims adjusters): an independent opinion on a claims decision, on the documents. Disclaimer: an opinion on documents only, no inspection on site; no personal injury. Registry check valid 30 days. NRVT (registered valuers, Kamer Wonen): a valuation report of a home, without NWWI validation. Disclaimer: not for a mortgage or NHG. Registry check valid 30 days. NRGD (court experts, 008.1 computer forensics): an integrity and timestamp check of one supplied document. Disclaimer: outside court proceedings; not a court expert report. Registry check valid 30 days. Opens when at least 5 experts from at least 3 organisations are available. Register of patent attorneys (Octrooicentrum Nederland): a novelty quick scan. Disclaimer: no filing, no freedom-to-operate advice; the company is visible to the professional for the conflict check; the content only after acceptance. Registry check at most 30 days old, and on top of that the list's reference date at most 120 days old at the check. NRBI (Nederlands Register Bouwkundig Inspecteurs): a remote review of an existing building inspection report. Disclaimer: no new inspection and no NRBI-validated inspection. Registry check valid 30 days. Review criteria (a dispute may only name these; ids as in list_services): Every service: form_complete (all fixed parts and the agreed format), question_answered (see per service), scope_respected (see per service), disclaimer_present (the mandatory disclaimer unchanged). NIVRE: question_answered = the opinion answers whether the claims decision stands, with reasons; scope_respected = on documents, within the given line of business, no personal injury; plus independence_declared (the independence declaration is signed). NRVT: question_answered = the report is traceable: the value follows from the recorded data and method; scope_respected = Kamer Wonen, not for a mortgage or NHG, no NWWI. NRGD: question_answered = the report states whether the document is unchanged since the given time, with the checks used; scope_respected = one supplied document, outside court proceedings, within 008.1; plus method_ai_statement (the method and the AI statement are given). Patent attorneys: question_answered = the search report answers the search question within the given technical field; scope_respected = novelty only: no filing, no FTO, no amounts. NRBI: question_answered = the review follows the 8-point checklist and answers the questions asked (at most 3), in at most 3 pages; scope_respected = existing buildings only; no inspection, no legal advice. list_services gives per service the exact service_id, inputs, outcomes, price range, in_scope and out_of_scope, the fixed HumanPush fee H (a fixed fee per service, the same for every company, excluding VAT, visible before you order; a change applies only to new orders), the review criteria, the disclaimer and the known gaps of the register.",
-   "hash": "48f351de29d32a6e"
+   "text": "One service per register. HumanPush is not part of any register and uses no register logos. list_services gives per service in_scope and out_of_scope: what is and is not part of the service. NIVRE (claims adjusters): an independent opinion on a claims decision, on the documents. Disclaimer: an opinion on documents only, no inspection on site; no personal injury. Registry check valid 30 days. NRVT (registered valuers, Kamer Wonen): a valuation report of a home, without NWWI validation. Disclaimer: not for a mortgage or NHG. Registry check valid 30 days. NRGD (court experts, 008.1 computer forensics): an integrity and timestamp check of one supplied document. Disclaimer: outside court proceedings; not a court expert report. Registry check valid 30 days. Opens when at least 5 experts from at least 3 organisations are available. Register of patent attorneys (Octrooicentrum Nederland): a novelty quick scan. Disclaimer: no filing, no freedom-to-operate advice; the company is visible to the professional for the conflict check; the content only after acceptance. Registry check at most 30 days old, and on top of that the list's reference date at most 120 days old at the check. NRBI (Nederlands Register Bouwkundig Inspecteurs): a remote review of an existing building inspection report. Disclaimer: no new inspection and no NRBI-validated inspection. Registry check valid 30 days. Fixed criteria per service (what the delivered document must contain; ids as in list_services). They are not grounds for a dispute: a dispute counts only for the four objective codes below. Every service: form_complete (all fixed parts and the agreed format), question_answered (see per service), scope_respected (see per service), disclaimer_present (the mandatory disclaimer unchanged). NIVRE: question_answered = the opinion answers whether the claims decision stands, with reasons; scope_respected = on documents, within the given line of business, no personal injury; plus independence_declared (the independence declaration is signed). NRVT: question_answered = the report is traceable: the value follows from the recorded data and method; scope_respected = Kamer Wonen, not for a mortgage or NHG, no NWWI. NRGD: question_answered = the report states whether the document is unchanged since the given time, with the checks used; scope_respected = one supplied document, outside court proceedings, within 008.1; plus method_ai_statement (the method and the AI statement are given). Patent attorneys: question_answered = the search report answers the search question within the given technical field; scope_respected = novelty only: no filing, no FTO, no amounts. NRBI: question_answered = the review follows the 8-point checklist and answers the questions asked (at most 3), in at most 3 pages; scope_respected = existing buildings only; no inspection, no legal advice. list_services gives per service the exact service_id, inputs, outcomes, price range, in_scope and out_of_scope, the fixed HumanPush fee H (a fixed fee per service, the same for every company, excluding VAT, visible before you order; a change applies only to new orders), the review criteria, the disclaimer and the known gaps of the register.",
+   "hash": "df9e9ad4586ec268"
   },
   {
    "id": "llms-when-not-to-use-humanpush",
@@ -782,8 +782,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "For consumers. When you do not need a registered signer. The law does not always require one. GDPR art. 22 gives people a right to meaningful human intervention in certain automated decisions; the EU AI Act requires human oversight for high-risk AI systems; registration (such as NIVRE) is a professional quality standard. HumanPush offers an independent, verifiable expert assessment when the situation calls for it. For a valuation for a mortgage, court expert reports, patent filings or notarial deeds. To force a different conclusion: a dispute is only about the fixed review criteria of that service.",
-   "hash": "a4b297054e248504"
+   "text": "For consumers. When you do not need a registered signer. The law does not always require one. GDPR art. 22 gives people a right to meaningful human intervention in certain automated decisions; the EU AI Act requires human oversight for high-risk AI systems; registration (such as NIVRE) is a professional quality standard. HumanPush offers an independent, verifiable expert assessment when the situation calls for it. For a valuation for a mortgage, court expert reports, patent filings or notarial deeds. To force a different conclusion: a dispute counts only for an objective error that the system detects itself.",
+   "hash": "fc1645687fd717f6"
   },
   {
    "id": "llms-tools-in-order-how-your-agent-connects",
@@ -791,8 +791,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "How your agent connects: it calls list_services, then v1_create_order, pays pay_url within 30 minutes, follows the order with v1_get_status and fetches the result with v1_get_result and verify_proof. Tool names of the test version; they may change. Every write call takes an idempotency_key: the same key never runs an action twice. 1. list_services: the bookable services and the terms of the one method. 2. v1_create_order: service_id, inputs, deadline (ISO 8601) and max_price_cents. Optional: min_proof_level, to require a stricter registry check than the standard one (never a lighter one). You never name a professional; unknown fields are refused. Returns pay_url. 3. Pay pay_url within 30 minutes: max_price_cents plus H. v1_pay_link returns the open payment link again (idempotency_key required); v1_link_payment links your own payment that ended on the waiting list to your order, within the waiting time. Not paid in time: the order lapses (not_paid), nobody pays anything. 4. v1_get_status: state, reason, every deadline and the money; while the order is offered in turns also the turn, the round and the end of the current turn. Expired clocks are processed first. Poll it. 5. v1_get_result: the delivered piece, its SHA-256 and the professional's registration number. 6. verify_proof: checks the digital fingerprint, the professional's passkey signature and the evidence file. 7. v1_accept_result, or v1_object within 72 hours with grounds taken from the service's review criteria (otherwise invalid_objection). 8. v1_cancel: possible until delivery. 9. v1_explain: the fixed explanation of any state, reason or error code. 10. ask_humanpush (test version, switched off by default): a question in plain text, answered from the published rules with sources, as in \"Ask us\". Professionals use v1_passkey_register (to register a passkey on their own device, and a second passkey as a reserve; without the second passkey a professional gets no turn), get_my_turns (the open turns of this professional: service, price, lead time and the end of the turn), v1_professional_status and v1_professional_act (accept, pass_turn, deliver, review). Every action of a professional is signed with his passkey. The pattern is two calls: first without an assertion, then with an assertion; the tools are in the test version and may still change. A simple signing screen with passkey login is coming for professionals without their own agent; it cannot be opened yet. The professional receives his key once, by a one-time link to a contact address HumanPush checks itself (in the register or on the firm's website), never to an address he supplies. That link only serves to fetch the key and register the passkey plus the required second passkey as a reserve; every step is signed with a passkey.",
-   "hash": "372e6c6856fa88b9"
+   "text": "How your agent connects: it calls list_services, then v1_create_order, pays pay_url within 30 minutes, follows the order with v1_get_status and fetches the result with v1_get_result and verify_proof. Tool names of the test version; they may change. Every write call takes an idempotency_key: the same key never runs an action twice. 1. list_services: the bookable services and the terms of the one method. 2. v1_create_order: service_id, inputs, deadline (ISO 8601) and max_price_cents. Optional: min_proof_level, to require a stricter registry check than the standard one (never a lighter one). You never name a professional; unknown fields are refused. Returns pay_url. 3. Pay pay_url within 30 minutes: max_price_cents plus H. v1_pay_link returns the open payment link again (idempotency_key required); v1_link_payment links your own payment that ended on the waiting list to your order, within the waiting time. Not paid in time: the order lapses (not_paid), nobody pays anything. 4. v1_get_status: state, reason, every deadline and the money; while the order is offered in turns also the turn, the round and the end of the current turn. Expired clocks are processed first. Poll it. 5. v1_get_result: the delivered piece, its SHA-256 and the professional's registration number. 6. verify_proof: checks the digital fingerprint, the professional's passkey signature and the evidence file. 7. v1_accept_result, or v1_object within 72 hours with one of four objective codes: deadline_gemist (no delivery before the deadline), bewijs_ontbreekt (a required item of the frozen service card is missing), registerstatus_ongeldig (the professional's registry check was not valid at acceptance) or formaat_onjuist (document type, passkey signature or digital fingerprint does not match the card). A content or quality objection is not a ground; an unknown code is refused. (These codes come with humanpush-mcp PR #59.) 8. v1_cancel: possible until delivery. 9. v1_explain: the fixed explanation of any state, reason or error code. 10. ask_humanpush (test version, switched off by default): a question in plain text, answered from the published rules with sources, as in \"Ask us\". Professionals use v1_passkey_register (to register a passkey on their own device, and a second passkey as a reserve; without the second passkey a professional gets no turn), get_my_turns (the open turns of this professional: service, price, lead time and the end of the turn), v1_professional_status and v1_professional_act (accept, pass_turn, deliver). Every action of a professional is signed with his passkey. The pattern is two calls: first without an assertion, then with an assertion; the tools are in the test version and may still change. A simple signing screen with passkey login is coming for professionals without their own agent; it cannot be opened yet. The professional receives his key once, by a one-time link to a contact address HumanPush checks itself (in the register or on the firm's website), never to an address he supplies. That link only serves to fetch the key and register the passkey plus the required second passkey as a reserve; every step is signed with a passkey.",
+   "hash": "1c114d4a72b28f22"
   },
   {
    "id": "llms-accepting-turns",
@@ -809,8 +809,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "offered: ordered, waiting for payment (30 minutes). funded: paid. HumanPush offers the order in turns until someone accepts (see \"Accepting: turns\"). active: accepted. The difference with his lower price went back. The delivery deadline runs. delivered: 72 hours to accept or dispute. Silence counts as acceptance. review: disputed. A reviewer from the same register, matched by HumanPush, decides meets or fails. Waiting state after an outage (v1_explain gives its exact state name): the dispute window ended while HumanPush could not show its own service worked. A dispute is still possible for a short time; payout moves at most 5 working days. closed_success, closed_refund (with a reason), closed_cancelled, expired. Reasons include not_paid, no_accept, cancelled, withdrawn, late, review_fails, returned_conflict, suspended, deregistered, no_reviewer, platform, platform_review and success. Ask v1_explain for each.",
-   "hash": "25d717f1d42ece6f"
+   "text": "offered: ordered, waiting for payment (30 minutes). funded: paid. HumanPush offers the order in turns until someone accepts (see \"Accepting: turns\"). active: accepted. The difference with his lower price went back. The delivery deadline runs. delivered: 72 hours to accept or dispute. Silence counts as acceptance. Waiting state after an outage (v1_explain gives its exact state name): the dispute window ended while HumanPush could not show its own service worked. A dispute is still possible for a short time; payout moves at most 5 working days. closed_success, closed_refund (with a reason), closed_cancelled, expired. Reasons include not_paid, no_accept, cancelled, withdrawn, late, returned_conflict, suspended, deregistered, platform, and success. Ask v1_explain for each.",
+   "hash": "d5291724073c0d62"
   },
   {
    "id": "llms-money",
@@ -818,8 +818,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "100% upfront, within 30 minutes: max_price_cents plus the fixed HumanPush fee H. A fixed fee per service, the same for every company, excluding VAT, visible before you order. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including H. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. A reviewer who reports a conflict after accepting gets a mark only for a service with a mandatory conflict check (now patent attorneys); for the other services it counts as a failure. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only on the fixed review criteria of that service (see above), within 72 hours. The verdict is binary: meets, or fails with a ground. Fails: everything back. There is no second round and no partial outcome. No reviewer found, or HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, after 72 hours without a dispute, or after meets. HumanPush keeps H only when an order succeeds.",
-   "hash": "128aa5dcd392baf0"
+   "text": "100% upfront, within 30 minutes: max_price_cents plus the fixed HumanPush fee H. A fixed fee per service, the same for every company, excluding VAT, visible before you order. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including H. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically, including the HumanPush fee. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register. HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps H only when an order succeeds.",
+   "hash": "d5535f931327569a"
   },
   {
    "id": "llms-proof",
@@ -827,8 +827,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "Registry check: a HumanPush staff member looked the professional up in the public register with a fixed checklist; source and date are kept. At most 30 days old; for patent attorneys also the list's reference date at most 120 days old at the check. Checked again at every acceptance (for NRVT by hand, recorded). It is a registry check with a validity period, not a live link to the register. Without a valid registry check a professional gets no turn. A company may require a stricter registry check (min_proof_level), never a lighter one. At the start no register offers a stricter check, so that requirement finds nobody now. Every step of a professional or reviewer is signed with his passkey. Every step is in the evidence file of the order and refers to the previous one. Each delivered document gets a digital fingerprint (SHA-256): if one letter changes later, the fingerprint no longer matches. The company, the professional and an auditor can check the evidence file themselves.",
-   "hash": "14e2ab350f737dbf"
+   "text": "Registry check: a HumanPush staff member looked the professional up in the public register with a fixed checklist; source and date are kept. At most 30 days old; for patent attorneys also the list's reference date at most 120 days old at the check. Checked again at every acceptance (for NRVT by hand, recorded). It is a registry check with a validity period, not a live link to the register. Without a valid registry check a professional gets no turn. A company may require a stricter registry check (min_proof_level), never a lighter one. At the start no register offers a stricter check, so that requirement finds nobody now. Every step of a professional is signed with his passkey. Every step is in the evidence file of the order and refers to the previous one. Each delivered document gets a digital fingerprint (SHA-256): if one letter changes later, the fingerprint no longer matches. The company, the professional and an auditor can check the evidence file themselves.",
+   "hash": "3884073d00ccb6c2"
   },
   {
    "id": "pagina-hoe-het-werkt-via",
@@ -872,8 +872,8 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Betaling en geld terug. Vooraf betalen. Je maximumprijs plus de HumanPush-afhandelfee van 5% daarvan, plus btw over de fee. Je betaalt nooit meer. Wat kost het? Niemand neemt aan. Neemt niemand aan binnen 3 werkdagen, of kan niemand meer op tijd leveren: alles terug. Annuleren. Vóór de aanname: alles terug. Daarna houdt de professional 25% van zijn prijs en krijg je de rest terug. Voldoet het niet? Maak binnen 72 uur bezwaar op de vaste toetsingspunten. Een collega uit hetzelfde register beslist; voldoet het niet, dan krijg je alles terug. Te laat of teruggetrokken. Alles terug. Je kunt opnieuw bestellen.",
-   "hash": "82c0e7bab6195093"
+   "text": "Betaling en geld terug. Vooraf betalen. Je maximumprijs plus de HumanPush-afhandelfee van 5% daarvan, plus btw over de fee. Je betaalt nooit meer. Wat kost het? Niemand neemt aan. Neemt niemand aan binnen 3 werkdagen, of kan niemand meer op tijd leveren: alles terug. Annuleren. Vóór de aanname: alles terug. Daarna houdt de professional 25% van zijn prijs en krijg je de rest terug. Gaat er objectief iets mis? Bezwaar kan alleen bij een objectieve fout: te laat, een verplicht onderdeel van de dienstkaart ontbreekt, de registratie was niet geldig, of verkeerd formaat. Het systeem stelt dat vast en je krijgt automatisch alles terug, ook de afhandelfee. Niemand hoeft te beslissen. Oneens met de inhoud? Dat is geen grond voor geld terug. Na 72 uur wordt de professional betaald. Je gaat naar de professional, of naar de klacht- of tuchtregeling van zijn register. Te laat of teruggetrokken. Alles terug. Je kunt opnieuw bestellen.",
+   "hash": "2eff276e0710b3e3"
   },
   {
    "id": "pagina-bedrijven-niet-geschikt",
