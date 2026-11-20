@@ -594,3 +594,7 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .wrap.prose { max-width: 1200px; }
 .wrap.prose > * { max-width: 46em; }
 .svc-top .status { white-space: normal; }
+
+/* Footer: juridische regel in de gedempte footerstijl; breekt per onderdeel af op mobiel */
+.site-footer .f-legal { margin-top: 14px; color: var(--on-dark-muted); font-size: 13px; line-height: 1.6; }
+.site-footer .f-legal span { white-space: nowrap; }

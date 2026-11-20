@@ -135,7 +135,7 @@ test('footer: Bedrijven, Professionals, Over HumanPush, Juridisch, plus de HumAg
     const foot = read(f).match(/<footer[\s\S]*<\/footer>/)[0];
     assert.deepEqual([...foot.matchAll(/<p class="h">([^<]+)<\/p>/g)].map((m) => m[1]), ['Bedrijven', 'Professionals', 'Over HumanPush', 'Juridisch'], f);
     for (const href of ['/hoe-het-werkt', '/veelgestelde-vragen', '/pilot/second-opinion', '/agents', '/privacy', '/voorwaarden']) assert.ok(foot.includes(`href="${href}"`), `${f}: ${href}`);
-    assert.ok(foot.includes('HumanPush is een handelsnaam van HumAgent B.V. (KvK 42222476).'), f);
+    assert.equal(foot.match(/<p class="f-legal">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, ''), 'HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · btw NL870249964B01 · Utrecht', f);
   }
 });
 
