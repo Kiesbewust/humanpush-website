@@ -77,11 +77,13 @@ test('JSON-LD: FAQPage op de vragenpagina, gelijk aan de zichtbare vragen en ant
   for (const f of PAGES.filter((f) => f !== 'veelgestelde-vragen.html')) assert.ok(!graphOf(f).some((n) => n['@type'] === 'FAQPage'), f);
 });
 
-test('JSON-LD: Service per register op /bedrijven en /professionals', () => {
-  for (const f of ['bedrijven.html', 'professionals.html']) {
+test('JSON-LD: alleen de NIVRE-dienst als aangeboden Service, op /bedrijven en /professionals', () => {
+  for (const f of PAGES) {
     const services = graphOf(f).filter((n) => n['@type'] === 'Service');
-    assert.equal(services.length, 5, f);
-    for (const r of ['NIVRE', 'NRVT', 'NRGD', 'Octrooigemachtigden', 'NRBI']) assert.ok(services.some((s) => s.description.includes(r)), `${f}: ${r}`);
+    if (!['bedrijven.html', 'professionals.html'].includes(f)) { assert.equal(services.length, 0, f); continue; }
+    assert.equal(services.length, 1, f);
+    assert.equal(services[0].name, 'Toets van een schadevaststelling op basis van een compleet dossier', f);
+    assert.match(services[0].description, /NIVRE/, f);
   }
 });
 

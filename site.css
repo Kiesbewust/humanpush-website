@@ -728,3 +728,9 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .voorbereiding li + li { border-top: 1px solid var(--line-soft); }
 .status.prep::before { background: var(--muted); }
 .svc-toetsing { margin: 8px 0 0; font-size: 16px; color: var(--body); }
+/* Zichtbaar uitklapteken bij "Hoe precies?" en de vragen eronder */
+.pay-more summary, .pay-q summary { list-style: none; }
+.pay-more summary::-webkit-details-marker, .pay-q summary::-webkit-details-marker { display: none; }
+.pay-more summary::after, .pay-q summary::after { content: ""; flex: none; width: 14px; height: 14px; margin-left: 8px; background: currentColor; -webkit-mask: var(--i-chevron) center / 14px no-repeat; mask: var(--i-chevron) center / 14px no-repeat; }
+.pay-more[open] > summary::after, .pay-q[open] > summary::after { transform: rotate(180deg); }
+.pay-q summary { justify-content: space-between; }

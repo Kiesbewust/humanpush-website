@@ -17,7 +17,7 @@ De pauze stopt nieuwe opdrachten voor iedereen. Lopende opdrachten lopen door on
 De regels en de catalogus die golden bij het bestellen, gelden voor die hele opdracht. Een nieuwe versie geldt alleen voor nieuwe opdrachten.
 
 ### R1.5 · Eén systeem voor alle beroepen
-Termijnen, geldregels, bezwaar en bewijsvloer zijn voor alle vijf diensten gelijk. Per dienst verschillen alleen het register, de invoer, de uitkomsten, het prijsbereik, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.
+Termijnen, geldregels, bezwaar en bewijsvloer zijn voor elke dienst gelijk. We beginnen met de NIVRE-dienst; de andere diensten zijn in voorbereiding. Per dienst verschillen alleen het register, de invoer, de uitkomsten, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.
 
 ### R1.6 · Alleen zakelijk
 Opdrachtgevers hebben een KvK-nummer. Professionals staan in een openbaar register. Niet voor particulieren of consumenten.
@@ -51,10 +51,10 @@ Een professional maakt een passkey aan op zijn eigen telefoon of computer, en ee
 Bestellen is: dienst, invoer, uiterste datum en maximumprijs. Onbekende velden worden geweigerd. De agent kiest nooit zelf een professional.
 
 ### R3.2 · 100% vooraf, binnen 30 minuten
-Het bedrijf betaalt vooraf de maximumprijs plus de HumanPush-afhandelfee (5% daarvan) en btw over de fee, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
+Het bedrijf betaalt vooraf de maximumprijs plus de HumanPush-afhandelfee (5% daarvan) en 21% btw over de fee, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
 
 ### R3.3 · De HumanPush-afhandelfee
-De afhandelfee is 5% van de prijs van de professional, excl. btw; het bedrijf betaalt btw over de fee. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil in prijs en fee meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.
+De afhandelfee is 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil in prijs en fee meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.
 
 ### R3.5 · Herhaalde aanroep is één uitvoering
 Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert niets twee keer uit.
