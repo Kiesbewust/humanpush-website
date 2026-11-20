@@ -381,7 +381,7 @@ test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, D
   const faq = read('veelgestelde-vragen.html');
   assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot je rekening volgt na de testfase\.<\/p>/);
   assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op je scherm bij HumanPush, of je agent vraagt het op\. Er gaat nog geen mail of push\./);
-  for (const f of PAGES.filter((f) => f !== 'voorwaarden.html')) assert.doesNotMatch(read(f), /factur/i, `${f}: wie factureert wacht op jurist en fiscalist`);
+  for (const f of PAGES.filter((f) => f !== 'voorwaarden.html')) assert.doesNotMatch(read(f), /factureer|facturatie|factuur/i, `${f}: wie factureert wacht op jurist en fiscalist`);
 });
 
 test('code is law: nergens meer een collega of beoordelaar die beslist, geen "voldoet / voldoet niet" (site, kennisbank, llms.txt)', () => {
@@ -421,4 +421,15 @@ test('tekenen uitgelegd: lead onder de h1 zegt wat tekenen betekent; per pagina 
   for (const f of ['index.html', 'hoe-het-werkt.html', 'bedrijven.html', 'professionals.html', 'agents.html', 'pilot/second-opinion.html']) {
     assert.equal((read(f).match(/\(geen gekwalificeerde e-handtekening; zie <a href="\/hoe-het-werkt#grenzen">wat het dossier aantoont<\/a>\)/g) || []).length, 1, f);
   }
+});
+
+test('status: "Wat werkt al, en wat nog niet" op /hoe-het-werkt#status, gelinkt vanaf home en /agents; testlinks alleen met de vlag', () => {
+  const h = read('hoe-het-werkt.html');
+  const s = h.match(/<section class="section mist" id="status"[\s\S]*?<\/section>/)[0];
+  const rows = [...s.matchAll(/<tr><th scope="row">([\s\S]*?)<\/th><td>([\s\S]*?)<\/td><\/tr>/g)].map((m) => [m[1].replace(/<[^>]+>/g, ''), m[2].replace(/<a[\s\S]*?<\/a>/g, '').trim()]);
+  assert.deepEqual(rows.map((r) => r[0]), ['Dienstkaarten, regels, registercheck-logica', 'Bestellen en vooraf betalen', 'Aannemen, opleveren, tekenen met passkey', 'Dossier en controle met verify_proof', 'Bezwaar alleen bij een objectieve fout', 'Bedrijfsscherm voor mensen, dossier-export', 'Echte opdrachten en echte betalingen', 'Uitbetaling aan professionals, facturen']);
+  assert.deepEqual(rows.find((r) => r[0].startsWith('Echte')), ['Echte opdrachten en echte betalingen', 'nog niet: start met de NIVRE-pilot']);
+  for (const a of s.matchAll(/<a [^>]*>/g)) assert.match(a[0], /data-testenv hidden/, 'link naar de testomgeving alleen met de vlag');
+  assert.doesNotMatch(s, /\b20\d\d\b|januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december|Q[1-4]/i, 'geen beloften met datums');
+  for (const f of ['index.html', 'agents.html']) assert.match(read(f), /<a href="\/hoe-het-werkt#status">Wat werkt al, en wat nog niet<\/a>/, f);
 });

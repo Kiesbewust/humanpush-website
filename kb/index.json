@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-19",
- "kb_hash": "049cf42fc3063dd743bb64292960d2fb1d94e5c11a55021ff3967aed1f9ceceb",
+ "kb_hash": "d0d525d9f143e742f435d986234f11db6cac7ceb1de0b2f96f548852b50592c9",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -856,6 +856,15 @@
    "source": "pagina",
    "text": "Wat HumanPush controleert, en wat niet. HumanPush controleert alleen wat objectief na te gaan is: staat de professional in het openbare register, bij aanmelding en opnieuw vlak voor het aannemen; is er op tijd opgeleverd; is er een stuk met een van de vaste uitkomsten van de dienst; is het getekend met de passkey van de professional die de opdracht aannam; klopt de digitale vingerafdruk. HumanPush oordeelt niet over de inhoud. Of een conclusie juist is, beoordeelt de professional onder zijn eigen beroepsregels.",
    "hash": "5c6d64e9c82b1833"
+  },
+  {
+   "id": "pagina-hoe-het-werkt-status",
+   "title": "Wat werkt al, en wat nog niet",
+   "url": "https://humanpush.nl/hoe-het-werkt#status",
+   "lang": "nl",
+   "source": "pagina",
+   "text": "Wat werkt al, en wat nog niet. HumanPush is in de testfase. Zo staat het er nu voor, zonder beloften met datums. OnderdeelStatusDienstkaarten, regels, registercheck-logicawerkt in de testomgeving testomgeving openenBestellen en vooraf betalentestomgeving met nepgeld (Mollie test) testomgeving openenAannemen, opleveren, tekenen met passkeytestomgeving testomgeving openenDossier en controle met verify_prooftestomgeving, alleen via de agent testomgeving openenBezwaar alleen bij een objectieve foutin ontwikkeling, nog niet in de testomgevingBedrijfsscherm voor mensen, dossier-exportkomt eraanEchte opdrachten en echte betalingennog niet: start met de NIVRE-pilotUitbetaling aan professionals, facturenin ontwikkeling, nog niet actief",
+   "hash": "e8970b0631dfaf9f"
   },
   {
    "id": "pagina-hoe-het-werkt-grenzen",

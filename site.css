@@ -712,3 +712,5 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 
 .hero-link { margin: 10px 0 0; font-size: 16px; }
 .hero.dark .hero-link a { color: var(--white); text-decoration-color: rgba(255, 255, 255, .5); }
+
+.status-tabel th[scope="row"] { font-weight: 500; color: var(--ink); text-align: left; }
