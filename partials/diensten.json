@@ -119,7 +119,7 @@
       "id": "nivre",
       "tab": "NIVRE",
       "register": "NIVRE, register schade-experts",
-      "uitleg": "Het register van schade-experts in Nederland. Sector: schade en verzekeringen.",
+      "uitleg": "Het NIVRE-register van schade-experts. Sector: schade en verzekeringen.",
       "badge": "NIVRE",
       "service_id": "nivre.independent_opinion",
       "dienst": "Onafhankelijk oordeel over een claimbesluit, op stukken",

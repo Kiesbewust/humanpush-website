@@ -1,5 +1,5 @@
-// HumanPush: mobiel menu, Inloggen-menu, interactieve flow, dienstkaarten, steppers, de voorbeeld-demo en (alleen met de vlag aan) het chatvenster.
-// Zonder JavaScript staat het menu open, gaat Inloggen naar /inloggen en toont de flow een statische lijst.
+// HumanPush: mobiel menu, Inloggen-menu, dienstkaarten en tabs, kant kiezen, de voorbeeld-demo en (alleen met de vlag aan) het chatvenster.
+// Zonder JavaScript staat het menu open, gaat Inloggen naar /inloggen en staan alle kanten, tabs en uitklappers open.
 (function () {
   var root = document.documentElement;
   root.classList.remove('no-js');
@@ -39,35 +39,11 @@
     if (typeof u === 'string' && u) { a.href = u; var s = a.querySelector('.soon'); if (s) s.remove(); }
   });
 
-  // Interactieve flow: hover, focus en tik tonen de uitleg; Esc sluit; hooguit één tegelijk.
-  document.querySelectorAll('[data-flow]').forEach(function (f) {
-    function closeAll(except) {
-      f.querySelectorAll('.fn.is-open').forEach(function (n) {
-        if (n !== except) { n.classList.remove('is-open'); delete n.dataset.pinned; n.querySelector('.fbtn').setAttribute('aria-expanded', 'false'); }
-      });
-    }
-    f.querySelectorAll('.fbtn').forEach(function (b) {
-      var n = b.parentNode;
-      function open() { closeAll(n); n.classList.add('is-open'); b.setAttribute('aria-expanded', 'true'); }
-      function close() { if (n.dataset.pinned) return; n.classList.remove('is-open'); b.setAttribute('aria-expanded', 'false'); }
-      n.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') open(); });
-      n.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') close(); });
-      b.addEventListener('focus', open);
-      b.addEventListener('blur', close);
-      b.addEventListener('click', function () {
-        if (n.dataset.pinned) { delete n.dataset.pinned; n.classList.remove('is-open'); b.setAttribute('aria-expanded', 'false'); }
-        else { open(); n.dataset.pinned = '1'; }
-      });
-    });
-    document.addEventListener('click', function (e) { if (!f.contains(e.target)) closeAll(null); });
-  });
-
-  // Escape sluit menu, Inloggen en de flow.
+  // Escape sluit menu en Inloggen.
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     if (login && login.classList.contains('open')) { setLogin(false); loginBtn.focus(); }
     if (button && button.getAttribute('aria-expanded') === 'true') { setMenu(false); button.focus(); }
-    document.querySelectorAll('[data-flow] .fn.is-open').forEach(function (n) { n.classList.remove('is-open'); delete n.dataset.pinned; n.querySelector('.fbtn').setAttribute('aria-expanded', 'false'); });
   });
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -78,9 +54,9 @@
     a.addEventListener('click', function () { store('hp-doelgroep', a.getAttribute('data-aud')); });
   });
 
-  // Schakelaar "Voor de professional | Voor het bedrijf" (dienstkaarten en steppers): één kant zichtbaar.
+  // Schakelaar "Voor de professional | Voor het bedrijf" op de dienstkaarten: één kant zichtbaar.
   function bindToggle(root, itemSel) {
-    var btns = root.querySelectorAll(':scope > .svc-bar .svc-view, :scope > .stepper-bar .svc-view');
+    var btns = root.querySelectorAll(':scope > .svc-bar .svc-view');
     function set(v) {
       root.setAttribute('data-view', v);
       btns.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-view') === v ? 'true' : 'false'); });
@@ -146,47 +122,6 @@
 
   // Registers en sectoren op home: een professional landt op zijn eigen pagina, een bedrijf op /bedrijven.
   if (store('hp-doelgroep') === 'pro') document.querySelectorAll('a[data-tablink]').forEach(function (a) { a.href = '/professionals#' + a.getAttribute('data-tablink'); });
-
-  // Stepper: 4 stappen, pijlen, swipe (scroll-snap) en pijltjestoetsen. Geen autoplay.
-  document.querySelectorAll('[data-stepper]').forEach(function (st) {
-    var track = st.querySelector('.stepper-track');
-    var steps = [].slice.call(st.querySelectorAll('.step'));
-    var dots = [].slice.call(st.querySelectorAll('.stepper-dot'));
-    var pos = st.querySelector('[data-pos]');
-    var prev = st.querySelector('[data-prev]'), next = st.querySelector('[data-next]');
-    var idx = 0;
-    var set = bindToggle(st, '.step-v');
-    var aud = store('hp-doelgroep');
-    var views = [].map.call(st.querySelectorAll('.svc-view'), function (b) { return b.getAttribute('data-view'); });
-    if (aud && views.indexOf(aud) >= 0) set(aud);
-    st.setAttribute('data-ready', '');
-    steps.forEach(function (s, i) { s.setAttribute('role', 'group'); s.setAttribute('aria-roledescription', 'stap'); });
-    function show(i, scroll) {
-      idx = Math.max(0, Math.min(steps.length - 1, i));
-      pos.textContent = idx + 1;
-      prev.disabled = idx === 0; next.disabled = idx === steps.length - 1;
-      dots.forEach(function (d, j) { if (j === idx) d.setAttribute('aria-current', 'step'); else d.removeAttribute('aria-current'); });
-      steps.forEach(function (s, j) { s.setAttribute('aria-hidden', j === idx ? 'false' : 'true'); s.inert = j !== idx; });
-      if (scroll) track.scrollTo({ left: steps[idx].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
-    }
-    prev.addEventListener('click', function () { show(idx - 1, true); });
-    next.addEventListener('click', function () { show(idx + 1, true); });
-    dots.forEach(function (d, j) { d.addEventListener('click', function () { show(j, true); }); });
-    track.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight') { e.preventDefault(); show(idx + 1, true); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); show(idx - 1, true); }
-    });
-    var t;
-    track.addEventListener('scroll', function () {
-      clearTimeout(t);
-      t = setTimeout(function () {
-        var w = track.clientWidth || 1;
-        var i = Math.round(track.scrollLeft / (steps[0].offsetWidth + 16 || w));
-        if (i !== idx) show(i, false);
-      }, 80);
-    }, { passive: true });
-    show(0, false);
-  });
 
   // Voorbeeld-demo in de hero: loopt stap voor stap, pauzeert bij hover, focus of de knop; stil bij verminderde beweging.
   document.querySelectorAll('.demo[data-anim]').forEach(function (demo) {

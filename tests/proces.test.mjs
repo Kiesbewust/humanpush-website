@@ -68,7 +68,7 @@ test('de vier stappen op home en /hoe-het-werkt: vaste tekst, in gewone lettergr
 
 test('/hoe-het-werkt: kant-keuze bovenaan, een gesprek per kant tot de uitbetaling, en 4 punten "Wat wordt er vastgelegd"', () => {
   const t = read('hoe-het-werkt.html');
-  assert.match(t, /<div class="side-bar" data-side-root>\n<div class="svc-toggle side-toggle" role="group" aria-label="Kies je kant"><button type="button" class="svc-view" data-view="pro" aria-pressed="false">Ik ben professional<\/button><button type="button" class="svc-view" data-view="bedrijf" aria-pressed="true">Ik ben een bedrijf \(of zijn agent\)<\/button><\/div>/);
+  assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">[^<]*<\/p>\n<div class="svc-toggle side-toggle" role="group" aria-label="Kies je kant"><button type="button" class="svc-view" data-view="pro" aria-pressed="false">Ik ben professional<\/button><button type="button" class="svc-view" data-view="bedrijf" aria-pressed="true">Ik ben een bedrijf \(of zijn agent\)<\/button><\/div>/);
   assert.ok(t.indexOf('data-side-root') < t.indexOf('class="steps4"'), 'keuze staat bovenaan');
   for (const side of ['pro', 'bedrijf']) {
     const s = t.match(new RegExp(`<div class="side" data-side="${side}">[\\s\\S]*?<\\/figure>`))[0];
@@ -98,7 +98,7 @@ test('/professionals: drie manieren met eigen flow, onboarding, uitbetaling, te 
   for (const k of ['turnWorkingMinutes', 'maxTurnsPerPro']) assert.match(laat, new RegExp(`data-rule="${k}"`), k);
   assert.match(laat, /09:00 tot 17:00/);
   assert.doesNotMatch(visible(t), /€\s?\d/, 'geen bedragen');
-  for (const v of ['Instappen in agentic werk', 'Weten waar je aan toe bent', 'Geen acquisitie en geen facturen', 'Je registratie beter benut']) assert.ok(t.includes(v), v);
+  for (const v of ['Instappen in agentic werk', 'Weten waar je aan toe bent', 'Geen acquisitie en geen incasso', 'Je registratie beter benut']) assert.ok(t.includes(v), v);
   assert.match(visible(t), /\bjij\b|\bjouw\b/i);
 });
 
@@ -117,7 +117,8 @@ test('registers: op elke registertab en dienstkaart één zin wat het register i
   for (const f of ['professionals.html', 'bedrijven.html']) {
     for (const r of DIENSTEN) assert.ok(read(f).includes(`<p class="svc-uitleg"><strong>${r.tab}:</strong> ${r.uitleg}</p>`), `${f}: ${r.id}`);
   }
-  assert.match(DIENSTEN.find((r) => r.id === 'nivre').uitleg, /schade-experts in Nederland/);
+  assert.equal(DIENSTEN.find((r) => r.id === 'nivre').uitleg, 'Het NIVRE-register van schade-experts. Sector: schade en verzekeringen.');
+  assert.doesNotMatch(read('professionals.html'), /geen facturen/i);
 });
 
 test('home: rij "Registers en sectoren" onder de routekaarten, als links naar de juiste tab', () => {
@@ -141,4 +142,56 @@ test('footer: Bedrijven, Professionals, Over HumanPush, Juridisch, plus de HumAg
 test('/voorwaarden: tekst ongewijzigd (aparte PR, ter toetsing door jurist)', () => {
   const main = read('voorwaarden.html').match(/<main id="inhoud">([\s\S]*?)<\/main>/)[1];
   assert.equal(createHash('sha256').update(main).digest('hex'), '47030ea70990b6fae41da6aec427f1e495b4257c77aa4451a2b42bdb60f03a5b');
+});
+
+test('kennisbasis: elk anker in een bronlink bestaat echt op die pagina', () => {
+  const kb = JSON.parse(read('kb/index.json'));
+  const file = (path) => (path === '/' ? 'index.html' : path.slice(1) + (path.endsWith('.txt') ? '' : '.html'));
+  let checked = 0;
+  for (const c of kb.chunks) {
+    const u = new URL(c.url);
+    assert.equal(u.origin, 'https://humanpush.nl', c.id);
+    const html = read(file(u.pathname));
+    if (u.hash) { assert.match(html, new RegExp(`id="${u.hash.slice(1)}"`), `${c.id}: ${c.url}`); checked++; }
+  }
+  assert.ok(checked > 50, `ankers gecontroleerd: ${checked}`);
+});
+
+test('meta-, og- en twitter-teksten en JSON-LD volgen de woordenlijst', () => {
+  const bad = /logboek|\bhash(es)?\b|passkey-handtekening|\bprotocol\b|\bmens\b|niveau 2|registerbewijs|stroomdiagram|swimlane|infographic/i;
+  for (const f of PAGES.filter((f) => f !== 'voorwaarden.html')) {
+    const t = read(f);
+    for (const m of t.matchAll(/<meta (?:name|property)="(description|og:[\w:]+|twitter:[\w:]+)" content="([^"]*)"/g)) assert.doesNotMatch(m[2], bad, `${f} ${m[1]}: ${m[2]}`);
+    assert.doesNotMatch(t.match(/<title>([^<]*)<\/title>/)[1], bad, `${f} title`);
+    for (const m of t.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) assert.doesNotMatch(m[1], bad, `${f} JSON-LD`);
+  }
+});
+
+test('llms.txt (Engels): registry check, digital fingerprint, evidence file en HumanPush', () => {
+  const t = read('llms.txt');
+  assert.doesNotMatch(t, /register proof|level 2|\bhash\b|\bthe log\b|signed log|\blogged\b|\bprotocol\b|attestation/i);
+  for (const w of ['registry check', 'digital fingerprint', 'evidence file']) assert.match(t, new RegExp(w, 'i'), w);
+  assert.equal((read('sitemap.xml').match(/<lastmod>2026-11-20<\/lastmod>/g) || []).length, (read('sitemap.xml').match(/<loc>/g) || []).length);
+});
+
+test('zonder JS geen zin over een keuze zonder knoppen; mockup-labels minstens 12px; geen dode CSS van het oude schema', () => {
+  const t = read('hoe-het-werkt.html');
+  assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">Kies je kant; je keuze blijft bewaard\.<\/p>/);
+  assert.doesNotMatch(t.match(/<p class="lead">[^<]*<\/p>/)[0], /keuze/);
+  const css = read('site.css');
+  assert.match(css, /\.no-js \.side-bar \{ display: none; \}/);
+  for (const m of css.matchAll(/font-size:\s*([\d.]+)px/g)) assert.ok(Number(m[1]) >= 12, `font-size ${m[1]}px`);
+  assert.doesNotMatch(css, /\.infographic|\.swim|\.hp-flow-|\.iflow|\.stepper|\.flow-figure/);
+  assert.doesNotMatch(read('rules.json'), /swimlane/);
+});
+
+test('site.css: accolades in balans, geen @media binnen een regel', () => {
+  const css = read('site.css').replace(/\/\*[\s\S]*?\*\//g, '').replace(/url\("[^"]*"\)/g, 'url()');
+  let depth = 0;
+  for (const [i, line] of css.split('\n').entries()) {
+    if (/@media/.test(line)) assert.equal(depth, 0, `regel ${i + 1}: @media binnen een andere regel`);
+    depth += (line.match(/\{/g) || []).length - (line.match(/\}/g) || []).length;
+    assert.ok(depth >= 0 && depth <= 2, `regel ${i + 1}: diepte ${depth}`);
+  }
+  assert.equal(depth, 0);
 });
