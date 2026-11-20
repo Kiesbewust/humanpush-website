@@ -107,3 +107,20 @@ test('voorbeelden zonder datum uit het verleden', () => {
 test('goud nooit als knopkleur', () => {
   assert.doesNotMatch(read('site.css'), /\.btn[^{]*\{[^}]*background:\s*(var\(--gold\)|#E0A526)/i);
 });
+
+test('regressie (al opgelost, 20-11): nergens "4 werkuren"/"vier werkuren" of NRGD 008.4', () => {
+  for (const f of [...PAGES, 'llms.txt']) {
+    const t = f.endsWith('.html') ? read(f).replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ') : read(f);
+    assert.doesNotMatch(t, /\b(4|vier) werkuren\b|008\.4/i, f);
+  }
+});
+
+test('geen straatadres of postcode in een publiek bestand', () => {
+  const pub = [...PAGES, 'llms.txt', 'kb/spelregels.md', 'kb/faq.md', 'kb/index.json', 'sitemap.xml', 'robots.txt'].filter((f) => existsSync(join(ROOT, f)));
+  const street = /\b[A-Z][a-zà-ÿ]+(straat|laan|weg|plein|gracht|kade|singel|dijk|park|steeg|hof)\s+\d{1,4}\s?[a-zA-Z]?\b/;
+  for (const f of pub) {
+    const t = read(f);
+    assert.doesNotMatch(t, /\b\d{4}\s?[A-Z]{2}\b/, `${f}: postcode`);
+    assert.doesNotMatch(t, street, `${f}: straat met huisnummer`);
+  }
+});
