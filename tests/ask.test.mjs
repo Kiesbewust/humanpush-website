@@ -174,3 +174,10 @@ test('prefilter blijft stil bij gewone vragen uit de FAQ', () => {
     assert.equal(prefilter(q), null, q);
   }
 });
+
+test('vaste bedragen-tekst woordelijk gelijk aan de site (en aan humanpush-mcp)', async () => {
+  const { REFUSAL_TEXT } = await import('../api/_policy.js');
+  assert.ok(REFUSAL_TEXT.nl.amounts.includes('5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw.'));
+  assert.ok(REFUSAL_TEXT.nl.amounts.includes('De vanaf-prijs per dienst volgt zodra professionals zich hebben aangemeld.'));
+  assert.doesNotMatch(REFUSAL_TEXT.nl.amounts + REFUSAL_TEXT.en.amounts, /vaste vergoeding|fixed fee|list_services/);
+});
