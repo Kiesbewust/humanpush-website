@@ -1,3 +1,5 @@
 .DS_Store
 .vercel
 node_modules
+# Screenshots van tools/visual-check.mjs: lokaal, niet in git.
+tests/screenshots/

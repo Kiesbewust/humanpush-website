@@ -42,41 +42,44 @@ test('lettertypen: alleen eigen woff2-bestanden die bestaan, Inter Tight en JetB
 
 test('dienstkaarten: 5 registers in vaste volgorde, beide kanten in de HTML, details standaard open (zonder JS)', () => {
   const data = JSON.parse(read('partials/diensten.json'));
-  assert.deepEqual(data.registers.map((r) => r.tab), ['Octrooigemachtigden', 'NRGD', 'NRVT', 'NIVRE', 'Bouwkundig keurders']);
+  assert.deepEqual(data.registers.map((r) => r.tab), ['NIVRE', 'NRVT', 'NRBI', 'NRGD', 'Octrooi']);
   for (const r of data.registers) {
     assert.match(r.service_id, /^[a-z]+\.[a-z_]+$/);
     for (const k of ['pro', 'bedrijf']) assert.equal(r[k].chips.length, 3, `${r.id} ${k}: 3 chips`);
     assert.doesNotMatch(JSON.stringify(r), /TODO|\[\.\.\.\]|€/);
   }
-  for (const [f, view] of [['professionals.html', 'pro'], ['bedrijven.html', 'bedrijf']]) {
+  // /professionals toont alle vijf registers (NIVRE uitgeklapt); /bedrijven alleen de dienst die te boeken is (besluit 20-11: NIVRE eerst).
+  for (const [f, view, regs] of [['professionals.html', 'pro', data.registers], ['bedrijven.html', 'bedrijf', data.registers.filter((r) => r.status === 'boekbaar')]]) {
     const t = read(f);
-    assert.match(t, new RegExp(`<!--diensten:start view=${view}-->`), f);
+    assert.match(t, new RegExp(`<!--diensten:start view=${view}( only=boekbaar)?-->`), f);
     assert.match(t, new RegExp(`<div class="svc" data-svc data-view="${view}">`), f);
-    for (const r of data.registers) {
+    for (const r of regs) {
       assert.match(t, new RegExp(`<section class="svc-card" id="${r.id}"`), `${f}: ${r.id}`);
       assert.match(t, new RegExp(`<a class="svc-tab" href="#${r.id}"`), `${f}: tab ${r.id}`);
-      assert.ok(t.includes(r.service_id), `${f}: ${r.service_id}`);
+      if (r.status !== 'in_toetsing') assert.ok(t.includes(r.service_id), `${f}: ${r.service_id}`);
     }
-    assert.equal((t.match(/<div class="svc-v" data-v="pro"/g) || []).length, 5, f);
-    assert.equal((t.match(/<div class="svc-v" data-v="bedrijf"/g) || []).length, 5, f);
-    assert.equal((t.match(/<details class="svc-more" open>/g) || []).length, 10, f);
+    assert.equal((t.match(/<div class="svc-v" data-v="pro"/g) || []).length, regs.length, f);
+    assert.equal((t.match(/<div class="svc-v" data-v="bedrijf"/g) || []).length, regs.length, f);
+    assert.equal((t.match(/<details class="svc-more" open>/g) || []).length, 2, `${f}: alleen NIVRE uitgeklapt (zonder JS)`);
     assert.match(t, /<button type="button" class="svc-view" data-view="pro" aria-pressed="(true|false)">Voor de professional<\/button>/);
   }
 });
 
-test('navigatie: alleen Bedrijven, Professionals, Hoe het werkt (+ Inloggen); /agents wel in footer, sitemap en llms.txt', () => {
+test('navigatie: alleen Bedrijven, Professionals, Hoe het werkt (Inloggen alleen met de testvlag); /agents wel in footer, sitemap en llms.txt', () => {
   for (const f of PAGES) {
     const t = read(f);
     const nav = t.match(/<ul class="nav-list">([\s\S]*?)<\/ul><\/nav>/)[1];
     const items = [...nav.matchAll(/<li(?: class="[^"]*")?><a href="([^"]+)"/g)].map((m) => m[1]);
-    assert.deepEqual(items, ['/bedrijven', '/professionals', '/hoe-het-werkt', '/inloggen'], f);
+    assert.deepEqual(items, ['/bedrijven', '/professionals', '/hoe-het-werkt'], f);
+    assert.match(nav, /<li class="nav-login-mobile" data-testenv hidden>/, `${f}: testomgeving alleen met de vlag`);
+    assert.match(t, /<div class="login" data-testenv hidden>/, `${f}: Inloggen standaard weg`);
     assert.match(t, /<footer[\s\S]*<a href="\/agents">/, `${f}: /agents in de footer`);
     assert.match(t, /<footer[\s\S]*<a href="\/veelgestelde-vragen">Veelgestelde vragen<\/a>/, `${f}: Veelgestelde vragen in de footer`);
   }
   assert.match(read('sitemap.xml'), /<loc>https:\/\/humanpush\.nl\/agents<\/loc>/);
   assert.match(read('llms.txt'), /humanpush\.nl\/agents|\/agents/);
   assert.match(read('bedrijven.html'), /<h1>Je AI-agent kan veel\. Tekenen kan hij niet\.<\/h1>/);
-  assert.match(read('bedrijven.html'), /id="developers"[\s\S]*Voor developers en agents[\s\S]*<pre><code>[\s\S]*v1_create_order[\s\S]*<a href="\/agents">/);
+  assert.match(read('bedrijven.html'), /id="developers"[\s\S]*Voor developers en agents[\s\S]*Bestellen in drie stappen: dienst kiezen, opdracht zetten, betaallink laten betalen\.[\s\S]*<a href="\/agents">[\s\S]*<details class="voor-bouwer" open><summary>Voor je bouwer<\/summary>[\s\S]*v1_create_order/);
   assert.match(read('professionals.html'), /<h1>Jouw registratie, ingezet waar AI het werk voorbereidt\.<\/h1>/);
 });
 
@@ -112,7 +115,10 @@ test('goudregel: goud alleen als accent, nooit knopachtergrond of tekstkleur', (
 
 test('dienstkaart NRGD (bedrijf): vaststelling, geen "zekerheid"', () => {
   const nrgd = JSON.parse(read('partials/diensten.json')).registers.find((r) => r.id === 'nrgd');
-  assert.equal(nrgd.bedrijf.regel, 'Een getekende vaststelling of één document onveranderd is, door een NRGD-deskundige.');
+  assert.equal(nrgd.bedrijf.regel, 'Een getekende vaststelling of één document overeenkomt met een referentiepunt dat je meelevert, door een NRGD-deskundige.');
+  assert.ok(nrgd.in_scope.includes("Je stelt vast of één aangeleverd document overeenkomt met een referentiepunt dat het bedrijf meelevert: een eerdere digitale vingerafdruk (hash), een ondertekende versie of een tijdstempel. Zonder bruikbaar referentiepunt is de uitkomst 'niet te beoordelen'."));
+  assert.ok(nrgd.out_of_scope.includes('Een oordeel zonder referentiepunt'));
+  assert.doesNotMatch(JSON.stringify(nrgd), /sinds (een|het opgegeven) tijdstip|onveranderd is/);
   for (const f of ['professionals.html', 'bedrijven.html']) assert.doesNotMatch(read(f), /Zekerheid of één document/, f);
 });
 
@@ -148,4 +154,25 @@ test('dienstkaarten volgen de opgeslagen doelgroep, net als de steppers', () => 
   const svc = js.slice(js.indexOf('// Dienstkaarten'), js.indexOf('// Stepper'));
   assert.match(svc, /store\('hp-doelgroep'\)/);
   assert.match(svc, /aud === 'pro' \|\| aud === 'bedrijf'/);
+});
+
+test('visuele rust: geen raster door de hero, geen doorhaling, minder lijnen, leesbare labels, niets afgeknipt op mobiel', () => {
+  const css = read('site.css');
+  assert.doesNotMatch(css, /line-through/, 'geen doorgestreepte tekst');
+  assert.doesNotMatch(css, /\.hero\.dark::after/, 'geen raster door de hero');
+  assert.match(css, /\.section \{ border-top: 0; \}/, 'geen lijn tussen secties met een andere achtergrond');
+  assert.match(css, /\.grid \{ border: 0; gap: 20px; \}/);
+  assert.match(css, /\.reasons li \+ li, \.guarantees li \+ li \{ border-top/, 'alleen lijnen tussen items');
+  assert.match(css, /\.c-msg \{ overflow-wrap: anywhere;/);
+  assert.match(css, /\.c-code \{ white-space: pre-wrap;/);
+  assert.match(css, /\.svc-tabs \{ -webkit-mask-image: linear-gradient\(to right/, 'zichtbare scrollhint op de tabs');
+  // Labels die mensen lezen: sans, 14px, zinsvorm.
+  const block = css.slice(css.indexOf('/* Leesbare labels'));
+  assert.match(block, /\.svc-facts dt[\s\S]*?\{\s*font-family: var\(--sans\); font-size: 14px; letter-spacing: 0; text-transform: none;/);
+  for (const f of PAGES) {
+    const spans = read(f).match(/<p class="f-legal">([\s\S]*?)<\/p>/)[1].match(/<span>([^<]*)<\/span>/g).map((s) => s.replace(/<[^>]+>/g, ''));
+    for (const s of spans) assert.doesNotMatch(s, /^·/, `${f}: footerregel begint nooit met "·"`);
+  }
+  assert.match(read('tools/visual-check.mjs'), /scrollWidth > r\.cw|r\.sw > r\.cw/);
+  assert.match(read('.gitignore'), /tests\/screenshots\//);
 });

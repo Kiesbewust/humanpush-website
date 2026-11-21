@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HumanPush: je agent bestelt, een geregistreerde professional tekent</title>
-<meta name="description" content="HumanPush draait op agents. De agent van je bedrijf bestelt, de HumanPush-MCP voert de regels uit en een geregistreerde professional tekent met zijn passkey.">
+<meta name="description" content="Je agent bestelt. Een geregistreerde professional beoordeelt het werk en staat er met naam en registratie voor in. Vastgelegd in een dossier dat je zelf kunt nagaan.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/">
 <meta property="og:title" content="HumanPush: je agent bestelt, een geregistreerde professional tekent">
-<meta property="og:description" content="HumanPush draait op agents. De agent van je bedrijf bestelt, de HumanPush-MCP voert de regels uit en een geregistreerde professional tekent met zijn passkey.">
+<meta property="og:description" content="Je agent bestelt. Een geregistreerde professional beoordeelt het werk en staat er met naam en registratie voor in. Vastgelegd in een dossier dat je zelf kunt nagaan.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -39,12 +39,11 @@
 <a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
 <a class="menu-link" href="#site-nav">Menu</a>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile"><a href="/inloggen">Inloggen <span class="soon">komt eraan</span></a></li></ul></nav>
-<div class="login">
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile" data-testenv hidden><a href="https://humanpush-mcp-test-production.up.railway.app/v1/pro">Professionals: testomgeving</a></li></ul></nav>
+<div class="login" data-testenv hidden>
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
-<a class="login-opt" data-login="pro" href="/inloggen#professionals"><b>Voor professionals <span class="soon">komt eraan</span></b><span class="why">Inloggen met je passkey. Komt eraan.</span></a>
-<a class="login-opt" data-login="biz" href="/inloggen#bedrijven"><b>Voor bedrijven <span class="soon">komt eraan</span></b><span class="why">Je agent gebruikt een toegangscode; later ook een overzicht voor jou. Komt eraan.</span></a>
+<a class="login-opt" href="https://humanpush-mcp-test-production.up.railway.app/v1/pro"><b>Professionals: testomgeving</b><span class="why">Nepgeld, geen echte opdrachten.</span></a>
 </div>
 </div>
 </div>
@@ -52,22 +51,45 @@
 <main id="inhoud">
 <section class="hero dark home-hero">
 <div class="wrap">
-<span class="kicker">Agent-first · een geregistreerde professional tekent</span>
-<h1>Waar AI-agenten werk doen, tekent een geregistreerde professional.</h1>
-<p class="definition">HumanPush is de laag waarmee AI-agents geregistreerde professionals inschakelen, hun werk ontvangen en controleerbaar vastleggen wie waarvoor verantwoordelijk is.</p>
+<span class="kicker">Voor bedrijven met AI-agents</span>
+<h1>Je agent bestelt. Een geregistreerde professional tekent.</h1>
+<p class="definition">Een geregistreerde professional beoordeelt het werk en staat er met naam en registratie voor in. Vastgelegd in een dossier dat je zelf kunt nagaan.</p>
+<p class="hero-link"><a href="/hoe-het-werkt#grenzen">Wat het dossier aantoont, en wat niet</a></p>
 <nav class="routecards" aria-label="Kies je route"><ul>
 <li><a class="routecard" href="/bedrijven" data-aud="bedrijf"><span class="rc-title">Ik vertegenwoordig een bedrijf</span><span class="rc-sub">of ik bouw de AI-agent van een bedrijf</span></a></li>
-<li><a class="routecard" href="/professionals" data-aud="pro"><span class="rc-title">Ik ben een geregistreerde professional</span><span class="rc-sub">NIVRE, NRVT, NRGD, NRBI, octrooigemachtigde</span></a></li>
+<li><a class="routecard" href="/professionals" data-aud="pro"><span class="rc-title">Ik ben een geregistreerde professional</span><span class="rc-sub">NIVRE, NRVT, NRBI, NRGD, register van octrooigemachtigden</span></a></li>
 </ul></nav>
-<nav class="sectoren" aria-labelledby="sectoren-kop"><p class="label" id="sectoren-kop">Registers en sectoren</p><ul><li><a href="/bedrijven#nivre" data-tablink="nivre"><span class="sec-name">Schade</span><span class="sec-reg">NIVRE</span></a></li><li><a href="/bedrijven#nrvt" data-tablink="nrvt"><span class="sec-name">Taxatie</span><span class="sec-reg">NRVT</span></a></li><li><a href="/bedrijven#nrgd" data-tablink="nrgd"><span class="sec-name">Gerechtelijke expertise</span><span class="sec-reg">NRGD</span></a></li><li><a href="/bedrijven#nrbi" data-tablink="nrbi"><span class="sec-name">Bouwkundige keuring</span><span class="sec-reg">NRBI</span></a></li><li><a href="/bedrijven#octrooi" data-tablink="octrooi"><span class="sec-name">Octrooien</span><span class="sec-reg">Octrooiregister</span></a></li></ul></nav>
 </div>
 </section>
 
-<section class="section" id="stappen" aria-labelledby="stappen4-kop">
+<section class="section" id="eerste-dienst" aria-labelledby="eerste-kop">
+<div class="wrap twocol">
+<div>
+<span class="eyebrow">We beginnen met één dienst</span>
+<h2 id="eerste-kop">Toets van een schadevaststelling op basis van een compleet dossier</h2>
+<p>Een NIVRE-geregistreerde schade-expert toetst op stukken of een vastgestelde schadehoogte standhoudt, los van de vraag of de schade gedekt is. Voor zaakschade, alleen voor bedrijven.</p>
+<ul class="ticks"><li>Schadehoogte, los van dekking</li><li>Zaakschade, B2B, op stukken</li><li>Een getekend, gemotiveerd oordeel met een vaste uitkomst</li></ul>
+<div class="actions"><a class="btn btn-primary" href="/bedrijven#diensten">Bekijk de dienst</a><a class="btn btn-secondary" href="/pilot/second-opinion">Zo ziet een pilot eruit</a></div>
+</div>
+<div>
+<h3 id="voorbereiding-kop">Ook in voorbereiding</h3>
+<!--voorbereiding:start-->
+<ul class="voorbereiding"><li><strong>Register-taxateur (wonen) (NRVT).</strong> Taxatie van een woning door een register-taxateur. <span class="status prep">In toetsing: niet te boeken</span></li><li><strong>Bouwkundig inspecteur (NRBI).</strong> Toets op afstand van een bestaand bouwkundig keuringsrapport. <span class="status prep">In voorbereiding</span></li><li><strong>Gerechtelijk deskundige (digitaal onderzoek) (NRGD).</strong> Vaststelling of één document overeenkomt met een meegeleverd referentiepunt. <span class="status prep">In voorbereiding</span></li><li><strong>Octrooigemachtigde (Octrooi).</strong> Nieuwheidsquickscan met getekend zoekrapport. <span class="status prep">In voorbereiding</span></li></ul>
+<!--voorbereiding:end-->
+</div>
+</div>
+</section>
+
+<section class="section" id="stappen" aria-labelledby="stappen-kop">
 <div class="wrap">
-<h2 id="stappen4-kop">Zo werkt het, in vier stappen</h2>
-<ol class="steps4" aria-labelledby="stappen4-kop"><li><span class="s4-num">1</span><h3>Opdracht</h3><p>De agent van een bedrijf zet een opdracht uit bij HumanPush. Het bedrijf betaalt vooraf.</p></li><li><span class="s4-num">2</span><h3>Aannemen</h3><p>HumanPush biedt de opdracht aan één geregistreerde professional aan. Die heeft <span data-rule="turnWorkingMinutes">45</span> werkminuten om ja te zeggen. Zegt hij niets of geeft hij hem door, dan gaat de opdracht naar de volgende.</p></li><li><span class="s4-num">3</span><h3>Uitvoeren en tekenen</h3><p>De professional doet het werk, zelf of met hulp van een agent, en levert het op. Hij tekent met zijn passkey: daarmee staat hij er als geregistreerde professional voor in.</p></li><li><span class="s4-num">4</span><h3>Bewijs</h3><p>Elke stap komt in het bewijsdossier van de opdracht. Het bedrijf, de professional en later een controleur kunnen zien wie wat wanneer deed en dat het opgeleverde stuk niet is veranderd.</p></li></ol>
-<p class="same">Dit proces is hetzelfde voor elk register.</p><p class="linkline"><a href="/hoe-het-werkt">Zo werkt het precies</a></p>
+<h2 id="stappen-kop">Zo werkt het, in vijf stappen</h2>
+<!--stappen:start view=neutraal-->
+<div class="stappen" data-view="neutraal">
+<ol class="tl"><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">1</span><span class="tl-role">Bedrijf</span><h3>Opdracht</h3><p>De agent van het bedrijf zet een opdracht uit bij HumanPush. Hij kiest een dienst, levert de stukken aan en geeft een uiterste datum en een maximumprijs. Het bedrijf betaalt vooraf via een betaallink.</p></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">2</span><span class="tl-role">Professional</span><h3>Aannemen</h3><p>HumanPush biedt de opdracht aan één geregistreerde professional die deze dienst aanbiedt. Die heeft <span data-rule="turnWorkingMinutes">45</span> minuten binnen werktijd (ma–vr 9–17 uur) om aan te nemen of door te geven. Buiten werktijd staat de klok stil. Reageert de professional niet, dan gaat de opdracht automatisch naar de volgende professional. Doorgeven kost niets. Dezelfde opdracht krijgt iemand hooguit <span data-rule="maxTurnsPerPro">2</span> keer aangeboden.</p><span class="tl-time"><span data-rule="turnWorkingMinutes">45</span> min werktijd</span></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">3</span><span class="tl-role">Professional</span><h3>Uitvoeren en tekenen</h3><p>De professional doet het werk, zelf of met hulp van een agent, en levert het op via HumanPush. Hij tekent met zijn passkey. Daarmee staat hij er als geregistreerde professional voor in.</p><span class="tl-time"><span data-rule="objectionHours">72</span> uur</span></li><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">4</span><span class="tl-role">Bedrijf</span><h3>Akkoord</h3><p>Het bedrijf (of zijn agent) heeft <span data-rule="objectionHours">72</span> uur om het opgeleverde stuk te accepteren. Zegt het niets, dan geldt het na <span data-rule="objectionHours">72</span> uur als geaccepteerd. Daarna wordt de professional uitbetaald.</p></li><li class="tl-step r-iedereen"><span class="tl-dot" aria-hidden="true">5</span><span class="tl-role">Voor iedereen</span><h3>Dossier</h3><p>Elke stap staat met datum, tijd en handtekening in het dossier van de opdracht. Het dossier bevat ook de digitale vingerafdruk van het opgeleverde stuk. Zo kunnen het bedrijf, de professional en eventueel een derde (bijvoorbeeld een accountant, verzekeraar of rechter) zelf nagaan wie wat wanneer deed, en dat het stuk sindsdien niet is veranderd.</p></li></ol>
+<p class="tl-band"><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="4" width="11" height="8" rx="1.5"/><path d="M6 8h.01M10 8h.01M8 2v2"/></svg>Agent</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3v10M13 3v10M3 8h10"/></svg>HumanPush</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 13.5c.6-2.4 2.6-3.7 5-3.7s4.4 1.3 5 3.7"/></svg>Professional</span><span class="tl-band-t">Voor elk register hetzelfde. Alles loopt via HumanPush.</span></p>
+<p class="tl-rule">HumanPush controleert het proces, niet de inhoud. <a href="/hoe-het-werkt#controle">Lees wat HumanPush controleert</a></p>
+</div>
+<!--stappen:end--><p class="linkline"><a href="/hoe-het-werkt">Zo werkt het precies</a></p>
 </div>
 </section>
 
@@ -75,17 +97,16 @@
 <div class="wrap twocol">
 <div>
 <h2 id="voorbeeld-kop">Eén opdracht, van begin tot eind</h2>
-<p>De agent bestelt. HumanPush biedt de opdracht aan tot een professional ja zegt. Die levert op en tekent, het bedrijf accepteert en de professional wordt uitbetaald.</p>
-<p>Alles komt in het bewijsdossier van de opdracht.</p>
+<p>De agent bestelt en het bedrijf betaalt. HumanPush biedt de opdracht aan tot een professional aanneemt. Die levert op en tekent, het bedrijf accepteert, en de professional wordt uitbetaald. Alles staat in het dossier.</p>
 </div>
 <div><figure class="demo" data-anim aria-labelledby="demo-kop">
 <div class="demo-hd"><span id="demo-kop"><b>Voorbeeld</b> · fictieve opdracht</span><button class="demo-pause" type="button" aria-pressed="false">Pauzeer animatie</button></div>
 <ol>
-<li data-step="1"><span class="who">Agent</span><div class="what"><p>Zet een opdracht uit: oordeel over een claimbesluit.</p><span class="st">Besteld · vooraf betaald</span></div></li>
+<li data-step="1"><span class="who">Agent van het bedrijf</span><div class="what"><p>Zet een opdracht uit: toets van een schadevaststelling, op basis van een compleet dossier. Het bedrijf betaalt vooraf.</p><span class="st">Besteld · betaald</span></div></li>
 <li data-step="2"><span class="who">HumanPush</span><div class="what"><p>Biedt de opdracht aan één professional tegelijk aan.</p><div class="turns"><span class="pass" data-t="1">Expert A · doorgegeven</span><span class="now" data-t="2">Expert B · aangeboden</span></div></div></li>
-<li data-step="3"><span class="who">Expert B</span><div class="what"><p>Accepteert, levert het rapport op en tekent met zijn passkey.</p><span class="st signed">Getekend met passkey</span></div></li>
-<li data-step="4"><span class="who">Bedrijf</span><div class="what"><p>Accepteert het rapport.</p><span class="st">Geaccepteerd</span></div></li>
-<li data-step="5"><span class="who">Bewijs</span><div class="what"><p>Expert B wordt uitbetaald. Alles staat in het bewijsdossier.</p><div class="log">opgeleverd · handtekening met passkey · <i>vingerafdruk</i> 9f3a…e17d</div></div></li>
+<li data-step="3"><span class="who">Expert B</span><div class="what"><p>Neemt aan, doet het werk, levert op en tekent met zijn passkey.</p><span class="st signed">Getekend met passkey</span></div></li>
+<li data-step="4"><span class="who">Bedrijf</span><div class="what"><p>Accepteert het stuk (of zegt 72 uur niets).</p><span class="st">Geaccepteerd · Expert B uitbetaald</span></div></li>
+<li data-step="5"><span class="who">HumanPush</span><div class="what"><p>Zet alles in het dossier.</p><div class="log">besteld · betaald · registercheck · aangenomen <b>✓</b> passkey · opgeleverd <b>✓</b> passkey · <i>vingerafdruk</i> 9f3a…e17d · geaccepteerd · uitbetaald</div></div></li>
 </ol>
 </figure>
 <p class="demo-cap">Voorbeeld met fictieve gegevens.</p></div>
@@ -95,20 +116,21 @@
 <section class="section" aria-labelledby="vast-kop">
 <div class="wrap">
 <h2 id="vast-kop">Wat wordt er vastgelegd</h2>
-<ol class="vastgelegd"><li><span class="s4-num">1</span><h3>Registercheck</h3><p>HumanPush zoekt de professional op in het openbare register van zijn beroep, en doet dat opnieuw vlak voordat hij een opdracht aanneemt.</p><p class="why"><strong>Waarom het telt:</strong> Zo weet het bedrijf dat het werk komt van iemand die echt geregistreerd is, en niet geschorst of uitgeschreven.</p></li><li><span class="s4-num">2</span><h3>Digitale vingerafdruk</h3><p>Een unieke code van het opgeleverde stuk. Verandert er later één letter, dan klopt de vingerafdruk niet meer. Zo is aantoonbaar dat het stuk niet is aangepast.</p><p class="why"><strong>Waarom het telt:</strong> Niemand kan het stuk achteraf ongemerkt veranderen, ook HumanPush niet.</p></li><li><span class="s4-num">3</span><h3>Handtekening met je passkey</h3><p>Als professional teken jij aannemen en opleveren met een passkey op je eigen telefoon of computer. Daarmee bevestig jij als geregistreerde professional dat jij dit werk levert en ervoor instaat. HumanPush controleert vooraf dat je in het register staat.</p><p class="why"><strong>Waarom het telt:</strong> Zo staat vast wie verantwoordelijk is voor het werk. HumanPush kan niet namens jou tekenen.</p></li><li><span class="s4-num">4</span><h3>Bewijsdossier</h3><p>Per opdracht de afspraken en elke getekende stap. Het bedrijf, de professional en een controleur kunnen het zelf nagaan.</p><p class="why"><strong>Waarom het telt:</strong> Bij een vraag of een controle achteraf ligt alles klaar: de afspraken, wie wat wanneer deed en het opgeleverde stuk.</p></li></ol>
-<p class="linkline">Wat het systeem garandeert staat op <a href="/hoe-het-werkt#garanties">/hoe-het-werkt</a>.</p>
+<ol class="vastgelegd"><li><span class="s4-num">1</span><h3>Registercheck</h3><p>HumanPush controleert bij de aanmelding of de professional in het openbare register van zijn beroep staat, en opnieuw vlak voordat hij een opdracht aanneemt. De datum en de bron worden bewaard.</p><p class="why"><strong>Waarom het belangrijk is:</strong> Het bedrijf weet zeker dat het werk komt van iemand die op dat moment echt geregistreerd was, en niet geschorst of uitgeschreven.</p></li><li><span class="s4-num">2</span><h3>Digitale vingerafdruk</h3><p>Bij de oplevering berekent HumanPush uit het stuk een unieke code van 64 tekens. Verander je één komma, dan komt er een totaal andere code uit. HumanPush bewaart die code in het dossier. Wie later het stuk heeft, kan de code opnieuw berekenen en vergelijken: is hij gelijk, dan is het stuk niet veranderd.</p><p class="why"><strong>Waarom het belangrijk is:</strong> Niemand kan het stuk achteraf ongemerkt aanpassen. Het bedrijf niet, de professional niet en HumanPush ook niet.</p></li><li><span class="s4-num">3</span><h3>Handtekening met je passkey</h3><p>Als professional teken jij voor het aannemen en het opleveren met een passkey op je eigen telefoon of computer. Daarmee bevestig jij als geregistreerde professional dat jij de opdracht aanneemt, dat jij het opgeleverde werk hebt gemaakt of gecontroleerd, en dat jij ervoor instaat (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>).</p><p class="why"><strong>Waarom het belangrijk is:</strong> Zo staat vast wie verantwoordelijk is voor het werk. Niemand anders kan namens jou tekenen, ook HumanPush en je agent niet.</p></li><li><span class="s4-num">4</span><h3>Dossier</h3><p>Per opdracht de afspraken en elke getekende stap in het proces. Het bedrijf, de professional en eventueel een derde (bijvoorbeeld een accountant, verzekeraar of rechter) kunnen het zelf nagaan.</p><p class="why"><strong>Waarom het belangrijk is:</strong> Komt er later een vraag over een besluit, van een klant, een accountant, een verzekeraar of een rechter? Dan hoeft niemand iets te reconstrueren. In het dossier staat wat er was afgesproken, wie wat wanneer deed, en welk stuk precies is opgeleverd.</p></li></ol>
+<p class="linkline"><a href="/hoe-het-werkt#garanties">Lees wat HumanPush garandeert</a></p>
+<p class="linkline"><a href="/hoe-het-werkt#status">Wat werkt al, en wat nog niet</a></p>
 </div>
 </section>
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
-<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V.</span> <span>· KvK 42222476</span> <span>· btw NL870249964B01</span> <span>· Utrecht</span></p></div>
-<nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#bewijsdossier">Het bewijsdossier</a></li></ul></nav>
+<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V. ·</span> <span>KvK 42222476 ·</span> <span>btw NL870249964B01 ·</span> <span>Utrecht</span></p></div>
+<nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#dossier">Het dossier</a></li></ul></nav>
 <nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
-<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot second opinion</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>
+<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot toets schadevaststelling</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>
 <nav aria-label="Juridisch"><p class="h">Juridisch</p><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Voorwaarden</a></li></ul></nav>
 </div>
-<div class="wrap"><div class="meta"><span>Regelversie 2026-11-19</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>
+<div class="wrap"><div class="meta"><span>Regelversie 2026-11-20</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>
 </footer>
 </body>
 </html>

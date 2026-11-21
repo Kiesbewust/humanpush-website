@@ -12,39 +12,63 @@ Nee. Je kiest een dienst en een maximumprijs; HumanPush biedt de opdracht in een
 
 ### Wat kost het?
 
-Het tarief van de professional plus een vaste vergoeding per dienst, voor elk bedrijf hetzelfde, excl. btw, zichtbaar vóór je bestelt. Een wijziging geldt alleen voor nieuwe opdrachten. Je stelt zelf een maximum in en betaalt nooit meer. Neemt de professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug.
+Je betaalt de prijs van de professional plus de HumanPush-afhandelfee: 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Vooraf betaal je je maximumprijs plus 5% daarvan, plus 21% btw over de fee. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. Een rekenvoorbeeld (fictief) staat op de pagina voor bedrijven.
 
-### Hoe werkt betalen zonder dat ik bedragen zie?
+### Hoe kies ik mijn maximumprijs?
 
-Je agent kiest een dienst en stelt een maximumprijs in. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus een vaste vergoeding voor HumanPush. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil meteen terug. De vaste vergoeding zie je in list_services vóór je bestelt. Bedragen staan niet op de site: die volgen na de testfase.
+Kies je maximumprijs op of boven de vanaf-prijs van de dienst: de laagste prijs die een geregistreerde professional nu vraagt. De opdracht gaat eerst naar de professional met de laagste prijs die je deadline haalt. Je betaalt vooraf, binnen 30 minuten, via een betaallink: je maximumprijs plus de afhandelfee: 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Neemt een professional aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. De vanaf-prijs per dienst volgt zodra professionals zich hebben aangemeld. Wat kost het?
 
 ### Wat als niemand aanneemt?
 
-Je opdracht wordt één voor één aangeboden tot hij is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.
+Je opdracht wordt één voor één aangeboden tot de opdracht is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.
 
-### Wat zijn werkuren?
+### Wat is werktijd?
 
-Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werkuren staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.
+Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.
 
 ### Wat als we annuleren?
 
-Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering houdt de professional 25% van zijn tarief en krijg je de rest terug, ook de vaste vergoeding van HumanPush. Na de oplevering kun je niet meer annuleren.
+Vóór de aanname krijg je alles terug. Na de aanname en vóór de oplevering houdt de professional 25% van zijn tarief en krijg je de rest terug, ook de afhandelfee. Na de oplevering kun je niet meer annuleren.
 
 ### Wat als de professional te laat is of uitvalt?
 
 Dan krijg je alles terug en kun je opnieuw bestellen. Er wordt onderweg niets verschoven en niemand anders ingezet.
 
+### Is de handtekening met de passkey een gekwalificeerde elektronische handtekening?
+
+Nee. De handtekening met een passkey bewijst dat deze professional dit stuk heeft goedgekeurd. Het is geen gekwalificeerde elektronische handtekening (QES) in de zin van de Europese eIDAS-verordening. Lees wat het dossier aantoont, en wat niet.
+
 ### Wat bewijst de registercheck precies?
 
 Dat HumanPush de professional met een vaste checklist in het openbare register heeft gevonden, op een vastgelegde datum, en dat dit bij de aanname opnieuw is gecontroleerd. Het is geen live koppeling met het register.
 
-### Kan ik bezwaar maken als ik het niet eens ben met de conclusie?
+### Wat als ik het niet eens ben met de conclusie?
 
-Nee. Bezwaar kan alleen op de vaste toetsingspunten van die dienst; per dienst staan ze op de pagina voor professionals. Een collega uit hetzelfde register beslist voldoet of voldoet niet. Voldoet niet: alles terug.
+Dan krijg je via HumanPush geen geld terug. HumanPush oordeelt niet over de inhoud. Bespreek het met de professional, of dien een klacht in bij zijn register. Bij een objectieve fout (te laat, een verplicht onderdeel ontbreekt, de registratie was niet geldig, of verkeerd formaat) krijg je automatisch alles terug, ook de afhandelfee.
 
 ### Wie is waarvoor verantwoordelijk?
 
-De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het bewijsdossier.
+De professional voor de inhoud van zijn werk. Jouw bedrijf voor wat je agent vraagt en de stukken die je aanlevert. HumanPush voor het proces: registercheck, termijnen, geld en het dossier.
+
+### Moet ik het opgeleverde stuk goedkeuren?
+
+Ja, binnen 72 uur. Je agent accepteert het namens jou. Zeg je niets, dan geldt het na 72 uur als geaccepteerd en wordt de professional uitbetaald. Voor je bouwer: v1_accept_result.
+
+### Controleert HumanPush het opgeleverde stuk?
+
+Alleen wat objectief na te gaan is: op tijd, een stuk met een vaste uitkomst, getekend door de professional die aannam, met een kloppende vingerafdruk, door iemand met een geldige registercheck. Over de inhoud oordeelt HumanPush niet. Zie wat HumanPush controleert.
+
+### Waar komt het stuk binnen?
+
+Bij HumanPush. Je agent haalt het op en controleert het. Jij en de professional sturen elkaar niets rechtstreeks. Voor je bouwer: v1_get_result, verify_proof.
+
+### Heb ik herroepingsrecht?
+
+HumanPush werkt alleen voor bedrijven met een KvK-nummer. Het wettelijke herroepingsrecht is bedoeld voor consumenten; hoe dat voor deze dienst uitpakt, laten we juridisch toetsen. Annuleren kan altijd volgens de vaste regels: vóór het aannemen krijg je alles terug, daarna krijgt de professional 25% van zijn prijs.
+
+### Wie is 'eventueel een derde'?
+
+Iemand aan wie jij later moet laten zien hoe een besluit tot stand kwam, zoals je accountant, je verzekeraar, een toezichthouder of een rechter. Jij bepaalt of je het dossier deelt.
 
 ### Is dit ook voor particulieren?
 
@@ -58,7 +82,7 @@ Nee, niet altijd. De AVG (art. 22) geeft mensen bij bepaalde geautomatiseerde be
 
 ### Wie mag meedoen?
 
-Professionals in een van vijf registers: NIVRE (schade-experts), NRVT (register-taxateurs Kamer Wonen), NRGD (gerechtelijk deskundigen, 008.1 computer forensics), het register van octrooigemachtigden, en het Nederlands Register Bouwkundig Inspecteurs. Per register is er één dienst. Aanmelden opent na afronding van de testfase.
+Professionals in een van vijf registers: schade-experts (NIVRE), register-taxateurs wonen (NRVT), bouwkundig inspecteurs (NRBI), gerechtelijk deskundigen digitaal onderzoek (NRGD) en octrooigemachtigden (register van octrooigemachtigden). Per register is er één dienst. Aanmelden opent na afronding van de testfase.
 
 ### Waar kan ik me aanmelden?
 
@@ -66,35 +90,47 @@ Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formuli
 
 ### Kost het mij iets?
 
-Nee. Je krijgt je eigen tarief volledig. Het bedrijf betaalt HumanPush apart.
+Nee. Je krijgt je eigen prijs volledig. De afhandelfee van 5% betaalt het bedrijf bovenop je prijs.
+
+### Is mijn prijs inclusief btw?
+
+Ja. Reken je btw, dan is de prijs die je opgeeft inclusief btw. Die prijs ziet het bedrijf, en daarover rekent HumanPush de afhandelfee. Reken je geen btw (bijvoorbeeld met de kleineondernemersregeling), dan is je prijs gewoon je prijs.
 
 ### Moet ik iets met AI doen?
 
-Nee. Je werkt met je eigen agent via de HumanPush-MCP, of zonder MCP met de HumanPush-agent. Die komt eraan.
+Nee. Je werkt op het HumanPush-scherm, of met je eigen agent als je dat wilt. Dezelfde regels.
 
-### Wat is de HumanPush-agent?
+### Wat is het HumanPush-scherm?
 
-Voor professionals zonder eigen agent of MCP: een gehoste, eenvoudige agent met een eigen toegangscode. Hij meldt je aangeboden opdrachten, legt uit wat je tekent en zet het opleverformulier klaar. Hij werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey. Komt eraan.
+Voor professionals zonder eigen agent: een eenvoudig scherm met vaste teksten. Je ziet je aangeboden opdrachten, het legt uit wat je tekent en zet het opleverformulier klaar. Het werkt alleen voor HumanPush, schrijft geen vakwerk en tekent nooit zelf; dat doe jij met je passkey.
 
 ### Wat heb ik nodig om te koppelen?
 
-Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor de HumanPush-agent volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.
+Voor je eigen agent: een MCP-client, een toegangscode voor je agent en twee passkeys, een op je eigen apparaat en een tweede passkey als reserve. Voor het HumanPush-scherm volstaan je passkeys. Hoe je koppelt, staat op de pagina voor professionals.
 
 ### Hoe zet ik een stap?
 
-Accepteren, doorgeven, opleveren en een oordeel als beoordelaar zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.
+Aannemen, doorgeven en opleveren zijn ondertekende acties. Je tekent met de passkey op je eigen apparaat, via je eigen agent of op het scherm van HumanPush.
 
 ### Hoe weet ik dat er een opdracht voor mij is?
 
-Je agent vraagt het op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent het op het scherm van HumanPush. Er gaat geen mail of sms.
+Op je scherm bij HumanPush, of je agent vraagt het op. Er gaat nog geen mail of push. Voor je bouwer: get_my_turns.
+
+### Waar lever ik op?
+
+Bij HumanPush, op je scherm of via je eigen agent. Je tekent de oplevering met je passkey. Je stuurt het bedrijf niets rechtstreeks.
 
 ### Hoeveel tijd heb ik om te reageren?
 
-Je hebt 45 werkminuten om een aangeboden opdracht te accepteren of door te geven (zie Wat zijn werkuren?). Niet aannemen kost niets: geef hem door, dan gaat hij meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.
+Je hebt 45 minuten binnen werktijd om een aangeboden opdracht aan te nemen of door te geven (zie Wat is werktijd?). Niet aannemen kost niets: geef de opdracht door, dan gaat die meteen naar de volgende. Laat je hem verlopen, dan is dat ook geen tekortkoming. Dezelfde opdracht krijg je hooguit 2 keer aangeboden.
 
 ### Wanneer krijg ik mijn geld?
 
-Na acceptatie, na 72 uur zonder bezwaar, of na een oordeel "voldoet". Kan HumanPush niet aantonen dat zijn eigen dienst in het venster werkte, dan schuift de uitbetaling hooguit 5 werkdagen op.
+Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt na de testfase.
+
+### Welke gegevens moet ik geven, en waarom?
+
+Platforms moeten onder DAC7 mogelijk gegevens over opdrachten en inkomsten aan de Belastingdienst doorgeven. We laten juridisch toetsen welke gegevens we daarvoor nodig hebben; dat hoor je vóór je eerste opdracht.
 
 ### Wat als de opdrachtgever annuleert?
 
@@ -102,7 +138,11 @@ Vóór je aanname zonder kosten. Na je aanname en vóór de oplevering krijg je 
 
 ### Wat als ik na aanname een belangenconflict ontdek?
 
-Bij diensten met een verplichte conflictcheck (nu octrooi) geef je de opdracht terug, zonder boete; het telt als markering. Elders: neem alleen aan als je zeker bent.
+Bij diensten met een verplichte conflictcheck (nu octrooi) geef je de opdracht terug, zonder boete; het telt maar licht mee. Elders: neem alleen aan als je zeker bent.
+
+### Wat telt mee, en wat niet?
+
+Te laat leveren, of je terugtrekken nadat je hebt aangenomen, telt mee: dat heet een tekortkoming. Een conflict teruggeven bij een dienst met verplichte conflictcheck telt maar licht mee: dat heet een markering, en 3 markeringen in 12 maanden tellen als 1 tekortkoming. Doorgeven of een aangeboden opdracht laten verlopen telt niet mee.
 
 ### Wat als ik niet op tijd klaar ben?
 
@@ -128,13 +168,13 @@ Nog niet voor versie 1. Die is in de testfase; er is nog geen publiek endpoint.
 
 ### Kan mijn agent vragen stellen?
 
-Ja, in de testversie. Via POST /api/ask of via de MCP-tool ask_humanpush krijgt je agent antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Een antwoord is informatie, geen advies en geen toezegging. Het staat nog uit; het komt eraan.
+Ja, in de testversie. Je agent krijgt dan antwoord met bronverwijzing uit onze regels, FAQ en llms.txt. Een antwoord is informatie, geen advies en geen toezegging. Het staat nog uit; het komt eraan. Voor je bouwer: POST /api/ask, ask_humanpush.
 
-### Wat als ik dezelfde aanroep herhaal?
+### Wat als mijn agent dezelfde opdracht twee keer stuurt?
 
-Met dezelfde idempotency_key wordt niets twee keer uitgevoerd.
+Dan wordt niets twee keer uitgevoerd, zolang je agent bij de herhaling hetzelfde kenmerk meestuurt. Voor je bouwer: idempotency_key.
 
 ### Wat als ik een status niet begrijp?
 
-Vraag v1_explain. Elke status, reden en foutcode heeft een vaste uitleg. Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet.
+Elke status, reden en foutcode heeft een vaste uitleg. Vragen? Een medewerker antwoordt via info@humanpush.nl. De regels zijn voor iedereen gelijk. Voor je bouwer: v1_explain.
 

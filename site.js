@@ -1,5 +1,5 @@
 // HumanPush: mobiel menu, Inloggen-menu, dienstkaarten en tabs, kant kiezen, de voorbeeld-demo en (alleen met de vlag aan) het chatvenster.
-// Zonder JavaScript staat het menu open, gaat Inloggen naar /inloggen en staan alle kanten, tabs en uitklappers open.
+// Zonder JavaScript staat het menu open, is Inloggen verborgen (testvlag uit) en staan alle kanten, tabs en uitklappers open.
 (function () {
   var root = document.documentElement;
   root.classList.remove('no-js');
@@ -18,7 +18,11 @@
     button.addEventListener('click', function () { setMenu(button.getAttribute('aria-expanded') !== 'true'); });
   }
 
-  // Inloggen: een menu met twee ingangen. Is een URL in config.js null, dan blijft de link naar /inloggen.
+  // Testomgeving: alleen met de vlag aan (config.js) tonen we Inloggen en "Proberen in de testomgeving".
+  document.querySelectorAll('[data-testenv]').forEach(function (el) { el.hidden = cfg.testenv !== true; });
+  document.querySelectorAll('[data-testenv-off]').forEach(function (el) { el.hidden = cfg.testenv === true; });
+
+  // Inloggen: een menu met één ingang (de testomgeving voor professionals).
   var login = document.querySelector('.login');
   var loginBtn = login && login.querySelector('.login-btn');
   function setLogin(open) {
@@ -33,11 +37,6 @@
     loginBtn.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); setLogin(!login.classList.contains('open')); } });
     document.addEventListener('click', function (e) { if (!login.contains(e.target)) setLogin(false); });
   }
-  var urls = { pro: cfg.LOGIN_PRO_URL, biz: cfg.LOGIN_BIZ_URL };
-  document.querySelectorAll('[data-login]').forEach(function (a) {
-    var u = urls[a.getAttribute('data-login')];
-    if (typeof u === 'string' && u) { a.href = u; var s = a.querySelector('.soon'); if (s) s.remove(); }
-  });
 
   // Escape sluit menu en Inloggen.
   document.addEventListener('keydown', function (e) {
@@ -129,14 +128,13 @@
     if (reduce) { demo.removeAttribute('data-anim'); if (btn) btn.hidden = true; return; }
     var rows = demo.querySelectorAll('li');
     var tA = demo.querySelector('[data-t="1"]'), tB = demo.querySelector('[data-t="2"]');
-    var frames = [
-      function () { rows[0].classList.add('on'); },
-      function () { rows[1].classList.add('on'); tA.classList.add('seen', 'now'); tA.textContent = 'Expert A · aangeboden'; },
-      function () { tA.classList.remove('now'); tA.classList.add('pass'); tA.textContent = 'Expert A · doorgegeven'; tB.classList.add('seen', 'now'); tB.textContent = 'Expert B · aangeboden'; },
-      function () { rows[2].classList.add('on'); },
-      function () { rows[3].classList.add('on'); },
-      function () {}, function () {}
-    ];
+    // Elke rij krijgt een eigen frame (ook de laatste), dus geen rij blijft ooit verborgen. Rij met de beurten krijgt een extra frame.
+    var frames = [];
+    rows.forEach(function (row) {
+      frames.push(function () { row.classList.add('on'); if (row.contains(tA)) { tA.classList.add('seen', 'now'); tA.textContent = 'Expert A · aangeboden'; } });
+      if (tA && tB && row.contains(tA)) frames.push(function () { tA.classList.remove('now'); tA.classList.add('pass'); tA.textContent = 'Expert A · doorgegeven'; tB.classList.add('seen', 'now'); tB.textContent = 'Expert B · aangeboden'; });
+    });
+    frames.push(function () {}, function () {});
     function reset() {
       rows.forEach(function (r) { r.classList.remove('on'); });
       tA.className = ''; tB.className = ''; tA.textContent = 'Expert A'; tB.textContent = 'Expert B';

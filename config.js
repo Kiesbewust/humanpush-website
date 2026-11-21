@@ -1,12 +1,11 @@
 // HumanPush: vlaggen voor de site. Standaard staat alles UIT.
 // chat: laadt chat.js en chat.css (het venster "Vraag het HumanPush"). Zet pas op true als ASK_ENABLED in Vercel aan staat.
 // ask: toont op /agents het blok met POST /api/ask. Zet gelijk aan ASK_ENABLED in Vercel.
-// LOGIN_PRO_URL / LOGIN_BIZ_URL: null = "komt eraan" (de links gaan naar /inloggen).
+// testenv: toont de knop Inloggen (Professionals: testomgeving) en op /agents "Proberen in de testomgeving". Alleen Bob zet dit aan.
 window.HP_CONFIG = {
   chat: false,
   ask: false,
-  LOGIN_PRO_URL: null,
-  LOGIN_BIZ_URL: null
+  testenv: false
 };
 
 // Zet de klasse "js" al vóór de eerste weergave (site.js laadt met defer), zodat het menu en de kaarten niet verspringen.

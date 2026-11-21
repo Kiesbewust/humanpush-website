@@ -18,25 +18,31 @@ test('pilot: noindex, één h1, gelinkt vanaf /bedrijven en in de sitemap', () =
   assert.match(read('sitemap.xml'), /<loc>https:\/\/humanpush\.nl\/pilot\/second-opinion<\/loc>/);
 });
 
-test('pilot: doelgroep, probleem zonder "de wet eist altijd", 4 stappen', () => {
+test('pilot: doelgroep, probleem zonder "de wet eist altijd", het stappenblok met vijf stappen', () => {
   for (const s of ['Gevolmachtigde agenten', 'Schadebehandelaars', 'Leveranciers van claimsoftware']) assert.ok(main.includes(s), s);
   for (const s of ['geschil', 'complexe claim', 'tekort aan capaciteit', 'contract onafhankelijkheid']) assert.ok(main.includes(s), s);
-  assert.match(main, /De wet eist dat niet altijd\./);
+  assert.match(main, /De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt\. <a href="\/veelgestelde-vragen#wet">/);
+  assert.doesNotMatch(main, /AVG|AI-verordening/, 'de wetsalinea staat alleen in de FAQ');
   assert.match(main, /wanneer de situatie daarom vraagt/);
-  assert.equal((main.match(/<span class="pi">\d<\/span>/g) || []).length, 4);
-  assert.match(main, /NIVRE-geregistreerde schade-expert tegelijk aan, telkens <span data-rule="turnWorkingMinutes">\d+<\/span> werkminuten/);
+  assert.match(main, /<!--stappen:start view=neutraal-->/);
+  assert.equal((main.match(/<li class="tl-step/g) || []).length, 5);
+  assert.match(main, /NIVRE-geregistreerde schade-expert/);
+  assert.match(main, /<span data-rule="turnWorkingMinutes">\d+<\/span> minuten binnen werktijd/);
   assert.doesNotMatch(main.replace(/gebeurtenis/g, ''), /beurt/i);
-  assert.match(main, /tekent met de passkey/);
-  assert.match(main, /bewijsdossier/);
+  assert.match(main, /tekent met zijn passkey/);
+  assert.match(main, /dossier van de opdracht/);
+  assert.doesNotMatch(main, /bewijsdossier|controleur/);
   assert.doesNotMatch(P, /<!--flow:start/);
 });
 
-test('pilot: hoe een pilot eruitziet, prijs zonder bedragen, CTA alleen mailto', () => {
-  for (const s of ['Eén concrete workflow', 'beperkt aantal dossiers', 'doorlooptijd', 'kosten', 'matchsucces', 'dossier terugkomt', 'Samen evalueren']) assert.ok(main.includes(s), s);
-  assert.ok(main.includes('Vaste platformvergoeding per afgeronde opdracht plus het tarief van de professional; pilotvoorwaarden in overleg.'));
+test('pilot: hoe een pilot eruitziet, 5% afhandelfee zonder bedragen, CTA alleen mailto', () => {
+  for (const s of ['Eén concrete workflow', 'beperkt aantal schadezaken', 'doorlooptijd', 'kosten', 'matchsucces', 'zaak terugkomt', 'Samen evalueren']) assert.ok(main.includes(s), s);
+  assert.match(main, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaal je 21% btw\. Ook in de pilot\./);
+  assert.doesNotMatch(main, /pilotvoorwaarden in overleg|platformvergoeding|vaste vergoeding/i);
   const text = main.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ');
-  assert.doesNotMatch(text, /€|\bEUR\b|\d+[.,]\d{2}\b|euro|\d+ ?%/i);
-  assert.match(main, /Interesse in een pilot\? Mail <a href="mailto:info@humanpush\.nl[^"]*">info@humanpush\.nl<\/a>/);
+  assert.doesNotMatch(text, /€|\bEUR\b|\d+[.,]\d{2}\b|euro/i, 'geen bedragen op de pilotpagina');
+  assert.equal((main.match(/<a class="btn btn-primary" href="mailto:info@humanpush\.nl\?subject=Pilot%20aanvragen&amp;body=Organisatie%3A[^"]*">Pilot aanvragen<\/a>/g) || []).length, 2);
+  assert.match(main, /Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox\./);
   assert.doesNotMatch(P, /<form\b|<input\b|<textarea\b|<iframe\b/i);
   for (const m of main.matchAll(/href="([^"]+)"/g)) assert.match(m[1], /^(mailto:info@humanpush\.nl|\/|#)/, m[1]);
 });

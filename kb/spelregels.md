@@ -1,11 +1,11 @@
 # Spelregels van HumanPush (publieke versie)
 
-Testversie. Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Rangorde: eerst de voorwaarden, dan het systeem van HumanPush, dan de site. Elke regel heeft een vast nummer. HumanPush voert de regels automatisch uit; het bewijsdossier van elke opdracht is het bewijs.
+Testversie. Alle bedragen en termijnen zijn testwaarden of werkregels in de testfase. Rangorde: eerst de voorwaarden, dan het systeem van HumanPush, dan de site. Elke regel heeft een vast nummer. HumanPush voert de regels automatisch uit; het dossier van elke opdracht is het bewijs.
 
 ## 1. Grondregels
 
 ### R1.1 · HumanPush voert de voorwaarden uit
-Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het bewijsdossier van de opdracht, en elke stap verwijst naar de vorige.
+Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het dossier van de opdracht, en elke stap verwijst naar de vorige.
 
 ### R1.2 · Geen uitzonderingen per geval
 Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.
@@ -17,7 +17,7 @@ De pauze stopt nieuwe opdrachten voor iedereen. Lopende opdrachten lopen door on
 De regels en de catalogus die golden bij het bestellen, gelden voor die hele opdracht. Een nieuwe versie geldt alleen voor nieuwe opdrachten.
 
 ### R1.5 · Eén systeem voor alle beroepen
-Termijnen, geldregels, bezwaar en bewijsvloer zijn voor alle vijf diensten gelijk. Per dienst verschillen alleen het register, de invoer, de uitkomsten, het prijsbereik, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.
+Termijnen, geldregels, bezwaar en bewijsvloer zijn voor elke dienst gelijk. We beginnen met de NIVRE-dienst; de andere diensten zijn in voorbereiding. Per dienst verschillen alleen het register, de invoer, de uitkomsten, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.
 
 ### R1.6 · Alleen zakelijk
 Opdrachtgevers hebben een KvK-nummer. Professionals staan in een openbaar register. Niet voor particulieren of consumenten.
@@ -28,7 +28,7 @@ Het bedrijf werkt via de toegangscode van zijn agent. De professional werkt met 
 ## 2. Registercheck
 
 ### R2.1 · Registercheck vooraf, voor iedereen
-Zonder geldige registercheck krijgt niemand een opdracht aangeboden, ook niet als beoordelaar. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.
+Zonder geldige registercheck krijgt niemand een opdracht aangeboden. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.
 
 ### R2.2 · Alleen de agent mag een strengere check eisen
 Een agent kan per opdracht een strengere registercheck eisen (min_proof_level), nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand en krijgt alles terug.
@@ -51,10 +51,10 @@ Een professional maakt een passkey aan op zijn eigen telefoon of computer, en ee
 Bestellen is: dienst, invoer, uiterste datum en maximumprijs. Onbekende velden worden geweigerd. De agent kiest nooit zelf een professional.
 
 ### R3.2 · 100% vooraf, binnen 30 minuten
-Het bedrijf betaalt vooraf de maximumprijs plus de vaste vergoeding van HumanPush, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
+Het bedrijf betaalt vooraf de maximumprijs plus de HumanPush-afhandelfee (5% daarvan) en 21% btw over de fee, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
 
-### R3.3 · De vaste vergoeding
-Per dienst één vaste vergoeding, voor elk bedrijf hetzelfde, excl. btw, zichtbaar in list_services vóór het bestellen. Bedragen volgen na de testfase. HumanPush houdt de vergoeding alleen als een opdracht slaagt.
+### R3.3 · De HumanPush-afhandelfee
+De afhandelfee is 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil in prijs en fee meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.
 
 ### R3.5 · Herhaalde aanroep is één uitvoering
 Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert niets twee keer uit.
@@ -64,17 +64,17 @@ Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert
 ### R4.1 · Vaste volgorde
 HumanPush zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldige registercheck, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.
 
-### R4.2 · Telkens 45 werkminuten aangeboden, tot iemand aanneemt
-Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Hij heeft 45 werkminuten om te accepteren of door te geven. Accepteert hij niet, of geeft hij de opdracht door, dan gaat hij meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werkuren zijn maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werkuren staat de klok stil.
+### R4.2 · Telkens 45 minuten binnen werktijd aangeboden, tot iemand aanneemt
+Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. De professional heeft 45 minuten binnen werktijd om aan te nemen of door te geven. Neemt hij niet aan, of geeft hij de opdracht door, dan gaat de opdracht meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werktijd is maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werktijd staat de klok stil.
 
 ### R4.4 · Niet aannemen kost niets: doorgeven
-Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het bewijsdossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.
+Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het dossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.
 
 ### R4.5 · Aannemen is tekenen
 De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
 
 ### R4.6 · Niemand neemt aan: alles terug
-Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de vaste vergoeding.
+Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de afhandelfee.
 
 ### R4.7 · Hoe een professional een aangeboden opdracht ziet
 De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het scherm van HumanPush. Er gaat geen mail of sms.
@@ -92,17 +92,17 @@ De professional levert het stuk, kiest een vaste uitkomst van de dienst en teken
 ### R6.1 · 72 uur na oplevering
 Het bedrijf accepteert, of maakt bezwaar. Zegt het niets, dan geldt het werk na 72 uur als geaccepteerd. De 72 uur zijn gewone klokuren.
 
-### R6.2 · Bezwaar alleen op vaste toetsingspunten
-Bezwaar kan alleen op de vaste toetsingspunten van de dienst: vorm compleet, vraag beantwoord, binnen de scope, disclaimer aanwezig, en per dienst soms een verklaring. Een andere conclusie willen is geen grond.
+### R6.2 · Bezwaar alleen bij een objectieve fout
+Een bezwaar telt alleen bij een fout die het systeem zelf vaststelt: te laat (geen levering vóór de deadline), een verplicht onderdeel van de dienstkaart ontbreekt, de registratie van de professional was bij aanname niet geldig, of het formaat klopt niet (documenttype, handtekening met de passkey of digitale vingerafdruk). Een andere conclusie willen is geen grond.
 
-### R6.3 · Eén beoordelaar, binair oordeel
-HumanPush kiest één beoordelaar uit hetzelfde register. Hij beslist: voldoet, of voldoet niet met een grond. Geen tweede ronde.
+### R6.3 · Niemand beoordeelt de inhoud
+HumanPush oordeelt niet over de inhoud en er is geen beoordelaar. Is het bedrijf het inhoudelijk oneens, dan wordt de professional na 72 uur betaald. Het bedrijf gaat naar de professional, of naar de klacht- of tuchtregeling van het register van de professional.
 
-### R6.4 · Voldoet niet: alles terug
-Het bedrijf krijgt alles terug, ook de vaste vergoeding. De professional krijgt niets.
+### R6.4 · Objectieve fout: alles terug
+Bij een objectieve fout krijgt het bedrijf automatisch alles terug, ook de afhandelfee. Niemand hoeft te beslissen. De professional krijgt niets.
 
-### R6.6 · Geen beoordelaar of storing bij HumanPush
-Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
+### R6.6 · Storing bij HumanPush
+Kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
 
 ## 7. Annuleren, terugtrekken, te laat
 
@@ -110,7 +110,7 @@ Vindt HumanPush geen beoordelaar, of kan HumanPush niet aantonen dat zijn eigen 
 Annuleren vóór de aanname kost niets.
 
 ### R7.2 · Annuleren na aanname, vóór oplevering: 25% van de prijs
-De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de vaste vergoeding.
+De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de afhandelfee.
 
 ### R7.3 · Na oplevering kan niet meer worden geannuleerd
 Na de oplevering blijft alleen accepteren of bezwaar over.
@@ -124,7 +124,7 @@ Nu alleen bij octrooigemachtigden. Vóór oplevering mag de professional terugge
 ## 8. Uitbetaling
 
 ### R8.1 · Na het venster
-De professional krijgt zijn prijs na acceptatie, na 72 uur zonder bezwaar, of na een oordeel voldoet. Er gaat niets van af.
+De professional krijgt zijn prijs na acceptatie, of na 72 uur zonder geldig bezwaar. Er gaat niets van af.
 
 ## 9. Betrouwbaarheid
 
@@ -137,7 +137,7 @@ Een aangeboden opdracht doorgeven of laten verlopen, een belang melden bij een a
 ## 10. Bewijs
 
 ### R10.1 · Iedereen kan het bewijs zelf controleren
-Het bewijsdossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.
+Het dossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.
 
-### R10.3 · Persoonsgegevens niet leesbaar in het bewijsdossier
-De stappen in het bewijsdossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.
+### R10.3 · Persoonsgegevens niet leesbaar in het dossier
+De stappen in het dossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.

@@ -26,7 +26,7 @@ const SYN = [
   [/^(professionals?|deskundigen?|experts?)$/, 'professional'],
   [/^(agents?)$/, 'agent'],
   [/^(registerbewijs\w*|registercheck\w*|registerverklaring\w*)$/, 'registercheck'],
-  [/^(logboek\w*|bewijsdossier\w*)$/, 'bewijsdossier'],
+  [/^(logboek\w*|bewijsdossier\w*|dossier\w*)$/, 'bewijsdossier'],
   [/^(hash\w*|vingerafdruk\w*|sha-?256)$/, 'vingerafdruk'],
   [/^(sleutel\w*|toegangscode\w*)$/, 'toegangscode']
 ];
