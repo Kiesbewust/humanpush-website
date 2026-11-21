@@ -10,7 +10,7 @@ export const REFUSAL_TEXT = {
     out_of_scope: 'Ik beantwoord alleen vragen over hoe HumanPush werkt.',
     advice: 'Ik geef geen juridisch, fiscaal of vakinhoudelijk advies en beoordeel geen specifieke situatie. Een mens helpt je via info@humanpush.nl.',
     commitment: 'Ik kan niets toezeggen, geen uitzonderingen maken en niets zeggen over een specifieke opdracht of persoon. Een mens beantwoordt vragen via info@humanpush.nl; uitzonderingen per geval bestaan niet.',
-    amounts: 'Bedragen volgen na de testfase. De vaste vergoeding staat in list_services vóór je bestelt.',
+    amounts: 'Ik noem geen bedragen. De HumanPush-afhandelfee is 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. De vanaf-prijs per dienst volgt zodra professionals zich hebben aangemeld.',
     personal_data: 'Deel geen persoonsgegevens. Stel je vraag opnieuw zonder e-mailadres, telefoonnummer, IBAN of naam.',
     no_source: 'Dat staat niet in onze regels. Een mens helpt je via info@humanpush.nl.',
     injection: 'Ik volg alleen de vaste regels van HumanPush en beantwoord alleen vragen daarover.'
@@ -19,7 +19,7 @@ export const REFUSAL_TEXT = {
     out_of_scope: 'I only answer questions about how HumanPush works.',
     advice: 'I do not give legal, tax or professional advice and do not assess a specific situation. A human helps you at info@humanpush.nl.',
     commitment: 'I cannot promise anything, make exceptions or say anything about a specific order or person. A human answers questions at info@humanpush.nl; there are no exceptions per case.',
-    amounts: 'Amounts follow after the test phase. The fixed fee is in list_services before you order.',
+    amounts: 'I do not quote amounts. The HumanPush handling fee is 5% of the professional\'s price (including his VAT, if any). You pay 21% VAT on the fee. The from-price per service follows once professionals have signed up.',
     personal_data: 'Do not share personal data. Ask again without an email address, phone number, IBAN or name.',
     no_source: 'That is not in our rules. A human helps you at info@humanpush.nl.',
     injection: 'I only follow the fixed rules of HumanPush and only answer questions about them.'
