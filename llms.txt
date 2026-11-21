@@ -41,7 +41,7 @@ Fixed criteria per service (what the delivered document must contain; ids as in 
 - Patent attorneys: question_answered = the search report answers the search question within the given technical field; scope_respected = novelty only: no filing, no FTO, no amounts.
 - NRBI: question_answered = the review follows the 8-point checklist and answers the questions asked (at most 3), in at most 3 pages; scope_respected = existing buildings only; no inspection, no legal advice.
 
-list_services gives per service the exact service_id, inputs, outcomes, in_scope and out_of_scope, the HumanPush handling fee: 5% of the professional's price (including his VAT, if any), plus 21% VAT on the fee; the test API may still show it as H, the review criteria, the disclaimer and the known gaps of the register.
+list_services gives per service the exact service_id, inputs, outcomes, in_scope and out_of_scope, the HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee (fields fee_name, fee_pct = 5, fee_vat_pct = 21, fee_excl_vat = true, fee_basis, fee_reverse_charge), the fixed criteria per service, the disclaimer and the known gaps of the register. The vanaf price (the lowest price a registered professional asks for the service right now, the same for everyone, no names) is not yet a field in list_services; it follows in a later version. Until then list_services shows only price_range_cents (internal; not shown as a range).
 
 ## When not to use HumanPush
 
@@ -57,7 +57,7 @@ How your agent connects: it calls list_services, then v1_create_order, pays pay_
 
 1. list_services: the bookable services and the terms of the one method.
 2. v1_create_order: service_id, inputs, deadline (ISO 8601) and max_price_cents. Optional: min_proof_level, to require a stricter registry check than the standard one (never a lighter one). You never name a professional; unknown fields are refused. Returns pay_url.
-3. Pay pay_url within 30 minutes: max_price_cents plus the HumanPush handling fee: 5% of the professional's price (including his VAT, if any), plus 21% VAT on the fee; the test API may still show it as H. v1_pay_link returns the open payment link again (idempotency_key required); v1_link_payment links your own payment that ended on the waiting list to your order, within the waiting time. Not paid in time: the order lapses (not_paid), nobody pays anything.
+3. Pay pay_url within 30 minutes: max_price_cents plus the HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee. v1_pay_link returns the open payment link again (idempotency_key required); v1_link_payment links your own payment that ended on the waiting list to your order, within the waiting time. Not paid in time: the order lapses (not_paid), nobody pays anything.
 4. v1_get_status: state, reason, every deadline and the money; while the order is offered in turns also the turn, the round and the end of the current turn. Expired clocks are processed first. Poll it.
 5. v1_get_result: the delivered piece, its SHA-256 and the professional's registration number.
 6. verify_proof: checks the digital fingerprint, the professional's passkey signature and the evidence file.
@@ -88,7 +88,7 @@ Reasons include not_paid, no_accept, cancelled, withdrawn, late, returned_confli
 
 ## Money
 
-- 100% upfront, within 30 minutes: max_price_cents plus the HumanPush handling fee: 5% of the professional's price (including his VAT, if any), plus 21% VAT on the fee; the test API may still show it as H. A change applies only to new orders.
+- 100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders.
 - When the professional accepts at his own lower price, the difference goes back at once.
 - If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back.
 - Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including the handling fee. No cancelling after delivery.

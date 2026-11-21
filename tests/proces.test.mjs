@@ -478,3 +478,22 @@ test('NIVRE eerst, overal: "toets van een schadevaststelling" in plaats van "oor
   assert.match(dash, /Toets schadevaststelling/);
   assert.match(read('pilot/second-opinion.html'), /<h1>Een onafhankelijke toets van een schadevaststelling, getekend door een NIVRE-geregistreerde schade-expert\.<\/h1>/);
 });
+
+test('PR B: llms.txt met 5% afhandelfee en zonder H; klachtroute per register op de dienstkaart; "niet opleveren tot het compleet is"', () => {
+  const l = read('llms.txt');
+  assert.match(l, /you prepay max_price \+ 5% \+ VAT on the fee; the difference is refunded when a cheaper professional accepts/);
+  assert.doesNotMatch(l, /\bH\b|fixed fee per service|price range/);
+  for (const f of ['fee_pct', 'fee_vat_pct', 'fee_excl_vat']) assert.ok(l.includes(f), f);
+  assert.match(l, /There is no public v1 endpoint yet/);
+  assert.match(l, /matches a reference point the company supplies/);
+  for (const r of DIENSTEN) {
+    assert.ok(r.klacht && r.klacht.links.length >= 1, r.id);
+    for (const k of r.klacht.links) assert.match(k.url, /^https:\/\//, r.id);
+  }
+  assert.match(read('professionals.html'), /<dt>Oneens met de inhoud<\/dt><dd>Geen grond voor geld terug\. Ga naar de professional, of naar NIVRE: <a href="https:\/\/nivre\.nl\/over-het-nivre\/klachten\/" rel="noopener">/);
+  for (const f of ['bedrijven.html', 'hoe-het-werkt.html', 'veelgestelde-vragen.html']) {
+    assert.match(read(f), /Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en (krijg je|krijgt het bedrijf) alles terug\./, f);
+    assert.doesNotMatch(read(f), /kan de professional niet opleveren tot het compleet is/, f);
+  }
+  assert.match(l, /5% of the professional's price \(including his VAT, if any\); the fee itself excludes VAT, plus 21% VAT on the fee/);
+});
