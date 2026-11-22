@@ -48,10 +48,10 @@ test('dienstkaarten: 5 registers in vaste volgorde, beide kanten in de HTML, det
     for (const k of ['pro', 'bedrijf']) assert.equal(r[k].chips.length, 3, `${r.id} ${k}: 3 chips`);
     assert.doesNotMatch(JSON.stringify(r), /TODO|\[\.\.\.\]|€/);
   }
-  // /professionals toont alle vijf registers (NIVRE uitgeklapt); /bedrijven alleen de dienst die te boeken is (besluit 20-11: NIVRE eerst).
-  for (const [f, view, regs] of [['professionals.html', 'pro', data.registers], ['bedrijven.html', 'bedrijf', data.registers.filter((r) => r.status === 'boekbaar')]]) {
+  // /professionals en /bedrijven tonen alle vijf registers gelijkwaardig (NIVRE eerst en uitgeklapt), elk met een eerlijke status (besluit 22-11).
+  for (const [f, view, regs] of [['professionals.html', 'pro', data.registers], ['bedrijven.html', 'bedrijf', data.registers]]) {
     const t = read(f);
-    assert.match(t, new RegExp(`<!--diensten:start view=${view}( only=boekbaar)?-->`), f);
+    assert.match(t, new RegExp(`<!--diensten:start view=${view}-->`), f);
     assert.match(t, new RegExp(`<div class="svc" data-svc data-view="${view}">`), f);
     for (const r of regs) {
       assert.match(t, new RegExp(`<section class="svc-card" id="${r.id}"`), `${f}: ${r.id}`);

@@ -24,11 +24,11 @@ HumanPush runs the terms automatically; the evidence file of each order is the p
 
 ## The five services
 
-One service per register. We start with NIVRE; the other services are in preparation. HumanPush is not part of any register and uses no register logos. list_services gives per service in_scope and out_of_scope: what is and is not part of the service.
+One service per register. The rules are the same for every register, and professionals from all these registers are welcome; sign-up opens after the test phase. During the test phase only the NIVRE service can be booked; NRVT is under review and the others are in preparation. HumanPush is not part of any register and uses no register logos. list_services gives per service in_scope and out_of_scope: what is and is not part of the service.
 
-- NIVRE (claims adjusters), bookable first: a review of a loss assessment based on a complete file (the amount of the loss, separate from coverage; property damage, B2B, on the documents). Disclaimer: an opinion on documents only, no inspection on site; no personal injury. Registry check valid 30 days.
+- NIVRE (claims adjusters), bookable in the test phase: a review of a loss assessment based on a complete file (the amount of the loss, separate from coverage; property damage, B2B, on the documents). Disclaimer: an opinion on documents only, no inspection on site; no personal injury. Registry check valid 30 days.
 - NRVT (registered valuers, Kamer Wonen), under review, not bookable: a valuation report of a home, without NWWI validation. We first check how this fits the NRVT practice guideline (inspection by the valuer himself). Disclaimer: not for a mortgage or NHG. Registry check valid 30 days.
-- NRGD (court experts, 008.1 computer forensics), in preparation: checks whether one supplied document matches a reference point the company supplies (an earlier digital fingerprint (SHA-256), a signed version or a timestamp). Without a usable reference point the outcome is 'cannot be assessed'. Disclaimer: outside court proceedings; not a court expert report. Registry check valid 30 days. Opens when at least 5 experts from at least 3 organisations are available.
+- NRGD (court experts, 008.1 computer forensics), in preparation: checks whether one supplied document matches a reference point the company supplies (an earlier digital fingerprint (SHA-256), a signed version or a timestamp). Without a usable reference point the outcome is 'cannot be assessed'. Disclaimer: outside court proceedings; not a court expert report. Registry check valid 30 days. Opens when at least 5 professionals from at least 3 organisations are available.
 - Register of patent attorneys (Octrooicentrum Nederland), in preparation: a novelty quick scan. Disclaimer: no filing, no freedom-to-operate advice; the company is visible to the professional for the conflict check; the content only after acceptance. Registry check at most 30 days old, and on top of that the list's reference date at most 120 days old at the check.
 - NRBI (Nederlands Register Bouwkundig Inspecteurs), in preparation: a remote review of an existing building inspection report. Disclaimer: no new inspection and no NRBI-validated inspection. Registry check valid 30 days.
 
@@ -47,7 +47,7 @@ list_services gives per service the exact service_id, inputs, outcomes, in_scope
 
 - For consumers.
 - When you do not need a registered signer.
-- The law does not always require one. GDPR art. 22 gives people a right to meaningful human intervention in certain automated decisions; the EU AI Act requires human oversight for high-risk AI systems; registration (such as NIVRE) is a professional quality standard. HumanPush offers an independent, verifiable expert assessment when the situation calls for it.
+- The law does not always require one. GDPR art. 22 gives people a right to meaningful human intervention in certain automated decisions; the EU AI Act requires human oversight for high-risk AI systems; registration (such as NIVRE) is a professional quality standard. HumanPush offers an independent, verifiable professional assessment when the situation calls for it.
 - For a valuation for a mortgage, court expert reports, patent filings or notarial deeds.
 - To force a different conclusion: a dispute counts only for an objective error that the system detects itself.
 

@@ -52,7 +52,7 @@ def write_pdf():
     line('Toets van een schadevaststelling op basis van een compleet dossier', 15, True, 9)
     line('Opdracht HP-0001 (voorbeeld) · dienst nivre.independent_opinion · catalogusversie 2026-11-20', 9, gap=8)
     line('Opdrachtgever: Voorbeeld Schade B.V. (KvK 00000000)', bold=True)
-    line('Professional: Expert B, schade-expert, NIVRE-registratie 00000 (fictief)')
+    line('Uitgevoerd door: Professional B, schade-expert, NIVRE-registratie 00000 (fictief)')
     line('Registercheck bij aanname: NIVRE-register, geldig, ma 10:31', gap=9)
     line('Vraag', 12, True)
     line('Houdt de vastgestelde schadehoogte stand, op basis van het aangeleverde dossier?', gap=9)
@@ -70,7 +70,7 @@ def write_pdf():
     line('Houdt stand.', 12, True, 9)
     line('Disclaimer', 12, True)
     line('Oordeel op stukken. Geen opname ter plaatse. Alleen B2B. Geen personenschade. Geen oordeel', 9.5)
-    line('over dekking. Dit is een fictief voorbeeld; er is geen echte opdracht en geen echte expert.', 9.5, gap=9)
+    line('over dekking. Dit is een fictief voorbeeld; er is geen echte opdracht en geen echte professional.', 9.5, gap=9)
     line('Ondertekening', 12, True)
     line('Handtekening met passkey: VOORBEELD – niet verifieerbaar.', 10)
     c.showPage()
@@ -83,13 +83,13 @@ def main():
     sha = hashlib.sha256(data).hexdigest()
     dossier = {
         'example': True,
-        'note': 'Fictief voorbeeld. Geen echte opdracht, geen echte expert, geen echte organisatie. De velden volgen het resultaat van v1_get_result op humanpush-mcp test/v1-stack, aangevuld met de registercheck en de stappen uit het dossier.',
+        'note': 'Fictief voorbeeld. Geen echte opdracht, geen echte professional, geen echte organisatie. De velden volgen het resultaat van v1_get_result op humanpush-mcp test/v1-stack, aangevuld met de registercheck en de stappen uit het dossier.',
         'order_id': 'HP-0001',
         'service_id': 'nivre.independent_opinion',
         'service_name': 'Toets van een schadevaststelling op basis van een compleet dossier',
         'catalog_version': '2026-11-20',
         'organisation': {'name': 'Voorbeeld Schade B.V.', 'kvk': '00000000'},
-        'professional': {'name': 'Expert B', 'register': 'NIVRE', 'registration_number': '00000'},
+        'professional': {'name': 'Professional B', 'register': 'NIVRE', 'registration_number': '00000'},
         'registry_check': {'register': 'NIVRE', 'status': 'geldig', 'checked_at': 'ma 10:31 (voorbeeld)', 'source': 'openbaar NIVRE-register (voorbeeld)'},
         'document': {'file': 'rapport-voorbeeld.pdf', 'media_type': 'application/pdf', 'bytes': len(data)},
         'sha256': sha,
@@ -103,8 +103,8 @@ def main():
             {'step': 'besteld', 'at': 'ma 10:02', 'by': 'agent van het bedrijf'},
             {'step': 'betaald', 'at': 'ma 10:05', 'by': 'betaallink'},
             {'step': 'registercheck', 'at': 'ma 10:31', 'by': 'HumanPush'},
-            {'step': 'aangenomen', 'at': 'ma 10:31', 'by': 'Expert B', 'signature': 'VOORBEELD – niet verifieerbaar'},
-            {'step': 'opgeleverd', 'at': 'wo 15:12', 'by': 'Expert B', 'signature': 'VOORBEELD – niet verifieerbaar', 'sha256': sha},
+            {'step': 'aangenomen', 'at': 'ma 10:31', 'by': 'Professional B', 'signature': 'VOORBEELD – niet verifieerbaar'},
+            {'step': 'opgeleverd', 'at': 'wo 15:12', 'by': 'Professional B', 'signature': 'VOORBEELD – niet verifieerbaar', 'sha256': sha},
             {'step': 'geaccepteerd', 'at': 'wo 16:40', 'by': 'bedrijf'},
             {'step': 'uitbetaald', 'at': 'wo 16:40', 'by': 'HumanPush'},
         ],

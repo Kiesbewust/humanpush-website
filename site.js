@@ -131,13 +131,13 @@
     // Elke rij krijgt een eigen frame (ook de laatste), dus geen rij blijft ooit verborgen. Rij met de beurten krijgt een extra frame.
     var frames = [];
     rows.forEach(function (row) {
-      frames.push(function () { row.classList.add('on'); if (row.contains(tA)) { tA.classList.add('seen', 'now'); tA.textContent = 'Expert A · aangeboden'; } });
-      if (tA && tB && row.contains(tA)) frames.push(function () { tA.classList.remove('now'); tA.classList.add('pass'); tA.textContent = 'Expert A · doorgegeven'; tB.classList.add('seen', 'now'); tB.textContent = 'Expert B · aangeboden'; });
+      frames.push(function () { row.classList.add('on'); if (row.contains(tA)) { tA.classList.add('seen', 'now'); tA.textContent = 'Professional A · aangeboden'; } });
+      if (tA && tB && row.contains(tA)) frames.push(function () { tA.classList.remove('now'); tA.classList.add('pass'); tA.textContent = 'Professional A · doorgegeven'; tB.classList.add('seen', 'now'); tB.textContent = 'Professional B · aangeboden'; });
     });
     frames.push(function () {}, function () {});
     function reset() {
       rows.forEach(function (r) { r.classList.remove('on'); });
-      tA.className = ''; tB.className = ''; tA.textContent = 'Expert A'; tB.textContent = 'Expert B';
+      tA.className = ''; tB.className = ''; tA.textContent = 'Professional A'; tB.textContent = 'Professional B';
     }
     var f = 1, paused = false, hover = false;
     reset();

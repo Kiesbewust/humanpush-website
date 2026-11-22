@@ -43,7 +43,7 @@ endobj
 endobj
 8 0 obj
 <<
-/Length 4095
+/Length 4110
 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
@@ -68,7 +68,7 @@ BT /F2 10.5 Tf 12.6 TL ET
 BT 1 0 0 1 62.3622 708.6614 Tm (Opdrachtgever: Voorbeeld Schade B.V. \(KvK 00000000\)) Tj T* ET
 .043137 .164706 .356863 rg
 BT /F1 10.5 Tf 12.6 TL ET
-BT 1 0 0 1 62.3622 691.0866 Tm (Professional: Expert B, schade-expert, NIVRE-registratie 00000 \(fictief\)) Tj T* ET
+BT 1 0 0 1 62.3622 691.0866 Tm (Uitgevoerd door: Professional B, schade-expert, NIVRE-registratie 00000 \(fictief\)) Tj T* ET
 .043137 .164706 .356863 rg
 BT /F1 10.5 Tf 12.6 TL ET
 BT 1 0 0 1 62.3622 673.5118 Tm (Registercheck bij aanname: NIVRE-register, geldig, ma 10:31) Tj T* ET
@@ -125,7 +125,7 @@ BT /F1 9.5 Tf 11.4 TL ET
 BT 1 0 0 1 62.3622 326.5512 Tm (Oordeel op stukken. Geen opname ter plaatse. Alleen B2B. Geen personenschade. Geen oordeel) Tj T* ET
 .043137 .164706 .356863 rg
 BT /F1 9.5 Tf 11.4 TL ET
-BT 1 0 0 1 62.3622 308.9764 Tm (over dekking. Dit is een fictief voorbeeld; er is geen echte opdracht en geen echte expert.) Tj T* ET
+BT 1 0 0 1 62.3622 308.9764 Tm (over dekking. Dit is een fictief voorbeeld; er is geen echte opdracht en geen echte professional.) Tj T* ET
 .043137 .164706 .356863 rg
 BT /F2 12 Tf 14.4 TL ET
 BT 1 0 0 1 62.3622 283.4646 Tm (Ondertekening) Tj T* ET
@@ -157,5 +157,5 @@ trailer
 /Size 9
 >>
 startxref
-5143
+5158
 %%EOF

@@ -1,6 +1,6 @@
 {
   "example": true,
-  "note": "Fictief voorbeeld. Geen echte opdracht, geen echte expert, geen echte organisatie. De velden volgen het resultaat van v1_get_result op humanpush-mcp test/v1-stack, aangevuld met de registercheck en de stappen uit het dossier.",
+  "note": "Fictief voorbeeld. Geen echte opdracht, geen echte professional, geen echte organisatie. De velden volgen het resultaat van v1_get_result op humanpush-mcp test/v1-stack, aangevuld met de registercheck en de stappen uit het dossier.",
   "order_id": "HP-0001",
   "service_id": "nivre.independent_opinion",
   "service_name": "Toets van een schadevaststelling op basis van een compleet dossier",
@@ -10,7 +10,7 @@
     "kvk": "00000000"
   },
   "professional": {
-    "name": "Expert B",
+    "name": "Professional B",
     "register": "NIVRE",
     "registration_number": "00000"
   },
@@ -23,9 +23,9 @@
   "document": {
     "file": "rapport-voorbeeld.pdf",
     "media_type": "application/pdf",
-    "bytes": 5534
+    "bytes": 5549
   },
-  "sha256": "ac9bb83bb7eee8229ceed11b68cab6aefa9374a0f1d4987cdf4a1f1dd7487d33",
+  "sha256": "1329c4018906021ac06c611e31e9aa4fe4190f32e050f456b6aa31cf4fe9f0b1",
   "sha256_of": "document",
   "signed_step_sha256": "VOORBEELD – niet verifieerbaar",
   "signature": "VOORBEELD – niet verifieerbaar",
@@ -51,15 +51,15 @@
     {
       "step": "aangenomen",
       "at": "ma 10:31",
-      "by": "Expert B",
+      "by": "Professional B",
       "signature": "VOORBEELD – niet verifieerbaar"
     },
     {
       "step": "opgeleverd",
       "at": "wo 15:12",
-      "by": "Expert B",
+      "by": "Professional B",
       "signature": "VOORBEELD – niet verifieerbaar",
-      "sha256": "ac9bb83bb7eee8229ceed11b68cab6aefa9374a0f1d4987cdf4a1f1dd7487d33"
+      "sha256": "1329c4018906021ac06c611e31e9aa4fe4190f32e050f456b6aa31cf4fe9f0b1"
     },
     {
       "step": "geaccepteerd",
