@@ -174,7 +174,7 @@ test('catalogus: alle vijf registers gelijkwaardig, NIVRE eerst, eerlijke status
   const b = read('bedrijven.html');
   assert.equal((b.match(/<section class="svc-card"/g) || []).length, 5, '/bedrijven: alle vijf dienstkaarten');
   for (const r of DIENSTEN) assert.match(b.match(new RegExp(`<section class="svc-card" id="${r.id}"[\\s\\S]*?</section>`))[0], new RegExp(`<span class="status( prep)?">${label[r.status].replace(':', '\\:')}</span>`), r.id);
-  for (const f of [...PAGES, 'llms.txt']) assert.doesNotMatch(read(f), /We beginnen met|Ook in voorbereiding|We start with NIVRE|bookable first/, f);
+  for (const f of [...PAGES, 'llms.txt', ...readdirSync(join(ROOT, 'kb')).filter((x) => x.endsWith('.md')).map((x) => 'kb/' + x), 'kb/index.json', 'api/_kb.js']) assert.doesNotMatch(read(f), /We beginnen met|Ook in voorbereiding|We start with NIVRE|bookable first/, f);
   assert.match(read('llms.txt'), /During the test phase only the NIVRE service can be booked/);
 });
 

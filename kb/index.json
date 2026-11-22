@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "36d40eb8fa881c7452ad674ce6007a3451a774c18aca7126e7b8bd64e2ce139f",
+ "kb_hash": "47cf1bf857174b59b3f54b962eec74cc120846e801213632f9c48a0a845ca2f9",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -44,8 +44,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#garanties",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Termijnen, geldregels, bezwaar en bewijsvloer zijn voor elke dienst gelijk. We beginnen met de NIVRE-dienst; de andere diensten zijn in voorbereiding. Per dienst verschillen alleen het register, de invoer, de uitkomsten, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.",
-   "hash": "d9caad6dc86bcac3"
+   "text": "Termijnen, geldregels, bezwaar en bewijsvloer zijn voor elke dienst gelijk. In de testfase is alleen de NIVRE-dienst te boeken; de status van de andere diensten staat in de catalogus. Per dienst verschillen alleen het register, de invoer, de uitkomsten, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.",
+   "hash": "1f81ec5061b68136"
   },
   {
    "id": "spelregels-r1-6",
