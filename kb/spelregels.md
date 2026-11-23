@@ -17,7 +17,7 @@ De pauze stopt nieuwe opdrachten voor iedereen. Lopende opdrachten lopen door on
 De regels en de catalogus die golden bij het bestellen, gelden voor die hele opdracht. Een nieuwe versie geldt alleen voor nieuwe opdrachten.
 
 ### R1.5 · Eén systeem voor alle beroepen
-Termijnen, geldregels, bezwaar en bewijsvloer zijn voor elke dienst gelijk. We beginnen met de NIVRE-dienst; de andere diensten zijn in voorbereiding. Per dienst verschillen alleen het register, de invoer, de uitkomsten, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.
+Termijnen, geldregels, bezwaar en bewijsvloer zijn voor elke dienst gelijk. In de testfase is alleen de NIVRE-dienst te boeken; de status van de andere diensten staat in de catalogus. Per dienst verschillen alleen het register, de invoer, de uitkomsten, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.
 
 ### R1.6 · Alleen zakelijk
 Opdrachtgevers hebben een KvK-nummer. Professionals staan in een openbaar register. Niet voor particulieren of consumenten.
