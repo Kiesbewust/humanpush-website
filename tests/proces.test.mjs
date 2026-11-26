@@ -367,7 +367,7 @@ test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, D
   const t = read('professionals.html');
   const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/section>/)[0];
   for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys']) assert.ok(begin.includes(x), x);
-  assert.match(begin, /Later vragen we ook gegevens voor de belastingregels voor platforms\. Dat leggen we uit vóór je eerste opdracht\./);
+  assert.doesNotMatch(begin, /belastingregels voor platforms|DAC7/, 'DAC7 alleen in de FAQ');
   assert.match(read('veelgestelde-vragen.html'), /Later vragen we ook gegevens voor de belastingregels voor platforms \(DAC7\)\. Platforms moeten daarover mogelijk gegevens aan de Belastingdienst doorgeven\. We laten juridisch toetsen welke gegevens dat zijn\. Je hoort het vóór je eerste opdracht\./);
   for (const f of PAGES) assert.doesNotMatch(read(f), /wettelijk verplicht \(DAC7\)|We slaan die versleuteld op/, f);
   assert.doesNotMatch(read('hoe-het-werkt.html'), /de gegevens die nodig zijn voor de belastingregels voor platforms \(DAC7\)/);
@@ -375,7 +375,7 @@ test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, D
   for (const f of PAGES) assert.doesNotMatch(read(f), /binnen het bereik van de dienst|het prijsbereik/, f);
   assert.equal((read('professionals.html').match(/Is jouw prijs de laagste die de deadline haalt/g) || []).length, 1, 'de prijsalinea staat er één keer');
   const faq = read('veelgestelde-vragen.html');
-  assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot je rekening volgt na de testfase\.<\/p>/);
+  assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot je rekening volgt zodra er echte opdrachten lopen\.<\/p>/);
   assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op je scherm bij HumanPush, of je agent vraagt het op\. Er gaat nog geen mail of push\./);
   for (const f of PAGES.filter((f) => f !== 'voorwaarden.html')) assert.doesNotMatch(read(f), /factureer|facturatie|factuur/i, `${f}: wie factureert wacht op jurist en fiscalist`);
 });
@@ -400,7 +400,7 @@ test('grenzen van het bewijs: blok op /hoe-het-werkt#grenzen, kort op /bedrijven
   assert.equal((g.match(/<ul class="crosses grenzen-niet">[\s\S]*?<\/ul>/)[0].match(/<li>/g) || []).length, 4);
   assert.match(g, /<em>\(Voor zover de dienstkaart dat als verplicht onderdeel vraagt\.\)<\/em>/, 'eerlijk zolang de catalogus methode en ontvangen stukken niet overal verplicht stelt');
   assert.match(g, /geen gekwalificeerde elektronische handtekening \(QES\) in de zin van de Europese eIDAS-verordening/);
-  assert.match(read('bedrijven.html'), /<p class="grenzen-kort">[\s\S]*?<a href="\/hoe-het-werkt#grenzen">Wat het dossier aantoont, en wat niet<\/a><\/p>/);
+  assert.match(read('bedrijven.html'), /<p class="grenzen-kort">[\s\S]*?<a href="\/hoe-het-werkt#grenzen">Wat het dossier aantoont, en wat niet\.<\/a><\/p>/);
   assert.match(read('veelgestelde-vragen.html'), /id="handtekening"[\s\S]*?href="\/hoe-het-werkt#grenzen"/);
   const ok = /geen gekwalificeerde|niet aantoont|Dat het een gekwalificeerde elektronische handtekening is\.|\?\s*$/i;
   for (const f of [...PAGES, 'llms.txt', 'kb/spelregels.md', 'kb/faq.md']) {

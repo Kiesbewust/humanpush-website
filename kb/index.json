@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "7ad3e0cd8636abb57650cf69b2ffb640a960c3425b9d2486a1f1c3a011030720",
+ "kb_hash": "a50b98b935b29f4c78d2bba16f024d02b56814e16600c2acde40d730ccfcd283",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -363,15 +363,6 @@
    "hash": "d0fe7f22e7f37bba"
   },
   {
-   "id": "faq-bedrijven-wat-als-het-misgaat",
-   "title": "Wat als het misgaat?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#misgaat",
-   "lang": "nl",
-   "source": "faq",
-   "text": "Wat het systeem kan meten, lossen we automatisch op: te laat, iets verplichts mist, de registratie was niet geldig, of het formaat klopt niet. Dan krijg je automatisch alles terug, ook de afhandelfee. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. Over de inhoud van een oordeel beslissen wij niet.",
-   "hash": "35122e8e21575cfb"
-  },
-  {
    "id": "faq-bedrijven-kan-ik-nu-al-bestellen",
    "title": "Kan ik nu al bestellen?",
    "url": "https://humanpush.nl/veelgestelde-vragen#bestellen",
@@ -548,8 +539,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#toegang",
    "lang": "nl",
    "source": "faq",
-   "text": "Je krijgt één keer een link. Die sturen we naar een contactadres dat wij zelf controleren, bijvoorbeeld het adres in het register of op de site van je kantoor. Nooit naar een adres dat je zelf opgeeft. Via die link maak je twee passkeys: één om mee te werken en één als reserve. Gebruik je een eigen agent? Dan haal je via dezelfde link ook de toegangscode voor je agent op. De link werkt één keer en dient alleen hiervoor. Tekenen doe je altijd zelf met je passkey. Een agent kan nooit voor je tekenen.",
-   "hash": "e152ebc282fec6c0"
+   "text": "Je krijgt één keer een link, naar een contactadres dat wij zelf controleren, bijvoorbeeld uit het register of van de site van je kantoor. Nooit naar een adres dat je zelf opgeeft. Via die link maak je twee passkeys, één om mee te werken en één als reserve, en haal je de toegangscode voor je agent op als je die gebruikt. De link dient alleen hiervoor. Tekenen doe je altijd zelf met je passkey.",
+   "hash": "d5a3fbe5d4023ff4"
   },
   {
    "id": "faq-professionals-wat-is-een-passkey",
@@ -665,8 +656,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#geld",
    "lang": "nl",
    "source": "faq",
-   "text": "Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt na de testfase.",
-   "hash": "0385367e5d1c784e"
+   "text": "Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt zodra er echte opdrachten lopen.",
+   "hash": "2c2f4d8b6f49a291"
   },
   {
    "id": "faq-professionals-welke-gegevens-vragen-jullie-en-waarom",
@@ -746,8 +737,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#agents",
    "lang": "nl",
    "source": "faq",
-   "text": "Nog niet voor versie 1. Die is in de testfase; er is nog geen publiek endpoint.",
-   "hash": "1418434576e8fe43"
+   "text": "Nog niet voor versie 1. Er is nog geen publiek endpoint, en er lopen nog geen echte opdrachten.",
+   "hash": "cd5d33d43152276c"
   },
   {
    "id": "faq-agents-kan-mijn-agent-vragen-stellen",

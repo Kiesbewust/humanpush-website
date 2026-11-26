@@ -797,7 +797,10 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .flow .n { font-family: var(--mono); font-size: 13px; color: var(--muted); letter-spacing: .04em; }
 .flow h3 { margin: 8px 0 6px; font-size: 19px; }
 .flow p { margin: 0; font-size: 16px; line-height: 1.5; }
-.flow .ico { color: var(--ink); }
+.flow .ico { color: var(--ink); display: block; margin-bottom: 8px; }
+.flow .n { display: block; }
+/* In een wie-kaart erft li flex; de stappen moeten onder elkaar, label boven de tekst. */
+.who li.flow { display: block; }
 .flow:not(:last-child)::after { content: ""; position: absolute; right: -16px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-top: 2px solid var(--muted); border-right: 2px solid var(--muted); transform: rotate(45deg); }
 .statusline { display: inline-flex; align-items: center; gap: 10px; margin: 22px 0 0; font-size: 14.5px; color: var(--on-dark); border: 1px solid var(--line-dark); border-radius: 999px; padding: 8px 14px; max-width: 100%; }
 .statusline::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: none; }
