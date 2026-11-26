@@ -103,10 +103,12 @@ test('juridisch kader: nergens "de wet eist altijd", wel de genuanceerde formule
 
 test('authenticatie: tekenen met passkey plus verplichte reserve; nergens een code per mail', () => {
   for (const f of TEXT_FILES) assert.doesNotMatch(read(f), /e-?mail-?code|code (per|via) (e-)?mail|email code|verificatiecode|sms-code|one-time code|eenmalige code/i, f);
-  // Waar de eenmalige link genoemd wordt, staat er ook waarvoor hij dient.
+  // Waar de eenmalige link genoemd wordt, staat waarvoor hij dient. De canonieke tekst staat in de FAQ.
   const pages = TEXT_FILES.filter((f) => f.endsWith('.html'));
-  for (const f of pages) if (/eenmalig(e)? (een )?link/i.test(read(f))) assert.match(read(f), /link dient alleen om (je|de) (toegangscode|API-sleutel) op te halen/, f);
-  for (const f of ['agents.html', 'inloggen.html', 'professionals.html']) assert.match(read(f), /link dient alleen om (je|de) (toegangscode|API-sleutel) op te halen/, f);
+  for (const f of pages) if (/eenmalig(e)? (een )?link/i.test(read(f))) assert.match(read(f), /link dient alleen om (je|de) (toegangscode|API-sleutel) op te halen|dient alleen hiervoor/, f);
+  assert.match(read('veelgestelde-vragen.html'), /Nooit naar een adres dat je zelf opgeeft[\s\S]*dient alleen hiervoor[\s\S]*twee passkeys/);
+  for (const f of ['inloggen.html', 'professionals.html']) assert.match(read(f), /dient alleen hiervoor/);
+  assert.match(read('agents.html'), /eenmalige link naar een contactadres dat wij zelf controleren/);
 });
 
 test('entiteit: alleen HumAgent B.V. (KvK 42222476), geen andere naam, geen placeholders', () => {

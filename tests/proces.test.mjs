@@ -38,7 +38,7 @@ test('woordenlijst: "sleutel" alleen als API-sleutel op /agents; elders "toegang
 test('woordenlijst: uitleg van digitale vingerafdruk, handtekening met je passkey en dossier', () => {
   const vinger = 'Bij de oplevering berekent HumanPush uit het stuk een unieke code van 64 tekens. Verandert er één komma, dan verandert de hele code.';
   const passkey = 'Daarmee sta jij als geregistreerde professional voor het werk in (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>).';
-  for (const f of ['index.html', 'hoe-het-werkt.html']) {
+  for (const f of ['hoe-het-werkt.html']) {
     const t = read(f);
     assert.ok(t.includes(vinger), `${f}: vingerafdruk`);
     assert.ok(t.includes(passkey), `${f}: passkey`);
@@ -47,32 +47,32 @@ test('woordenlijst: uitleg van digitale vingerafdruk, handtekening met je passke
   assert.ok(read('bedrijven.html').includes(vinger));
 });
 
-test('stappenblok: één bron (partials/stappen.json), vijf stappen met rol, op elke pagina via sync-partials', () => {
+test('stappenblok: één bron (partials/stappen.json), vier stappen plus dossierlint, op de pagina\'s via sync-partials', () => {
   const src = JSON.parse(read('partials/stappen.json'));
   for (const v of ['neutraal', 'pro']) {
-    assert.deepEqual(src[v].map((x) => x.titel), ['Opdracht', 'Aannemen', 'Uitvoeren en tekenen', 'Akkoord', 'Dossier'], v);
-    assert.deepEqual(src[v].map((x) => x.rol), ['bedrijf', 'professional', 'professional', 'bedrijf', 'iedereen'], v);
+    assert.equal(src[v].length, 4, v);
+    assert.ok(src[v].every((x) => x.titel && x.tekst && x.tijd && x.ico), v);
   }
-  assert.ok(src.pro.some((x) => x.rolnaam === 'Jij'), 'pro-variant spreekt de professional aan met jij');
-  const pages = { 'index.html': ['neutraal'], 'hoe-het-werkt.html': ['pro', 'neutraal'], 'bedrijven.html': ['neutraal'], 'professionals.html': ['pro'], 'agents.html': ['neutraal'], 'pilot/second-opinion.html': ['neutraal'] };
+  assert.equal(src.lint.strong, 'Alles staat in het dossier:');
+  assert.ok(src.pro.some((x) => /je|jij/i.test(x.tekst)), 'pro-variant spreekt de professional aan met jij');
+  const pages = { 'index.html': ['neutraal'], 'hoe-het-werkt.html': ['pro', 'neutraal'], 'bedrijven.html': ['neutraal'], 'professionals.html': ['pro'], 'pilot/second-opinion.html': ['neutraal'] };
   for (const [f, views] of Object.entries(pages)) {
     const t = read(f);
     assert.deepEqual([...t.matchAll(/<!--stappen:start view=(\w+)-->/g)].map((m) => m[1]), views, f);
-    assert.equal((t.match(/<li class="tl-step/g) || []).length, 5 * views.length, f);
-    assert.doesNotMatch(t, /class="steps4"|in vier stappen|De vier stappen/, f);
+    assert.equal((t.match(/<li class="ig-step/g) || []).length, 4 * views.length, f);
+    assert.ok(t.includes('aria-label="De vier stappen"'), f);
+    assert.ok(t.includes('class="ig-ribbon"'), f);
   }
-  const step2 = read('index.html').match(/<h3>Aannemen<\/h3><p>([\s\S]*?)<\/p>/)[1];
-  assert.match(step2, /<span data-rule="turnWorkingMinutes">\d+<\/span> minuten binnen werktijd \(ma–vr 9–17 uur\)/);
+  assert.doesNotMatch(read('agents.html'), /<!--stappen:start/, 'agents verwijst, herhaalt de stappen niet');
+  assert.match(read('index.html'), /<h3>Een professional neemt aan<\/h3>[\s\S]*?<span data-rule="turnWorkingMinutes">/);
   assert.match(read('index.html'), /<p class="tl-rule">HumanPush controleert het proces, niet de inhoud\. <a href="\/hoe-het-werkt#controle">Lees wat HumanPush controleert<\/a><\/p>/);
   const css = read('site.css');
   assert.ok(Number(css.match(/\.tl-step p \{ font-size: ([\d.]+)px/)[1]) >= 15, 'stappen in leesbare grootte');
+  assert.ok(Number(css.match(/\.ig-step p \{ font-size: ([\d.]+)px/)[1]) >= 15, 'infographic in leesbare grootte');
 });
 
-test('demo op home: elke rij krijgt een frame, "Bewijs" is geen actor, zonder JS alles zichtbaar', () => {
-  const t = read('index.html');
-  const demo = t.match(/<figure class="demo" data-anim[\s\S]*?<\/figure>/)[0];
-  const who = [...demo.matchAll(/<span class="who">([^<]+)<\/span>/g)].map((m) => m[1]);
-  assert.deepEqual(who, ['Agent van het bedrijf', 'HumanPush', 'Professional B', 'Bedrijf', 'HumanPush']);
+test('demo op home is weg; de animatiecode blijft veilig als er ooit weer een demo staat', () => {
+  assert.equal(read('index.html').match(/<figure class="demo"/), null, 'de donkere demo staat niet meer op de home');
   const js = read('site.js');
   const anim = js.slice(js.indexOf(".demo[data-anim]"), js.indexOf('details.more'));
   assert.doesNotMatch(anim, /rows\[\d\]/, 'geen vaste rijnummers: elke rij krijgt een frame');
@@ -89,22 +89,13 @@ test('geen zichtbare backslash in de tekst van een pagina; linkregel is gewone t
   }
 });
 
-test('/hoe-het-werkt: kant-keuze bovenaan, een gesprek per kant tot de uitbetaling, en 4 punten "Wat wordt er vastgelegd"', () => {
+test('/hoe-het-werkt: kant-keuze bovenaan, vier stappen per kant, wie doet wat, en 4 punten "Wat wordt er vastgelegd"', () => {
   const t = read('hoe-het-werkt.html');
   assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">[^<]*<\/p>\n<div class="svc-toggle side-toggle" role="group" aria-label="Kies je kant"><button type="button" class="svc-view" data-view="pro" aria-pressed="false">Ik ben professional<\/button><button type="button" class="svc-view" data-view="bedrijf" aria-pressed="true">Ik ben een bedrijf \(of zijn agent\)<\/button><\/div>/);
-  assert.ok(t.indexOf('data-side-root') < t.indexOf('class="tl"'), 'keuze staat bovenaan');
-  for (const side of ['pro', 'bedrijf']) {
-    const vb = t.slice(t.indexOf('id="voorbeeld"'));
-    const s = vb.match(new RegExp(`<div class="side" data-side="${side}">[\\s\\S]*?<\\/figure>`))[0];
-    assert.match(s, /<figure class="chat"[\s\S]*class="fictief">Voorbeeld<\/span>/, side);
-    assert.match(s, /uitbetaald/, `${side}: tot de uitbetaling`);
-    assert.match(s, /Professional B|jij bent Professional B/i, side);
-  }
-  assert.match(t, /Professional B heeft het rapport opgeleverd en getekend[\s\S]*Accepteren\.[\s\S]*Professional B wordt uitbetaald/);
-  assert.match(t, /Aannemen<\/span><span class="fake sec">Doorgeven/, 'professional neemt aan, het bedrijf accepteert');
-  assert.doesNotMatch(t, /rapport\.pdf|uploadt|Bewijsdossier downloaden/);
+  assert.ok(t.indexOf('data-side-root') < t.indexOf('class="ig-steps"'), 'keuze staat bovenaan');
+  assert.doesNotMatch(t, /<figure class="chat"/, 'de twee gesprekken-demo\'s zijn weg');
   assert.match(t, /id="controle"[\s\S]*HumanPush oordeelt niet over de inhoud/);
-  assert.match(t, /<h2 id="via-kop">Alles loopt via HumanPush<\/h2>/);
+  assert.match(t, /<h2 id="via-kop">Wie doet wat<\/h2>/);
   assert.match(t, /<figure class="dossierkaart"/);
   const v = t.match(/<ol class="vastgelegd">[\s\S]*?<\/ol>/)[0];
   assert.deepEqual([...v.matchAll(/<h3>([^<]+)<\/h3>/g)].map((m) => m[1]), ['Registercheck', 'Digitale vingerafdruk', 'Handtekening met je passkey', 'Dossier']);
@@ -115,21 +106,15 @@ test('/hoe-het-werkt: kant-keuze bovenaan, een gesprek per kant tot de uitbetali
   assert.match(js, /\[data-side-root\][\s\S]*store\('hp-doelgroep', v\)/, 'keuze wordt bewaard');
 });
 
-test('/professionals: twee manieren met eigen flow, onboarding, uitbetaling, te laat (regels uit rules.json), voordelen', () => {
+test('/professionals: twee korte manieren, checklist, uitbetaling, te laat (regels uit rules.json)', () => {
   const t = read('professionals.html');
-  const manieren = [...t.matchAll(/<a class="svc-tab" href="#manier-[\w-]+" id="tab-manier-[\w-]+" data-tab="manier-[\w-]+">([^<]+)<\/a>/g)].map((m) => m[1]);
-  assert.deepEqual(manieren, ['Op het HumanPush-scherm', 'Met je eigen agent']);
   assert.match(t, /Twee manieren, dezelfde regels: op het HumanPush-scherm of met je eigen agent\./);
   assert.match(t, /<h2 id="humanpush-scherm-kop">Geen eigen agent\? Gebruik het HumanPush-scherm\.<\/h2>/);
+  assert.match(t, /id="manier-scherm"/);
+  assert.match(t, /id="manier-eigen-agent"/);
   for (const f of PAGES) assert.doesNotMatch(read(f), /HumanPush-agent/, f);
-  for (const k of ['scherm', 'eigen-agent']) assert.equal((t.match(new RegExp(`id="manier-${k}"[\\s\\S]*?</section>`))[0].match(/<li>/g) || []).length, 4, k);
-  const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/ol>/)[0];
-  assert.deepEqual([...begin.matchAll(/<li><strong>([^<]+)<\/strong>/g)].map((m) => m[1]), ['Aanmelden', 'Registercheck', 'Twee passkeys instellen', 'Je eerste aangeboden opdracht']);
-  // Zo word je uitbetaald: drie kaarten, elk zonder uitklap te begrijpen; detail achter "Hoe precies?" (een <details>, tikken, geen hover).
-  const pay = t.match(/<ol class="paycards"[\s\S]*?<\/ol>/)[0];
-  assert.deepEqual([...pay.matchAll(/<p class="pay-t">([\s\S]*?)<\/p>/g)].map((m) => m[1].replace(/<[^>]+>/g, '')), ['Je levert op.', 'Het bedrijf heeft 72 uur om te reageren.', 'Je krijgt je volledige prijs.']);
-  assert.equal((pay.match(/<details class="pay-more"><summary>Hoe precies\?<\/summary>/g) || []).length, 3);
-  assert.match(pay, /Zegt het niets, dan geldt je werk als geaccepteerd\./);
+  const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/section>/)[0];
+  for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys']) assert.ok(begin.includes(x), x);
   const qs = [...t.matchAll(/<details class="pay-q"><summary>([^<]+)<\/summary>/g)].map((m) => m[1]);
   assert.deepEqual(qs, ['Wanneer krijg ik niets?', 'En als het bedrijf het inhoudelijk oneens is?', 'Annuleert het bedrijf nadat je hebt aangenomen?', 'Wie bepaalt mijn prijs?']);
   assert.match(t, /Alleen als iets objectief misgaat: deadline gemist, bewijs ontbreekt, verkeerd formaat of registerinschrijving ongeldig\. Het systeem checkt dat automatisch en het bedrijf krijgt zijn geld terug\. Niemand beoordeelt de inhoud van je werk\./);
@@ -139,18 +124,17 @@ test('/professionals: twee manieren met eigen flow, onboarding, uitbetaling, te 
   for (const k of ['turnWorkingMinutes', 'maxTurnsPerPro']) assert.match(laat, new RegExp(`data-rule="${k}"`), k);
   assert.match(laat, /09:00 tot 17:00/);
   assert.doesNotMatch(visible(t), /€\s?\d/, 'geen bedragen');
-  for (const v of ['Instappen in agentic werk', 'Weten waar je aan toe bent', 'Geen acquisitie en geen incasso', 'Je registratie beter benut']) assert.ok(t.includes(v), v);
   assert.match(visible(t), /\bjij\b|\bjouw\b/i);
 });
 
-test('/bedrijven: zelfde opbouw vanuit het bedrijf, bewijsdossier en vier voordelen', () => {
+test('/bedrijven: stappen, kosten, misgaat, dossier en de drie voordelen', () => {
   const t = read('bedrijven.html');
   for (const id of ['stappen', 'zo-werkt-het', 'hoe', 'bewijsdossier', 'developers', 'diensten']) assert.match(t, new RegExp(`id="${id}"`), id);
-  assert.match(t, /Zo zet je agent een opdracht uit/);
-  assert.match(t, /Wat je ziet[\s\S]*class="fictief">Voorbeeld/);
-  assert.match(t, /Betaling en geld terug/);
-  for (const v of ['Een geregistreerde professional in je agentworkflow', 'Aantoonbare verantwoording', 'Vooraf duidelijke prijs en termijnen', 'Geld terug als niemand aanneemt']) assert.ok(t.includes(v), v);
+  assert.match(t, /Zo werkt het/);
+  assert.match(t, /Als het misgaat/);
+  for (const v of ['Getekend door een professional uit een openbaar register', 'Vooraf een duidelijke prijs en uiterste datum', 'Automatisch geld terug als het misgaat']) assert.ok(t.includes(v), v);
   assert.match(t, /Neemt niemand aan binnen <span data-rule="acceptCeilingWorkdays">3<\/span> werkdagen, dan krijg je alles terug\./);
+  assert.match(t, /toegewezen aan een professional/);
 });
 
 test('registers: op elke registertab en dienstkaart één zin wat het register is, met sector', () => {
@@ -163,17 +147,16 @@ test('registers: op elke registertab en dienstkaart één zin wat het register i
 });
 
 test('catalogus: alle vijf registers gelijkwaardig, NIVRE eerst, eerlijke status; geen "We beginnen" of "Ook in voorbereiding"', () => {
-  const INTRO = 'De regels zijn voor elk register hetzelfde. Professionals uit al deze registers zijn welkom. Aanmelden opent na de testfase. In de testfase is nu alleen de NIVRE-dienst te boeken.';
-  const label = { boekbaar: 'Te boeken in de testfase', in_toetsing: 'In toetsing: niet te boeken', in_voorbereiding: 'In voorbereiding' };
+  const label = { boekbaar: 'Eerste dienst', in_toetsing: 'In toetsing', in_voorbereiding: 'Volgt' };
+  const show = { nivre: 'Schade-expert', nrvt: 'Woningtaxateur', nrbi: 'Bouwkundig inspecteur', nrgd: 'Gerechtelijk deskundige digitaal onderzoek', octrooi: 'Octrooigemachtigde' };
   assert.deepEqual(DIENSTEN.map((r) => [r.id, r.status]), [['nivre', 'boekbaar'], ['nrvt', 'in_toetsing'], ['nrbi', 'in_voorbereiding'], ['nrgd', 'in_voorbereiding'], ['octrooi', 'in_voorbereiding']]);
   const home = read('index.html');
-  const cat = home.match(/<ul class="catalogus">([\s\S]*?)<\/ul>/)[1];
-  assert.equal((cat.match(/<li>/g) || []).length, 5);
-  for (const r of DIENSTEN) assert.ok(cat.includes(`${r.kort} <span class="status${r.status === 'boekbaar' ? '' : ' prep'}">${label[r.status]}</span>`), r.id);
-  for (const f of ['index.html', 'bedrijven.html', 'professionals.html']) assert.ok(read(f).includes(INTRO), `${f}: intro`);
+  const cat = home.match(/<ul class="regs">([\s\S]*?)<\/ul>/)[1];
+  assert.equal((cat.match(/<li/g) || []).length, 5);
+  for (const r of DIENSTEN) assert.ok(cat.includes(`<b>${show[r.id]}</b>`) && cat.includes(`<span>${label[r.status]}</span>`), r.id);
   const b = read('bedrijven.html');
   assert.equal((b.match(/<section class="svc-card"/g) || []).length, 5, '/bedrijven: alle vijf dienstkaarten');
-  for (const r of DIENSTEN) assert.match(b.match(new RegExp(`<section class="svc-card" id="${r.id}"[\\s\\S]*?</section>`))[0], new RegExp(`<span class="status( prep)?">${label[r.status].replace(':', '\\:')}</span>`), r.id);
+  for (const r of DIENSTEN) assert.match(b.match(new RegExp(`<section class="svc-card" id="${r.id}"[\\s\\S]*?</section>`))[0], new RegExp(`<span class="status( prep)?">${label[r.status]}</span>`), r.id);
   for (const f of [...PAGES, 'llms.txt', ...readdirSync(join(ROOT, 'kb')).filter((x) => x.endsWith('.md')).map((x) => 'kb/' + x), 'kb/index.json', 'api/_kb.js']) assert.doesNotMatch(read(f), /We beginnen met|Ook in voorbereiding|We start with NIVRE|bookable first/, f);
   assert.match(read('llms.txt'), /During the test phase only the NIVRE service can be booked/);
 });
@@ -306,20 +289,16 @@ test('vanaf-prijs: veld vanaf_cents per dienst (nu null), regel op elke kaart in
   }
 });
 
-test('/hoe-het-werkt per kant: wat je nodig hebt, wat het kost en wat er daarna gebeurt (termijnen uit rules.json)', () => {
+test('/hoe-het-werkt per kant: vier stappen met de termijnen uit rules.json; DAC7 staat in de FAQ', () => {
   const t = read('hoe-het-werkt.html');
   for (const side of ['pro', 'bedrijf']) {
-    const s = t.match(new RegExp(`<div class="side" data-side="${side}"><p class="side-for">[^<]+</p><!--stappen:start[\\s\\S]*?<div class="next-grid">([\\s\\S]*?)</div>\\n</div></div>`))[1];
-    for (const h of ['Wat je nodig hebt', 'Wat het kost', 'Wat er daarna gebeurt']) assert.ok(s.includes(`<h3>${h}</h3>`), `${side}: ${h}`);
-    assert.equal((s.match(/<ol class="next-steps">[\s\S]*?<\/ol>/)[0].match(/<li>/g) || []).length, 5, `${side}: één zin per stap`);
-    assert.match(s, /<span data-rule="turnWorkingMinutes">\d+<\/span> minuten binnen werktijd \(ma–vr 9–17 uur\)/, side);
-    assert.match(s, /<span data-rule="objectionHours">\d+<\/span> uur/, side);
-    assert.match(s, /href="\/bedrijven#kosten"/, side);
+    const s = t.match(new RegExp(`<div class="side" data-side="${side}">[\\s\\S]*?<!--stappen:end-->`))[0];
+    assert.equal((s.match(/<li class="ig-step/g) || []).length, 4, side);
+    assert.match(s, /<span data-rule="turnWorkingMinutes">\d+<\/span>/, side);
+    assert.match(s, /<span data-rule="objectionHours">\d+<\/span>/, side);
   }
-  const pro = t.match(/<div class="side" data-side="pro">[\s\S]*?<\/ol><\/div>\n<\/div><\/div>/)[0];
-  for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys', 'DAC7']) assert.ok(pro.includes(x), x);
-  const biz = t.match(/<div class="side" data-side="bedrijf">[\s\S]*?<\/ol><\/div>\n<\/div><\/div>/)[0];
-  for (const x of ['KvK-nummer', 'MCP', 'betaallink binnen <span data-rule="payMinutes">30</span> minuten']) assert.ok(biz.includes(x), x);
+  assert.doesNotMatch(t, /belastingregels voor platforms \(DAC7\)/, 'DAC7 staat niet meer in de checklist op deze pagina');
+  assert.match(read('veelgestelde-vragen.html'), /belastingregels voor platforms \(DAC7\)/);
 });
 
 // Zichtbare tekst voor mensen: zonder "Voor je bouwer", zonder code in de voorbeelddemo's, zonder head en scripts.
@@ -350,7 +329,7 @@ test('jargon: geen toolnamen, codes of interne woorden op pagina\'s voor mensen 
   for (const f of ['bedrijven.html', 'professionals.html']) {
     const t = read(f);
     assert.equal((t.match(/<details class="voor-bouwer"><summary>Voor je bouwer<\/summary>/g) || []).length, (t.match(/<section class="svc-card"/g) || []).length - (t.match(/<p class="svc-toetsing">/g) || []).length, `${f}: per te bestellen dienstkaart een uitklap voor de bouwer`);
-    assert.match(t, /<span class="status">Te boeken in de testfase<\/span>/);
+    assert.match(t, /<span class="status">Eerste dienst<\/span>/);
     assert.deepEqual([...t.matchAll(/<a class="svc-tab" href="#[\w-]+" id="tab-[\w-]+" data-tab="([\w-]+)"[^>]*>([^<]+)<\/a>/g)].filter((m) => !m[1].startsWith('manier-')).map((m) => m[2]), ['NIVRE', 'NRVT', 'NRBI', 'NRGD', 'Octrooi'], `${f}: tabvolgorde, NIVRE eerst`);
   }
   const regs = JSON.parse(read('partials/diensten.json')).registers;
@@ -379,18 +358,19 @@ test('geen overdrijven, geen doodlopende knoppen: testvlag uit, scherm in plaats
     assert.doesNotMatch(t, /Geen helpdesk die regels buigt|uitzonderingen per geval bestaan niet|Eén MCP-aanroep/i, f);
     if (f !== 'voorwaarden.html') assert.doesNotMatch(t.replace(/<details class="voor-bouwer"[\s\S]*?<\/details>/g, ''), /HumanPush-MCP/, f);
   }
-  assert.match(read('bedrijven.html'), /<span class="fake sec">Dossier bekijken<\/span><span class="soon">Voorbeeld · komt eraan<\/span>/);
+  assert.match(read('professionals.html'), /<h2 id="humanpush-scherm-kop">Geen eigen agent\? Gebruik het HumanPush-scherm\.<\/h2>/);
   for (const f of ['bedrijven.html', 'hoe-het-werkt.html', 'index.html', 'pilot/second-opinion.html']) assert.doesNotMatch(peopleText(read(f)), /AVG \(art\. 22\)|AI-verordening eist/, `${f}: wetsalinea alleen in de FAQ`);
   assert.match(read('veelgestelde-vragen.html'), /id="wet"[\s\S]*AVG \(art\. 22\)/);
 });
 
-test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, DAC7; niets over wie factureert', () => {
+test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, DAC7 in de FAQ; niets over wie factureert', () => {
   const t = read('professionals.html');
   const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/section>/)[0];
-  for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys', 'DAC7']) assert.ok(begin.includes(x), x);
-  assert.match(begin, /Platforms moeten onder DAC7 mogelijk gegevens over opdrachten en inkomsten aan de Belastingdienst doorgeven\. We laten juridisch toetsen welke gegevens we daarvoor nodig hebben; dat hoor je vóór je eerste opdracht\./);
+  for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys']) assert.ok(begin.includes(x), x);
+  assert.match(begin, /Later vragen we ook gegevens voor de belastingregels voor platforms\. Dat leggen we uit vóór je eerste opdracht\./);
+  assert.match(read('veelgestelde-vragen.html'), /Later vragen we ook gegevens voor de belastingregels voor platforms \(DAC7\)\. Platforms moeten daarover mogelijk gegevens aan de Belastingdienst doorgeven\. We laten juridisch toetsen welke gegevens dat zijn\. Je hoort het vóór je eerste opdracht\./);
   for (const f of PAGES) assert.doesNotMatch(read(f), /wettelijk verplicht \(DAC7\)|We slaan die versleuteld op/, f);
-  assert.match(read('hoe-het-werkt.html'), /de gegevens die nodig zijn voor de belastingregels voor platforms \(DAC7\), zodra die zijn vastgesteld/);
+  assert.doesNotMatch(read('hoe-het-werkt.html'), /de gegevens die nodig zijn voor de belastingregels voor platforms \(DAC7\)/);
   assert.match(read('veelgestelde-vragen.html'), /Het wettelijke herroepingsrecht is bedoeld voor consumenten; hoe dat voor deze dienst uitpakt, laten we juridisch toetsen\./);
   for (const f of PAGES) assert.doesNotMatch(read(f), /binnen het bereik van de dienst|het prijsbereik/, f);
   assert.equal((read('professionals.html').match(/Is jouw prijs de laagste die de deadline haalt/g) || []).length, 1, 'de prijsalinea staat er één keer');
@@ -432,7 +412,7 @@ test('grenzen van het bewijs: blok op /hoe-het-werkt#grenzen, kort op /bedrijven
 
 test('tekenen uitgelegd: lead onder de h1 zegt wat tekenen betekent; per pagina één keer de passkey-kanttekening', () => {
   const home = read('index.html');
-  assert.match(home, /<h1>Je agent bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">Een geregistreerde professional beoordeelt het werk en staat er met naam en registratie voor in\. Vastgelegd in een dossier dat je zelf kunt nagaan\.<\/p>\n<p class="hero-link"><a href="\/hoe-het-werkt#grenzen">Wat het dossier aantoont, en wat niet<\/a><\/p>/);
+  assert.match(home, /<h1>Je agent bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">Een professional uit een openbaar register doet het werk en zet zijn naam eronder\. Jij betaalt vooraf\. Is het te laat of mist er iets verplicht, dan krijg je automatisch je geld terug\.<\/p>/);
   assert.doesNotMatch(home.match(/<meta name="description" content="([^"]*)"/)[1], /HumanPush-MCP|voert de regels uit/);
   for (const f of ['index.html', 'hoe-het-werkt.html', 'bedrijven.html', 'professionals.html', 'agents.html', 'pilot/second-opinion.html']) {
     assert.equal((read(f).match(/\(geen gekwalificeerde e-handtekening; zie <a href="\/hoe-het-werkt#grenzen">wat het dossier aantoont<\/a>\)/g) || []).length, 1, f);
@@ -444,14 +424,14 @@ test('status: "Wat werkt al, en wat nog niet" op /hoe-het-werkt#status, gelinkt 
   const s = h.match(/<section class="section mist" id="status"[\s\S]*?<\/section>/)[0];
   const rows = [...s.matchAll(/<tr><th scope="row">([\s\S]*?)<\/th><td>([\s\S]*?)<\/td><\/tr>/g)].map((m) => [m[1].replace(/<[^>]+>/g, ''), m[2].replace(/<a[\s\S]*?<\/a>/g, '').trim()]);
   assert.deepEqual(rows.map((r) => r[0]), ['Dienstkaarten, regels, registercheck-logica', 'Bestellen en vooraf betalen', 'Aannemen, opleveren, tekenen met passkey', 'Dossier en controle met verify_proof', 'Bezwaar alleen bij een objectieve fout', 'Bedrijfsscherm voor mensen, dossier-export', 'Echte opdrachten en echte betalingen', 'Uitbetaling aan professionals, facturen']);
-  assert.deepEqual(rows.find((r) => r[0].startsWith('Echte')), ['Echte opdrachten en echte betalingen', 'nog niet: start met de NIVRE-pilot']);
+  assert.deepEqual(rows.find((r) => r[0].startsWith('Echte')), ['Echte opdrachten en echte betalingen', 'nog niet: we starten met schade-experts (NIVRE).']);
   for (const a of s.matchAll(/<a [^>]*>/g)) assert.match(a[0], /data-testenv hidden/, 'link naar de testomgeving alleen met de vlag');
   assert.doesNotMatch(s, /\b20\d\d\b|januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december|Q[1-4]/i, 'geen beloften met datums');
   for (const f of ['index.html', 'agents.html']) assert.match(read(f), /<a href="\/hoe-het-werkt#status">Wat werkt al, en wat nog niet<\/a>/, f);
 });
 
 test('rolverdeling voor kopers in één blok: HumanPush voor het proces, de professional voor de inhoud', () => {
-  assert.match(read('bedrijven.html'), /<p class="rolverdeling" id="rolverdeling"><strong>HumanPush staat in voor het proces:<\/strong> op tijd, compleet, door een geregistreerde professional, onveranderd\. Gaat daar iets mis, dan krijg je automatisch je geld terug\. <strong>Over de inhoud oordeelt de professional,<\/strong> onder toezicht van zijn eigen register\.<\/p>/);
+  assert.match(read('bedrijven.html'), /<p class="rolverdeling" id="rolverdeling">Gaat er iets mis dat het systeem kan meten\?[\s\S]*Over de inhoud van een oordeel beslissen wij niet\. Dat blijft tussen jou en de professional\.<\/p>/);
 });
 
 test('NRVT "in toetsing": label, de zin over de praktijkhandreiking, geen bestelinstructies', () => {
@@ -459,21 +439,19 @@ test('NRVT "in toetsing": label, de zin over de praktijkhandreiking, geen bestel
   assert.equal(r.status, 'in_toetsing');
   const p = read('professionals.html');
   const card = p.match(/<section class="svc-card" id="nrvt"[\s\S]*?<\/section>/)[0];
-  assert.match(card, /<span class="status prep">In toetsing: niet te boeken<\/span>/);
+  assert.match(card, /<span class="status prep">In toetsing<\/span>/);
   assert.match(card, /<p class="svc-toetsing">We laten eerst toetsen hoe deze dienst past bij de NRVT-praktijkhandreiking \(bezichtiging door de taxateur zelf\)\.<\/p>/);
   assert.doesNotMatch(card, /Zo vraag je aan|voor-bouwer|v1_create_order/);
-  assert.match(read('index.html'), /<li><strong>Register-taxateur \(wonen\) \(NRVT\)\.<\/strong>[^<]*<span class="status prep">In toetsing: niet te boeken<\/span><\/li>/);
-  assert.match(read('bedrijven.html').match(/<section class="svc-card" id="nrvt"[\s\S]*?<\/section>/)[0], /<span class="status prep">In toetsing: niet te boeken<\/span>/);
+  assert.match(read('index.html'), /<b>Woningtaxateur<\/b>NRVT<span>In toetsing<\/span>/);
+  assert.match(read('bedrijven.html').match(/<section class="svc-card" id="nrvt"[\s\S]*?<\/section>/)[0], /<span class="status prep">In toetsing<\/span>/);
 });
 
 test('NIVRE eerst, overal: "toets van een schadevaststelling" in plaats van "oordeel over een claimbesluit"; voorbeeldoverzicht alleen NIVRE', () => {
   for (const f of ['index.html', 'bedrijven.html', 'professionals.html', 'hoe-het-werkt.html', 'pilot/second-opinion.html']) {
     assert.doesNotMatch(read(f), /oordeel over een claimbesluit|Oordeel claimbesluit|vijf diensten/i, f);
   }
-  const dash = read('bedrijven.html').match(/<div class="mock-body">[\s\S]*?<\/div><\/div>/)[0];
-  assert.doesNotMatch(dash, /NRVT|NRGD/);
-  assert.match(dash, /Toets schadevaststelling/);
-  assert.match(read('pilot/second-opinion.html'), /<h1>Een onafhankelijke toets van een schadevaststelling, getekend door een NIVRE-geregistreerde schade-expert\.<\/h1>/);
+  assert.match(read('pilot/second-opinion.html'), /<h1>Een schadevaststelling onafhankelijk laten toetsen<\/h1>/);
+  assert.match(read('pilot/second-opinion.html'), /NIVRE-geregistreerde schade-expert/);
 });
 
 test('PR B: llms.txt met 5% afhandelfee en zonder H; klachtroute per register op de dienstkaart; "niet opleveren tot het compleet is"', () => {
@@ -502,10 +480,9 @@ test('rolnaam overal "professional": geen generieke Expert A/B of "expert" meer 
     const t = read(f).replace(vak, '');
     assert.doesNotMatch(t, /\bExpert [AB]\b|\bexperts?\b/i, f);
   }
-  assert.match(read('index.html'), /Professional A · doorgegeven[\s\S]*Professional B · aangeboden/);
   assert.match(read('site.js'), /Professional A · aangeboden/);
+  assert.doesNotMatch(read('index.html'), /id="voorbeeld"/, 'geen demo-sectie meer op de home');
   const css = read('site.css');
   assert.match(css, /\.vastgelegd \.why \{[^}]*background: var\(--mist\); border-left: 3px solid var\(--ink\);/);
   assert.doesNotMatch(css.match(/\.vastgelegd \.why[^}]*\}/g).join(''), /--gold/);
-  assert.doesNotMatch(read('index.html').match(/id="voorbeeld"[\s\S]*?<\/section>/)[0], /svc-toggle|side-toggle|data-side=/, "geen toggle op Eén opdracht, van begin tot eind");
 });

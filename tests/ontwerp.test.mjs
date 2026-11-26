@@ -60,7 +60,7 @@ test('dienstkaarten: 5 registers in vaste volgorde, beide kanten in de HTML, det
     }
     assert.equal((t.match(/<div class="svc-v" data-v="pro"/g) || []).length, regs.length, f);
     assert.equal((t.match(/<div class="svc-v" data-v="bedrijf"/g) || []).length, regs.length, f);
-    assert.equal((t.match(/<details class="svc-more" open>/g) || []).length, 2, `${f}: alleen NIVRE uitgeklapt (zonder JS)`);
+    assert.equal((t.match(/<details class="svc-more" open>/g) || []).length, 0, `${f}: details dicht, de kaart blijft compact; <details> werkt zonder JS`);
     assert.match(t, /<button type="button" class="svc-view" data-view="pro" aria-pressed="(true|false)">Voor de professional<\/button>/);
   }
 });
@@ -108,7 +108,7 @@ test('goudregel: goud alleen als accent, nooit knopachtergrond of tekstkleur', (
     }
   }
   // Waar goud wel staat: stippen, strepen, focus en het handtekening-accent. Zo blijft het één accent per scherm.
-  const allowed = /focus-visible|::before|::after|signed|\.arr\.sign i|tag-mens|^:root/;
+  const allowed = /focus-visible|::before|::after|signed|\.arr\.sign i|tag-mens|^:root|\.ig-ribbon|\.who\.hp|\.out\.part b|\.bar \.f|\.swatch\.fee/;
   for (const { sel, body } of rules) if (gold.test(body)) assert.match(sel, allowed, `goud buiten een accent: ${sel}`);
   for (const f of PAGES) assert.doesNotMatch(read(f), /style="(?:[^"]*;)?\s*(color|background[\w-]*)\s*:[^;"]*(#E0A526|--gold)/i, `${f}: geen goud als tekst- of achtergrondkleur in inline stijl`);
 });

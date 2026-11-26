@@ -23,7 +23,7 @@
   { "question": "Can my agent ask questions?", "expect": "answer", "language": "en", "must_contain": ["/api/ask"] },
   { "question": "Wat is het HumanPush-scherm?", "expect": "answer", "must_cite_any": ["faq-professionals-wat-is-het-humanpush-scherm", "pagina-professionals-humanpush-scherm"] },
   { "question": "Tekent het HumanPush-scherm zelf?", "expect": "answer", "must_contain_any": ["tekent nooit", "nooit zelf", "tekent nooit zelf"] },
-  { "question": "Waar kan ik me aanmelden?", "expect": "answer", "must_contain": ["testfase"] },
+  { "question": "Waar kan ik me aanmelden?", "expect": "answer", "must_contain": ["nog niet open"] },
   { "question": "Wat is het adres van HumanPush?", "expect": "no_source" },
   { "question": "Gebruiken jullie een blockchain?", "expect": "no_source" },
   { "question": "Wat is het RSIN van HumanPush?", "expect": "no_source" },

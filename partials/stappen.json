@@ -1,21 +1,23 @@
 {
-  "_doc": "Eén bron voor het stappenblok. tools/sync-partials.mjs vult <!--stappen:start view=neutraal|pro--> … <!--stappen:end--> op elke pagina. {regel} wordt een <span data-rule> uit rules.json. Rol: bedrijf | professional | iedereen.",
-  "onderkop": "Voor elk register hetzelfde. Alles loopt via HumanPush.",
+  "_doc": "Eén bron voor de vier stappen. tools/sync-partials.mjs vult <!--stappen:start view=neutraal|pro-->. De oude vijfde stap (Dossier) is het lint. {regel} wordt een <span data-rule> uit rules.json.",
   "regel": "HumanPush controleert het proces, niet de inhoud.",
   "regel_link": { "href": "/hoe-het-werkt#controle", "tekst": "Lees wat HumanPush controleert" },
-  "tijden": { "2": "{turnWorkingMinutes} min werktijd", "3": "{objectionHours} uur" },
+  "lint": {
+    "strong": "Alles staat in het dossier:",
+    "tekst": "wie, wat en wanneer, getekend en met een vingerafdruk van het stuk.",
+    "href": "/hoe-het-werkt#grenzen",
+    "link": "Wat het dossier wel en niet bewijst"
+  },
   "neutraal": [
-    { "titel": "Opdracht", "rol": "bedrijf", "rolnaam": "Bedrijf", "tekst": "De agent van het bedrijf zet een opdracht uit bij HumanPush. Hij kiest een dienst, levert de stukken aan en geeft een uiterste datum en een maximumprijs. Het bedrijf betaalt vooraf via een betaallink." },
-    { "titel": "Aannemen", "rol": "professional", "rolnaam": "Professional", "tekst": "HumanPush biedt de opdracht aan één geregistreerde professional die deze dienst aanbiedt. Die heeft {turnWorkingMinutes} minuten binnen werktijd (ma–vr 9–17 uur) om aan te nemen of door te geven. Buiten werktijd staat de klok stil. Reageert de professional niet, dan gaat de opdracht automatisch naar de volgende professional. Doorgeven kost niets. Dezelfde opdracht krijgt iemand hooguit {maxTurnsPerPro} keer aangeboden." },
-    { "titel": "Uitvoeren en tekenen", "rol": "professional", "rolnaam": "Professional", "tekst": "De professional doet het werk, zelf of met hulp van een agent, en levert het op via HumanPush. Hij tekent met zijn passkey. Daarmee staat hij er als geregistreerde professional voor in." },
-    { "titel": "Akkoord", "rol": "bedrijf", "rolnaam": "Bedrijf", "tekst": "Het bedrijf (of zijn agent) heeft {objectionHours} uur om het opgeleverde stuk te accepteren. Zegt het niets, dan geldt het na {objectionHours} uur als geaccepteerd. Daarna wordt de professional uitbetaald." },
-    { "titel": "Dossier", "rol": "iedereen", "rolnaam": "Voor iedereen", "tekst": "Elke stap staat met datum, tijd en handtekening in het dossier van de opdracht. Het dossier bevat ook de digitale vingerafdruk van het opgeleverde stuk. Zo kunnen het bedrijf, de professional en eventueel een derde (bijvoorbeeld een accountant, verzekeraar of rechter) zelf nagaan wie wat wanneer deed, en dat het stuk sindsdien niet is veranderd." }
+    { "ico": "order", "titel": "Bestellen en betalen", "tekst": "Je agent kiest een dienst en levert de stukken aan. Jij betaalt vooraf met een betaallink, binnen {payMinutes} minuten.", "tijd": "binnen {payMinutes} min betalen" },
+    { "ico": "person", "titel": "Een professional neemt aan", "tekst": "HumanPush vraagt één geregistreerde professional tegelijk. Reageert die niet? Dan de volgende.", "tijd": "{turnWorkingMinutes} min per professional" },
+    { "ico": "pen", "titel": "Werk gedaan en getekend", "tekst": "De professional doet het werk, levert op en tekent met zijn passkey. Daarmee staat hij er zelf voor in.", "tijd": "vóór de uiterste datum" },
+    { "ico": "check", "titel": "Jij keurt goed", "tekst": "Je hebt {objectionHours} uur om te reageren. Zeg je niets, dan geldt het als goedgekeurd. Daarna wordt de professional betaald.", "tijd": "{objectionHours} uur" }
   ],
   "pro": [
-    { "titel": "Opdracht", "rol": "bedrijf", "rolnaam": "Bedrijf", "tekst": "De agent van een bedrijf zet een opdracht uit bij HumanPush. Het bedrijf heeft al betaald voordat de opdracht bij jou komt." },
-    { "titel": "Aannemen", "rol": "professional", "rolnaam": "Jij", "tekst": "Staat er een opdracht voor je klaar, dan heb je {turnWorkingMinutes} minuten binnen werktijd (ma–vr 9–17 uur) om aan te nemen of door te geven. Buiten werktijd staat de klok stil. Doe je niets of geef je door, dan gaat de opdracht meteen naar de volgende professional. Dat kost je niets. Dezelfde opdracht krijg je hooguit {maxTurnsPerPro} keer aangeboden." },
-    { "titel": "Uitvoeren en tekenen", "rol": "professional", "rolnaam": "Jij", "tekst": "Je doet het werk, zelf of met hulp van een agent, en levert het op via HumanPush. Je tekent met je passkey. Daarmee sta jij er als geregistreerde professional voor in." },
-    { "titel": "Akkoord", "rol": "bedrijf", "rolnaam": "Bedrijf", "tekst": "Het bedrijf heeft {objectionHours} uur om je stuk te accepteren. Zegt het niets, dan geldt het als geaccepteerd. Daarna krijg je je eigen prijs, en daar gaat niets van af." },
-    { "titel": "Dossier", "rol": "iedereen", "rolnaam": "Voor iedereen", "tekst": "Elke stap staat met datum, tijd en handtekening in het dossier van de opdracht, samen met de digitale vingerafdruk van je stuk. Jij, het bedrijf en eventueel een derde (bijvoorbeeld een accountant, verzekeraar of rechter) kunnen zelf nagaan wat er is afgesproken en gedaan." }
+    { "ico": "mail", "titel": "Een opdracht komt binnen", "tekst": "Je hebt {turnWorkingMinutes} minuten binnen werktijd om aan te nemen of door te geven. Doorgeven kost niets.", "tijd": "{turnWorkingMinutes} min werktijd" },
+    { "ico": "person", "titel": "Je doet het werk", "tekst": "Zoals je gewend bent, ook met hulp van een agent.", "tijd": "vóór de uiterste datum" },
+    { "ico": "pen", "titel": "Je levert op en tekent", "tekst": "Met je passkey. Daarmee sta je er zelf voor in.", "tijd": "met je passkey" },
+    { "ico": "euro", "titel": "Je wordt betaald", "tekst": "Je krijgt je volledige prijs. Er gaat niets af.", "tijd": "na {objectionHours} uur" }
   ]
 }

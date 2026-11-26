@@ -35,7 +35,7 @@ export function vanafLine(cents) {
   return `<p class="svc-vanaf">Vanaf € ${euro} · laagste prijs die nu geldt</p>`;
 }
 const withRules = (s) => esc(s).replace(/\{(\w+)\}/g, (_, k) => span(k));
-const STATUS = { boekbaar: 'Te boeken in de testfase', in_voorbereiding: 'In voorbereiding', in_toetsing: 'In toetsing: niet te boeken' };
+const STATUS = { boekbaar: 'Eerste dienst', in_voorbereiding: 'Volgt', in_toetsing: 'In toetsing' };
 function dienstenBlock(view, only) {
   if (view !== 'pro' && view !== 'bedrijf') throw new Error(`onbekende dienstenweergave: ${view}`);
   let { registers } = JSON.parse(read('partials/diensten.json'));
@@ -52,7 +52,7 @@ function dienstenBlock(view, only) {
     const scope = `<div class="svc-scope"><div><p class="label">Valt in de dienst</p><ul class="ticks">${li(r.in_scope)}</ul></div><div><p class="label">Valt erbuiten</p><ul class="crosses">${li(r.out_of_scope)}</ul></div></div>`;
     const proBody = `<dl class="svc-facts">${row('Wat je levert', withRules(p.levert))}${row('Vereiste registratie', withRules(p.registratie))}${row('Tijd om te reageren', `${span('turnWorkingMinutes')} minuten binnen werktijd per aangeboden opdracht, hooguit ${span('maxTurnsPerPro')} keer per opdracht. Doorgeven kost niets.`)}${row('Je prijs', `Je zet zelf je prijs en levertijd. Er gaat niets van af: de afhandelfee van ${span('feePct')}% betaalt het bedrijf bovenop je prijs. Reken je btw, dan is je prijs inclusief btw.`)}${row('Wat je tekent', withRules(p.tekent) + ' Altijd met je passkey.')}</dl>`;
     const bizBody = `<dl class="svc-facts">${row('Wat je krijgt', withRules(b.krijgt))}${row('Levertijd', 'De eigen levertijd van de professional, nooit later dan jouw uiterste datum.')}${r.status === 'in_toetsing' ? '' : row('Zo vraag je aan', 'Je agent kiest deze dienst, levert de stukken aan en geeft een uiterste datum en een maximumprijs. Het bedrijf betaalt via een betaallink.')}${klacht}${row('Bewijs', `Registercheck (hooguit ${span('attestationMaxAgeDays')} dagen oud, opnieuw gedaan bij de aanname), de digitale vingerafdruk van het stuk, de handtekening met de passkey van de professional en het dossier van de opdracht.`)}</dl>`;
-    const part = (v, x, body, r) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p>${vanafLine(r.vanaf_cents)}<details class="svc-more"${r.status === 'boekbaar' ? ' open' : ''}><summary>Details</summary>${body}${scope}</details></div>`;
+    const part = (v, x, body, r) => `<div class="svc-v" data-v="${v}"${v === view ? '' : ' data-off'}><p class="svc-for">${v === 'pro' ? 'Voor de professional' : 'Voor het bedrijf'}</p><ul class="chips">${x.chips.map((c) => `<li>${withRules(c)}</li>`).join('')}</ul><p class="svc-line">${withRules(x.regel)}</p>${vanafLine(r.vanaf_cents)}<details class="svc-more"><summary>Details</summary>${body}${scope}</details></div>`;
     return `<section class="svc-card" id="${r.id}" aria-labelledby="${r.id}-kop" data-panel="${r.id}">`
       + `<header class="svc-top"><span class="badge">${esc(r.badge)}</span><span class="status${r.status === 'boekbaar' ? '' : ' prep'}">${STATUS[r.status]}</span></header>`
       + `<h3 id="${r.id}-kop">${esc(r.dienst)}</h3><p class="svc-uitleg"><strong>${esc(r.tab)}:</strong> ${esc(r.uitleg)}</p><p class="svc-reg">${esc(r.beroep)} · ${esc(r.registernaam)}</p>`
@@ -61,25 +61,117 @@ function dienstenBlock(view, only) {
   return `<div class="svc" data-svc data-view="${view}">\n<div class="svc-bar"><nav class="svc-tabs" aria-label="Registers">${tabs}</nav><div class="svc-toggle" role="group" aria-label="Bekijk de dienst als">${toggle}</div></div>\n<div class="svc-panels">\n${panels}\n</div>\n</div>`;
 }
 
-// Stappenblok: één bron (partials/stappen.json), twee kijkrichtingen (neutraal voor bedrijven en agents, pro met "jij").
-// Een tijdlijn met vijf stappen, per stap een rol. Zonder JavaScript gewoon een genummerde lijst.
-const ICON = {
-  agent: '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="4" width="11" height="8" rx="1.5"/><path d="M6 8h.01M10 8h.01M8 2v2"/></svg>',
-  hp: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3v10M13 3v10M3 8h10"/></svg>',
-  pro: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 13.5c.6-2.4 2.6-3.7 5-3.7s4.4 1.3 5 3.7"/></svg>'
-};
+// Stappen: één bron (partials/stappen.json). Vier stappen plus een dossierlint.
+// De vijfde stap (Dossier) is het lint, niet een vijfde kolom.
+const ico = (n, cls = 'ico') => `<svg class="${cls}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 function stappenBlock(view) {
   const s = JSON.parse(read('partials/stappen.json'));
   const steps = s[view];
-  if (!steps) throw new Error(`onbekende stappenweergave: ${view}`);
-  const lis = steps.map((st, i) => {
-    const t = s.tijden[String(i + 1)];
-    const time = t ? `<span class="tl-time">${withRules(t)}</span>` : '';
-    return `<li class="tl-step r-${st.rol}${st.rol === 'professional' ? ' signed' : ''}"><span class="tl-dot" aria-hidden="true">${i + 1}</span><span class="tl-role">${esc(st.rolnaam)}</span><h3>${esc(st.titel)}</h3><p>${withRules(st.tekst)}</p>${time}</li>`;
-  }).join('');
-  const band = `<p class="tl-band"><span class="tl-ic">${ICON.agent}Agent</span><span aria-hidden="true">↔</span><span class="tl-ic">${ICON.hp}HumanPush</span><span aria-hidden="true">↔</span><span class="tl-ic">${ICON.pro}Professional</span><span class="tl-band-t">${esc(s.onderkop)}</span></p>`;
+  if (!steps || steps.length !== 4) throw new Error(`stappenweergave ${view}: verwacht 4 stappen`);
+  const lis = steps.map((st) => `<li class="ig-step"><span class="ig-badge">${ico(st.ico)}</span><h3>${esc(st.titel)}</h3><p>${withRules(st.tekst)}</p><span class="ig-time">${ico('clock')}${withRules(st.tijd)}</span></li>`).join('');
+  const lint = s.lint;
+  const ribbon = `<div class="ig-ribbon">${ico('doc')}<p><strong>${esc(lint.strong)}</strong> ${esc(lint.tekst)} <a href="${esc(lint.href)}">${esc(lint.link)}</a></p></div>`;
   const rule = `<p class="tl-rule">${esc(s.regel)} <a href="${s.regel_link.href}">${esc(s.regel_link.tekst)}</a></p>`;
-  return `<div class="stappen" data-view="${view}">\n<ol class="tl">${lis}</ol>\n${band}\n${rule}\n</div>`;
+  return `<div class="ig" data-view="${view}">\n<ol class="ig-steps" aria-label="De vier stappen">${lis}</ol>\n${ribbon}\n${rule}\n</div>`;
+}
+
+const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-order" viewBox="0 0 28 28"><path d="M7 3.5h10l5 5V24a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M17 3.5v5h5M10 14h8M10 18h8"/></symbol>
+<symbol id="i-person" viewBox="0 0 28 28"><circle cx="14" cy="9.5" r="4.5"/><path d="M5.5 24c.8-5 4-7.5 8.5-7.5s7.7 2.5 8.5 7.5"/></symbol>
+<symbol id="i-pen" viewBox="0 0 28 28"><path d="M5 23l1.2-5L18.5 5.7a2.1 2.1 0 0 1 3 0l.8.8a2.1 2.1 0 0 1 0 3L10 21.8z"/><path d="M16.5 7.7l3.8 3.8M14 23h9"/></symbol>
+<symbol id="i-check" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M9.5 14.5l3.3 3.3 6-6.6"/></symbol>
+<symbol id="i-doc" viewBox="0 0 28 28"><rect x="5" y="3.5" width="18" height="21" rx="1.5"/><path d="M9 9h10M9 13h10M9 17h6"/><path d="M17.5 20.5l1.7 1.7 3-3.4"/></symbol>
+<symbol id="i-building" viewBox="0 0 28 28"><rect x="6" y="4" width="16" height="20" rx="1"/><path d="M10 9h2M16 9h2M10 13h2M16 13h2M10 17h2M16 17h2M12 24v-3.5h4V24"/></symbol>
+<symbol id="i-shield" viewBox="0 0 28 28"><path d="M14 3.5l9 3.3v6.7c0 5.6-3.8 9.4-9 11-5.2-1.6-9-5.4-9-11V6.8z"/><path d="M10 13.8l3 3 5-5.4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2.5"/></symbol>
+<symbol id="i-euro" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M18.5 10.5a5 5 0 1 0 0 7M8.5 13h6.5M8.5 15.2H15"/></symbol>
+<symbol id="i-key" viewBox="0 0 28 28"><circle cx="9.5" cy="14" r="4.5"/><path d="M14 14h10M20 14v4M23.5 14v3"/></symbol>
+<symbol id="i-mail" viewBox="0 0 28 28"><rect x="4" y="6.5" width="20" height="15" rx="1.5"/><path d="M4.5 8l9.5 7 9.5-7"/></symbol>
+<symbol id="i-phone" viewBox="0 0 28 28"><rect x="8" y="3.5" width="12" height="21" rx="2"/><path d="M12.5 21h3"/><path d="M11.5 12.5l2 2 3.5-4"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 28 28"><path d="M5 14h17M16 8l6 6-6 6"/></symbol>
+<symbol id="i-yes" viewBox="0 0 18 18"><path d="M3.5 9.5l3.5 3.5 7.5-8"/></symbol>
+<symbol id="i-no" viewBox="0 0 18 18"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></symbol>
+</defs></svg>`;
+
+function who() {
+  return `<div class="ig-who" aria-label="Wie doet wat">
+<article class="who"><header>${ico('building')}<h3>Jij en je agent</h3></header><ul>
+<li>${ico('yes') }Kiest de dienst en geeft de stukken en de uiterste datum</li>
+<li>${ico('yes') }Betaalt vooraf en keurt goed</li>
+<li class="no">${ico('no') }Kiest nooit zelf een persoon</li></ul></article>
+<article class="who"><header>${ico('person')}<h3>De professional</h3></header><ul>
+<li>${ico('yes') }Doet het vakwerk en tekent met zijn passkey</li>
+<li>${ico('yes') }Staat voor de inhoud in, onder zijn eigen beroepsregels</li>
+<li class="no">${ico('no') }Tekent altijd zelf; een agent kan niet voor hem tekenen</li></ul></article>
+<article class="who hp"><header>${ico('shield')}<h3>HumanPush</h3></header><ul>
+<li>${ico('yes') }Let op het proces: in het register, op tijd, getekend, niet veranderd</li>
+<li>${ico('yes') }Regelt de betaling en het dossier</li>
+<li class="no">${ico('no') }Oordeelt niet over de inhoud van het werk</li></ul></article>
+</div>`;
+}
+
+function misgaat(full) {
+  const rows = [
+    ['all', 'Alles terug', '', 'Niemand neemt aan, of niemand kan nog op tijd leveren', `Binnen ${span('acceptCeilingWorkdays')} werkdagen na je bestelling.`],
+    ['all', 'Alles terug', 'ook de afhandelfee', 'Het is te laat, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet', `Het systeem stelt dit zelf vast. Meld het binnen ${span('objectionHours')} uur na oplevering.`],
+    ['all', 'Alles terug', '', 'De professional trekt zich terug of geeft niet op tijd af', 'Je kunt opnieuw bestellen.'],
+    ['all', 'Alles terug', '', 'Je annuleert vóór iemand heeft aangenomen', '']
+  ];
+  if (full) rows.push(['part', 'Rest terug', `prof. houdt ${span('cancelSharePct')}%`, 'Je annuleert na aanname, vóór de oplevering', `De professional houdt ${span('cancelSharePct')}% van zijn prijs. De rest gaat terug, ook de afhandelfee.`]);
+  rows.push(['none', 'Geen terugbetaling', 'via ons', 'Je bent het niet eens met de inhoud van het oordeel', 'Wij beslissen daar niet over. Praat met de professional, of ga naar de klachtroute van zijn register.']);
+  const out = rows.map(([k, b, extra, when, small]) => {
+    const ex = extra ? `<span>${extra}</span>` : '';
+    const sm = small ? `<small>${small}</small>` : '';
+    const cls = k === 'none' ? 'row sep' : 'row';
+    return `<li class="${cls}"><div class="when">${when}${sm}</div><div class="arrow">${ico('arrow', 'ico ico-s')}</div><div class="out ${k}"><b>${b}</b>${ex}</div></li>`;
+  }).join('');
+  return `<ul class="ig-rows" aria-label="Wat gebeurt er als het misgaat">${out}</ul>`;
+}
+
+function geld() {
+  return `<div class="ig-money" aria-label="Wanneer je betaalt en wanneer je geld terugkrijgt">
+<div><p class="barlabel"><span>Wat je vooraf betaalt (maximumprijs + afhandelfee + btw)</span><em>€ 530,25</em></p>
+<div class="bar" role="img" aria-label="Vooraf betaald: maximumprijs 500 euro, afhandelfee 25 euro, btw over de afhandelfee 5,25 euro"><span class="p" style="flex:500">Maximumprijs € 500</span><span class="f" style="flex:25"></span><span class="v" style="flex:5.25"></span></div></div>
+<div><p class="barlabel"><span>Wat het uiteindelijk kost, als de professional aanneemt voor € 450</span><em>€ 477,23</em></p>
+<div class="bar" role="img" aria-label="Uiteindelijk: prijs professional 450 euro, afhandelfee 22,50 euro, btw 4,73 euro, terug 53,02 euro"><span class="p" style="flex:450">Prijs professional € 450</span><span class="f" style="flex:22.5"></span><span class="v" style="flex:4.73"></span><span class="t" style="flex:53.02">terug</span></div></div>
+<p class="legend"><span><i class="swatch fee" aria-hidden="true"></i> afhandelfee 5% (€ 25)</span><span><i class="swatch vat" aria-hidden="true"></i> btw over de afhandelfee 21% (€ 5,25)</span></p>
+<p class="ig-note">Je betaalt de prijs van de professional plus 5% afhandelfee en 21% btw over die afhandelfee. Het verschil krijg je meteen terug. Voorbeeld met fictieve bedragen. Het verschil in dit voorbeeld is € 53,02.</p>
+<ol class="ig-time-line"><li><i></i><b>Bestellen</b>Je betaalt vooraf</li><li><i></i><b>Aanname</b>Verschil in prijs gaat terug</li><li><i></i><b>Oplevering</b>Getekend stuk</li><li><i></i><b>72 uur</b>Jij keurt goed, of zegt niets</li><li><i></i><b>Uitbetaling</b>De professional krijgt zijn volledige prijs</li></ol>
+</div>`;
+}
+
+function toegang() {
+  return `<ol class="ig-flow" aria-label="Zo kom je erin">
+<li class="flow">${ico('mail')}<p class="n">Stap 1</p><h3>Je krijgt één link</h3><p>We sturen hem naar een contactadres dat wij zelf controleren, bijvoorbeeld uit het register. Nooit naar een adres dat je zelf opgeeft.</p></li>
+<li class="flow">${ico('phone')}<p class="n">Stap 2</p><h3>Je maakt twee passkeys</h3><p>Eén om mee te werken en één als reserve. Met een eigen agent haal je via dezelfde link ook de toegangscode voor je agent op.</p></li>
+<li class="flow">${ico('pen')}<p class="n">Stap 3</p><h3>Tekenen doe je zelf</h3><p>Altijd met je passkey. Een agent kan nooit voor je tekenen.</p></li>
+</ol>
+<p class="ig-note">De link werkt één keer en dient alleen hiervoor.</p>`;
+}
+
+const ROLLABEL = {
+  nivre: ['Schade-expert', 'NIVRE'],
+  nrvt: ['Woningtaxateur', 'NRVT'],
+  nrbi: ['Bouwkundig inspecteur', 'NRBI'],
+  nrgd: ['Gerechtelijk deskundige digitaal onderzoek', 'NRGD'],
+  octrooi: ['Octrooigemachtigde', 'Octrooiregister']
+};
+function rollenBlock() {
+  const { registers } = JSON.parse(read('partials/diensten.json'));
+  const li = registers.map((r) => {
+    const naam = ROLLABEL[r.id];
+    if (!naam) throw new Error(`geen rollabel voor ${r.id}`);
+    return `<li${r.status === 'boekbaar' ? ' class="first"' : ''}><b>${esc(naam[0])}</b>${esc(naam[1])}<span>${STATUS[r.status]}</span></li>`;
+  }).join('');
+  return `<ul class="regs">${li}</ul>`;
+}
+
+function igBlock(name, variant) {
+  if (name === 'who') return who();
+  if (name === 'misgaat') return misgaat(variant === 'vol');
+  if (name === 'geld') return geld();
+  if (name === 'toegang') return toegang();
+  throw new Error(`onbekende infographic: ${name}`);
 }
 
 // Catalogus: alle registers gelijkwaardig, NIVRE eerst, elk met een eerlijke status.
@@ -94,6 +186,9 @@ function fill(html, file) {
   out = out.replace(/<!--stappen:start view=(\w+)-->[\s\S]*?<!--stappen:end-->/g, (m, v) => `<!--stappen:start view=${v}-->\n${stappenBlock(v)}\n<!--stappen:end-->`);
   out = out.replace(/<!--diensten:start view=(\w+)( only=(\w+))?-->[\s\S]*?<!--diensten:end-->/g, (m, v, o, only) => `<!--diensten:start view=${v}${o || ''}-->\n${dienstenBlock(v, only)}\n<!--diensten:end-->`);
   out = out.replace(/<!--catalogus:start-->[\s\S]*?<!--catalogus:end-->/g, () => `<!--catalogus:start-->\n${catalogusBlock()}\n<!--catalogus:end-->`);
+  out = out.replace(/<!--sprite:start-->[\s\S]*?<!--sprite:end-->/g, () => `<!--sprite:start-->\n${SPRITE}\n<!--sprite:end-->`);
+  out = out.replace(/<!--rollen:start-->[\s\S]*?<!--rollen:end-->/g, () => `<!--rollen:start-->\n${rollenBlock()}\n<!--rollen:end-->`);
+  out = out.replace(/<!--ig:start name=(\w+)(?: variant=(\w+))?-->[\s\S]*?<!--ig:end-->/g, (m, name, variant) => `<!--ig:start name=${name}${variant ? ` variant=${variant}` : ''}-->\n${igBlock(name, variant)}\n<!--ig:end-->`);
   out = out.replace(/<(span|tspan) data-rule="(\w+)">[^<]*<\/\1>/g, (m, tag, k) => `<${tag} data-rule="${k}">${rv(k)}</${tag}>`);
   if (/<!--(flow|flowsvg|swim):start/.test(out)) throw new Error(`${file}: het oude stroomdiagram of de swimlane staat er nog`);
   return out;
