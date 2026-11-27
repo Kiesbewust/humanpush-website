@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HumanPush voor agents en bouwers</title>
-<meta name="description" content="HumanPush is gebouwd voor agents: zo verbind je, de tools in volgorde, de statussen, het bewijs en hoe je agent vragen stelt.">
+<meta name="description" content="HumanPush is gebouwd voor agents: zo verbindt u, de tools in volgorde, de statussen, het bewijs en hoe uw agent vragen stelt.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/agents">
 <meta property="og:title" content="HumanPush voor agents en bouwers">
-<meta property="og:description" content="HumanPush is gebouwd voor agents: zo verbind je, de tools in volgorde, de statussen, het bewijs en hoe je agent vragen stelt.">
+<meta property="og:description" content="HumanPush is gebouwd voor agents: zo verbindt u, de tools in volgorde, de statussen, het bewijs en hoe uw agent vragen stelt.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -71,7 +71,7 @@
 <div class="wrap">
 <span class="kicker">Voor agents en bouwers</span>
 <h1>HumanPush is gebouwd voor agents.</h1>
-<p class="lead">Je agent kiest een dienst, het bedrijf betaalt vooraf, en je agent krijgt een getekend stuk met het dossier van de opdracht terug. Een geregistreerde professional doet het vakwerk en tekent. Alles wat je agent nodig heeft staat in llms.txt, en je kunt het ook gewoon vragen.</p>
+<p class="lead">Uw agent kiest een dienst, het bedrijf betaalt vooraf, en uw agent krijgt een getekend stuk met het dossier van de opdracht terug. Een geregistreerde professional doet het vakwerk en tekent. Alles wat uw agent nodig heeft staat in llms.txt, en u kunt het ook gewoon vragen.</p>
 <div class="actions"><a class="btn btn-primary" href="/llms.txt">Lees llms.txt</a><a class="btn btn-secondary" href="#vraag">Stel een vraag aan HumanPush</a></div>
 </div>
 </section>
@@ -79,7 +79,7 @@
 <section class="section top0" aria-labelledby="stappen-kop">
 <div class="wrap">
 <h2 id="stappen-kop">Zo werkt het</h2>
-<p>De vier stappen staan op <a href="/hoe-het-werkt">Zo werkt het</a>. Hier alleen wat je agent nodig heeft.</p>
+<p>De vier stappen staan op <a href="/hoe-het-werkt">Zo werkt het</a>. Hier alleen wat uw agent nodig heeft.</p>
 </div>
 </section>
 
@@ -88,9 +88,9 @@
 <h2 id="test-kop">Proberen in de testomgeving</h2>
 <p class="lead">Dit is een testomgeving met nepgeld. Er lopen geen echte opdrachten.</p>
 <ol class="flowlist numbered">
-<li><strong>Maak een toegangscode voor je agent</strong><span>Open <a href="https://humanpush-mcp-test-production.up.railway.app/">de testdienst</a> en maak een toegangscode. Het is nepgeld; de organisatie mag verzonnen zijn.</span></li>
+<li><strong>Maak een toegangscode voor uw agent</strong><span>Open <a href="https://humanpush-mcp-test-production.up.railway.app/">de testdienst</a> en maak een toegangscode. Het is nepgeld; de organisatie mag verzonnen zijn.</span></li>
 <li><strong>Voeg de MCP-server toe</strong><span><code>https://humanpush-mcp-test-production.up.railway.app/mcp</code> met de header <code>Authorization: Bearer &lt;code&gt;</code>.</span></li>
-<li><strong>Bekijk de diensten</strong><span>Laat je agent <code>list_services</code> aanroepen.</span></li>
+<li><strong>Bekijk de diensten</strong><span>Laat uw agent <code>list_services</code> aanroepen.</span></li>
 <li><strong>Zet een opdracht uit</strong><span>Met <code>v1_create_order</code>.</span></li>
 <li><strong>Betaal de testbetaling</strong><span>Via de betaallink, in de testmodus van Mollie. Er wordt geen echt geld afgeschreven.</span></li>
 </ol>
@@ -107,9 +107,9 @@
 </div>
 </section>
 
-<section class="section" id="zo-verbind-je" aria-labelledby="verbind" data-kb="zo-verbind-je|Zo verbind je">
+<section class="section" id="zo-verbind-je" aria-labelledby="verbind" data-kb="zo-verbind-je|Zo verbindt u">
 <div class="wrap">
-<h2 id="verbind">Zo verbind je</h2>
+<h2 id="verbind">Zo verbindt u</h2>
 <p class="lead">Geen echte URL en geen echte API-sleutel: dit laat de volgorde zien.</p>
 <pre class="code" tabindex="0"><span class="c"># Voorbeeld, fictief</span>
 <span class="c"># 1. Welke diensten zijn er, en wat kost het?</span>
@@ -120,7 +120,7 @@ v1_create_order(
   service_id="…",            <span class="c"># uit list_services</span>
   inputs={…},                <span class="c"># de invoer van die dienst</span>
   deadline="…",              <span class="c"># ISO 8601, uiterste datum</span>
-  max_price_cents=…,         <span class="c"># je maximumprijs</span>
+  max_price_cents=…,         <span class="c"># uw maximumprijs</span>
   idempotency_key="…"        <span class="c"># dezelfde waarde voert niets twee keer uit</span>
 )
 → { order_id, status: "offered", pay_url, pay_by }
@@ -138,10 +138,10 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <div class="wrap">
 <h2 id="tools">De tools, in volgorde</h2>
 <p class="lead">Toolnamen van de testversie; ze kunnen nog veranderen. Elke schrijfactie neemt een <code>idempotency_key</code>: dezelfde waarde voert niets twee keer uit.</p>
-<ol class="steps"><li><h3><code>list_services</code></h3><p>De diensten die je kunt boeken: per dienst het register, de invoer, de uitkomsten, wat wel en niet in de dienst valt, de toetsingspunten, de disclaimer, de bekende leemtes in het register en de termijnen. De HumanPush-afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw.</p></li><li><h3><code>v1_create_order</code></h3><p>Dienst, invoer, uiterste datum en <code>max_price_cents</code>. Optioneel <code>min_proof_level</code> om een strengere registercheck te eisen dan de standaard (nooit een lichtere). Je noemt nooit een professional. Onbekende velden worden geweigerd.</p></li><li><h3><code>pay_url, v1_pay_link, v1_link_payment</code></h3><p>Betalen binnen <span data-rule="payMinutes">30</span> minuten via <code>pay_url</code>: je maximumprijs plus de afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. <code>v1_pay_link</code> geeft de open betaallink opnieuw; <code>v1_link_payment</code> koppelt een eigen betaling die op de wachtlijst belandde. Niet betaald: de bestelling vervalt (<code>not_paid</code>), zonder gevolgen.</p></li><li><h3><code>v1_get_status</code></h3><p>Status, reden, alle termijnen en het geld; tijdens het aanbieden ook wie aan zet is en de ronde. Verlopen termijnen worden eerst verwerkt. Bij twijfel: <code>v1_explain</code>.</p></li><li><h3><code>v1_get_result</code></h3><p>Het stuk, de digitale vingerafdruk (SHA-256) en het registernummer van de professional.</p></li><li><h3><code>verify_proof</code></h3><p>Controleert de digitale vingerafdruk, de handtekening met de passkey van de professional en het dossier.</p></li><li><h3><code>v1_accept_result of v1_object</code></h3><p>Binnen <span data-rule="objectionHours">72</span> uur. Bezwaar alleen met een van de vier objectieve codes (te laat, verplicht onderdeel ontbreekt, registratie niet geldig, verkeerd formaat); HumanPush stelt dat zelf vast en betaalt dan automatisch alles terug. Een bezwaar over de inhoud is geen grond.</p></li><li><h3><code>v1_cancel</code></h3><p>Kan tot de oplevering. Vóór aanname alles terug; daarna <span data-rule="cancelSharePct">25</span>% van het tarief voor de professional en de rest terug.</p></li></ol>
+<ol class="steps"><li><h3><code>list_services</code></h3><p>De diensten die u kunt boeken: per dienst het register, de invoer, de uitkomsten, wat wel en niet in de dienst valt, de toetsingspunten, de disclaimer, de bekende leemtes in het register en de termijnen. De HumanPush-afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaalt u 21% btw.</p></li><li><h3><code>v1_create_order</code></h3><p>Dienst, invoer, uiterste datum en <code>max_price_cents</code>. Optioneel <code>min_proof_level</code> om een strengere registercheck te eisen dan de standaard (nooit een lichtere). U noemt nooit een professional. Onbekende velden worden geweigerd.</p></li><li><h3><code>pay_url, v1_pay_link, v1_link_payment</code></h3><p>Betalen binnen <span data-rule="payMinutes">30</span> minuten via <code>pay_url</code>: uw maximumprijs plus de afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaalt u 21% btw. <code>v1_pay_link</code> geeft de open betaallink opnieuw; <code>v1_link_payment</code> koppelt een eigen betaling die op de wachtlijst belandde. Niet betaald: de bestelling vervalt (<code>not_paid</code>), zonder gevolgen.</p></li><li><h3><code>v1_get_status</code></h3><p>Status, reden, alle termijnen en het geld; tijdens het aanbieden ook wie aan zet is en de ronde. Verlopen termijnen worden eerst verwerkt. Bij twijfel: <code>v1_explain</code>.</p></li><li><h3><code>v1_get_result</code></h3><p>Het stuk, de digitale vingerafdruk (SHA-256) en het registernummer van de professional.</p></li><li><h3><code>verify_proof</code></h3><p>Controleert de digitale vingerafdruk, de handtekening met de passkey van de professional en het dossier.</p></li><li><h3><code>v1_accept_result of v1_object</code></h3><p>Binnen <span data-rule="objectionHours">72</span> uur. Bezwaar alleen met een van de vier objectieve codes (te laat, verplicht onderdeel ontbreekt, registratie niet geldig, verkeerd formaat); HumanPush stelt dat zelf vast en betaalt dan automatisch alles terug. Een bezwaar over de inhoud is geen grond.</p></li><li><h3><code>v1_cancel</code></h3><p>Kan tot de oplevering. Vóór aanname alles terug; daarna <span data-rule="cancelSharePct">25</span>% van het tarief voor de professional en de rest terug.</p></li></ol>
 <h2 id="prof-agent" style="margin-top:56px">Voor de agent van een professional</h2>
 <p class="lead">Met <code>get_my_turns</code> ziet de agent van een professional zijn aangeboden opdrachten, met de dienst, de prijs, de levertijd en tot wanneer het aanbod openstaat. Daarnaast <code>v1_passkey_register</code>, <code>v1_professional_status</code> en <code>v1_professional_act</code>: aannemen, doorgeven (<code>pass_turn</code>), opleveren en beoordelen. Elke actie tekent de professional zelf met zijn passkey; het patroon is twee aanroepen, eerst zonder en dan met assertion.</p>
-<p class="muted" style="max-width:44em">Er komt ook een eenvoudig scherm met passkey-login, voor professionals zonder eigen agent. Dat scherm komt eraan; je kunt het nog niet openen. Een professional krijgt zijn toegangscode via een eenmalige link naar een contactadres dat wij zelf controleren; die link dient alleen hiervoor. <a href="/veelgestelde-vragen#toegang">Meer in de veelgestelde vragen</a>.</p>
+<p class="muted" style="max-width:44em">Er komt ook een eenvoudig scherm met passkey-login, voor professionals zonder eigen agent. Dat scherm komt eraan; u kunt het nog niet openen. Een professional krijgt zijn toegangscode via een eenmalige link naar een contactadres dat wij zelf controleren; die link dient alleen hiervoor. <a href="/veelgestelde-vragen#toegang">Meer in de veelgestelde vragen</a>.</p>
 </div>
 </section>
 
@@ -179,10 +179,10 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <div class="wrap prose">
 <h2 id="bewijs">Het bewijs</h2>
 <p>Een registercheck: HumanPush heeft de professional met een vaste checklist in het openbare register gevonden. De bron en de datum worden bewaard. De check is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud; bij octrooigemachtigden is daarbovenop de peildatum van de lijst hooguit <span data-rule="octrooiSourceMaxAgeDays">120</span> dagen oud. Bij elke aanname opnieuw gecontroleerd. Het is geen realtime koppeling met het register.</p>
-<p>Je agent mag met <code>min_proof_level</code> een strengere check eisen, nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand.</p>
+<p>Uw agent mag met <code>min_proof_level</code> een strengere check eisen, nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand.</p>
 <p>Elke stap van de professional is getekend met zijn passkey (geen gekwalificeerde e-handtekening; zie <a href="/meer-weten#grenzen">wat het dossier aantoont</a>). Elke stap staat in het dossier van de opdracht, en elke stap verwijst naar de vorige. <code>verify_proof</code> controleert het geheel.</p>
 <h2>Wanneer niet</h2>
-<p>Niet voor consumenten. Niet als je geen geregistreerde professional nodig hebt die tekent. Niet voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Niet als je een andere conclusie wilt afdwingen: bezwaar telt alleen bij een objectieve fout.</p>
+<p>Niet voor consumenten. Niet als u geen geregistreerde professional nodig hebt die tekent. Niet voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Niet als u een andere conclusie wilt afdwingen: bezwaar telt alleen bij een objectieve fout.</p>
 <p class="linkline"><a href="/meer-weten#garanties">Lees wat HumanPush garandeert</a></p>
 </div>
 </section>
