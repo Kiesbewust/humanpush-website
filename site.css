@@ -485,10 +485,10 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .home-hero .kicker { margin: 0; }
 .home-hero h1 { margin-top: var(--s-5); max-width: 18em; text-wrap: balance; }
 @media (min-width: 960px) {
-  .home-hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, 46%); column-gap: var(--s-7); align-items: start; }
+  .home-hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, 46%); grid-template-rows: max-content max-content max-content minmax(0, 1fr); column-gap: var(--s-7); align-items: start; }
   .home-hero .kicker, .home-hero h1, .home-hero .definition, .home-hero .statusline { grid-column: 1; }
   .home-hero h1 { font-size: 42px; max-width: none; }
-  .home-hero .path-grid { grid-column: 2; grid-row: 1 / span 4; margin-top: 0; min-height: 0; align-self: start; }
+  .home-hero .path-grid { grid-column: 2; grid-row: 1 / span 4; position: static; width: auto; margin-top: 0; min-height: 0; align-self: start; grid-template-columns: 1fr; }
 }
 .routecards ul { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 960px; }
 .routecard { position: relative; display: flex; flex-direction: column; gap: 6px; min-height: 120px; padding: 24px 64px 24px 24px; border: 1px solid var(--line-dark); border-radius: var(--radius); background: rgba(255, 255, 255, .04); text-decoration: none; }
