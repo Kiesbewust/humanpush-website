@@ -139,7 +139,7 @@ test('/bedrijven: stappen, kosten, misgaat, dossier en de drie voordelen', () =>
   assert.match(t, /Zo werkt het/);
   assert.match(t, /Als het misgaat/);
   for (const v of ['Getekend door een professional uit een openbaar register', 'Vooraf een duidelijke prijs en uiterste datum', 'Automatisch geld terug als het misgaat']) assert.ok(t.includes(v), v);
-  assert.match(t, /Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug\./);
+  assert.match(t, /Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijg je alles terug\./);
   assert.doesNotMatch(t, /binnen 72 uur, dan krijg je alles terug/);
   assert.match(t, /toegewezen aan een professional/);
 });

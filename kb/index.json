@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "bf5845069fc856675fb41df4de340b7737b4c54d2b2127c3b58f148dc4821e8d",
+ "kb_hash": "5614b0b6d8b6d19a5edeb94d33136566d85243c33a05226c7da392210ddb325d",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -197,8 +197,8 @@
    "url": "https://humanpush.nl/meer-weten#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug.",
-   "hash": "70f0d293a0600f8e"
+   "text": "Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijgt het bedrijf alles terug. Die 72 uur lopen door, ook in het weekeinde en op feestdagen.",
+   "hash": "6651d5210056d605"
   },
   {
    "id": "spelregels-r4-7",
@@ -404,8 +404,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#niemand",
    "lang": "nl",
    "source": "faq",
-   "text": "De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijgt het bedrijf alles terug. Bestelt het bedrijf op maandag om 10:00, dan uiterlijk donderdag om 10:00. Zie Meer weten.",
-   "hash": "3e39b8f219e362e0"
+   "text": "De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijgt het bedrijf alles terug. Betaalt het bedrijf vrijdag om 15:00, dan uiterlijk maandag om 15:00. Die 72 uur lopen door, ook in het weekeinde en op feestdagen. Zie Meer weten.",
+   "hash": "7360f24f301ac90b"
   },
   {
    "id": "faq-bedrijven-wat-is-werktijd",
@@ -827,8 +827,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "After payment HumanPush offers the order in turns, to one matching professional at a time, in a fixed order (lowest own price, shortest lead time, fair rotation). A turn lasts 45 working minutes. If the turn holder does not accept, or passes the turn (pass_turn, signed, no penalty), the turn moves at once to the next matching professional. After each round HumanPush builds the queue again and records it; at most 2 turns per professional per order. Every start, end and pass of a turn is in the evidence file. This goes on until someone accepts, or the company cancels (free before acceptance). If no matching professional can deliver on time any more, or nobody accepts within 3 working days, everything goes back.",
-   "hash": "7c257305c31f9de2"
+   "text": "After payment HumanPush offers the order in turns, to one matching professional at a time, in a fixed order (lowest own price, shortest lead time, fair rotation). A turn lasts 45 working minutes. If the turn holder does not accept, or passes the turn (pass_turn, signed, no penalty), the turn moves at once to the next matching professional. After each round HumanPush builds the queue again and records it; at most 2 turns per professional per order. Every start, end and pass of a turn is in the evidence file. This goes on until someone accepts, or the company cancels (free before acceptance). If nobody accepts the order within 72 hours after payment, the order lapses and everything goes back. Those 72 hours run through weekends and holidays.",
+   "hash": "9ea764f10d7a21af"
   },
   {
    "id": "llms-states",
@@ -845,8 +845,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register. HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.",
-   "hash": "4ffacf29baf30673"
+   "text": "100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts the order within 72 hours after payment, the order lapses and everything goes back. Those 72 hours run through weekends and holidays. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register. HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.",
+   "hash": "6e81482901d222a2"
   },
   {
    "id": "llms-proof",
@@ -872,8 +872,8 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Als het misgaat. Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: de professional levert later dan de uiterste datum, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je alles terug. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00. Niemand neemt de opdracht aanProfessionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00. Alles terug. Er mist verplicht bewijs, of het bestand is verkeerdHet stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Meld het binnen 72 uur na oplevering. Dan krijg je alles terug. Alles terug. De professional trekt zich terug of levert later dan de uiterste datumJe kunt opnieuw bestellen. Alles terug. Je annuleert vóór iemand de opdracht heeft aangenomen Alles terug. Je annuleert na aanname, vóór de opleveringDe professional houdt 25% van zijn prijs. De rest gaat terug. Rest terugde professional houdt 25%. Je bent het niet eens met het oordeel van de professionalWij beslissen daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Praat met de professional, of ga naar de klachtroute van zijn register. Geen terugbetalingvia ons. Donker = alles terugGoud = gedeeltelijkGrijs = niet via HumanPush De volledige regel bij een objectieve fout. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt.",
-   "hash": "b657bdd09fb888ce"
+   "text": "Als het misgaat. Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: de professional levert later dan de uiterste datum, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je alles terug. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijg je alles terug. Betaal je vrijdag om 15:00, dan uiterlijk maandag om 15:00. Niemand neemt de opdracht aanNeemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijg je alles terug. Betaal je vrijdag om 15:00, dan uiterlijk maandag om 15:00. Alles terug. Er mist verplicht bewijs, of het bestand is verkeerdHet stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Meld het binnen 72 uur na oplevering. Dan krijg je alles terug. Alles terug. De professional trekt zich terug of levert later dan de uiterste datumJe kunt opnieuw bestellen. Alles terug. Je annuleert vóór iemand de opdracht heeft aangenomen Alles terug. Je annuleert na aanname, vóór de opleveringDe professional houdt 25% van zijn prijs. De rest gaat terug. Rest terugde professional houdt 25%. Je bent het niet eens met het oordeel van de professionalWij beslissen daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Praat met de professional, of ga naar de klachtroute van zijn register. Geen terugbetalingvia ons. Donker = alles terugGoud = gedeeltelijkGrijs = niet via HumanPush De volledige regel bij een objectieve fout. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt.",
+   "hash": "67ec96572076696f"
   },
   {
    "id": "pagina-professionals-humanpush-scherm",

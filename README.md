@@ -31,7 +31,7 @@ Ontwerpsysteem in `site.css` ("infrastructuur voor geregistreerde professionals"
 
 ## Eén bron, geen build-stap
 
-- `rules.json`: alle termijnen (45 werkminuten om een aangeboden opdracht aan te nemen, hooguit 2 keer aangeboden per professional, vangnet 3 werkdagen, 30 minuten betalen, 72 uur bezwaar, 25%). De aanneemtermijn heeft één bron: verandert hij, dan pas je alleen `rules.json` aan (en `llms.txt`, `kb/spelregels.md`, die het script controleert). Moet gelijk zijn aan `src/v1/params.ts` op de testversie van humanpush-mcp.
+- `rules.json`: alle termijnen (45 werkminuten om een aangeboden opdracht aan te nemen, hooguit 2 keer aangeboden per professional, vangnet 72 klokuren na betaling, 30 minuten betalen, 72 uur bezwaar, 25%). De aanneemtermijn heeft één bron: verandert hij, dan pas je alleen `rules.json` aan (en `llms.txt`, `kb/spelregels.md`, die het script controleert). Moet gelijk zijn aan `src/v1/params.ts` op de testversie van humanpush-mcp.
 - `partials/diensten.json`: de bron van de dienstkaarten, met per register één zin wat het register is en welke sector. `node tools/sync-partials.mjs` zet ze in de pagina's tussen `<!--diensten:start view=pro|bedrijf-->` en `<!--diensten:end-->`, en vult elke `<span data-rule="…">`. `--check` faalt bij verschil. Het oude stroomdiagram, de swimlane en de infographic zijn weg.
 - `kb/`: de kennisbasis. `node tools/build-kb.mjs` bouwt `kb/index.json`, `kb/faq.md` en `api/_kb.js` uit `kb/spelregels.md`, de vragenpagina, `llms.txt` en de blokken met `data-kb`. `--check` in CI.
 - `npm run check` draait alles plus de tests (`tests/`, geen netwerk, geen model). CI: `.github/workflows/site-check.yml`.

@@ -868,8 +868,6 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 }
 
 /* Twee paden in de hero, gelijk hoge knoppen, meer lucht bij 'Gaat er iets mis?' */
-.logo { gap: 8px; }
-.logo-mark { display: block; width: 28px; height: 28px; flex: 0 0 28px; }
 .path-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; align-items: stretch; }
 .path { display: flex; flex-direction: column; align-items: flex-start; gap: 0; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .18); border-radius: 16px; padding: 22px; }
 .path h2 { margin: 0 0 8px; font-size: 22px; line-height: 1.25; color: var(--white); }

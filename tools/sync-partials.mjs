@@ -114,8 +114,8 @@ function misgaat(full, voice) {
   const je = voice === 'bedrijf';
   const rows = [
     ['all', 'Alles terug', '', 'Niemand neemt de opdracht aan', je
-      ? 'Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00.'
-      : 'Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijgt het bedrijf alles terug. Bestelt het bedrijf op maandag om 10:00, dan uiterlijk donderdag om 10:00.'],
+      ? 'Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijg je alles terug. Betaal je vrijdag om 15:00, dan uiterlijk maandag om 15:00.'
+      : 'Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijgt het bedrijf alles terug. Betaalt het bedrijf vrijdag om 15:00, dan uiterlijk maandag om 15:00.'],
     ['all', 'Alles terug', '', 'Er mist verplicht bewijs, of het bestand is verkeerd', je
       ? `Het stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Meld het binnen ${span('objectionHours')} uur na oplevering. Dan krijg je alles terug.`
       : `Het stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Het bedrijf meldt het binnen ${span('objectionHours')} uur na oplevering. Dan krijgt het bedrijf alles terug.`],
@@ -222,7 +222,7 @@ const required = {
   'llms.txt': [
     `${rules.turnWorkingMinutes} working minutes`,
     `at most ${rules.maxTurnsPerPro} turns per professional`,
-    `${rules.acceptCeilingWorkdays} working days`,
+    `72 hours after payment`,
     `within ${rules.payMinutes} minutes`,
     `${rules.objectionHours} hours`,
     `${rules.cancelSharePct}%`,
@@ -231,7 +231,7 @@ const required = {
   'kb/spelregels.md': [
     `${rules.turnWorkingMinutes} minuten binnen werktijd`,
     `hooguit ${rules.maxTurnsPerPro} keer aangeboden`,
-    `${rules.acceptCeilingWorkdays} werkdagen`,
+    `72 uur na betaling`,
     `${rules.payMinutes} minuten`,
     `${rules.objectionHours} uur`,
     `${rules.cancelSharePct}%`

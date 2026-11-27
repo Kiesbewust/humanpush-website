@@ -22,7 +22,7 @@ Het bedrijf kiest een maximumprijs op of boven de vanaf-prijs van de dienst: de 
 
 ### Wat als niemand aanneemt?
 
-De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijgt het bedrijf alles terug. Bestelt het bedrijf op maandag om 10:00, dan uiterlijk donderdag om 10:00. Zie Meer weten.
+De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijgt het bedrijf alles terug. Betaalt het bedrijf vrijdag om 15:00, dan uiterlijk maandag om 15:00. Die 72 uur lopen door, ook in het weekeinde en op feestdagen. Zie Meer weten.
 
 ### Wat is werktijd?
 
