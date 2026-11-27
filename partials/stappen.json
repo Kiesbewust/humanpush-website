@@ -9,10 +9,22 @@
     "link": "Wat het dossier wel en niet bewijst"
   },
   "neutraal": [
-    { "ico": "order", "titel": "Bestellen en betalen", "tekst": "Je agent kiest een dienst en levert de stukken aan. Jij betaalt vooraf met een betaallink, binnen {payMinutes} minuten.", "tijd": "binnen {payMinutes} min betalen" },
+    { "ico": "order", "titel": "Bestellen en betalen", "tekst": "Het bedrijf of zijn agent kiest een dienst en levert de stukken aan. Het bedrijf betaalt vooraf met een betaallink, binnen {payMinutes} minuten.", "tijd": "binnen {payMinutes} min betalen" },
     { "ico": "person", "titel": "Een professional neemt aan", "tekst": "HumanPush vraagt één geregistreerde professional tegelijk. Reageert die niet? Dan de volgende.", "tijd": "{turnWorkingMinutes} min per professional" },
     { "ico": "pen", "titel": "Werk gedaan en getekend", "tekst": "De professional doet het werk, levert op en tekent met zijn passkey. Daarmee staat hij er zelf voor in.", "tijd": "vóór de uiterste datum" },
-    { "ico": "check", "titel": "Jij keurt goed", "tekst": "Je hebt {objectionHours} uur om te reageren. Zeg je niets, dan geldt het als goedgekeurd. Daarna wordt de professional betaald.", "tijd": "{objectionHours} uur" }
+    { "ico": "check", "titel": "Het bedrijf keurt goed", "tekst": "Het bedrijf of zijn agent heeft {objectionHours} uur om te reclameren. Zegt het bedrijf niets, dan geldt het als goedgekeurd. Daarna wordt de professional betaald.", "tijd": "{objectionHours} uur" }
+  ],
+  "bedrijf": [
+    { "ico": "order", "titel": "Bestellen en betalen", "tekst": "Jij of je agent kiest een dienst en levert de stukken aan. Jij betaalt vooraf met een betaallink, binnen {payMinutes} minuten.", "tijd": "binnen {payMinutes} min betalen" },
+    { "ico": "person", "titel": "Een professional neemt aan", "tekst": "HumanPush vraagt één geregistreerde professional tegelijk. Reageert die niet? Dan de volgende.", "tijd": "{turnWorkingMinutes} min per professional" },
+    { "ico": "pen", "titel": "Werk gedaan en getekend", "tekst": "De professional doet het werk, levert op en tekent met zijn passkey. Daarmee staat hij er zelf voor in.", "tijd": "vóór de uiterste datum" },
+    { "ico": "check", "titel": "Jij keurt goed", "tekst": "Jij of je agent heeft {objectionHours} uur om te reclameren. Zeg je niets, dan geldt het als goedgekeurd. Daarna wordt de professional betaald.", "tijd": "{objectionHours} uur" }
+  ],
+  "proalg": [
+    { "ico": "mail", "titel": "Een opdracht komt binnen", "tekst": "De professional heeft {turnWorkingMinutes} minuten binnen werktijd om aan te nemen of door te geven. Doorgeven kost niets.", "tijd": "{turnWorkingMinutes} min werktijd" },
+    { "ico": "person", "titel": "De professional doet het werk", "tekst": "Zoals de professional gewend is, ook met hulp van een agent.", "tijd": "vóór de uiterste datum" },
+    { "ico": "pen", "titel": "De professional levert op en tekent", "tekst": "Met zijn passkey. Daarmee staat hij er zelf voor in.", "tijd": "met zijn passkey" },
+    { "ico": "euro", "titel": "De professional wordt betaald", "tekst": "De professional krijgt zijn volledige prijs. Er gaat niets af.", "tijd": "na {objectionHours} uur" }
   ],
   "pro": [
     { "ico": "mail", "titel": "Een opdracht komt binnen", "tekst": "Je hebt {turnWorkingMinutes} minuten binnen werktijd om aan te nemen of door te geven. Doorgeven kost niets.", "tijd": "{turnWorkingMinutes} min werktijd" },

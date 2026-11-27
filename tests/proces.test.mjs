@@ -37,7 +37,7 @@ test('woordenlijst: "sleutel" alleen als API-sleutel op /agents; elders "toegang
 
 test('woordenlijst: uitleg van digitale vingerafdruk, handtekening met je passkey en dossier', () => {
   const vinger = 'Bij de oplevering berekent HumanPush uit het stuk een unieke code van 64 tekens. Verandert er één komma, dan verandert de hele code.';
-  const passkey = 'Daarmee sta jij als geregistreerde professional voor het werk in (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>).';
+  const passkey = 'Daarmee staat de professional zelf voor het werk in (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>).';
   for (const f of ['hoe-het-werkt.html']) {
     const t = read(f);
     assert.ok(t.includes(vinger), `${f}: vingerafdruk`);
@@ -49,13 +49,16 @@ test('woordenlijst: uitleg van digitale vingerafdruk, handtekening met je passke
 
 test('stappenblok: één bron (partials/stappen.json), vier stappen plus dossierlint, op de pagina\'s via sync-partials', () => {
   const src = JSON.parse(read('partials/stappen.json'));
-  for (const v of ['neutraal', 'pro']) {
+  for (const v of ['neutraal', 'pro', 'bedrijf', 'proalg']) {
     assert.equal(src[v].length, 4, v);
     assert.ok(src[v].every((x) => x.titel && x.tekst && x.tijd && x.ico), v);
   }
   assert.equal(src.lint.strong, 'Alles staat in het dossier:');
   assert.ok(src.pro.some((x) => /je|jij/i.test(x.tekst)), 'pro-variant spreekt de professional aan met jij');
-  const pages = { 'index.html': ['neutraal'], 'hoe-het-werkt.html': ['pro', 'neutraal'], 'bedrijven.html': ['neutraal'], 'professionals.html': ['pro'], 'pilot/second-opinion.html': ['neutraal'] };
+  assert.ok(src.bedrijf.some((x) => /je|jij/i.test(x.tekst)), 'bedrijf-variant spreekt het bedrijf aan met jij');
+  assert.doesNotMatch(src.neutraal.map((x) => x.titel + ' ' + x.tekst).join(' '), /\b(je|jij|jou|jouw)\b/i);
+  assert.doesNotMatch(src.proalg.map((x) => x.titel + ' ' + x.tekst).join(' '), /\b(je|jij|jou|jouw)\b/i);
+  const pages = { 'index.html': ['neutraal'], 'hoe-het-werkt.html': ['proalg', 'neutraal'], 'bedrijven.html': ['bedrijf'], 'professionals.html': ['pro'], 'pilot/second-opinion.html': ['neutraal'] };
   for (const [f, views] of Object.entries(pages)) {
     const t = read(f);
     assert.deepEqual([...t.matchAll(/<!--stappen:start view=(\w+)-->/g)].map((m) => m[1]), views, f);
@@ -91,14 +94,14 @@ test('geen zichtbare backslash in de tekst van een pagina; linkregel is gewone t
 
 test('/hoe-het-werkt: kant-keuze bovenaan, vier stappen per kant, wie doet wat, en 4 punten "Wat wordt er vastgelegd"', () => {
   const t = read('hoe-het-werkt.html');
-  assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">[^<]*<\/p>\n<div class="svc-toggle side-toggle" role="group" aria-label="Kies je kant"><button type="button" class="svc-view" data-view="pro" aria-pressed="false">Ik ben professional<\/button><button type="button" class="svc-view" data-view="bedrijf" aria-pressed="true">Ik ben een bedrijf \(of zijn agent\)<\/button><\/div>/);
+  assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">[^<]*<\/p>\n<div class="svc-toggle side-toggle" role="group" aria-label="Kies een kant"><button type="button" class="svc-view" data-view="pro" aria-pressed="false">Ik ben professional<\/button><button type="button" class="svc-view" data-view="bedrijf" aria-pressed="true">Ik ben een bedrijf of zijn agent<\/button><\/div>/);
   assert.ok(t.indexOf('data-side-root') < t.indexOf('class="ig-steps"'), 'keuze staat bovenaan');
   assert.doesNotMatch(t, /<figure class="chat"/, 'de twee gesprekken-demo\'s zijn weg');
   assert.match(t, /id="controle"[\s\S]*HumanPush oordeelt niet over de inhoud/);
   assert.match(t, /<h2 id="via-kop">Wie doet wat<\/h2>/);
   assert.match(t, /<figure class="dossierkaart"/);
   const v = t.match(/<ol class="vastgelegd">[\s\S]*?<\/ol>/)[0];
-  assert.deepEqual([...v.matchAll(/<h3>([^<]+)<\/h3>/g)].map((m) => m[1]), ['Registercheck', 'Digitale vingerafdruk', 'Handtekening met je passkey', 'Dossier']);
+  assert.deepEqual([...v.matchAll(/<h3>([^<]+)<\/h3>/g)].map((m) => m[1]), ['Registercheck', 'Digitale vingerafdruk', 'Handtekening met de passkey van de professional', 'Dossier']);
   assert.equal((v.match(/<p class="why"><strong>Waarom:<\/strong> [^<.]+\.<\/p>/g) || []).length, 4, "elke waarom-tekst één zin, label Waarom:");
   assert.doesNotMatch(t, /Waarom het telt/);
   assert.doesNotMatch(t, /class="infographic"|class="swimcard"|<!--(flow|swim)/, 'geen oude schema-onderdelen');
@@ -117,7 +120,7 @@ test('/professionals: twee korte manieren, checklist, uitbetaling, te laat (rege
   for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys']) assert.ok(begin.includes(x), x);
   const qs = [...t.matchAll(/<details class="pay-q"><summary>([^<]+)<\/summary>/g)].map((m) => m[1]);
   assert.deepEqual(qs, ['Wanneer krijg ik niets?', 'En als het bedrijf het inhoudelijk oneens is?', 'Annuleert het bedrijf nadat je hebt aangenomen?', 'Wie bepaalt mijn prijs?']);
-  assert.match(t, /Alleen als iets objectief misgaat: deadline gemist, bewijs ontbreekt, verkeerd formaat of registerinschrijving ongeldig\. Het systeem checkt dat automatisch en het bedrijf krijgt zijn geld terug\. Niemand beoordeelt de inhoud van je werk\./);
+  assert.match(t, /Alleen als iets objectief misgaat: uiterste datum gemist, bewijs ontbreekt, verkeerd formaat of registerinschrijving ongeldig\. Het systeem checkt dat automatisch en het bedrijf krijgt zijn geld terug\. Niemand beoordeelt de inhoud van je werk\./);
   assert.doesNotMatch(read('site.css'), /\.pay-(card|more|q)[^{]*:hover/, 'geen hover-uitklap');
   assert.match(t, /Een agent werkt namens een bedrijf door zodra jouw handtekening er is\. Elke vertraging houdt het hele proces op\./);
   const laat = t.match(/id="te-laat"[\s\S]*?<\/section>/)[0];
@@ -133,7 +136,8 @@ test('/bedrijven: stappen, kosten, misgaat, dossier en de drie voordelen', () =>
   assert.match(t, /Zo werkt het/);
   assert.match(t, /Als het misgaat/);
   for (const v of ['Getekend door een professional uit een openbaar register', 'Vooraf een duidelijke prijs en uiterste datum', 'Automatisch geld terug als het misgaat']) assert.ok(t.includes(v), v);
-  assert.match(t, /Neemt niemand aan binnen <span data-rule="acceptCeilingWorkdays">3<\/span> werkdagen, dan krijg je alles terug\./);
+  assert.match(t, /Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug\./);
+  assert.doesNotMatch(t, /binnen 72 uur, dan krijg je alles terug/);
   assert.match(t, /toegewezen aan een professional/);
 });
 
@@ -207,7 +211,7 @@ test('llms.txt (Engels): registry check, digital fingerprint, evidence file en H
 
 test('zonder JS geen zin over een keuze zonder knoppen; mockup-labels minstens 12px; geen dode CSS van het oude schema', () => {
   const t = read('hoe-het-werkt.html');
-  assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">Kies je kant; je keuze blijft bewaard\.<\/p>/);
+  assert.match(t, /<div class="side-bar" data-side-root>\n<p class="side-hint">Kies een kant\. De keuze blijft bewaard\.<\/p>/);
   assert.doesNotMatch(t.match(/<p class="lead">[^<]*<\/p>/)[0], /keuze/);
   const css = read('site.css');
   assert.match(css, /\.no-js \.side-bar \{ display: none; \}/);
@@ -249,17 +253,14 @@ test('kosten: 5% afhandelfee uit rules.json, rekenvoorbeeld klopt, geen "vaste v
   const b = read('bedrijven.html');
   const k = b.match(/<section class="section" id="kosten"[\s\S]*?<\/section>/)[0];
   assert.match(k, /<h2 id="kosten-kop">Wat kost het\?<\/h2>/);
-  assert.match(k, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaal je 21% btw\. Geen abonnement, geen minimum, geen andere kosten\./);
-  assert.match(k, /Je maximumprijs is inclusief de eventuele btw van de professional\./);
+  assert.match(k, /Dit is wat jij betaalt, als bedrijf\. Je betaalt de prijs van de opdracht plus <span data-rule="feePct">5<\/span>% voor HumanPush\. Geen abonnement, geen minimum, geen andere kosten\./);
+  assert.match(k, /Alle bedragen zijn exclusief btw\./);
   for (const f of [...PAGES.filter((f) => f !== 'voorwaarden.html'), 'llms.txt', 'kb/spelregels.md', 'kb/faq.md', 'README.md']) assert.doesNotMatch(read(f), /van die prijs, excl\. btw|excl\. btw, plus btw|fixed HumanPush fee|excluding VAT/i, `${f}: één feezin`);
   assert.match(read('hoe-het-werkt.html'), /G4 · 100% vooraf[\s\S]*?<span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaalt het bedrijf 21% btw\./);
   assert.match(k, /Wat is de vanaf-prijs\?/);
-  assert.ok(b.indexOf('id="zo-werkt-het"') < b.indexOf('id="kosten"'), 'kosten staat onder "Zo zet je agent een opdracht uit"');
-  // Rekenvoorbeeld narekenen: 5% fee, 21% btw over de fee, afronden op centen.
-  const c = (x) => Math.round(x);
-  const pre = 50000 + c(50000 * 0.05) + c(c(50000 * 0.05) * 0.21), post = 45000 + c(45000 * 0.05) + c(c(45000 * 0.05) * 0.21);
-  assert.equal(pre, 53025); assert.equal(post, 47723); assert.equal(pre - post, 5302);
-  for (const amt of ['€ 530,25', '€ 53,02', '€ 477,23']) assert.ok(k.includes(amt), amt);
+  assert.ok(b.indexOf('id="zo-werkt-het"') < b.indexOf('id="kosten"'), 'kosten staat onder de stappen');
+  // Voorbeeld op de pagina: ronde bedragen, exclusief btw. 5% van 1000 = 50.
+  assert.ok(k.includes('€ 1.000') && k.includes('€ 50') && k.includes('€ 1.050'), 'ronde bedragen');
   const people = ['index.html', 'bedrijven.html', 'professionals.html', 'hoe-het-werkt.html', 'veelgestelde-vragen.html', 'pilot/second-opinion.html', 'inloggen.html'];
   for (const f of [...people, 'agents.html', 'kb/spelregels.md', 'kb/faq.md']) assert.doesNotMatch(read(f), /vaste vergoeding|platformvergoeding/i, f);
   for (const f of people) {
@@ -368,15 +369,15 @@ test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, D
   const begin = t.match(/id="zo-begin-je"[\s\S]*?<\/section>/)[0];
   for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys']) assert.ok(begin.includes(x), x);
   assert.doesNotMatch(begin, /belastingregels voor platforms|DAC7/, 'DAC7 alleen in de FAQ');
-  assert.match(read('veelgestelde-vragen.html'), /Later vragen we ook gegevens voor de belastingregels voor platforms \(DAC7\)\. Platforms moeten daarover mogelijk gegevens aan de Belastingdienst doorgeven\. We laten juridisch toetsen welke gegevens dat zijn\. Je hoort het vóór je eerste opdracht\./);
+  assert.match(read('veelgestelde-vragen.html'), /Later vraagt HumanPush ook gegevens voor de belastingregels voor platforms \(DAC7\)\. Platforms moeten daarover mogelijk gegevens aan de Belastingdienst doorgeven\. We laten juridisch toetsen welke gegevens dat zijn\. De professional hoort het vóór de eerste opdracht\./);
   for (const f of PAGES) assert.doesNotMatch(read(f), /wettelijk verplicht \(DAC7\)|We slaan die versleuteld op/, f);
   assert.doesNotMatch(read('hoe-het-werkt.html'), /de gegevens die nodig zijn voor de belastingregels voor platforms \(DAC7\)/);
   assert.match(read('veelgestelde-vragen.html'), /Het wettelijke herroepingsrecht is bedoeld voor consumenten; hoe dat voor deze dienst uitpakt, laten we juridisch toetsen\./);
   for (const f of PAGES) assert.doesNotMatch(read(f), /binnen het bereik van de dienst|het prijsbereik/, f);
-  assert.equal((read('professionals.html').match(/Is jouw prijs de laagste die de deadline haalt/g) || []).length, 1, 'de prijsalinea staat er één keer');
+  assert.equal((read('professionals.html').match(/Is jouw prijs de laagste die de uiterste datum haalt/g) || []).length, 1, 'de prijsalinea staat er één keer');
   const faq = read('veelgestelde-vragen.html');
-  assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot je rekening volgt zodra er echte opdrachten lopen\.<\/p>/);
-  assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op je scherm bij HumanPush, of je agent vraagt het op\. Er gaat nog geen mail of push\./);
+  assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot de rekening van de professional volgt zodra er echte opdrachten lopen\.<\/p>/);
+  assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op het scherm van de professional bij HumanPush, of zijn agent vraagt het op\. Er gaat nog geen mail of push\./);
   for (const f of PAGES.filter((f) => f !== 'voorwaarden.html')) assert.doesNotMatch(read(f), /factureer|facturatie|factuur/i, `${f}: wie factureert wacht op jurist en fiscalist`);
 });
 
@@ -412,7 +413,10 @@ test('grenzen van het bewijs: blok op /hoe-het-werkt#grenzen, kort op /bedrijven
 
 test('tekenen uitgelegd: lead onder de h1 zegt wat tekenen betekent; per pagina één keer de passkey-kanttekening', () => {
   const home = read('index.html');
-  assert.match(home, /<h1>Je agent bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">Een professional uit een openbaar register doet het werk en zet zijn naam eronder\. Jij betaalt vooraf\. Is het te laat of mist er iets verplicht, dan krijg je automatisch je geld terug\.<\/p>/);
+  assert.match(home, /<h1>Het bedrijf bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">Een professional uit een openbaar register doet het werk en zet zijn naam eronder\. Het bedrijf betaalt vooraf\. Levert de professional te laat, of mist er iets verplicht, dan krijgt het bedrijf automatisch het geld terug\.<\/p>/);
+  assert.match(home, /Voor het bedrijf of zijn agent/);
+  assert.match(home, /Voor de professional/);
+  assert.doesNotMatch(home.replace(/<script[\s\S]*?<\/script>/g, ''), /\b(je|jij|jou|jouw)\b/i);
   assert.doesNotMatch(home.match(/<meta name="description" content="([^"]*)"/)[1], /HumanPush-MCP|voert de regels uit/);
   for (const f of ['index.html', 'hoe-het-werkt.html', 'bedrijven.html', 'professionals.html', 'agents.html', 'pilot/second-opinion.html']) {
     assert.equal((read(f).match(/\(geen gekwalificeerde e-handtekening; zie <a href="\/hoe-het-werkt#grenzen">wat het dossier aantoont<\/a>\)/g) || []).length, 1, f);

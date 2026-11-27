@@ -107,7 +107,7 @@ test('authenticatie: tekenen met passkey plus verplichte reserve; nergens een co
   const pages = TEXT_FILES.filter((f) => f.endsWith('.html'));
   for (const f of pages) if (/eenmalig(e)? (een )?link/i.test(read(f))) assert.match(read(f), /link dient alleen om (je|de) (toegangscode|API-sleutel) op te halen|dient alleen hiervoor/, f);
   const faq = read('veelgestelde-vragen.html');
-  for (const s of ['Nooit naar een adres dat je zelf opgeeft', 'dient alleen hiervoor', 'twee passkeys']) assert.match(faq, new RegExp(s));
+  for (const s of ['Nooit naar een adres dat de professional zelf opgeeft', 'dient alleen hiervoor', 'twee passkeys']) assert.match(faq, new RegExp(s));
   for (const f of ['inloggen.html', 'professionals.html']) assert.match(read(f), /dient alleen hiervoor/);
   assert.match(read('agents.html'), /eenmalige link naar een contactadres dat wij zelf controleren/);
 });
@@ -122,5 +122,5 @@ test('entiteit: alleen HumAgent B.V. (KvK 42222476), geen andere naam, geen plac
 });
 
 test('home: definitiezin direct onder de h1', () => {
-  assert.match(read('index.html'), /<h1>Je agent bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">[^<]+<\/p>/);
+  assert.match(read('index.html'), /<h1>Het bedrijf bestelt\. Een geregistreerde professional tekent\.<\/h1>\n<p class="definition">[^<]+<\/p>/);
 });

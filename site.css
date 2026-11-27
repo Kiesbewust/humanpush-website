@@ -813,6 +813,8 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .section.dark { background: var(--ink); color: var(--on-dark); }
 .section.dark h2, .cta-band h2 { color: var(--white); }
 .cta-band .btn-primary { background: var(--white); color: var(--ink); }
+.cta-band .btn-secondary { color: var(--white); border-color: var(--line-dark); }
+.cta-band .btn-secondary:hover { border-color: var(--white); }
 .lead-short { font-size: 19px; line-height: 1.5; max-width: 40em; color: var(--body); margin: 0; }
 .perks { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .perks li { background: var(--white); border-radius: var(--radius); padding: 16px 18px; border-top: 4px solid var(--ink); font-weight: 500; min-height: 44px; }
@@ -845,4 +847,23 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
   .bar > span { padding: 6px 8px; white-space: normal; text-align: center; }
   .barlabel { flex-wrap: wrap; }
   .statusline { border-radius: 12px; }
+}
+
+/* Twee paden in de hero, gelijk hoge knoppen, meer lucht bij 'Gaat er iets mis?' */
+.logo { gap: 8px; }
+.logo-mark { display: block; width: 28px; height: 28px; flex: 0 0 28px; }
+.path-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; align-items: stretch; }
+.path { display: flex; flex-direction: column; align-items: flex-start; gap: 0; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .18); border-radius: 16px; padding: 22px; }
+.path h2 { margin: 0 0 8px; font-size: 22px; line-height: 1.25; color: var(--white); }
+.path p { margin: 0 0 18px; color: var(--on-dark-muted); }
+.path .btn { margin-top: auto; }
+.actions, .svc-toggle, .svc-tabs { align-items: stretch; }
+.svc-view { white-space: normal; text-align: center; justify-content: center; }
+.ig-rows { gap: 22px; margin-top: 8px; }
+.row { padding: 22px 24px; }
+.row.space-after { margin-bottom: 20px; }
+.row.sep { margin-top: 20px; }
+.ig-kicker { margin: 0 0 12px; font-weight: 650; color: var(--ink); }
+@media (max-width: 700px) {
+  .path-grid { grid-template-columns: 1fr; }
 }

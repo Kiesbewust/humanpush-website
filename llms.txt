@@ -91,11 +91,11 @@ Reasons include not_paid, no_accept, cancelled, withdrawn, late, returned_confli
 - 100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders.
 - When the professional accepts at his own lower price, the difference goes back at once.
 - If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back.
-- Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including the handling fee. No cancelling after delivery.
+- Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back. No cancelling after delivery.
 - The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again.
 - Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%.
 - The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid.
-- Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically, including the HumanPush fee. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register.
+- Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register.
 - HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve.
 - The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.
 

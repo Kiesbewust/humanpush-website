@@ -36,7 +36,7 @@ test('pilot: doelgroep, probleem zonder "de wet eist altijd", het stappenblok me
 });
 
 test('voorbeeldpagina: kosten zonder bedragen, één mailto, geen pilotregime', () => {
-  assert.match(main, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaal je 21% btw\. Geen abonnement en geen minimum\./);
+  assert.match(main, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaalt het bedrijf 21% btw\. Geen abonnement en geen minimum\./);
   assert.doesNotMatch(main, /Ook in de pilot|Hoe een pilot eruitziet|beperkt aantal schadezaken|Samen evalueren/);
   assert.doesNotMatch(main, /pilotvoorwaarden in overleg|platformvergoeding|vaste vergoeding/i);
   const text = main.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ');
