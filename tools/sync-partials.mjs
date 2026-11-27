@@ -103,7 +103,7 @@ function who() {
 <li>${ico('yes') }Doet het vakwerk en tekent met zijn passkey</li>
 <li>${ico('yes') }Staat voor de inhoud in, onder zijn eigen beroepsregels</li>
 <li class="no">${ico('no') }Tekent altijd zelf; een agent kan niet voor hem tekenen</li></ul></article>
-<article class="who hp"><header>${ico('shield')}<h3>HumanPush</h3></header><ul>
+<article class="who hp"><header>${ico('shield')}<h3 class="brand-name"><span class="bn">Human</span><span class="bp">Push</span></h3></header><ul>
 <li>${ico('yes') }Let op het proces: in het register, op tijd, getekend, niet veranderd</li>
 <li>${ico('yes') }Regelt de betaling en het dossier</li>
 <li class="no">${ico('no') }Oordeelt niet over de inhoud van het werk</li></ul></article>

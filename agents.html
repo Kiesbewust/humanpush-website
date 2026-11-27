@@ -54,10 +54,10 @@
 <!--sprite:end-->
 <header class="site-header">
 <div class="wrap">
-<a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0B2A5B"/><path d="M8.5 16.2 13.5 21.2 23.5 10.2" fill="none" stroke="#F6F4EF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><img src="/logo.svg" alt="" width="168" height="26"></a>
+<a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Menu</button>
 <a class="menu-link" href="#site-nav">Menu</a>
-<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li class="nav-login-mobile" data-testenv hidden><a href="https://humanpush-mcp-test-production.up.railway.app/v1/pro">Professionals: testomgeving</a></li></ul></nav>
+<nav id="site-nav" class="site-nav" aria-label="Hoofdmenu"><ul class="nav-list"><li><a href="/bedrijven">Bedrijven</a></li><li><a href="/professionals">Professionals</a></li><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/meer-weten">Meer weten</a></li><li class="nav-login-mobile" data-testenv hidden><a href="https://humanpush-mcp-test-production.up.railway.app/v1/pro">Professionals: testomgeving</a></li></ul></nav>
 <div class="login" data-testenv hidden>
 <a class="login-btn" href="/inloggen" aria-haspopup="true" aria-controls="login-menu"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="5.5" r="2.6"/><path d="M2.8 13.5c.6-2.4 2.6-3.7 5.2-3.7s4.6 1.3 5.2 3.7"/></svg>Inloggen</a>
 <div class="login-menu" id="login-menu">
@@ -157,7 +157,7 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
   "answerable": true,
   "answer": "…",
   "language": "nl",
-  "sources": [ { "id": "…", "title": "…", "url": "https://humanpush.nl/hoe-het-werkt#aannemen", "quote": "…" } ],
+  "sources": [ { "id": "…", "title": "…", "url": "https://humanpush.nl/meer-weten#aannemen", "quote": "…" } ],
   "refusal": null,
   "human_contact": "info@humanpush.nl",
   "disclaimer": "Dit is informatie uit de regels van HumanPush, geen advies en geen toezegging.",
@@ -180,19 +180,19 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <h2 id="bewijs">Het bewijs</h2>
 <p>Een registercheck: HumanPush heeft de professional met een vaste checklist in het openbare register gevonden. De bron en de datum worden bewaard. De check is hooguit <span data-rule="attestationMaxAgeDays">30</span> dagen oud; bij octrooigemachtigden is daarbovenop de peildatum van de lijst hooguit <span data-rule="octrooiSourceMaxAgeDays">120</span> dagen oud. Bij elke aanname opnieuw gecontroleerd. Het is geen realtime koppeling met het register.</p>
 <p>Je agent mag met <code>min_proof_level</code> een strengere check eisen, nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand.</p>
-<p>Elke stap van de professional is getekend met zijn passkey (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>). Elke stap staat in het dossier van de opdracht, en elke stap verwijst naar de vorige. <code>verify_proof</code> controleert het geheel.</p>
+<p>Elke stap van de professional is getekend met zijn passkey (geen gekwalificeerde e-handtekening; zie <a href="/meer-weten#grenzen">wat het dossier aantoont</a>). Elke stap staat in het dossier van de opdracht, en elke stap verwijst naar de vorige. <code>verify_proof</code> controleert het geheel.</p>
 <h2>Wanneer niet</h2>
 <p>Niet voor consumenten. Niet als je geen geregistreerde professional nodig hebt die tekent. Niet voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Niet als je een andere conclusie wilt afdwingen: bezwaar telt alleen bij een objectieve fout.</p>
-<p class="linkline"><a href="/hoe-het-werkt#garanties">Lees wat HumanPush garandeert</a></p>
+<p class="linkline"><a href="/meer-weten#garanties">Lees wat HumanPush garandeert</a></p>
 </div>
 </section>
 </main>
 <footer class="site-footer">
 <div class="wrap cols">
-<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="150" height="23"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V. ·</span> <span>KvK 42222476 ·</span> <span>btw NL870249964B01 ·</span> <span>Utrecht</span></p></div>
+<div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V. ·</span> <span>KvK 42222476 ·</span> <span>btw NL870249964B01 ·</span> <span>Utrecht</span></p></div>
 <nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#dossier">Het dossier</a></li></ul></nav>
 <nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
-<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Voorbeeld: schade laten toetsen</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt">llms.txt (voor AI-agents)</a></li></ul></nav>
+<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/meer-weten">Meer weten</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Voorbeeld: schade laten toetsen</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt">llms.txt (voor AI-agents)</a></li></ul></nav>
 <nav aria-label="Juridisch"><p class="h">Juridisch</p><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Voorwaarden</a></li></ul></nav>
 </div>
 <div class="wrap"><div class="meta"><span>Versie van de regels: 2026-11-20</span><span>Niet geïndexeerd · geen tracking</span></div></div>

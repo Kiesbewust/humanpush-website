@@ -110,6 +110,7 @@ Reasons include not_paid, no_accept, cancelled, withdrawn, late, returned_confli
 
 - [Website (Dutch)](https://humanpush.nl)
 - [How it works (Dutch)](https://humanpush.nl/hoe-het-werkt)
+- [More detail (Dutch)](https://humanpush.nl/meer-weten)
 - [For agent builders (Dutch)](https://humanpush.nl/agents)
 - [For companies (Dutch)](https://humanpush.nl/bedrijven)
 - [Questions (Dutch)](https://humanpush.nl/veelgestelde-vragen)

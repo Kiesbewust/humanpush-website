@@ -754,6 +754,24 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .ig-who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .who { background: var(--white); border-radius: var(--radius); padding: 24px; border-top: 4px solid var(--ink); min-width: 0; }
 .who.hp { border-top-color: var(--gold); }
+.who.hp h3.brand-name .bn { color: #0B2A5B; }
+.who.hp h3.brand-name .bp { color: var(--gold); }
+.grenzen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; margin-top: 8px; }
+.grenzen-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; }
+.grenzen-card h3 { margin: 0 0 12px; font-size: 20px; }
+.grenzen-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.grenzen-card li { display: flex; gap: 10px; align-items: flex-start; }
+.grenzen-card li .ico { flex: 0 0 22px; width: 22px; height: 22px; margin-top: 2px; }
+.grenzen-card.wel .ico { color: var(--ink); }
+.grenzen-card.niet .ico { color: var(--muted); }
+.grenzen-card strong { display: block; font-size: 16px; }
+.grenzen-card p { margin: 2px 0 0; font-size: 15px; color: var(--muted); }
+.grenzen-card details { margin-top: 6px; }
+.toc { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
+.toc a { font-weight: 500; }
+@media (max-width: 700px) {
+  .grenzen-grid { grid-template-columns: 1fr; }
+}
 .who header { display: flex; align-items: center; gap: 12px; color: var(--ink); }
 .who h3 { margin: 0; font-size: 20px; }
 .who ul { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }

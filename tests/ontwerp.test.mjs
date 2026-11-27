@@ -19,7 +19,7 @@ test('publieke teksten: geen "beurt" (alleen /voorwaarden mag, tot de jurist akk
   }
   assert.match(read('professionals.html'), /aangeboden opdracht/i);
   assert.match(read('bedrijven.html'), /toegewezen aan een professional/i);
-  assert.match(read('hoe-het-werkt.html'), /toegewezen aan een (geregistreerde )?professional/);
+  assert.match(read('meer-weten.html'), /toegewezen aan een (geregistreerde )?professional/);
   // /voorwaarden blijft voorlopig gelijk aan de tekst op main (aparte PR "voorwaarden-woordkeuze", ter toetsing door jurist).
   assert.match(read('voorwaarden.html'), /\bbeurt/);
 });
@@ -70,7 +70,7 @@ test('navigatie: alleen Bedrijven, Professionals, Hoe het werkt (Inloggen alleen
     const t = read(f);
     const nav = t.match(/<ul class="nav-list">([\s\S]*?)<\/ul><\/nav>/)[1];
     const items = [...nav.matchAll(/<li(?: class="[^"]*")?><a href="([^"]+)"/g)].map((m) => m[1]);
-    assert.deepEqual(items, ['/bedrijven', '/professionals', '/hoe-het-werkt'], f);
+    assert.deepEqual(items, ['/bedrijven', '/professionals', '/hoe-het-werkt', '/meer-weten'], f);
     assert.match(nav, /<li class="nav-login-mobile" data-testenv hidden>/, `${f}: testomgeving alleen met de vlag`);
     assert.match(t, /<div class="login" data-testenv hidden>/, `${f}: Inloggen standaard weg`);
     assert.match(t, /<footer[\s\S]*<a href="\/agents">/, `${f}: /agents in de footer`);
@@ -101,14 +101,14 @@ test('goudregel: goud alleen als accent, nooit knopachtergrond of tekstkleur', (
     for (const decl of body.split(';')) {
       const [prop, val] = decl.split(':').map((s) => (s || '').trim());
       if (!val || !gold.test(val)) continue;
-      // Nooit als tekstkleur.
-      assert.notEqual(prop, 'color', `goud als tekstkleur in ${sel}`);
+      // Nooit als tekstkleur, behalve de gouden helft van de naam HumanPush in "Wie doet wat" (zoals het woordmerk).
+      if (prop === 'color') assert.match(sel, /\.bp\b/, `goud als tekstkleur in ${sel}`);
       // Nooit als achtergrond van een knop, link, de body of een tekstblok.
       if (/^background/.test(prop)) assert.doesNotMatch(sel, /\b(btn|button|a|body|p|h[1-4]|li|login|svc-view|fake|nav)\b/, `goud als achtergrond van ${sel}`);
     }
   }
   // Waar goud wel staat: stippen, strepen, focus en het handtekening-accent. Zo blijft het één accent per scherm.
-  const allowed = /focus-visible|::before|::after|signed|\.arr\.sign i|tag-mens|^:root|\.ig-ribbon|\.who\.hp|\.out\.part b|\.bar \.f|\.swatch\.fee/;
+  const allowed = /focus-visible|::before|::after|signed|\.arr\.sign i|tag-mens|^:root|\.ig-ribbon|\.who\.hp|\.bp\b|\.out\.part b|\.bar \.f|\.swatch\.fee/;
   for (const { sel, body } of rules) if (gold.test(body)) assert.match(sel, allowed, `goud buiten een accent: ${sel}`);
   for (const f of PAGES) assert.doesNotMatch(read(f), /style="(?:[^"]*;)?\s*(color|background[\w-]*)\s*:[^;"]*(#E0A526|--gold)/i, `${f}: geen goud als tekst- of achtergrondkleur in inline stijl`);
 });

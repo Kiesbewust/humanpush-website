@@ -1,11 +1,11 @@
 {
   "_doc": "Eén bron voor de vier stappen. tools/sync-partials.mjs vult <!--stappen:start view=neutraal|pro-->. De oude vijfde stap (Dossier) is het lint. {regel} wordt een <span data-rule> uit rules.json.",
   "regel": "HumanPush controleert het proces, niet de inhoud.",
-  "regel_link": { "href": "/hoe-het-werkt#controle", "tekst": "Lees wat HumanPush controleert" },
+  "regel_link": { "href": "/meer-weten#controle", "tekst": "Lees wat HumanPush controleert" },
   "lint": {
     "strong": "Alles staat in het dossier:",
     "tekst": "wie, wat en wanneer, getekend en met een vingerafdruk van het stuk.",
-    "href": "/hoe-het-werkt#grenzen",
+    "href": "/meer-weten#grenzen",
     "link": "Wat het dossier wel en niet bewijst"
   },
   "neutraal": [
