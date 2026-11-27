@@ -113,10 +113,12 @@ function who() {
 function misgaat(full, voice) {
   const je = voice === 'bedrijf';
   const rows = [
-    ['all', 'Alles terug', '', 'Niemand neemt de opdracht aan', 'Professionals nemen de opdracht niet aan, of niemand kan leveren binnen 72 uur.'],
-    ['all', 'Alles terug', '', 'De professional levert te laat of het stuk klopt niet', je
-      ? `De professional levert later dan de uiterste datum. Of er mist iets verplicht, de registratie was niet geldig, of het formaat klopt niet. Het systeem stelt dit zelf vast. Meld het binnen ${span('objectionHours')} uur na oplevering. Dan krijg je alles terug.`
-      : `De professional levert later dan de uiterste datum. Of er mist iets verplicht, de registratie was niet geldig, of het formaat klopt niet. Het systeem stelt dit zelf vast. Het bedrijf meldt het binnen ${span('objectionHours')} uur na oplevering. Dan krijgt het bedrijf alles terug.`],
+    ['all', 'Alles terug', '', 'Niemand neemt de opdracht aan', je
+      ? 'Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00.'
+      : 'Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijgt het bedrijf alles terug. Bestelt het bedrijf op maandag om 10:00, dan uiterlijk donderdag om 10:00.'],
+    ['all', 'Alles terug', '', 'Er mist verplicht bewijs, of het bestand is verkeerd', je
+      ? `Het stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Meld het binnen ${span('objectionHours')} uur na oplevering. Dan krijg je alles terug.`
+      : `Het stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Het bedrijf meldt het binnen ${span('objectionHours')} uur na oplevering. Dan krijgt het bedrijf alles terug.`],
     ['space', 'Alles terug', '', 'De professional trekt zich terug of levert later dan de uiterste datum', je ? 'Je kunt opnieuw bestellen.' : 'Het bedrijf kan opnieuw bestellen.'],
     ['all', 'Alles terug', '', je ? 'Je annuleert vóór iemand de opdracht heeft aangenomen' : 'Het bedrijf annuleert vóór iemand de opdracht heeft aangenomen', '']
   ];

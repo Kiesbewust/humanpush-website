@@ -22,11 +22,11 @@ Het bedrijf kiest een maximumprijs op of boven de vanaf-prijs van de dienst: de 
 
 ### Wat als niemand aanneemt?
 
-De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Nemen professionals de opdracht niet aan, of kan niemand leveren binnen 72 uur, dan krijgt het bedrijf alles terug. Zie aannemen.
+De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijgt het bedrijf alles terug. Bestelt het bedrijf op maandag om 10:00, dan uiterlijk donderdag om 10:00. Zie Hoe het werkt.
 
 ### Wat is werktijd?
 
-Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.
+Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op Hoe het werkt.
 
 ### Wat als we annuleren?
 

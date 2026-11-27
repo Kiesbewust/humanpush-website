@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "1ccaacce9ae7a7ebebb06a5a4154cf59712e1290f050b4e9328a6ea609cebbdc",
+ "kb_hash": "3b2e3e3011a32fb4416d729d86f6b63d54ef334a3b8bf5b51353a00410d749c5",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -404,8 +404,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#niemand",
    "lang": "nl",
    "source": "faq",
-   "text": "De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Nemen professionals de opdracht niet aan, of kan niemand leveren binnen 72 uur, dan krijgt het bedrijf alles terug. Zie aannemen.",
-   "hash": "5805c0392972f40a"
+   "text": "De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijgt het bedrijf alles terug. Bestelt het bedrijf op maandag om 10:00, dan uiterlijk donderdag om 10:00. Zie Hoe het werkt.",
+   "hash": "7204592fc3a4d4ce"
   },
   {
    "id": "faq-bedrijven-wat-is-werktijd",
@@ -413,8 +413,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#werkuren",
    "lang": "nl",
    "source": "faq",
-   "text": "Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op /hoe-het-werkt.",
-   "hash": "a8c96fa7ec9093fc"
+   "text": "Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op Hoe het werkt.",
+   "hash": "b03fb41fc9d003d4"
   },
   {
    "id": "faq-bedrijven-wat-als-we-annuleren",
@@ -917,8 +917,8 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Als het misgaat. Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: de professional levert later dan de uiterste datum, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je alles terug. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Nemen professionals de opdracht niet aan, of kan niemand leveren binnen 72 uur, dan krijg je alles terug. Niemand neemt de opdracht aanProfessionals nemen de opdracht niet aan, of niemand kan leveren binnen 72 uur. Alles terug. De professional levert te laat of het stuk klopt nietDe professional levert later dan de uiterste datum. Of er mist iets verplicht, de registratie was niet geldig, of het formaat klopt niet. Het systeem stelt dit zelf vast. Meld het binnen 72 uur na oplevering. Dan krijg je alles terug. Alles terug. De professional trekt zich terug of levert later dan de uiterste datumJe kunt opnieuw bestellen. Alles terug. Je annuleert vóór iemand de opdracht heeft aangenomen Alles terug. Je annuleert na aanname, vóór de opleveringDe professional houdt 25% van zijn prijs. De rest gaat terug. Rest terugde professional houdt 25%. Je bent het niet eens met het oordeel van de professionalWij beslissen daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Praat met de professional, of ga naar de klachtroute van zijn register. Geen terugbetalingvia ons. Donker = alles terugGoud = gedeeltelijkGrijs = niet via HumanPush De volledige regel bij een objectieve fout. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt.",
-   "hash": "0e47239ffdbce67d"
+   "text": "Als het misgaat. Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: de professional levert later dan de uiterste datum, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je alles terug. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00. Niemand neemt de opdracht aanProfessionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00. Alles terug. Er mist verplicht bewijs, of het bestand is verkeerdHet stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Meld het binnen 72 uur na oplevering. Dan krijg je alles terug. Alles terug. De professional trekt zich terug of levert later dan de uiterste datumJe kunt opnieuw bestellen. Alles terug. Je annuleert vóór iemand de opdracht heeft aangenomen Alles terug. Je annuleert na aanname, vóór de opleveringDe professional houdt 25% van zijn prijs. De rest gaat terug. Rest terugde professional houdt 25%. Je bent het niet eens met het oordeel van de professionalWij beslissen daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Praat met de professional, of ga naar de klachtroute van zijn register. Geen terugbetalingvia ons. Donker = alles terugGoud = gedeeltelijkGrijs = niet via HumanPush De volledige regel bij een objectieve fout. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt.",
+   "hash": "b657bdd09fb888ce"
   },
   {
    "id": "pagina-professionals-humanpush-scherm",

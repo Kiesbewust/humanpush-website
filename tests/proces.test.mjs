@@ -120,7 +120,7 @@ test('/professionals: twee korte manieren, checklist, uitbetaling, te laat (rege
   for (const x of ['registratienummer', 'KvK-nummer', 'btw-situatie', 'bankrekening op naam van je onderneming', '2 passkeys']) assert.ok(begin.includes(x), x);
   const qs = [...t.matchAll(/<details class="pay-q"><summary>([^<]+)<\/summary>/g)].map((m) => m[1]);
   assert.deepEqual(qs, ['Wanneer krijg ik niets?', 'En als het bedrijf het inhoudelijk oneens is?', 'Annuleert het bedrijf nadat je hebt aangenomen?', 'Wie bepaalt mijn prijs?']);
-  assert.match(t, /Alleen als iets objectief misgaat: deadline gemist, bewijs ontbreekt, verkeerd formaat of registerinschrijving ongeldig\. Het systeem checkt dat automatisch en het bedrijf krijgt zijn geld terug\. Niemand beoordeelt de inhoud van je werk\./);
+  assert.match(t, /Alleen als iets objectief misgaat: uiterste datum gemist, bewijs ontbreekt, verkeerd formaat of registerinschrijving ongeldig\. Het systeem checkt dat automatisch en het bedrijf krijgt zijn geld terug\. Niemand beoordeelt de inhoud van je werk\./);
   assert.doesNotMatch(read('site.css'), /\.pay-(card|more|q)[^{]*:hover/, 'geen hover-uitklap');
   assert.match(t, /Een agent werkt namens een bedrijf door zodra jouw handtekening er is\. Elke vertraging houdt het hele proces op\./);
   const laat = t.match(/id="te-laat"[\s\S]*?<\/section>/)[0];
@@ -136,7 +136,8 @@ test('/bedrijven: stappen, kosten, misgaat, dossier en de drie voordelen', () =>
   assert.match(t, /Zo werkt het/);
   assert.match(t, /Als het misgaat/);
   for (const v of ['Getekend door een professional uit een openbaar register', 'Vooraf een duidelijke prijs en uiterste datum', 'Automatisch geld terug als het misgaat']) assert.ok(t.includes(v), v);
-  assert.match(t, /Nemen professionals de opdracht niet aan, of kan niemand leveren binnen 72 uur, dan krijg je alles terug\./);
+  assert.match(t, /Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug\./);
+  assert.doesNotMatch(t, /binnen 72 uur, dan krijg je alles terug/);
   assert.match(t, /toegewezen aan een professional/);
 });
 
@@ -373,7 +374,7 @@ test('professional weet waar hij aan toe is: checklist, wanneer het geld komt, D
   assert.doesNotMatch(read('hoe-het-werkt.html'), /de gegevens die nodig zijn voor de belastingregels voor platforms \(DAC7\)/);
   assert.match(read('veelgestelde-vragen.html'), /Het wettelijke herroepingsrecht is bedoeld voor consumenten; hoe dat voor deze dienst uitpakt, laten we juridisch toetsen\./);
   for (const f of PAGES) assert.doesNotMatch(read(f), /binnen het bereik van de dienst|het prijsbereik/, f);
-  assert.equal((read('professionals.html').match(/Is jouw prijs de laagste die de deadline haalt/g) || []).length, 1, 'de prijsalinea staat er één keer');
+  assert.equal((read('professionals.html').match(/Is jouw prijs de laagste die de uiterste datum haalt/g) || []).length, 1, 'de prijsalinea staat er één keer');
   const faq = read('veelgestelde-vragen.html');
   assert.match(faq, /<summary>Wanneer krijg ik mijn geld\?<\/summary><p>Na acceptatie door het bedrijf, of na <span data-rule="objectionHours">72<\/span> uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar\. De precieze termijn tot de rekening van de professional volgt zodra er echte opdrachten lopen\.<\/p>/);
   assert.match(faq, /<summary>Hoe weet ik dat er een opdracht voor mij is\?<\/summary><p>Op het scherm van de professional bij HumanPush, of zijn agent vraagt het op\. Er gaat nog geen mail of push\./);
