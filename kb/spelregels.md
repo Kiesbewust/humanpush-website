@@ -54,7 +54,7 @@ Bestellen is: dienst, invoer, uiterste datum en maximumprijs. Onbekende velden w
 Het bedrijf betaalt vooraf de maximumprijs plus de HumanPush-afhandelfee (5% daarvan) en 21% btw over de fee, binnen 30 minuten, via een betaallink. Niet betaald in 30 minuten: de bestelling vervalt, zonder gevolgen. Pas na betaling gaat de opdracht naar professionals.
 
 ### R3.3 · De HumanPush-afhandelfee
-De afhandelfee is 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil in prijs en fee meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.
+De afhandelfee is 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.
 
 ### R3.5 · Herhaalde aanroep is één uitvoering
 Dezelfde idempotency_key met dezelfde gegevens geeft hetzelfde antwoord en voert niets twee keer uit.
@@ -74,7 +74,7 @@ Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende sta
 De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
 
 ### R4.6 · Niemand neemt aan: alles terug
-Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de afhandelfee.
+Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug.
 
 ### R4.7 · Hoe een professional een aangeboden opdracht ziet
 De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het scherm van HumanPush. Er gaat geen mail of sms.
@@ -99,7 +99,7 @@ Een bezwaar telt alleen bij een fout die het systeem zelf vaststelt: te laat (ge
 HumanPush oordeelt niet over de inhoud en er is geen beoordelaar. Is het bedrijf het inhoudelijk oneens, dan wordt de professional na 72 uur betaald. Het bedrijf gaat naar de professional, of naar de klacht- of tuchtregeling van het register van de professional.
 
 ### R6.4 · Objectieve fout: alles terug
-Bij een objectieve fout krijgt het bedrijf automatisch alles terug, ook de afhandelfee. Niemand hoeft te beslissen. De professional krijgt niets.
+Bij een objectieve fout krijgt het bedrijf automatisch alles terug. Niemand hoeft te beslissen. De professional krijgt niets.
 
 ### R6.6 · Storing bij HumanPush
 Kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.
@@ -110,7 +110,7 @@ Kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf
 Annuleren vóór de aanname kost niets.
 
 ### R7.2 · Annuleren na aanname, vóór oplevering: 25% van de prijs
-De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de afhandelfee.
+De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug.
 
 ### R7.3 · Na oplevering kan niet meer worden geannuleerd
 Na de oplevering blijft alleen accepteren of bezwaar over.

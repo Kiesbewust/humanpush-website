@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "3b2e3e3011a32fb4416d729d86f6b63d54ef334a3b8bf5b51353a00410d749c5",
+ "kb_hash": "2a4de4bdac10d68ef71f4d71fadffe0839159529ed101838f500d1e6535bf935",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -143,8 +143,8 @@
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De afhandelfee is 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil in prijs en fee meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.",
-   "hash": "fb2b5f7f262559a3"
+   "text": "De afhandelfee is 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement, geen minimum, geen andere kosten. Neemt een professional aan tegen een lagere prijs, dan gaat het verschil meteen terug. HumanPush houdt de fee alleen als een opdracht slaagt.",
+   "hash": "03c4ba2d12517eaf"
   },
   {
    "id": "spelregels-r3-5",
@@ -197,8 +197,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug, ook de afhandelfee.",
-   "hash": "bf6174ca6646cf18"
+   "text": "Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug.",
+   "hash": "70f0d293a0600f8e"
   },
   {
    "id": "spelregels-r4-7",
@@ -260,8 +260,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#g18",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Bij een objectieve fout krijgt het bedrijf automatisch alles terug, ook de afhandelfee. Niemand hoeft te beslissen. De professional krijgt niets.",
-   "hash": "8c18c5a929c59935"
+   "text": "Bij een objectieve fout krijgt het bedrijf automatisch alles terug. Niemand hoeft te beslissen. De professional krijgt niets.",
+   "hash": "975e2feabfc9744d"
   },
   {
    "id": "spelregels-r6-6",
@@ -287,8 +287,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#geld",
    "lang": "nl",
    "source": "spelregels",
-   "text": "De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug, ook de afhandelfee.",
-   "hash": "dda1ddfcac670826"
+   "text": "De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug.",
+   "hash": "045eee9a54b950c0"
   },
   {
    "id": "spelregels-r7-3",
@@ -845,8 +845,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back, including the handling fee. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically, including the HumanPush fee. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register. HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.",
-   "hash": "9fe3a4ee20045b37"
+   "text": "100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register. HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.",
+   "hash": "4ffacf29baf30673"
   },
   {
    "id": "llms-proof",
