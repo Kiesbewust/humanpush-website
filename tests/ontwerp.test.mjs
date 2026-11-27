@@ -161,7 +161,7 @@ test('visuele rust: geen raster door de hero, geen doorhaling, minder lijnen, le
   assert.doesNotMatch(css, /line-through/, 'geen doorgestreepte tekst');
   assert.doesNotMatch(css, /\.hero\.dark::after/, 'geen raster door de hero');
   assert.match(css, /\.section \{ border-top: 0; \}/, 'geen lijn tussen secties met een andere achtergrond');
-  assert.match(css, /\.grid \{ border: 0; gap: 20px; \}/);
+  assert.match(css, /\.grid \{ border: 0; gap: var\(--s-5\); \}/);
   assert.match(css, /\.reasons li \+ li, \.guarantees li \+ li \{ border-top/, 'alleen lijnen tussen items');
   assert.match(css, /\.c-msg \{ overflow-wrap: anywhere;/);
   assert.match(css, /\.c-code \{ white-space: pre-wrap;/);
