@@ -31,6 +31,21 @@
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --measure: 68ch;
   --gutter: 24px;
+  /* Ritme: één schaal. Sectieruimte is de ruimte bóven een kop; de marge eronder is kleiner. */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --section-y: var(--s-9);
+  --lh-body: 1.58;
+  --lh-h1: 1.15;
+  --lh-h2: 1.2;
+  --lh-h3: 1.25;
   /* Lijn-iconen (één stijl: 1.5px lijn, ronde uiteinden) */
   --i-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8.5l3 3 7-7'/%3E%3C/svg%3E");
   --i-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M4 4l8 8M12 4l-8 8'/%3E%3C/svg%3E");
@@ -883,3 +898,69 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 @media (max-width: 700px) {
   .path-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== Ritme (spacing pass): één schaal, kop bij de inhoud, geen lege rastercellen ===== */
+body { line-height: var(--lh-body); }
+h1 { line-height: var(--lh-h1); margin: 0 0 var(--s-4); }
+h2 { line-height: var(--lh-h2); margin: 0 0 var(--s-6); }
+h3 { line-height: var(--lh-h3); margin: var(--s-5) 0 var(--s-2); }
+p { margin: 0 0 var(--s-4); max-width: var(--measure); }
+.lead, .lead-short, .definition { max-width: var(--measure); }
+.prose { max-width: var(--measure); }
+.prose h2 { margin-top: var(--s-7); }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { margin-top: var(--s-6); margin-bottom: var(--s-2); }
+.prose h3:first-child { margin-top: 0; }
+.wrap.prose > :not(table):not(.table):not(.grenzen-grid):not(.ig-who) { max-width: var(--measure); }
+.section > .wrap > p:not(.linkline):not(.label) { max-width: var(--measure); }
+.section > .wrap > h2 { max-width: 22em; }
+/* Eén sectie-afstand: alleen padding-top. De volgende sectie levert de ruimte, niet een dubbele bodem. */
+.section { padding: var(--section-y) 0 0; }
+main > .section:last-child { padding-bottom: var(--section-y); }
+.section.tight { padding: var(--s-7) 0; }
+.section.top0 { padding-top: var(--s-7); padding-bottom: 0; }
+.hero { padding: var(--section-y) 0 var(--s-7); }
+.home-hero { padding: var(--s-8) 0 var(--s-7); }
+.callout, .notice { max-width: var(--measure); }
+.callout { margin: var(--s-5) 0; }
+.ig { margin-top: var(--s-5); }
+.ig-steps { gap: var(--s-5); }
+.ig-step h3 { margin: var(--s-4) 0 var(--s-2); line-height: var(--lh-h3); }
+.ig-step p { line-height: var(--lh-body); }
+.ig-who { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--s-5); }
+.ig-rows { gap: var(--s-4); margin-top: var(--s-4); }
+.row { width: fit-content; max-width: 100%; grid-template-columns: minmax(0, 68ch) auto auto; justify-content: start; padding: var(--s-4) var(--s-5); gap: var(--s-4); }
+.row .when, .row .when small { line-height: 1.55; }
+.row .when small { margin-top: var(--s-2); }
+.row.space-after, .row.sep { margin: 0; }
+.regs { margin-top: 0; gap: var(--s-3); }
+.guarantees li:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: var(--measure); }
+.checks { margin-top: 0; }
+.faq details p { max-width: var(--measure); }
+@media (min-width: 900px) {
+  #wie > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 380px; column-gap: var(--s-6); row-gap: var(--s-6); align-items: start; }
+  #wie > .wrap > h2, #wie > .wrap > .ig-who { grid-column: 1 / -1; }
+  #wie > .wrap > h2 { margin-bottom: 0; }
+  #wie > .wrap > #controle { grid-column: 1; }
+  #controle > h3 { margin-top: 0; }
+  #wie > .wrap > .dossierkaart { grid-column: 2; margin: 0; }
+}
+@media (max-width: 960px) {
+  .row { width: 100%; grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  :root { --section-y: 56px; }
+  h1 { line-height: var(--lh-h1); }
+  h2 { line-height: var(--lh-h2); }
+  .section { padding: var(--section-y) 0 0; }
+  .section.tight { padding: var(--s-7) 0; }
+  .section.top0 { padding-top: var(--s-6); }
+  main > .section:last-child { padding-bottom: var(--section-y); }
+  .hero { padding: var(--section-y) 0 var(--s-6); }
+  .home-hero { padding: 28px 0; }
+}
+@media (max-width: 400px) {
+  .home-hero { padding: 20px 0 22px; }
+  .home-hero h1 { line-height: var(--lh-h1); }
+}
+main > .cta-band { padding-bottom: var(--s-7); }
