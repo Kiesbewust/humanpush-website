@@ -189,6 +189,8 @@ h2 + p { margin-top: -16px; }
 .hero > .wrap > :last-child { margin-bottom: 0; }
 main > .section:last-child,
 main > .cta-band { padding-bottom: calc(var(--section-y) * 2); }
+/* Home eindigt op de registersectie; die houdt dezelfde onderpadding als de andere banden. */
+.home-hero ~ .section:last-child { padding-bottom: var(--section-y); }
 .hero + .section { padding-top: var(--section-y); }
 @media (max-width: 760px) { :root { --section-y: 28px; } }
 
@@ -484,8 +486,8 @@ pre.code { background: var(--white); border: 1px solid var(--line); border-radiu
 .home-hero { padding: var(--s-8) 0 var(--section-y); }
 .home-hero .kicker { margin: 0; }
 .home-hero h1 { margin-top: var(--s-5); max-width: 18em; text-wrap: balance; }
-/* Padkaarten onder de herotekst en de NIVRE-noot, over de volle breedte. */
-.home-hero .path-grid { margin-top: var(--s-7); }
+/* Padkaarten onder de noot, links uitgelijnd, ongeveer zo breed als de lead. */
+.home-hero .path-grid { margin-top: var(--s-7); gap: var(--s-4); max-width: calc(400px * 2 + var(--s-4)); width: 100%; }
 .routecards ul { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 960px; }
 .routecard { position: relative; display: flex; flex-direction: column; gap: 6px; min-height: 120px; padding: 24px 64px 24px 24px; border: 1px solid var(--line-dark); border-radius: var(--radius); background: rgba(255, 255, 255, .04); text-decoration: none; }
 .routecard:hover { background: rgba(255, 255, 255, .09); border-color: var(--on-dark-muted); }
@@ -875,8 +877,7 @@ p + .ig-who, p + .ig-rows, p + .ig-money, p + .svc, p + .checks, p + .voorbeeld-
 /* In een wie-kaart erft li flex; de stappen moeten onder elkaar, label boven de tekst. */
 .who li.flow { display: block; }
 .flow:not(:last-child)::after { content: ""; position: absolute; right: -16px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-top: 2px solid var(--muted); border-right: 2px solid var(--muted); transform: rotate(45deg); }
-.statusline { display: inline-flex; align-items: center; gap: 10px; margin: 22px 0 0; font-size: 14.5px; color: var(--on-dark); border: 1px solid var(--line-dark); border-radius: 999px; padding: 8px 14px; max-width: 100%; }
-.statusline::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex: none; }
+.statusline { display: block; margin: var(--s-5) 0 0; max-width: var(--measure); font-size: 15px; line-height: var(--lh-body); color: var(--on-dark-muted); }
 .regs { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 .regs li { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: var(--s-4) var(--s-4); font-size: 15px; line-height: 1.4; min-width: 0; height: 100%; }
 .regs li b { display: block; color: var(--ink); font-weight: 600; font-size: 16px; }
@@ -920,7 +921,6 @@ h2 + .lead-short, h2 + .lead, h2 + p { margin-top: -16px; }
   .bar { font-size: 13px; height: auto; min-height: 48px; }
   .bar > span { padding: 6px 8px; white-space: normal; text-align: center; }
   .barlabel { flex-wrap: wrap; }
-  .statusline { border-radius: 12px; }
 }
 
 /* Twee paden in de hero, gelijk hoge knoppen, meer lucht bij 'Gaat er iets mis?' */
