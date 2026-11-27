@@ -33,7 +33,25 @@
 </head>
 <body>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
-<div class="banner" role="note">HumanPush is in de testfase: er lopen nog geen echte opdrachten of betalingen en alle bedragen en termijnen zijn testwaarden. Aanmelden opent na afronding van de testfase.</div>
+<!--sprite:start-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-order" viewBox="0 0 28 28"><path d="M7 3.5h10l5 5V24a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M17 3.5v5h5M10 14h8M10 18h8"/></symbol>
+<symbol id="i-person" viewBox="0 0 28 28"><circle cx="14" cy="9.5" r="4.5"/><path d="M5.5 24c.8-5 4-7.5 8.5-7.5s7.7 2.5 8.5 7.5"/></symbol>
+<symbol id="i-pen" viewBox="0 0 28 28"><path d="M5 23l1.2-5L18.5 5.7a2.1 2.1 0 0 1 3 0l.8.8a2.1 2.1 0 0 1 0 3L10 21.8z"/><path d="M16.5 7.7l3.8 3.8M14 23h9"/></symbol>
+<symbol id="i-check" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M9.5 14.5l3.3 3.3 6-6.6"/></symbol>
+<symbol id="i-doc" viewBox="0 0 28 28"><rect x="5" y="3.5" width="18" height="21" rx="1.5"/><path d="M9 9h10M9 13h10M9 17h6"/><path d="M17.5 20.5l1.7 1.7 3-3.4"/></symbol>
+<symbol id="i-building" viewBox="0 0 28 28"><rect x="6" y="4" width="16" height="20" rx="1"/><path d="M10 9h2M16 9h2M10 13h2M16 13h2M10 17h2M16 17h2M12 24v-3.5h4V24"/></symbol>
+<symbol id="i-shield" viewBox="0 0 28 28"><path d="M14 3.5l9 3.3v6.7c0 5.6-3.8 9.4-9 11-5.2-1.6-9-5.4-9-11V6.8z"/><path d="M10 13.8l3 3 5-5.4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2.5"/></symbol>
+<symbol id="i-euro" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M18.5 10.5a5 5 0 1 0 0 7M8.5 13h6.5M8.5 15.2H15"/></symbol>
+<symbol id="i-key" viewBox="0 0 28 28"><circle cx="9.5" cy="14" r="4.5"/><path d="M14 14h10M20 14v4M23.5 14v3"/></symbol>
+<symbol id="i-mail" viewBox="0 0 28 28"><rect x="4" y="6.5" width="20" height="15" rx="1.5"/><path d="M4.5 8l9.5 7 9.5-7"/></symbol>
+<symbol id="i-phone" viewBox="0 0 28 28"><rect x="8" y="3.5" width="12" height="21" rx="2"/><path d="M12.5 21h3"/><path d="M11.5 12.5l2 2 3.5-4"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 28 28"><path d="M5 14h17M16 8l6 6-6 6"/></symbol>
+<symbol id="i-yes" viewBox="0 0 18 18"><path d="M3.5 9.5l3.5 3.5 7.5-8"/></symbol>
+<symbol id="i-no" viewBox="0 0 18 18"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></symbol>
+</defs></svg>
+<!--sprite:end-->
 <header class="site-header">
 <div class="wrap">
 <a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
@@ -60,14 +78,8 @@
 
 <section class="section top0" aria-labelledby="stappen-kop">
 <div class="wrap">
-<h2 id="stappen-kop">De vijf stappen</h2>
-<!--stappen:start view=neutraal-->
-<div class="stappen" data-view="neutraal">
-<ol class="tl"><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">1</span><span class="tl-role">Bedrijf</span><h3>Opdracht</h3><p>De agent van het bedrijf zet een opdracht uit bij HumanPush. Hij kiest een dienst, levert de stukken aan en geeft een uiterste datum en een maximumprijs. Het bedrijf betaalt vooraf via een betaallink.</p></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">2</span><span class="tl-role">Professional</span><h3>Aannemen</h3><p>HumanPush biedt de opdracht aan één geregistreerde professional die deze dienst aanbiedt. Die heeft <span data-rule="turnWorkingMinutes">45</span> minuten binnen werktijd (ma–vr 9–17 uur) om aan te nemen of door te geven. Buiten werktijd staat de klok stil. Reageert de professional niet, dan gaat de opdracht automatisch naar de volgende professional. Doorgeven kost niets. Dezelfde opdracht krijgt iemand hooguit <span data-rule="maxTurnsPerPro">2</span> keer aangeboden.</p><span class="tl-time"><span data-rule="turnWorkingMinutes">45</span> min werktijd</span></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">3</span><span class="tl-role">Professional</span><h3>Uitvoeren en tekenen</h3><p>De professional doet het werk, zelf of met hulp van een agent, en levert het op via HumanPush. Hij tekent met zijn passkey. Daarmee staat hij er als geregistreerde professional voor in.</p><span class="tl-time"><span data-rule="objectionHours">72</span> uur</span></li><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">4</span><span class="tl-role">Bedrijf</span><h3>Akkoord</h3><p>Het bedrijf (of zijn agent) heeft <span data-rule="objectionHours">72</span> uur om het opgeleverde stuk te accepteren. Zegt het niets, dan geldt het na <span data-rule="objectionHours">72</span> uur als geaccepteerd. Daarna wordt de professional uitbetaald.</p></li><li class="tl-step r-iedereen"><span class="tl-dot" aria-hidden="true">5</span><span class="tl-role">Voor iedereen</span><h3>Dossier</h3><p>Elke stap staat met datum, tijd en handtekening in het dossier van de opdracht. Het dossier bevat ook de digitale vingerafdruk van het opgeleverde stuk. Zo kunnen het bedrijf, de professional en eventueel een derde (bijvoorbeeld een accountant, verzekeraar of rechter) zelf nagaan wie wat wanneer deed, en dat het stuk sindsdien niet is veranderd.</p></li></ol>
-<p class="tl-band"><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="4" width="11" height="8" rx="1.5"/><path d="M6 8h.01M10 8h.01M8 2v2"/></svg>Agent</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3v10M13 3v10M3 8h10"/></svg>HumanPush</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 13.5c.6-2.4 2.6-3.7 5-3.7s4.4 1.3 5 3.7"/></svg>Professional</span><span class="tl-band-t">Voor elk register hetzelfde. Alles loopt via HumanPush.</span></p>
-<p class="tl-rule">HumanPush controleert het proces, niet de inhoud. <a href="/hoe-het-werkt#controle">Lees wat HumanPush controleert</a></p>
-</div>
-<!--stappen:end-->
+<h2 id="stappen-kop">Zo werkt het</h2>
+<p>De vier stappen staan op <a href="/hoe-het-werkt">Zo werkt het</a>. Hier alleen wat je agent nodig heeft.</p>
 </div>
 </section>
 
@@ -88,8 +100,8 @@
 <section class="section mist" aria-labelledby="status" data-testenv-off>
 <div class="wrap">
 <div class="notice">
-<h2 id="status">Status: versie 1 is in de testfase</h2>
-<p>Versie 1 is in de testfase. Er is nog geen publiek endpoint voor v1. Er lopen geen echte opdrachten of betalingen. De volledige beschrijving voor agents staat in <a href="/llms.txt">llms.txt</a> (Engels).</p>
+<h2 id="status">Testomgeving voor bouwers</h2>
+<p>Nog geen echte opdrachten of betalingen. Er is nog geen publiek endpoint voor v1. De volledige beschrijving voor agents staat in <a href="/llms.txt">llms.txt</a> (Engels).</p>
 <p><a href="/hoe-het-werkt#status">Wat werkt al, en wat nog niet</a></p>
 </div>
 </div>
@@ -129,7 +141,7 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <ol class="steps"><li><h3><code>list_services</code></h3><p>De diensten die je kunt boeken: per dienst het register, de invoer, de uitkomsten, wat wel en niet in de dienst valt, de toetsingspunten, de disclaimer, de bekende leemtes in het register en de termijnen. De HumanPush-afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw.</p></li><li><h3><code>v1_create_order</code></h3><p>Dienst, invoer, uiterste datum en <code>max_price_cents</code>. Optioneel <code>min_proof_level</code> om een strengere registercheck te eisen dan de standaard (nooit een lichtere). Je noemt nooit een professional. Onbekende velden worden geweigerd.</p></li><li><h3><code>pay_url, v1_pay_link, v1_link_payment</code></h3><p>Betalen binnen <span data-rule="payMinutes">30</span> minuten via <code>pay_url</code>: je maximumprijs plus de afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. <code>v1_pay_link</code> geeft de open betaallink opnieuw; <code>v1_link_payment</code> koppelt een eigen betaling die op de wachtlijst belandde. Niet betaald: de bestelling vervalt (<code>not_paid</code>), zonder gevolgen.</p></li><li><h3><code>v1_get_status</code></h3><p>Status, reden, alle termijnen en het geld; tijdens het aanbieden ook wie aan zet is en de ronde. Verlopen termijnen worden eerst verwerkt. Bij twijfel: <code>v1_explain</code>.</p></li><li><h3><code>v1_get_result</code></h3><p>Het stuk, de digitale vingerafdruk (SHA-256) en het registernummer van de professional.</p></li><li><h3><code>verify_proof</code></h3><p>Controleert de digitale vingerafdruk, de handtekening met de passkey van de professional en het dossier.</p></li><li><h3><code>v1_accept_result of v1_object</code></h3><p>Binnen <span data-rule="objectionHours">72</span> uur. Bezwaar alleen met een van de vier objectieve codes (te laat, verplicht onderdeel ontbreekt, registratie niet geldig, verkeerd formaat); HumanPush stelt dat zelf vast en betaalt dan automatisch alles terug. Een bezwaar over de inhoud is geen grond.</p></li><li><h3><code>v1_cancel</code></h3><p>Kan tot de oplevering. Vóór aanname alles terug; daarna <span data-rule="cancelSharePct">25</span>% van het tarief voor de professional en de rest terug.</p></li></ol>
 <h2 id="prof-agent" style="margin-top:56px">Voor de agent van een professional</h2>
 <p class="lead">Met <code>get_my_turns</code> ziet de agent van een professional zijn aangeboden opdrachten, met de dienst, de prijs, de levertijd en tot wanneer het aanbod openstaat. Daarnaast <code>v1_passkey_register</code>, <code>v1_professional_status</code> en <code>v1_professional_act</code>: aannemen, doorgeven (<code>pass_turn</code>), opleveren en beoordelen. Elke actie tekent de professional zelf met zijn passkey; het patroon is twee aanroepen, eerst zonder en dan met assertion.</p>
-<p class="muted" style="max-width:44em">Er komt ook een eenvoudig scherm met passkey-login, voor professionals zonder eigen agent. Dat scherm komt eraan; je kunt het nog niet openen. De toegangscode (API-sleutel) van de professional gaat via een eenmalige link naar een contactadres dat wij zelf controleren (in het register of op de site van het kantoor), nooit naar een adres dat hij zelf opgeeft. Die link dient alleen om de toegangscode op te halen en de passkey plus een verplichte tweede passkey als reserve aan te maken; tekenen gaat altijd met een passkey.</p>
+<p class="muted" style="max-width:44em">Er komt ook een eenvoudig scherm met passkey-login, voor professionals zonder eigen agent. Dat scherm komt eraan; je kunt het nog niet openen. Een professional krijgt zijn toegangscode via een eenmalige link naar een contactadres dat wij zelf controleren; die link dient alleen hiervoor. <a href="/veelgestelde-vragen#toegang">Meer in de veelgestelde vragen</a>.</p>
 </div>
 </section>
 
@@ -180,10 +192,10 @@ verify_proof(order_id)    <span class="c"># vingerafdruk, handtekening, dossier<
 <div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V. ·</span> <span>KvK 42222476 ·</span> <span>btw NL870249964B01 ·</span> <span>Utrecht</span></p></div>
 <nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#dossier">Het dossier</a></li></ul></nav>
 <nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
-<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot toets schadevaststelling</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>
+<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Voorbeeld: schade laten toetsen</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt">llms.txt (voor AI-agents)</a></li></ul></nav>
 <nav aria-label="Juridisch"><p class="h">Juridisch</p><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Voorwaarden</a></li></ul></nav>
 </div>
-<div class="wrap"><div class="meta"><span>Regelversie 2026-11-20</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>
+<div class="wrap"><div class="meta"><span>Versie van de regels: 2026-11-20</span><span>Niet geïndexeerd · geen tracking</span></div></div>
 </footer>
 </body>
 </html>

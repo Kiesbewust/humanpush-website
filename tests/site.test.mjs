@@ -58,12 +58,14 @@ test('het garantieblok staat alleen op /hoe-het-werkt; elders één regel met li
   }
 });
 
-test('elke pagina: noindex, banner, footer zonder adres, Inloggen met "komt eraan", geen Google Fonts', () => {
-  const banner = 'HumanPush is in de testfase: er lopen nog geen echte opdrachten of betalingen en alle bedragen en termijnen zijn testwaarden. Aanmelden opent na afronding van de testfase.';
+test('elke pagina: noindex, statusregel in plaats van de banner, footer zonder adres, Inloggen met "komt eraan", geen Google Fonts', () => {
+  // De banner op elke pagina is vervangen door één statusregel op de home.
+  const status = 'Nog geen echte opdrachten. We starten met schade-experts (NIVRE).';
   for (const f of PAGES) {
     const t = read(f);
     assert.match(t, /<meta name="robots" content="noindex, nofollow">/, f);
-    assert.ok(t.includes(banner), f + ' banner');
+    assert.equal(t.includes(status), f === 'index.html', f + ' statusregel');
+    assert.doesNotMatch(t, /HumanPush is in de testfase: er lopen nog geen echte opdrachten/, f);
     assert.ok(t.includes('<p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal">'), f + ' footer');
     assert.equal(t.match(/<p class="f-legal">([\s\S]*?)<\/p>/)[1].replace(/<[^>]+>/g, ''), 'HumanPush is een handelsnaam van HumAgent B.V. · KvK 42222476 · btw NL870249964B01 · Utrecht', f + ' footerregel');
     assert.match(t, /<div class="login" data-testenv hidden>/, f + ' inloggen alleen met de testvlag');
@@ -127,8 +129,8 @@ test('geen straatadres of postcode in een publiek bestand', () => {
 
 test('pilotaanvraag zonder backend: mailto-knoppen met sjabloon, geen formulier naar buiten, geen trackers, geen cookies', () => {
   const NOTE = 'Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox.';
-  assert.match(read('bedrijven.html'), /href="mailto:info@humanpush\.nl\?subject=Pilot%20aanvragen&amp;body=Organisatie%3A%0ASoort%20schadezaken%3A%0AOngeveer%20hoeveel%20per%20maand%3A%0AWerk%20je%20al%20met%20AI-agents%20of%20claimsoftware%20%28welke%29%3A%0ATelefoon%20%28optioneel%29%3A%0A">Pilot aanvragen<\/a>/);
-  assert.match(read('professionals.html'), /href="mailto:info@humanpush\.nl\?subject=Interesse%20als%20professional&amp;body=Register%20en%20registratienummer%3A%0ABranche%3A%0AZelfstandig%20of%20bureau%3A%0A">Interesse als professional<\/a>/);
+  assert.match(read('bedrijven.html'), /href="mailto:info@humanpush\.nl\?subject=Kennismaken&amp;body=Organisatie%3A%0ASoort%20schadezaken%3A%0AOngeveer%20hoeveel%20per%20maand%3A%0AWerk%20je%20al%20met%20AI-agents%20of%20claimsoftware%20%28welke%29%3A%0ATelefoon%20%28optioneel%29%3A%0A">Neem contact op<\/a>/);
+  assert.match(read('professionals.html'), /href="mailto:info@humanpush\.nl\?subject=Interesse%20als%20professional&amp;body=Register%20en%20registratienummer%3A%0ABranche%3A%0AZelfstandig%20of%20bureau%3A%0A">Stuur een mail<\/a>/);
   for (const f of ['bedrijven.html', 'professionals.html', 'pilot/second-opinion.html']) assert.ok(read(f).includes(NOTE), f);
   const trackers = /google-analytics|googletagmanager|gtag\(|plausible\.io|matomo|hotjar|segment\.(io|com)|facebook\.net|fbq\(|clarity\.ms|goatcounter|umami|mixpanel|hubspot|typeform|tally\.so|jotform|formspree|getform|document\.cookie/i;
   for (const f of FILES.filter((f) => /\.(html|js|css|txt|json)$/.test(f) && !f.startsWith('api/'))) {

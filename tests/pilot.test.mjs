@@ -25,9 +25,9 @@ test('pilot: doelgroep, probleem zonder "de wet eist altijd", het stappenblok me
   assert.doesNotMatch(main, /AVG|AI-verordening/, 'de wetsalinea staat alleen in de FAQ');
   assert.match(main, /wanneer de situatie daarom vraagt/);
   assert.match(main, /<!--stappen:start view=neutraal-->/);
-  assert.equal((main.match(/<li class="tl-step/g) || []).length, 5);
+  assert.equal((main.match(/<li class="ig-step/g) || []).length, 4);
   assert.match(main, /NIVRE-geregistreerde schade-expert/);
-  assert.match(main, /<span data-rule="turnWorkingMinutes">\d+<\/span> minuten binnen werktijd/);
+  assert.match(main, /<span data-rule="turnWorkingMinutes">\d+<\/span> min per professional/);
   assert.doesNotMatch(main.replace(/gebeurtenis/g, ''), /beurt/i);
   assert.match(main, /tekent met zijn passkey/);
   assert.match(main, /dossier van de opdracht/);
@@ -35,13 +35,13 @@ test('pilot: doelgroep, probleem zonder "de wet eist altijd", het stappenblok me
   assert.doesNotMatch(P, /<!--flow:start/);
 });
 
-test('pilot: hoe een pilot eruitziet, 5% afhandelfee zonder bedragen, CTA alleen mailto', () => {
-  for (const s of ['Eén concrete workflow', 'beperkt aantal schadezaken', 'doorlooptijd', 'kosten', 'matchsucces', 'zaak terugkomt', 'Samen evalueren']) assert.ok(main.includes(s), s);
-  assert.match(main, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaal je 21% btw\. Ook in de pilot\./);
+test('voorbeeldpagina: kosten zonder bedragen, één mailto, geen pilotregime', () => {
+  assert.match(main, /HumanPush-afhandelfee: <span data-rule="feePct">5<\/span>% over de prijs van de professional \(inclusief zijn eventuele btw\)\. Over de fee betaal je 21% btw\. Geen abonnement en geen minimum\./);
+  assert.doesNotMatch(main, /Ook in de pilot|Hoe een pilot eruitziet|beperkt aantal schadezaken|Samen evalueren/);
   assert.doesNotMatch(main, /pilotvoorwaarden in overleg|platformvergoeding|vaste vergoeding/i);
   const text = main.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ');
-  assert.doesNotMatch(text, /€|\bEUR\b|\d+[.,]\d{2}\b|euro/i, 'geen bedragen op de pilotpagina');
-  assert.equal((main.match(/<a class="btn btn-primary" href="mailto:info@humanpush\.nl\?subject=Pilot%20aanvragen&amp;body=Organisatie%3A[^"]*">Pilot aanvragen<\/a>/g) || []).length, 2);
+  assert.doesNotMatch(text, /€|\bEUR\b|\d+[.,]\d{2}\b|euro/i, 'geen bedragen op de voorbeeldpagina');
+  assert.equal((main.match(/<a class="btn btn-primary" href="mailto:info@humanpush\.nl\?subject=Kennismaken&amp;body=Organisatie%3A[^"]*">Stuur ons een mail<\/a>/g) || []).length, 2);
   assert.match(main, /Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox\./);
   assert.doesNotMatch(P, /<form\b|<input\b|<textarea\b|<iframe\b/i);
   for (const m of main.matchAll(/href="([^"]+)"/g)) assert.match(m[1], /^(mailto:info@humanpush\.nl|\/|#)/, m[1]);

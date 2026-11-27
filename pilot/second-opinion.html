@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pilot: onafhankelijke toets van een schadevaststelling</title>
-<meta name="description" content="Voor gevolmachtigde agenten, schadebehandelaars en leveranciers van claimsoftware met AI: een onafhankelijke, controleerbare toets van een schadevaststelling door een NIVRE-geregistreerde schade-expert. Zo ziet een pilot eruit.">
+<title>Een schadevaststelling onafhankelijk laten toetsen</title>
+<meta name="description" content="Je agent vraagt een toets aan. Een NIVRE-geregistreerde schade-expert beoordeelt de schadehoogte op de stukken en tekent.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/icon-32.png">
@@ -14,8 +14,8 @@
 <link rel="canonical" href="https://humanpush.nl/pilot/second-opinion">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="For AI agents">
 <meta property="og:url" content="https://humanpush.nl/pilot/second-opinion">
-<meta property="og:title" content="Pilot: onafhankelijke toets van een schadevaststelling">
-<meta property="og:description" content="Voor gevolmachtigde agenten, schadebehandelaars en leveranciers van claimsoftware met AI: een onafhankelijke, controleerbare toets van een schadevaststelling door een NIVRE-geregistreerde schade-expert. Zo ziet een pilot eruit.">
+<meta property="og:title" content="Een schadevaststelling onafhankelijk laten toetsen">
+<meta property="og:description" content="Je agent vraagt een toets aan. Een NIVRE-geregistreerde schade-expert beoordeelt de schadehoogte op de stukken en tekent.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://humanpush.nl/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -33,7 +33,25 @@
 </head>
 <body>
 <a class="skip" href="#inhoud">Naar de inhoud</a>
-<div class="banner" role="note">HumanPush is in de testfase: er lopen nog geen echte opdrachten of betalingen en alle bedragen en termijnen zijn testwaarden. Aanmelden opent na afronding van de testfase.</div>
+<!--sprite:start-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-order" viewBox="0 0 28 28"><path d="M7 3.5h10l5 5V24a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"/><path d="M17 3.5v5h5M10 14h8M10 18h8"/></symbol>
+<symbol id="i-person" viewBox="0 0 28 28"><circle cx="14" cy="9.5" r="4.5"/><path d="M5.5 24c.8-5 4-7.5 8.5-7.5s7.7 2.5 8.5 7.5"/></symbol>
+<symbol id="i-pen" viewBox="0 0 28 28"><path d="M5 23l1.2-5L18.5 5.7a2.1 2.1 0 0 1 3 0l.8.8a2.1 2.1 0 0 1 0 3L10 21.8z"/><path d="M16.5 7.7l3.8 3.8M14 23h9"/></symbol>
+<symbol id="i-check" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M9.5 14.5l3.3 3.3 6-6.6"/></symbol>
+<symbol id="i-doc" viewBox="0 0 28 28"><rect x="5" y="3.5" width="18" height="21" rx="1.5"/><path d="M9 9h10M9 13h10M9 17h6"/><path d="M17.5 20.5l1.7 1.7 3-3.4"/></symbol>
+<symbol id="i-building" viewBox="0 0 28 28"><rect x="6" y="4" width="16" height="20" rx="1"/><path d="M10 9h2M16 9h2M10 13h2M16 13h2M10 17h2M16 17h2M12 24v-3.5h4V24"/></symbol>
+<symbol id="i-shield" viewBox="0 0 28 28"><path d="M14 3.5l9 3.3v6.7c0 5.6-3.8 9.4-9 11-5.2-1.6-9-5.4-9-11V6.8z"/><path d="M10 13.8l3 3 5-5.4"/></symbol>
+<symbol id="i-clock" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 2.5"/></symbol>
+<symbol id="i-euro" viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M18.5 10.5a5 5 0 1 0 0 7M8.5 13h6.5M8.5 15.2H15"/></symbol>
+<symbol id="i-key" viewBox="0 0 28 28"><circle cx="9.5" cy="14" r="4.5"/><path d="M14 14h10M20 14v4M23.5 14v3"/></symbol>
+<symbol id="i-mail" viewBox="0 0 28 28"><rect x="4" y="6.5" width="20" height="15" rx="1.5"/><path d="M4.5 8l9.5 7 9.5-7"/></symbol>
+<symbol id="i-phone" viewBox="0 0 28 28"><rect x="8" y="3.5" width="12" height="21" rx="2"/><path d="M12.5 21h3"/><path d="M11.5 12.5l2 2 3.5-4"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 28 28"><path d="M5 14h17M16 8l6 6-6 6"/></symbol>
+<symbol id="i-yes" viewBox="0 0 18 18"><path d="M3.5 9.5l3.5 3.5 7.5-8"/></symbol>
+<symbol id="i-no" viewBox="0 0 18 18"><path d="M4.5 4.5l9 9M13.5 4.5l-9 9"/></symbol>
+</defs></svg>
+<!--sprite:end-->
 <header class="site-header">
 <div class="wrap">
 <a class="logo" href="/" aria-label="HumanPush, naar de voorpagina"><img src="/logo.svg" alt="" width="114" height="30"></a>
@@ -51,82 +69,59 @@
 <main id="inhoud">
 <section class="hero">
 <div class="wrap">
-<span class="kicker">Pilot · schadebehandeling met AI</span>
-<h1>Een onafhankelijke toets van een schadevaststelling, getekend door een NIVRE-geregistreerde schade-expert.</h1>
-<p class="lead">Je agent vraagt een toets van een schadevaststelling aan, op basis van een compleet dossier. Een geregistreerde schade-expert toetst de schadehoogte op stukken, los van de dekking, en tekent. Het bewijs controleer je zelf.</p>
-<div class="actions"><a class="btn btn-primary" href="mailto:info@humanpush.nl?subject=Pilot%20aanvragen&amp;body=Organisatie%3A%0ASoort%20schadezaken%3A%0AOngeveer%20hoeveel%20per%20maand%3A%0AWerk%20je%20al%20met%20AI-agents%20of%20claimsoftware%20%28welke%29%3A%0ATelefoon%20%28optioneel%29%3A%0A">Pilot aanvragen</a><a class="btn btn-secondary" href="#stappen">Zo werkt het</a></div>
+<span class="kicker">Voorbeeld</span>
+<h1>Een schadevaststelling onafhankelijk laten toetsen</h1>
+<p class="lead">Je agent vraagt een toets aan. Een NIVRE-geregistreerde schade-expert beoordeelt de schadehoogte op de stukken, los van de dekking, en tekent met zijn passkey. Het oordeel en het dossier van de opdracht komen terug.</p>
+<p class="ig-note">Tekenen met een passkey (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>).</p>
+<div class="actions"><a class="btn btn-primary" href="mailto:info@humanpush.nl?subject=Kennismaken&amp;body=Organisatie%3A%0ASoort%20schadezaken%3A%0AOngeveer%20hoeveel%20per%20maand%3A%0AWerk%20je%20al%20met%20AI-agents%20of%20claimsoftware%20%28welke%29%3A%0ATelefoon%20%28optioneel%29%3A%0A">Stuur ons een mail</a></div>
+<p class="small muted">Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox.</p>
 </div>
 </section>
 
-<section class="section mist" aria-labelledby="voor-wie">
+<section class="section" id="voor-wie" aria-labelledby="voor-wie-kop">
 <div class="wrap">
-<h2 id="voor-wie">Voor wie</h2>
-<ul class="reasons">
-<li><strong>Gevolmachtigde agenten.</strong> Je neemt schadebesluiten namens verzekeraars en zet daar AI bij in.</li>
-<li><strong>Schadebehandelaars.</strong> Je wilt bij een betwiste of complexe schadezaak een onafhankelijk oordeel, zonder eerst een professional te zoeken.</li>
-<li><strong>Leveranciers van claimsoftware.</strong> Je software neemt of bereidt besluiten voor en heeft een route naar een geregistreerde deskundige nodig.</li>
+<h2 id="voor-wie-kop">Voor wie</h2>
+<ul class="regs">
+<li><b>Gevolmachtigde agenten</b><span>Schadeafhandeling</span></li>
+<li><b>Schadebehandelaars</b><span>Op de stukken</span></li>
+<li><b>Leveranciers van claimsoftware</b><span>In hun programma</span></li>
 </ul>
 </div>
 </section>
 
-<section class="section" aria-labelledby="probleem">
-<div class="wrap prose">
-<h2 id="probleem">Wanneer een onafhankelijk oordeel nodig is</h2>
-<p>Een geautomatiseerd of betwist schadebesluit vraagt soms om een onafhankelijk, controleerbaar oordeel van een deskundige. Bijvoorbeeld:</p>
-<ul>
-<li>bij een geschil met de verzekerde over het besluit;</li>
-<li>bij een complexe claim, waar het model of de behandelaar twijfelt;</li>
-<li>bij een tekort aan capaciteit, als de eigen schade-experts het werk niet aankunnen;</li>
-<li>als een contract onafhankelijkheid van de deskundige eist.</li>
+<section class="section mist" id="probleem" aria-labelledby="probleem-kop">
+<div class="wrap">
+<h2 id="probleem-kop">Wanneer</h2>
+<ul class="checks">
+<li>Bij een geschil met de verzekerde</li>
+<li>Bij een complexe claim</li>
+<li>Bij een tekort aan capaciteit</li>
+<li>Als een contract onafhankelijkheid eist</li>
 </ul>
-<p>De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt. <a href="/veelgestelde-vragen#wet">Wat zegt de wet?</a></p>
+<p>De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt. <a href="/veelgestelde-vragen#wet">Lees het juridische kader</a></p>
 </div>
 </section>
 
-<section class="section mist" aria-labelledby="stappen">
+<section class="section" id="stappen" aria-labelledby="stappen-kop">
 <div class="wrap">
-<h2 id="stappen">Zo werkt het, in vijf stappen</h2>
-<p>In de pilot is de dienst de toets van een schadevaststelling op basis van een compleet dossier: de schadehoogte, los van dekking, bij zaakschade, op stukken. De professional is een NIVRE-geregistreerde schade-expert. Hij tekent met zijn passkey (geen gekwalificeerde e-handtekening; zie <a href="/hoe-het-werkt#grenzen">wat het dossier aantoont</a>).</p>
+<h2 id="stappen-kop">Zo werkt het</h2>
 <!--stappen:start view=neutraal-->
-<div class="stappen" data-view="neutraal">
-<ol class="tl"><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">1</span><span class="tl-role">Bedrijf</span><h3>Opdracht</h3><p>De agent van het bedrijf zet een opdracht uit bij HumanPush. Hij kiest een dienst, levert de stukken aan en geeft een uiterste datum en een maximumprijs. Het bedrijf betaalt vooraf via een betaallink.</p></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">2</span><span class="tl-role">Professional</span><h3>Aannemen</h3><p>HumanPush biedt de opdracht aan één geregistreerde professional die deze dienst aanbiedt. Die heeft <span data-rule="turnWorkingMinutes">45</span> minuten binnen werktijd (ma–vr 9–17 uur) om aan te nemen of door te geven. Buiten werktijd staat de klok stil. Reageert de professional niet, dan gaat de opdracht automatisch naar de volgende professional. Doorgeven kost niets. Dezelfde opdracht krijgt iemand hooguit <span data-rule="maxTurnsPerPro">2</span> keer aangeboden.</p><span class="tl-time"><span data-rule="turnWorkingMinutes">45</span> min werktijd</span></li><li class="tl-step r-professional signed"><span class="tl-dot" aria-hidden="true">3</span><span class="tl-role">Professional</span><h3>Uitvoeren en tekenen</h3><p>De professional doet het werk, zelf of met hulp van een agent, en levert het op via HumanPush. Hij tekent met zijn passkey. Daarmee staat hij er als geregistreerde professional voor in.</p><span class="tl-time"><span data-rule="objectionHours">72</span> uur</span></li><li class="tl-step r-bedrijf"><span class="tl-dot" aria-hidden="true">4</span><span class="tl-role">Bedrijf</span><h3>Akkoord</h3><p>Het bedrijf (of zijn agent) heeft <span data-rule="objectionHours">72</span> uur om het opgeleverde stuk te accepteren. Zegt het niets, dan geldt het na <span data-rule="objectionHours">72</span> uur als geaccepteerd. Daarna wordt de professional uitbetaald.</p></li><li class="tl-step r-iedereen"><span class="tl-dot" aria-hidden="true">5</span><span class="tl-role">Voor iedereen</span><h3>Dossier</h3><p>Elke stap staat met datum, tijd en handtekening in het dossier van de opdracht. Het dossier bevat ook de digitale vingerafdruk van het opgeleverde stuk. Zo kunnen het bedrijf, de professional en eventueel een derde (bijvoorbeeld een accountant, verzekeraar of rechter) zelf nagaan wie wat wanneer deed, en dat het stuk sindsdien niet is veranderd.</p></li></ol>
-<p class="tl-band"><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="4" width="11" height="8" rx="1.5"/><path d="M6 8h.01M10 8h.01M8 2v2"/></svg>Agent</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3v10M13 3v10M3 8h10"/></svg>HumanPush</span><span aria-hidden="true">↔</span><span class="tl-ic"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.5" r="2.5"/><path d="M3 13.5c.6-2.4 2.6-3.7 5-3.7s4.4 1.3 5 3.7"/></svg>Professional</span><span class="tl-band-t">Voor elk register hetzelfde. Alles loopt via HumanPush.</span></p>
+<div class="ig" data-view="neutraal">
+<ol class="ig-steps" aria-label="De vier stappen"><li class="ig-step"><span class="ig-badge"><svg class="ico" aria-hidden="true"><use href="#i-order"/></svg></span><h3>Bestellen en betalen</h3><p>Je agent kiest een dienst en levert de stukken aan. Jij betaalt vooraf met een betaallink, binnen <span data-rule="payMinutes">30</span> minuten.</p><span class="ig-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>binnen <span data-rule="payMinutes">30</span> min betalen</span></li><li class="ig-step"><span class="ig-badge"><svg class="ico" aria-hidden="true"><use href="#i-person"/></svg></span><h3>Een professional neemt aan</h3><p>HumanPush vraagt één geregistreerde professional tegelijk. Reageert die niet? Dan de volgende.</p><span class="ig-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-rule="turnWorkingMinutes">45</span> min per professional</span></li><li class="ig-step"><span class="ig-badge"><svg class="ico" aria-hidden="true"><use href="#i-pen"/></svg></span><h3>Werk gedaan en getekend</h3><p>De professional doet het werk, levert op en tekent met zijn passkey. Daarmee staat hij er zelf voor in.</p><span class="ig-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>vóór de uiterste datum</span></li><li class="ig-step"><span class="ig-badge"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><h3>Jij keurt goed</h3><p>Je hebt <span data-rule="objectionHours">72</span> uur om te reageren. Zeg je niets, dan geldt het als goedgekeurd. Daarna wordt de professional betaald.</p><span class="ig-time"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg><span data-rule="objectionHours">72</span> uur</span></li></ol>
+<div class="ig-ribbon"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><p><strong>Alles staat in het dossier:</strong> wie, wat en wanneer, getekend en met een vingerafdruk van het stuk. <a href="/hoe-het-werkt#grenzen">Wat het dossier wel en niet bewijst</a></p></div>
 <p class="tl-rule">HumanPush controleert het proces, niet de inhoud. <a href="/hoe-het-werkt#controle">Lees wat HumanPush controleert</a></p>
 </div>
 <!--stappen:end-->
-<p class="small muted" style="margin-top:20px;max-width:44em">Oordeel op stukken, geen opname ter plaatse. Geen personenschade. Een andere conclusie willen is geen grond voor bezwaar; bezwaar telt alleen bij een objectieve fout, en dan krijg je automatisch alles terug.</p>
 </div>
 </section>
 
-
-<section class="section" aria-labelledby="pilot">
-<div class="wrap prose">
-<h2 id="pilot">Hoe een pilot eruitziet</h2>
-<ul>
-<li><strong>Eén concrete workflow</strong>, bijvoorbeeld de toets bij een betwiste schadehoogte.</li>
-<li><strong>Een beperkt aantal schadezaken</strong>, vooraf samen afgesproken.</li>
-<li><strong>We meten</strong> de doorlooptijd, de kosten, het matchsucces (hoe vaak een schade-expert aanneemt) en hoe vaak een zaak terugkomt.</li>
-<li><strong>Samen evalueren</strong> na afloop: wat werkte, wat niet, en of het verder gaat.</li>
-</ul>
-<p>HumanPush is nu in de testfase. Een pilot plannen we in overleg.</p>
-</div>
-</section>
-
-<section class="section mist" aria-labelledby="kosten">
-<div class="wrap prose">
-<h2 id="kosten">Kosten</h2>
-<p>Je betaalt de prijs van de schade-expert plus de HumanPush-afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Ook in de pilot. Geen abonnement, geen minimum, geen andere kosten. Vooraf betaal je je maximumprijs plus <span data-rule="feePct">5</span>% daarvan; neemt een schade-expert aan tegen een lagere prijs, dan krijg je het verschil in prijs en fee meteen terug. <a href="/bedrijven#kosten">Rekenvoorbeeld</a></p>
-</div>
-</section>
-
-<section class="section" aria-labelledby="interesse">
+<section class="section mist" id="kosten" aria-labelledby="kosten-kop">
 <div class="wrap">
-<div class="notice">
-<h2 id="interesse">Een pilot bespreken</h2>
-<p><a class="btn btn-primary" href="mailto:info@humanpush.nl?subject=Pilot%20aanvragen&amp;body=Organisatie%3A%0ASoort%20schadezaken%3A%0AOngeveer%20hoeveel%20per%20maand%3A%0AWerk%20je%20al%20met%20AI-agents%20of%20claimsoftware%20%28welke%29%3A%0ATelefoon%20%28optioneel%29%3A%0A">Pilot aanvragen</a></p>
-<p class="small muted">Je mailprogramma opent met een paar vragen om in te vullen. Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox.</p>
-</div>
-<p class="linkline"><a href="/hoe-het-werkt#garanties">Lees wat HumanPush garandeert</a></p>
+<h2 id="kosten-kop">Kosten</h2>
+<p>Je betaalt de prijs van de professional plus de HumanPush-afhandelfee: <span data-rule="feePct">5</span>% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Geen abonnement en geen minimum.</p>
+<p>Je betaalt vooraf. Neemt de professional aan voor minder, dan krijg je het verschil meteen terug.</p>
+<div class="actions"><a class="btn btn-primary" href="mailto:info@humanpush.nl?subject=Kennismaken&amp;body=Organisatie%3A%0ASoort%20schadezaken%3A%0AOngeveer%20hoeveel%20per%20maand%3A%0AWerk%20je%20al%20met%20AI-agents%20of%20claimsoftware%20%28welke%29%3A%0ATelefoon%20%28optioneel%29%3A%0A">Stuur ons een mail</a></div>
+<p class="small muted">Er is geen formulier en we verzamelen via deze site geen gegevens; je mail komt binnen in onze gewone mailbox.</p>
 </div>
 </section>
 </main>
@@ -135,10 +130,10 @@
 <div class="f-brand"><img src="/logo-wit.svg" alt="HumanPush" width="106" height="28"><p><a href="mailto:info@humanpush.nl">info@humanpush.nl</a></p><p class="f-legal"><span>HumanPush is een handelsnaam van HumAgent B.V. ·</span> <span>KvK 42222476 ·</span> <span>btw NL870249964B01 ·</span> <span>Utrecht</span></p></div>
 <nav aria-label="Bedrijven"><p class="h">Bedrijven</p><ul><li><a href="/bedrijven">Voor bedrijven</a></li><li><a href="/bedrijven#diensten">Diensten per register</a></li><li><a href="/bedrijven#dossier">Het dossier</a></li></ul></nav>
 <nav aria-label="Professionals"><p class="h">Professionals</p><ul><li><a href="/professionals">Voor professionals</a></li><li><a href="/professionals#manieren">Manieren van werken</a></li><li><a href="/professionals#geld">Uitbetaling</a></li><li><a href="/inloggen">Inloggen</a></li></ul></nav>
-<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Pilot toets schadevaststelling</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt" lang="en">llms.txt (for AI agents)</a></li></ul></nav>
+<nav aria-label="Over HumanPush"><p class="h">Over HumanPush</p><ul><li><a href="/hoe-het-werkt">Hoe het werkt</a></li><li><a href="/veelgestelde-vragen">Veelgestelde vragen</a></li><li><a href="/pilot/second-opinion">Voorbeeld: schade laten toetsen</a></li><li><a href="/agents">Voor developers en agents</a></li><li><a href="/llms.txt">llms.txt (voor AI-agents)</a></li></ul></nav>
 <nav aria-label="Juridisch"><p class="h">Juridisch</p><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Voorwaarden</a></li></ul></nav>
 </div>
-<div class="wrap"><div class="meta"><span>Regelversie 2026-11-20</span><span>Testfase · niet geïndexeerd · geen tracking</span></div></div>
+<div class="wrap"><div class="meta"><span>Versie van de regels: 2026-11-20</span><span>Niet geïndexeerd · geen tracking</span></div></div>
 </footer>
 </body>
 </html>

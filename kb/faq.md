@@ -1,10 +1,12 @@
 # Veelgestelde vragen (gegenereerd uit veelgestelde-vragen.html door tools/build-kb.mjs)
 
+## Meest gesteld
+
 ## Bedrijven
 
-### Is het al te gebruiken?
+### Kan ik nu al bestellen?
 
-Nee. HumanPush is in de testfase. Er lopen geen echte opdrachten of betalingen. Toegang openen we na afronding van de testfase.
+Nog niet. We starten met schade-experts (NIVRE). Er lopen nog geen echte opdrachten of betalingen. Wil je op de hoogte blijven? Mail info@humanpush.nl.
 
 ### Kiest mijn agent de professional?
 
@@ -44,7 +46,7 @@ Dat HumanPush de professional met een vaste checklist in het openbare register h
 
 ### Wat als ik het niet eens ben met de conclusie?
 
-Dan krijg je via HumanPush geen geld terug. HumanPush oordeelt niet over de inhoud. Bespreek het met de professional, of dien een klacht in bij zijn register. Bij een objectieve fout (te laat, een verplicht onderdeel ontbreekt, de registratie was niet geldig, of verkeerd formaat) krijg je automatisch alles terug, ook de afhandelfee. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart.
+Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: het is te laat, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je automatisch alles terug, ook de afhandelfee. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. Wat het dossier aantoont, en wat niet.
 
 ### Wie is waarvoor verantwoordelijk?
 
@@ -80,13 +82,21 @@ Nee, niet altijd. De AVG (art. 22) geeft mensen bij bepaalde geautomatiseerde be
 
 ## Professionals
 
+### Hoe krijg ik toegang?
+
+Je krijgt één keer een link, naar een contactadres dat wij zelf controleren, bijvoorbeeld uit het register of van de site van je kantoor. Nooit naar een adres dat je zelf opgeeft. Via die link maak je twee passkeys, één om mee te werken en één als reserve, en haal je de toegangscode voor je agent op als je die gebruikt. De link dient alleen hiervoor. Tekenen doe je altijd zelf met je passkey.
+
+### Wat is een passkey?
+
+Een passkey werkt zoals het ontgrendelen van je telefoon: met je vingerafdruk, je gezicht of je pincode. Je hebt geen wachtwoord nodig.
+
 ### Wie mag meedoen?
 
-Professionals in een van vijf registers: schade-experts (NIVRE), register-taxateurs wonen (NRVT), bouwkundig inspecteurs (NRBI), gerechtelijk deskundigen digitaal onderzoek (NRGD) en octrooigemachtigden (register van octrooigemachtigden). Per register is er één dienst. Aanmelden opent na afronding van de testfase.
+Professionals in een van vijf registers: schade-experts (NIVRE), register-taxateurs wonen (NRVT), bouwkundig inspecteurs (NRBI), gerechtelijk deskundigen digitaal onderzoek (NRGD) en octrooigemachtigden (register van octrooigemachtigden). Per register is er één dienst. Aanmelden is nog niet open.
 
 ### Waar kan ik me aanmelden?
 
-Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we verzamelen geen gegevens.
+Nog nergens. Aanmelden is nog niet open. Er is nu geen formulier en we verzamelen geen gegevens.
 
 ### Kost het mij iets?
 
@@ -126,11 +136,11 @@ Je hebt 45 minuten binnen werktijd om een aangeboden opdracht aan te nemen of do
 
 ### Wanneer krijg ik mijn geld?
 
-Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt na de testfase.
+Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt zodra er echte opdrachten lopen.
 
-### Welke gegevens moet ik geven, en waarom?
+### Welke gegevens vragen jullie, en waarom?
 
-Platforms moeten onder DAC7 mogelijk gegevens over opdrachten en inkomsten aan de Belastingdienst doorgeven. We laten juridisch toetsen welke gegevens we daarvoor nodig hebben; dat hoor je vóór je eerste opdracht.
+Nu vragen we alleen wat je in de checklist ziet. Later vragen we ook gegevens voor de belastingregels voor platforms (DAC7). Platforms moeten daarover mogelijk gegevens aan de Belastingdienst doorgeven. We laten juridisch toetsen welke gegevens dat zijn. Je hoort het vóór je eerste opdracht.
 
 ### Wat als de opdrachtgever annuleert?
 
@@ -164,7 +174,7 @@ In llms.txt (Engels) en op de pagina voor agents.
 
 ### Is er een endpoint om te testen?
 
-Nog niet voor versie 1. Die is in de testfase; er is nog geen publiek endpoint.
+Nog niet voor versie 1. Er is nog geen publiek endpoint, en er lopen nog geen echte opdrachten.
 
 ### Kan mijn agent vragen stellen?
 

@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "47cf1bf857174b59b3f54b962eec74cc120846e801213632f9c48a0a845ca2f9",
+ "kb_hash": "a50b98b935b29f4c78d2bba16f024d02b56814e16600c2acde40d730ccfcd283",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -363,13 +363,13 @@
    "hash": "d0fe7f22e7f37bba"
   },
   {
-   "id": "faq-bedrijven-is-het-al-te-gebruiken",
-   "title": "Is het al te gebruiken?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "id": "faq-bedrijven-kan-ik-nu-al-bestellen",
+   "title": "Kan ik nu al bestellen?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#bestellen",
    "lang": "nl",
    "source": "faq",
-   "text": "Nee. HumanPush is in de testfase. Er lopen geen echte opdrachten of betalingen. Toegang openen we na afronding van de testfase.",
-   "hash": "2a348fa2bfc13f7e"
+   "text": "Nog niet. We starten met schade-experts (NIVRE). Er lopen nog geen echte opdrachten of betalingen. Wil je op de hoogte blijven? Mail info@humanpush.nl.",
+   "hash": "18b04a49758edd23"
   },
   {
    "id": "faq-bedrijven-kiest-mijn-agent-de-professional",
@@ -401,7 +401,7 @@
   {
    "id": "faq-bedrijven-wat-als-niemand-aanneemt",
    "title": "Wat als niemand aanneemt?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "url": "https://humanpush.nl/veelgestelde-vragen#niemand",
    "lang": "nl",
    "source": "faq",
    "text": "Je opdracht wordt één voor één aangeboden tot de opdracht is toegewezen aan een professional, of tot jij annuleert. Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Zie aannemen.",
@@ -458,8 +458,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#oneens",
    "lang": "nl",
    "source": "faq",
-   "text": "Dan krijg je via HumanPush geen geld terug. HumanPush oordeelt niet over de inhoud. Bespreek het met de professional, of dien een klacht in bij zijn register. Bij een objectieve fout (te laat, een verplicht onderdeel ontbreekt, de registratie was niet geldig, of verkeerd formaat) krijg je automatisch alles terug, ook de afhandelfee. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart.",
-   "hash": "033f359fb5bc4c63"
+   "text": "Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: het is te laat, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je automatisch alles terug, ook de afhandelfee. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. Wat het dossier aantoont, en wat niet.",
+   "hash": "753986f3a7bc5744"
   },
   {
    "id": "faq-bedrijven-wie-is-waarvoor-verantwoordelijk",
@@ -518,7 +518,7 @@
   {
    "id": "faq-bedrijven-is-dit-ook-voor-particulieren",
    "title": "Is dit ook voor particulieren?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#bedrijven",
+   "url": "https://humanpush.nl/veelgestelde-vragen#particulieren",
    "lang": "nl",
    "source": "faq",
    "text": "Nee. Alleen bedrijven met een KvK-nummer.",
@@ -534,13 +534,31 @@
    "hash": "74ab120fcdf796b4"
   },
   {
+   "id": "faq-professionals-hoe-krijg-ik-toegang",
+   "title": "Hoe krijg ik toegang?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#toegang",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Je krijgt één keer een link, naar een contactadres dat wij zelf controleren, bijvoorbeeld uit het register of van de site van je kantoor. Nooit naar een adres dat je zelf opgeeft. Via die link maak je twee passkeys, één om mee te werken en één als reserve, en haal je de toegangscode voor je agent op als je die gebruikt. De link dient alleen hiervoor. Tekenen doe je altijd zelf met je passkey.",
+   "hash": "d5a3fbe5d4023ff4"
+  },
+  {
+   "id": "faq-professionals-wat-is-een-passkey",
+   "title": "Wat is een passkey?",
+   "url": "https://humanpush.nl/veelgestelde-vragen#passkey",
+   "lang": "nl",
+   "source": "faq",
+   "text": "Een passkey werkt zoals het ontgrendelen van je telefoon: met je vingerafdruk, je gezicht of je pincode. Je hebt geen wachtwoord nodig.",
+   "hash": "6fe4c1a029d9f692"
+  },
+  {
    "id": "faq-professionals-wie-mag-meedoen",
    "title": "Wie mag meedoen?",
    "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
    "lang": "nl",
    "source": "faq",
-   "text": "Professionals in een van vijf registers: schade-experts (NIVRE), register-taxateurs wonen (NRVT), bouwkundig inspecteurs (NRBI), gerechtelijk deskundigen digitaal onderzoek (NRGD) en octrooigemachtigden (register van octrooigemachtigden). Per register is er één dienst. Aanmelden opent na afronding van de testfase.",
-   "hash": "c2fd07b456bd5016"
+   "text": "Professionals in een van vijf registers: schade-experts (NIVRE), register-taxateurs wonen (NRVT), bouwkundig inspecteurs (NRBI), gerechtelijk deskundigen digitaal onderzoek (NRGD) en octrooigemachtigden (register van octrooigemachtigden). Per register is er één dienst. Aanmelden is nog niet open.",
+   "hash": "32018726c270f981"
   },
   {
    "id": "faq-professionals-waar-kan-ik-me-aanmelden",
@@ -548,13 +566,13 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#aanmelden",
    "lang": "nl",
    "source": "faq",
-   "text": "Nog nergens. Aanmelden opent na afronding van de testfase. Er is nu geen formulier en we verzamelen geen gegevens.",
-   "hash": "dc09dfc719dc06c7"
+   "text": "Nog nergens. Aanmelden is nog niet open. Er is nu geen formulier en we verzamelen geen gegevens.",
+   "hash": "734426441f5b84b4"
   },
   {
    "id": "faq-professionals-kost-het-mij-iets",
    "title": "Kost het mij iets?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
+   "url": "https://humanpush.nl/veelgestelde-vragen#kost-mij",
    "lang": "nl",
    "source": "faq",
    "text": "Nee. Je krijgt je eigen prijs volledig. De afhandelfee van 5% betaalt het bedrijf bovenop je prijs.",
@@ -638,17 +656,17 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#geld",
    "lang": "nl",
    "source": "faq",
-   "text": "Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt na de testfase.",
-   "hash": "0385367e5d1c784e"
+   "text": "Na acceptatie door het bedrijf, of na 72 uur zonder geldig bezwaar, zet HumanPush de uitbetaling klaar. De precieze termijn tot je rekening volgt zodra er echte opdrachten lopen.",
+   "hash": "2c2f4d8b6f49a291"
   },
   {
-   "id": "faq-professionals-welke-gegevens-moet-ik-geven-en-waarom",
-   "title": "Welke gegevens moet ik geven, en waarom?",
+   "id": "faq-professionals-welke-gegevens-vragen-jullie-en-waarom",
+   "title": "Welke gegevens vragen jullie, en waarom?",
    "url": "https://humanpush.nl/veelgestelde-vragen#dac7",
    "lang": "nl",
    "source": "faq",
-   "text": "Platforms moeten onder DAC7 mogelijk gegevens over opdrachten en inkomsten aan de Belastingdienst doorgeven. We laten juridisch toetsen welke gegevens we daarvoor nodig hebben; dat hoor je vóór je eerste opdracht.",
-   "hash": "7314e13cb24773df"
+   "text": "Nu vragen we alleen wat je in de checklist ziet. Later vragen we ook gegevens voor de belastingregels voor platforms (DAC7). Platforms moeten daarover mogelijk gegevens aan de Belastingdienst doorgeven. We laten juridisch toetsen welke gegevens dat zijn. Je hoort het vóór je eerste opdracht.",
+   "hash": "faddfd2c48db226f"
   },
   {
    "id": "faq-professionals-wat-als-de-opdrachtgever-annuleert",
@@ -680,7 +698,7 @@
   {
    "id": "faq-professionals-wat-als-ik-niet-op-tijd-klaar-ben",
    "title": "Wat als ik niet op tijd klaar ben?",
-   "url": "https://humanpush.nl/veelgestelde-vragen#professionals",
+   "url": "https://humanpush.nl/veelgestelde-vragen#niet-op-tijd",
    "lang": "nl",
    "source": "faq",
    "text": "Dan krijgt het bedrijf alles terug en krijg jij niets. Dat telt als tekortkoming. Er is geen uitstel en geen vervanger na de aanname.",
@@ -719,8 +737,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#agents",
    "lang": "nl",
    "source": "faq",
-   "text": "Nog niet voor versie 1. Die is in de testfase; er is nog geen publiek endpoint.",
-   "hash": "1418434576e8fe43"
+   "text": "Nog niet voor versie 1. Er is nog geen publiek endpoint, en er lopen nog geen echte opdrachten.",
+   "hash": "cd5d33d43152276c"
   },
   {
    "id": "faq-agents-kan-mijn-agent-vragen-stellen",
@@ -841,12 +859,12 @@
   },
   {
    "id": "pagina-hoe-het-werkt-via",
-   "title": "Alles loopt via HumanPush",
+   "title": "Wie doet wat",
    "url": "https://humanpush.nl/hoe-het-werkt#via",
    "lang": "nl",
    "source": "pagina",
-   "text": "Alles loopt via HumanPush. De agent van het bedrijf praat met HumanPush via MCP, met een toegangscode voor je agent. Hij bestelt, vraagt de status op, haalt het opgeleverde stuk op en accepteert. De professional ziet een aangeboden opdracht op zijn scherm bij HumanPush, of via zijn eigen agent. Daar neemt hij aan, levert hij op en tekent hij. Het bedrijf en de professional sturen elkaar niets rechtstreeks. Het stuk gaat via HumanPush, zodat het in het dossier staat en de vingerafdruk klopt. Een melding per mail of push als er een opdracht klaarstaat, is er nog niet. Je ziet het op je scherm, of je agent vraagt het op. Wat HumanPush controleert, en wat niet. HumanPush controleert alleen wat objectief na te gaan is: staat de professional in het openbare register, bij aanmelding en opnieuw vlak voor het aannemen; is er op tijd opgeleverd; is er een stuk met een van de vaste uitkomsten van de dienst; is het getekend met de passkey van de professional die de opdracht aannam; klopt de digitale vingerafdruk. HumanPush oordeelt niet over de inhoud. Of een conclusie juist is, beoordeelt de professional onder zijn eigen beroepsregels.",
-   "hash": "ce9132e29f925e35"
+   "text": "Wie doet wat. Jij en je agent. Kiest de dienst en geeft de stukken en de uiterste datum. Betaalt vooraf en keurt goed. Kiest nooit zelf een persoon. De professional. Doet het vakwerk en tekent met zijn passkey. Staat voor de inhoud in, onder zijn eigen beroepsregels. Tekent altijd zelf; een agent kan niet voor hem tekenen. HumanPush. Let op het proces: in het register, op tijd, getekend, niet veranderd. Regelt de betaling en het dossier. Oordeelt niet over de inhoud van het werk. Wat HumanPush wel en niet controleert. In het openbare register. Op tijd. Een stuk met een vaste uitkomst. Getekend met de passkey van de professional die aannam. De vingerafdruk klopt. De inhoud. HumanPush oordeelt niet over de inhoud. Dossier · opdracht HP-0001 (voorbeeld)DienstToets schadevaststelling · NIVRE Besteldma 10:02 agent van het bedrijf Betaaldma 10:05 via betaallink Registercheckma 10:31 NIVRE-register · geldig Aangenomenma 10:31 Professional B · ✓ passkey Opgeleverdwo 15:12 Professional B · ✓ passkey Vingerafdruk9f3a…e17d Geaccepteerdwo 16:40 bedrijf Uitbetaaldwo 16:40 Professional B Elke regel is getekend en verwijst naar de vorige.",
+   "hash": "9c4333c3a0fb3019"
   },
   {
    "id": "pagina-hoe-het-werkt-controle",
@@ -854,17 +872,8 @@
    "url": "https://humanpush.nl/hoe-het-werkt#controle",
    "lang": "nl",
    "source": "pagina",
-   "text": "Wat HumanPush controleert, en wat niet. HumanPush controleert alleen wat objectief na te gaan is: staat de professional in het openbare register, bij aanmelding en opnieuw vlak voor het aannemen; is er op tijd opgeleverd; is er een stuk met een van de vaste uitkomsten van de dienst; is het getekend met de passkey van de professional die de opdracht aannam; klopt de digitale vingerafdruk. HumanPush oordeelt niet over de inhoud. Of een conclusie juist is, beoordeelt de professional onder zijn eigen beroepsregels.",
-   "hash": "5c6d64e9c82b1833"
-  },
-  {
-   "id": "pagina-hoe-het-werkt-status",
-   "title": "Wat werkt al, en wat nog niet",
-   "url": "https://humanpush.nl/hoe-het-werkt#status",
-   "lang": "nl",
-   "source": "pagina",
-   "text": "Wat werkt al, en wat nog niet. HumanPush is in de testfase. Zo staat het er nu voor, zonder beloften met datums. OnderdeelStatusDienstkaarten, regels, registercheck-logicawerkt in de testomgeving testomgeving openenBestellen en vooraf betalentestomgeving met nepgeld (Mollie test) testomgeving openenAannemen, opleveren, tekenen met passkeytestomgeving testomgeving openenDossier en controle met verify_prooftestomgeving, alleen via de agent testomgeving openenBezwaar alleen bij een objectieve foutwerkt in de testomgeving testomgeving openenBedrijfsscherm voor mensen, dossier-exportkomt eraanEchte opdrachten en echte betalingennog niet: start met de NIVRE-pilotUitbetaling aan professionals, facturenin ontwikkeling, nog niet actief",
-   "hash": "c0e9e5c2f9256299"
+   "text": "Wat HumanPush wel en niet controleert. In het openbare register. Op tijd. Een stuk met een vaste uitkomst. Getekend met de passkey van de professional die aannam. De vingerafdruk klopt. De inhoud. HumanPush oordeelt niet over de inhoud.",
+   "hash": "40a8a70119da417b"
   },
   {
    "id": "pagina-hoe-het-werkt-grenzen",
@@ -872,8 +881,17 @@
    "url": "https://humanpush.nl/hoe-het-werkt#grenzen",
    "lang": "nl",
    "source": "pagina",
-   "text": "Wat het dossier aantoont, en wat niet. Het dossier legt drie dingen vast: Wie en welke registratie. Dat de professional bij aannemen in het openbare register van zijn beroep stond, met bron en datum van de check. Wat hij beoordeelde. Welke stukken hij heeft ontvangen en, in zijn rapport, welke methode hij gebruikte. (Voor zover de dienstkaart dat als verplicht onderdeel vraagt.). Dat het stuk niet is veranderd. Wie wanneer welke versie aannam en opleverde, met een digitale vingerafdruk. Wat het niet aantoont: Dat de inhoud juist is. Daarvoor staat de professional zelf in, onder de regels van zijn register. Ben je het oneens met de inhoud, dan ga je naar de professional of naar de klacht- of tuchtregeling van het register. Dat de professional geschikt is voor élke opdracht binnen zijn vak. De registercheck toont alleen de inschrijving; de professional verklaart bij aannemen zelf dat de opdracht binnen zijn deskundigheid valt. Dat het een gekwalificeerde elektronische handtekening is. De handtekening met een passkey bewijst dat deze professional dit stuk heeft goedgekeurd. Het is geen gekwalificeerde elektronische handtekening (QES) in de zin van de Europese eIDAS-verordening en heeft dus niet automatisch dezelfde werking als een handgeschreven handtekening. Dat een AI-besluit hiermee \"compliant\" is. Een getekend oordeel helpt bij betekenisvolle menselijke tussenkomst, maar wie beslist blijft de opdrachtgever. Bekijk een voorbeeld-dossier",
-   "hash": "b4d555c520eb4e67"
+   "text": "Wat het dossier aantoont, en wat niet. Het dossier legt drie dingen vast: Wie en welke registratie. Dat de professional bij aannemen in het openbare register van zijn beroep stond, met bron en datum van de check. Wat hij beoordeelde. Welke stukken hij heeft ontvangen en, in zijn rapport, welke methode hij gebruikte. (Voor zover de dienstkaart dat als verplicht onderdeel vraagt.). Dat het stuk niet is veranderd. Wie wanneer welke versie aannam en opleverde, met een digitale vingerafdruk. Wat het niet aantoont: Dat de inhoud juist is. Daarvoor staat de professional zelf in, onder de regels van zijn register. Ben je het oneens met de inhoud, dan ga je naar de professional of naar de klacht- of tuchtregeling van het register. Dat de professional geschikt is voor élke opdracht binnen zijn vak. De registercheck toont alleen de inschrijving; de professional verklaart bij aannemen zelf dat de opdracht binnen zijn deskundigheid valt. Dat het een gekwalificeerde elektronische handtekening is. De handtekening met een passkey bewijst dat deze professional dit stuk heeft goedgekeurd. Het is geen gekwalificeerde elektronische handtekening (QES) in de zin van de Europese eIDAS-verordening en heeft dus niet automatisch dezelfde werking als een handgeschreven handtekening. Dat een AI-besluit hiermee in orde is. Een getekend oordeel helpt bij betekenisvolle menselijke tussenkomst, maar wie beslist blijft de opdrachtgever. Bekijk een voorbeeld-dossier",
+   "hash": "f51619861f6d4bd1"
+  },
+  {
+   "id": "pagina-hoe-het-werkt-status",
+   "title": "Wat werkt al, en wat nog niet",
+   "url": "https://humanpush.nl/hoe-het-werkt#status",
+   "lang": "nl",
+   "source": "pagina",
+   "text": "Wat werkt al, en wat nog niet. De stand van zaken. Zo staat het er nu voor, zonder beloften met datums. OnderdeelStatusDienstkaarten, regels, registercheck-logicawerkt in de testomgeving testomgeving openenBestellen en vooraf betalentestomgeving met nepgeld (Mollie test) testomgeving openenAannemen, opleveren, tekenen met passkeytestomgeving testomgeving openenDossier en controle met verify_prooftestomgeving, alleen via de agent testomgeving openenBezwaar alleen bij een objectieve foutwerkt in de testomgeving testomgeving openenBedrijfsscherm voor mensen, dossier-exportkomt eraanEchte opdrachten en echte betalingennog niet: we starten met schade-experts (NIVRE).Uitbetaling aan professionals, facturenin ontwikkeling, nog niet actief",
+   "hash": "b2dc3d33f8aa41a4"
   },
   {
    "id": "pagina-hoe-het-werkt-aannemen",
@@ -895,21 +913,12 @@
   },
   {
    "id": "pagina-bedrijven-hoe",
-   "title": "Zo bestel je",
+   "title": "Als het misgaat",
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Betaling en geld terug. HumanPush staat in voor het proces: op tijd, compleet, door een geregistreerde professional, onveranderd. Gaat daar iets mis, dan krijg je automatisch je geld terug. Over de inhoud oordeelt de professional, onder toezicht van zijn eigen register. Vooraf betalen. Je maximumprijs plus de HumanPush-afhandelfee: 5% over de prijs van de professional (inclusief zijn eventuele btw). Over de fee betaal je 21% btw. Je betaalt nooit meer. Wat kost het? Niemand neemt aan. Neemt niemand aan binnen 3 werkdagen, of kan niemand meer op tijd leveren: alles terug. Annuleren. Vóór de aanname: alles terug. Daarna houdt de professional 25% van zijn prijs en krijg je de rest terug. Gaat er objectief iets mis? Bezwaar kan alleen bij een objectieve fout: te laat, een verplicht onderdeel van de dienstkaart ontbreekt, de registratie was niet geldig, of verkeerd formaat. Het systeem stelt dat vast en je krijgt automatisch alles terug, ook de afhandelfee. Niemand hoeft te beslissen. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. Oneens met de inhoud? Dat is geen grond voor geld terug. Na 72 uur wordt de professional betaald. Je gaat naar de professional, of naar de klacht- of tuchtregeling van zijn register; de links staan op de dienstkaart. Te laat of teruggetrokken. Alles terug. Je kunt opnieuw bestellen.",
-   "hash": "25d8d83a27a0b4fb"
-  },
-  {
-   "id": "pagina-bedrijven-niet-geschikt",
-   "title": "Niet geschikt",
-   "url": "https://humanpush.nl/bedrijven#niet-geschikt",
-   "lang": "nl",
-   "source": "pagina",
-   "text": "Niet geschikt. Voor consumenten. Als je geen geregistreerde professional nodig hebt die tekent. Voor een taxatie voor een hypotheek, gerechtelijke deskundigenrapporten, octrooi-indieningen of notariële akten. Of als je een andere conclusie wilt afdwingen.",
-   "hash": "0fa16b3d2abe91ea"
+   "text": "Als het misgaat. Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: het is te laat, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je automatisch alles terug, ook de afhandelfee. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Neemt niemand aan binnen 3 werkdagen, dan krijg je alles terug. Niemand neemt aan, of niemand kan nog op tijd leverenBinnen 3 werkdagen na je bestelling. Alles terug. Het is te laat, er mist iets verplicht, de registratie was niet geldig of het formaat klopt nietHet systeem stelt dit zelf vast. Meld het binnen 72 uur na oplevering. Alles terugook de afhandelfee. De professional trekt zich terug of geeft niet op tijd afJe kunt opnieuw bestellen. Alles terug. Je annuleert vóór iemand heeft aangenomen Alles terug. Je annuleert na aanname, vóór de opleveringDe professional houdt 25% van zijn prijs. De rest gaat terug, ook de afhandelfee. Rest terugprof. houdt 25%. Je bent het niet eens met de inhoud van het oordeelWij beslissen daar niet over. Praat met de professional, of ga naar de klachtroute van zijn register. Geen terugbetalingvia ons. Donker = alles terugGoud = gedeeltelijkGrijs = niet via HumanPush De volledige regel bij een objectieve fout. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt.",
+   "hash": "52ca110752b4876f"
   },
   {
    "id": "pagina-professionals-humanpush-scherm",
@@ -917,8 +926,8 @@
    "url": "https://humanpush.nl/professionals#humanpush-scherm",
    "lang": "nl",
    "source": "pagina",
-   "text": "Op het HumanPush-scherm Geen eigen agent? Gebruik het HumanPush-scherm. Op het HumanPush-scherm zie je je aangeboden opdrachten, neem je aan of geef je door, en lever je op. Je hebt geen eigen techniek nodig. Het scherm werkt alleen voor HumanPush en tekent nooit voor je. Dit doet het scherm. Aangeboden opdrachten tonen. Uitleggen wat je tekent. Het opleverformulier klaarzetten. Termijnen tonen. Dit doet het nooit. Zelf tekenen. Het vakwerk schrijven. Buiten HumanPush werken. Gegevens delen of onthouden buiten je opdrachten. Het scherm heeft vaste teksten: geen AI-model en geen vrije tekst. Later kun je ook je eigen agent koppelen; je passkeys blijven hetzelfde. HumanPush-schermVoorbeeld, fictief OpdrachtAangeboden opdracht: toets van een schadevaststelling, op basis van een compleet dossier. Al betaald. Lever binnen 3 werkdagen. Nog 38 minuten binnen werktijd om aan te nemen. Aannemen met passkeyDoorgeven Niet aannemen? Geef de opdracht door. Dat kost niets. Je tekentJe tekent: aannemen van deze opdracht, tegen je eigen prijs. Vlak daarvoor controleren we opnieuw of je in het register staat. OpleverenUitkomstKies de vaste uitkomst Stukrapport toegevoegd Vingerafdruk9f3a…e17d Tekenen met passkey",
-   "hash": "f891497e06251830"
+   "text": "Geen eigen agent? Gebruik het HumanPush-scherm. Het scherm laat je aangeboden opdracht zien, legt uit wat je tekent en zet het opleveren klaar. Het tekent nooit zelf.",
+   "hash": "de24b9422672b2e4"
   },
   {
    "id": "pagina-agents-zo-verbind-je",
