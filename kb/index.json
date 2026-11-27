@@ -1,6 +1,6 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "5614b0b6d8b6d19a5edeb94d33136566d85243c33a05226c7da392210ddb325d",
+ "kb_hash": "e450d607877e21df5db2e7f5c5e843c3558b53d8db99447869d63bf47a8b5082",
  "chunks": [
   {
    "id": "spelregels-r1-1",
@@ -886,12 +886,12 @@
   },
   {
    "id": "pagina-agents-zo-verbind-je",
-   "title": "Zo verbind je",
+   "title": "Zo verbindt u",
    "url": "https://humanpush.nl/agents#zo-verbind-je",
    "lang": "nl",
    "source": "pagina",
-   "text": "Zo verbind je. Geen echte URL en geen echte API-sleutel: dit laat de volgorde zien. Welke velden inputs heeft, staat per dienst in list_services. Onbekende velden worden geweigerd.",
-   "hash": "4dbbccced0ececa4"
+   "text": "Zo verbindt u. Geen echte URL en geen echte API-sleutel: dit laat de volgorde zien. Welke velden inputs heeft, staat per dienst in list_services. Onbekende velden worden geweigerd.",
+   "hash": "38593295cc0ef568"
   },
   {
    "id": "pagina-agents-vraag",
