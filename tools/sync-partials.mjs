@@ -95,7 +95,7 @@ const SPRITE = `<svg width="0" height="0" style="position:absolute" aria-hidden=
 
 function who() {
   return `<div class="ig-who" aria-label="Wie doet wat">
-<article class="who"><header>${ico('building')}<h3>Jij en je agent</h3></header><ul>
+<article class="who"><header>${ico('building')}<h3>Het bedrijf en zijn agent</h3></header><ul>
 <li>${ico('yes') }Kiest de dienst en geeft de stukken en de uiterste datum</li>
 <li>${ico('yes') }Betaalt vooraf en keurt goed</li>
 <li class="no">${ico('no') }Kiest nooit zelf een persoon</li></ul></article>
@@ -110,33 +110,41 @@ function who() {
 </div>`;
 }
 
-function misgaat(full) {
+function misgaat(full, voice) {
+  const je = voice === 'bedrijf';
   const rows = [
-    ['all', 'Alles terug', '', 'Niemand neemt aan, of niemand kan nog op tijd leveren', `Binnen ${span('acceptCeilingWorkdays')} werkdagen na je bestelling.`],
-    ['all', 'Alles terug', 'ook de afhandelfee', 'Het is te laat, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet', `Het systeem stelt dit zelf vast. Meld het binnen ${span('objectionHours')} uur na oplevering.`],
-    ['all', 'Alles terug', '', 'De professional trekt zich terug of geeft niet op tijd af', 'Je kunt opnieuw bestellen.'],
-    ['all', 'Alles terug', '', 'Je annuleert vóór iemand heeft aangenomen', '']
+    ['all', 'Alles terug', '', 'Niemand neemt de opdracht aan', 'Professionals nemen de opdracht niet aan, of niemand kan leveren binnen 72 uur.'],
+    ['all', 'Alles terug', '', 'De professional levert te laat of het stuk klopt niet', je
+      ? `De professional levert later dan de uiterste datum. Of er mist iets verplicht, de registratie was niet geldig, of het formaat klopt niet. Het systeem stelt dit zelf vast. Meld het binnen ${span('objectionHours')} uur na oplevering. Dan krijg je alles terug.`
+      : `De professional levert later dan de uiterste datum. Of er mist iets verplicht, de registratie was niet geldig, of het formaat klopt niet. Het systeem stelt dit zelf vast. Het bedrijf meldt het binnen ${span('objectionHours')} uur na oplevering. Dan krijgt het bedrijf alles terug.`],
+    ['space', 'Alles terug', '', 'De professional trekt zich terug of levert later dan de uiterste datum', je ? 'Je kunt opnieuw bestellen.' : 'Het bedrijf kan opnieuw bestellen.'],
+    ['all', 'Alles terug', '', je ? 'Je annuleert vóór iemand de opdracht heeft aangenomen' : 'Het bedrijf annuleert vóór iemand de opdracht heeft aangenomen', '']
   ];
-  if (full) rows.push(['part', 'Rest terug', `prof. houdt ${span('cancelSharePct')}%`, 'Je annuleert na aanname, vóór de oplevering', `De professional houdt ${span('cancelSharePct')}% van zijn prijs. De rest gaat terug, ook de afhandelfee.`]);
-  rows.push(['none', 'Geen terugbetaling', 'via ons', 'Je bent het niet eens met de inhoud van het oordeel', 'Wij beslissen daar niet over. Praat met de professional, of ga naar de klachtroute van zijn register.']);
+  if (full) rows.push(['part', 'Rest terug', `de professional houdt ${span('cancelSharePct')}%`, je ? 'Je annuleert na aanname, vóór de oplevering' : 'Het bedrijf annuleert na aanname, vóór de oplevering', `De professional houdt ${span('cancelSharePct')}% van zijn prijs. De rest gaat terug.`]);
+  rows.push(['none', 'Geen terugbetaling', 'via ons', je ? 'Je bent het niet eens met het oordeel van de professional' : 'Het bedrijf is het niet eens met het oordeel van de professional', je ? 'Wij beslissen daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Praat met de professional, of ga naar de klachtroute van zijn register.' : 'HumanPush beslist daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Het bedrijf praat met de professional, of gaat naar de klachtroute van zijn register.']);
   const out = rows.map(([k, b, extra, when, small]) => {
     const ex = extra ? `<span>${extra}</span>` : '';
     const sm = small ? `<small>${small}</small>` : '';
-    const cls = k === 'none' ? 'row sep' : 'row';
-    return `<li class="${cls}"><div class="when">${when}${sm}</div><div class="arrow">${ico('arrow', 'ico ico-s')}</div><div class="out ${k}"><b>${b}</b>${ex}</div></li>`;
+    const tone = k === 'space' ? 'all' : k;
+    const cls = k === 'none' ? 'row sep' : (k === 'space' ? 'row space-after' : 'row');
+    return `<li class="${cls}"><div class="when">${when}${sm}</div><div class="arrow">${ico('arrow', 'ico ico-s')}</div><div class="out ${tone}"><b>${b}</b>${ex}</div></li>`;
   }).join('');
   return `<ul class="ig-rows" aria-label="Wat gebeurt er als het misgaat">${out}</ul>`;
 }
 
-function geld() {
-  return `<div class="ig-money" aria-label="Wanneer je betaalt en wanneer je geld terugkrijgt">
-<div><p class="barlabel"><span>Wat je vooraf betaalt (maximumprijs + afhandelfee + btw)</span><em>€ 530,25</em></p>
-<div class="bar" role="img" aria-label="Vooraf betaald: maximumprijs 500 euro, afhandelfee 25 euro, btw over de afhandelfee 5,25 euro"><span class="p" style="flex:500">Maximumprijs € 500</span><span class="f" style="flex:25"></span><span class="v" style="flex:5.25"></span></div></div>
-<div><p class="barlabel"><span>Wat het uiteindelijk kost, als de professional aanneemt voor € 450</span><em>€ 477,23</em></p>
-<div class="bar" role="img" aria-label="Uiteindelijk: prijs professional 450 euro, afhandelfee 22,50 euro, btw 4,73 euro, terug 53,02 euro"><span class="p" style="flex:450">Prijs professional € 450</span><span class="f" style="flex:22.5"></span><span class="v" style="flex:4.73"></span><span class="t" style="flex:53.02">terug</span></div></div>
-<p class="legend"><span><i class="swatch fee" aria-hidden="true"></i> afhandelfee 5% (€ 25)</span><span><i class="swatch vat" aria-hidden="true"></i> btw over de afhandelfee 21% (€ 5,25)</span></p>
-<p class="ig-note">Je betaalt de prijs van de professional plus 5% afhandelfee en 21% btw over die afhandelfee. Het verschil krijg je meteen terug. Voorbeeld met fictieve bedragen. Het verschil in dit voorbeeld is € 53,02.</p>
-<ol class="ig-time-line"><li><i></i><b>Bestellen</b>Je betaalt vooraf</li><li><i></i><b>Aanname</b>Verschil in prijs gaat terug</li><li><i></i><b>Oplevering</b>Getekend stuk</li><li><i></i><b>72 uur</b>Jij keurt goed, of zegt niets</li><li><i></i><b>Uitbetaling</b>De professional krijgt zijn volledige prijs</li></ol>
+function geld(voice) {
+  const je = voice === 'bedrijf';
+  const label = je ? 'Wat jij betaalt, als bedrijf' : 'Wat het bedrijf betaalt';
+  const note = je
+    ? 'Voorbeeld met ronde bedragen. De opdracht is € 1.000. HumanPush is 5%, dat is € 50. Jij betaalt € 1.050. Alle bedragen zijn exclusief btw.'
+    : 'Voorbeeld met ronde bedragen. De opdracht is € 1.000. HumanPush is 5%, dat is € 50. Het bedrijf betaalt € 1.050. Alle bedragen zijn exclusief btw.';
+  const uur = je ? 'Jij reclameert, of zegt niets' : 'Het bedrijf reclameert, of zegt niets';
+  return `<div class="ig-money" aria-label="${label}">
+<p class="ig-kicker">${label}</p>
+<div><p class="barlabel"><span>Prijs van de opdracht plus 5% HumanPush</span><em>€ 1.050</em></p>
+<div class="bar" role="img" aria-label="Opdracht 1000 euro, HumanPush 50 euro, samen 1050 euro, exclusief btw"><span class="p" style="flex:1000">Opdracht € 1.000</span><span class="f" style="flex:50"></span></div></div>
+<p class="ig-note">${note}</p>
+<ol class="ig-time-line"><li><i></i><b>Bestellen</b>${je ? 'Jij betaalt vooraf' : 'Het bedrijf betaalt vooraf'}</li><li><i></i><b>Aanname</b>Een lagere prijs gaat terug</li><li><i></i><b>Oplevering</b>Getekend stuk</li><li><i></i><b>72 uur</b>${uur}</li><li><i></i><b>Uitbetaling</b>De professional krijgt zijn volledige prijs</li></ol>
 </div>`;
 }
 
@@ -168,8 +176,8 @@ function rollenBlock() {
 
 function igBlock(name, variant) {
   if (name === 'who') return who();
-  if (name === 'misgaat') return misgaat(variant === 'vol');
-  if (name === 'geld') return geld();
+  if (name === 'misgaat') return misgaat(variant === 'vol' || variant === 'volbedrijf', variant === 'volbedrijf' ? 'bedrijf' : 'algemeen');
+  if (name === 'geld') return geld(variant === 'bedrijf' ? 'bedrijf' : 'algemeen');
   if (name === 'toegang') return toegang();
   throw new Error(`onbekende infographic: ${name}`);
 }
