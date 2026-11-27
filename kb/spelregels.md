@@ -74,7 +74,7 @@ Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende sta
 De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.
 
 ### R4.6 · Niemand neemt aan: alles terug
-Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug.
+Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijgt het bedrijf alles terug. Die 72 uur lopen door, ook in het weekeinde en op feestdagen.
 
 ### R4.7 · Hoe een professional een aangeboden opdracht ziet
 De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het scherm van HumanPush. Er gaat geen mail of sms.

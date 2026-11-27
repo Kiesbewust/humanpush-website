@@ -1,11 +1,11 @@
 {
  "kb_version": "2026-11-20",
- "kb_hash": "2a4de4bdac10d68ef71f4d71fadffe0839159529ed101838f500d1e6535bf935",
+ "kb_hash": "5614b0b6d8b6d19a5edeb94d33136566d85243c33a05226c7da392210ddb325d",
  "chunks": [
   {
    "id": "spelregels-r1-1",
    "title": "R1.1 HumanPush voert de voorwaarden uit",
-   "url": "https://humanpush.nl/hoe-het-werkt#garanties",
+   "url": "https://humanpush.nl/meer-weten#garanties",
    "lang": "nl",
    "source": "spelregels",
    "text": "Elke opdracht loopt alleen door de vaste stappen van HumanPush. Er is geen handmatige route ernaast. Elke stap staat getekend in het dossier van de opdracht, en elke stap verwijst naar de vorige.",
@@ -14,7 +14,7 @@
   {
    "id": "spelregels-r1-2",
    "title": "R1.2 Geen uitzonderingen per geval",
-   "url": "https://humanpush.nl/hoe-het-werkt#garanties",
+   "url": "https://humanpush.nl/meer-weten#garanties",
    "lang": "nl",
    "source": "spelregels",
    "text": "Geen helpdesk die regels buigt: een medewerker beantwoordt vragen via info@humanpush.nl, maar uitzonderingen per geval bestaan niet. Niemand bij HumanPush kan een termijn verlengen, een bedrag aanpassen of een lopende opdracht beslissen. v1_explain legt elke status en elke weigering uit.",
@@ -23,7 +23,7 @@
   {
    "id": "spelregels-r1-3",
    "title": "R1.3 Beheer heeft alleen een pauzeknop",
-   "url": "https://humanpush.nl/hoe-het-werkt#garanties",
+   "url": "https://humanpush.nl/meer-weten#garanties",
    "lang": "nl",
    "source": "spelregels",
    "text": "De pauze stopt nieuwe opdrachten voor iedereen. Lopende opdrachten lopen door onder hun eigen termijnen.",
@@ -32,7 +32,7 @@
   {
    "id": "spelregels-r1-4",
    "title": "R1.4 Regels liggen vast bij het bestellen",
-   "url": "https://humanpush.nl/hoe-het-werkt#garanties",
+   "url": "https://humanpush.nl/meer-weten#garanties",
    "lang": "nl",
    "source": "spelregels",
    "text": "De regels en de catalogus die golden bij het bestellen, gelden voor die hele opdracht. Een nieuwe versie geldt alleen voor nieuwe opdrachten.",
@@ -41,7 +41,7 @@
   {
    "id": "spelregels-r1-5",
    "title": "R1.5 Eén systeem voor alle beroepen",
-   "url": "https://humanpush.nl/hoe-het-werkt#garanties",
+   "url": "https://humanpush.nl/meer-weten#garanties",
    "lang": "nl",
    "source": "spelregels",
    "text": "Termijnen, geldregels, bezwaar en bewijsvloer zijn voor elke dienst gelijk. In de testfase is alleen de NIVRE-dienst te boeken; de status van de andere diensten staat in de catalogus. Per dienst verschillen alleen het register, de invoer, de uitkomsten, de disclaimer, de verklaring, de toetsingspunten en wat wel en niet in de dienst valt.",
@@ -50,7 +50,7 @@
   {
    "id": "spelregels-r1-6",
    "title": "R1.6 Alleen zakelijk",
-   "url": "https://humanpush.nl/hoe-het-werkt#garanties",
+   "url": "https://humanpush.nl/meer-weten#garanties",
    "lang": "nl",
    "source": "spelregels",
    "text": "Opdrachtgevers hebben een KvK-nummer. Professionals staan in een openbaar register. Niet voor particulieren of consumenten.",
@@ -59,7 +59,7 @@
   {
    "id": "spelregels-r1-7",
    "title": "R1.7 Eén route en één toegangscode per partij",
-   "url": "https://humanpush.nl/hoe-het-werkt#garanties",
+   "url": "https://humanpush.nl/meer-weten#garanties",
    "lang": "nl",
    "source": "spelregels",
    "text": "Het bedrijf werkt via de toegangscode van zijn agent. De professional werkt met zijn passkey: met zijn eigen agent (MCP), of zonder MCP met de HumanPush-agent op het scherm van HumanPush. Die komt eraan.",
@@ -68,7 +68,7 @@
   {
    "id": "spelregels-r2-1",
    "title": "R2.1 Registercheck vooraf, voor iedereen",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Zonder geldige registercheck krijgt niemand een opdracht aangeboden. De registercheck betekent: een medewerker van HumanPush zocht de professional met een vaste checklist op in het openbare register.",
@@ -77,7 +77,7 @@
   {
    "id": "spelregels-r2-2",
    "title": "R2.2 Alleen de agent mag een strengere check eisen",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Een agent kan per opdracht een strengere registercheck eisen (min_proof_level), nooit een lichtere. Bij de start biedt geen register een strengere check, dus wie die eist, vindt nu niemand en krijgt alles terug.",
@@ -86,7 +86,7 @@
   {
    "id": "spelregels-r2-6",
    "title": "R2.6 Hoe lang een registercheck geldt",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Een registercheck telt hooguit 30 dagen. Bij octrooigemachtigden geldt daarbovenop: de peildatum van de lijst is bij de controle hooguit 120 dagen oud. Het is een registercheck met een geldigheidsduur, geen live koppeling met het register.",
@@ -95,7 +95,7 @@
   {
    "id": "spelregels-r2-7",
    "title": "R2.7 Hercontrole bij elke aanname",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Vlak voor een aanname wordt het register opnieuw gecontroleerd. Doorgehaald of geschorst: de aangeboden opdracht vervalt.",
@@ -104,7 +104,7 @@
   {
    "id": "spelregels-r2-8",
    "title": "R2.8 Schorsing en doorhaling",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Meldt het register een schorsing of doorhaling, dan krijgt de professional geen nieuwe opdrachten. Een lopende opdracht die nog niet is opgeleverd, stopt: het bedrijf krijgt alles terug, de professional krijgt niets.",
@@ -113,7 +113,7 @@
   {
    "id": "spelregels-r2-12",
    "title": "R2.12 Twee passkeys",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Een professional maakt een passkey aan op zijn eigen telefoon of computer, en een tweede passkey als reserve. Zonder tweede passkey krijgt hij geen opdracht aangeboden.",
@@ -158,7 +158,7 @@
   {
    "id": "spelregels-r4-1",
    "title": "R4.1 Vaste volgorde",
-   "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
+   "url": "https://humanpush.nl/meer-weten#aannemen",
    "lang": "nl",
    "source": "spelregels",
    "text": "HumanPush zet passende professionals op volgorde: laagste eigen prijs, dan kortste levertijd, dan eerlijke rotatie. Passend is: geldige registercheck, juiste dienst, capaciteit vrij, geen afkoelperiode, en op tijd kunnen leveren.",
@@ -167,7 +167,7 @@
   {
    "id": "spelregels-r4-2",
    "title": "R4.2 Telkens 45 minuten binnen werktijd aangeboden, tot iemand aanneemt",
-   "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
+   "url": "https://humanpush.nl/meer-weten#aannemen",
    "lang": "nl",
    "source": "spelregels",
    "text": "Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. De professional heeft 45 minuten binnen werktijd om aan te nemen of door te geven. Neemt hij niet aan, of geeft hij de opdracht door, dan gaat de opdracht meteen naar de volgende. Na elke ronde maakt HumanPush de volgorde opnieuw. Elke professional krijgt dezelfde opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional of het bedrijf annuleert. Werktijd is maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen; buiten werktijd staat de klok stil.",
@@ -176,7 +176,7 @@
   {
    "id": "spelregels-r4-4",
    "title": "R4.4 Niet aannemen kost niets: doorgeven",
-   "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
+   "url": "https://humanpush.nl/meer-weten#aannemen",
    "lang": "nl",
    "source": "spelregels",
    "text": "Een professional kan een aangeboden opdracht doorgeven. Dat is een getekende stap, staat in het dossier en kost niets: de opdracht gaat direct naar de volgende. Een aangeboden opdracht laten verlopen is ook geen tekortkoming. Bij een dienst met verplichte conflictcheck kun je bij een aangeboden opdracht een belang melden; ook dat kost niets.",
@@ -185,7 +185,7 @@
   {
    "id": "spelregels-r4-5",
    "title": "R4.5 Aannemen is tekenen",
-   "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
+   "url": "https://humanpush.nl/meer-weten#aannemen",
    "lang": "nl",
    "source": "spelregels",
    "text": "De professional tekent de aanname met zijn passkey. Daarna zijn beide partijen gebonden. Neemt hij aan tegen een lagere eigen prijs, dan gaat het verschil meteen terug naar het bedrijf.",
@@ -194,16 +194,16 @@
   {
    "id": "spelregels-r4-6",
    "title": "R4.6 Niemand neemt aan: alles terug",
-   "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
+   "url": "https://humanpush.nl/meer-weten#aannemen",
    "lang": "nl",
    "source": "spelregels",
-   "text": "Kan geen passende professional meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen (het vangnet), dan krijgt het bedrijf alles terug.",
-   "hash": "70f0d293a0600f8e"
+   "text": "Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijgt het bedrijf alles terug. Die 72 uur lopen door, ook in het weekeinde en op feestdagen.",
+   "hash": "6651d5210056d605"
   },
   {
    "id": "spelregels-r4-7",
    "title": "R4.7 Hoe een professional een aangeboden opdracht ziet",
-   "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
+   "url": "https://humanpush.nl/meer-weten#aannemen",
    "lang": "nl",
    "source": "spelregels",
    "text": "De agent van de professional vraagt zijn aangeboden opdrachten op met get_my_turns. Zonder eigen agent meldt de HumanPush-agent de aangeboden opdracht op het scherm van HumanPush. Er gaat geen mail of sms.",
@@ -230,7 +230,7 @@
   {
    "id": "spelregels-r6-1",
    "title": "R6.1 72 uur na oplevering",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Het bedrijf accepteert, of maakt bezwaar. Zegt het niets, dan geldt het werk na 72 uur als geaccepteerd. De 72 uur zijn gewone klokuren.",
@@ -239,7 +239,7 @@
   {
    "id": "spelregels-r6-2",
    "title": "R6.2 Bezwaar alleen bij een objectieve fout",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Een bezwaar telt alleen bij een fout die het systeem zelf vaststelt: te laat (geen levering vóór de deadline), een verplicht onderdeel van de dienstkaart ontbreekt, de registratie van de professional was bij aanname niet geldig, of het formaat klopt niet (documenttype, handtekening met de passkey of digitale vingerafdruk). Een andere conclusie willen is geen grond.",
@@ -248,7 +248,7 @@
   {
    "id": "spelregels-r6-3",
    "title": "R6.3 Niemand beoordeelt de inhoud",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "HumanPush oordeelt niet over de inhoud en er is geen beoordelaar. Is het bedrijf het inhoudelijk oneens, dan wordt de professional na 72 uur betaald. Het bedrijf gaat naar de professional, of naar de klacht- of tuchtregeling van het register van de professional.",
@@ -257,7 +257,7 @@
   {
    "id": "spelregels-r6-4",
    "title": "R6.4 Objectieve fout: alles terug",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Bij een objectieve fout krijgt het bedrijf automatisch alles terug. Niemand hoeft te beslissen. De professional krijgt niets.",
@@ -266,7 +266,7 @@
   {
    "id": "spelregels-r6-6",
    "title": "R6.6 Storing bij HumanPush",
-   "url": "https://humanpush.nl/hoe-het-werkt#g18",
+   "url": "https://humanpush.nl/meer-weten#g18",
    "lang": "nl",
    "source": "spelregels",
    "text": "Kan HumanPush niet aantonen dat zijn eigen dienst werkte, dan krijgt het bedrijf alles terug en betaalt HumanPush de professional uit zijn eigen reserve. De uitbetaling kan dan hooguit 5 werkdagen opschuiven.",
@@ -275,7 +275,7 @@
   {
    "id": "spelregels-r7-1",
    "title": "R7.1 Vóór aanname annuleren: alles terug",
-   "url": "https://humanpush.nl/hoe-het-werkt#geld",
+   "url": "https://humanpush.nl/meer-weten#geld",
    "lang": "nl",
    "source": "spelregels",
    "text": "Annuleren vóór de aanname kost niets.",
@@ -284,7 +284,7 @@
   {
    "id": "spelregels-r7-2",
    "title": "R7.2 Annuleren na aanname, vóór oplevering: 25% van de prijs",
-   "url": "https://humanpush.nl/hoe-het-werkt#geld",
+   "url": "https://humanpush.nl/meer-weten#geld",
    "lang": "nl",
    "source": "spelregels",
    "text": "De professional krijgt 25% van zijn eigen prijs. Het bedrijf krijgt de rest terug.",
@@ -293,7 +293,7 @@
   {
    "id": "spelregels-r7-3",
    "title": "R7.3 Na oplevering kan niet meer worden geannuleerd",
-   "url": "https://humanpush.nl/hoe-het-werkt#geld",
+   "url": "https://humanpush.nl/meer-weten#geld",
    "lang": "nl",
    "source": "spelregels",
    "text": "Na de oplevering blijft alleen accepteren of bezwaar over.",
@@ -302,7 +302,7 @@
   {
    "id": "spelregels-r7-4",
    "title": "R7.4 Te laat of terugtrekken: alles terug",
-   "url": "https://humanpush.nl/hoe-het-werkt#geld",
+   "url": "https://humanpush.nl/meer-weten#geld",
    "lang": "nl",
    "source": "spelregels",
    "text": "Levert de professional niet op tijd, of trekt hij zich na aanname terug, dan krijgt het bedrijf alles terug en telt het als tekortkoming. Er wordt niemand anders ingezet; het bedrijf kan opnieuw bestellen.",
@@ -311,7 +311,7 @@
   {
    "id": "spelregels-r7-5",
    "title": "R7.5 Conflict na aanname, alleen bij verplichte conflictcheck",
-   "url": "https://humanpush.nl/hoe-het-werkt#geld",
+   "url": "https://humanpush.nl/meer-weten#geld",
    "lang": "nl",
    "source": "spelregels",
    "text": "Nu alleen bij octrooigemachtigden. Vóór oplevering mag de professional teruggeven. Het bedrijf krijgt alles terug, zonder 25%. De professional krijgt een markering; 3 markeringen in 12 maanden tellen als 1 tekortkoming.",
@@ -320,7 +320,7 @@
   {
    "id": "spelregels-r8-1",
    "title": "R8.1 Na het venster",
-   "url": "https://humanpush.nl/hoe-het-werkt#geld",
+   "url": "https://humanpush.nl/meer-weten#geld",
    "lang": "nl",
    "source": "spelregels",
    "text": "De professional krijgt zijn prijs na acceptatie, of na 72 uur zonder geldig bezwaar. Er gaat niets van af.",
@@ -347,7 +347,7 @@
   {
    "id": "spelregels-r10-1",
    "title": "R10.1 Iedereen kan het bewijs zelf controleren",
-   "url": "https://humanpush.nl/hoe-het-werkt#vastgelegd",
+   "url": "https://humanpush.nl/meer-weten#vastgelegd",
    "lang": "nl",
    "source": "spelregels",
    "text": "Het dossier van een opdracht bevat de digitale vingerafdruk van het stuk, de handtekeningen met de passkey van de professional, de registercheck en elke stap in volgorde. verify_proof controleert vingerafdruk, handtekening en volgorde.",
@@ -356,7 +356,7 @@
   {
    "id": "spelregels-r10-3",
    "title": "R10.3 Persoonsgegevens niet leesbaar in het dossier",
-   "url": "https://humanpush.nl/hoe-het-werkt#vastgelegd",
+   "url": "https://humanpush.nl/meer-weten#vastgelegd",
    "lang": "nl",
    "source": "spelregels",
    "text": "De stappen in het dossier bevatten digitale vingerafdrukken van de inhoud, nooit de inhoud zelf.",
@@ -404,8 +404,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#niemand",
    "lang": "nl",
    "source": "faq",
-   "text": "De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijgt het bedrijf alles terug. Bestelt het bedrijf op maandag om 10:00, dan uiterlijk donderdag om 10:00. Zie Hoe het werkt.",
-   "hash": "7204592fc3a4d4ce"
+   "text": "De opdracht van het bedrijf wordt één voor één aangeboden tot een professional de opdracht aanneemt, of tot het bedrijf annuleert. Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijgt het bedrijf alles terug. Betaalt het bedrijf vrijdag om 15:00, dan uiterlijk maandag om 15:00. Die 72 uur lopen door, ook in het weekeinde en op feestdagen. Zie Meer weten.",
+   "hash": "7360f24f301ac90b"
   },
   {
    "id": "faq-bedrijven-wat-is-werktijd",
@@ -413,8 +413,8 @@
    "url": "https://humanpush.nl/veelgestelde-vragen#werkuren",
    "lang": "nl",
    "source": "faq",
-   "text": "Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op Hoe het werkt.",
-   "hash": "b03fb41fc9d003d4"
+   "text": "Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Een voorbeeld staat op Meer weten.",
+   "hash": "24e5937db35a77b6"
   },
   {
    "id": "faq-bedrijven-wat-als-we-annuleren",
@@ -827,8 +827,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "After payment HumanPush offers the order in turns, to one matching professional at a time, in a fixed order (lowest own price, shortest lead time, fair rotation). A turn lasts 45 working minutes. If the turn holder does not accept, or passes the turn (pass_turn, signed, no penalty), the turn moves at once to the next matching professional. After each round HumanPush builds the queue again and records it; at most 2 turns per professional per order. Every start, end and pass of a turn is in the evidence file. This goes on until someone accepts, or the company cancels (free before acceptance). If no matching professional can deliver on time any more, or nobody accepts within 3 working days, everything goes back.",
-   "hash": "7c257305c31f9de2"
+   "text": "After payment HumanPush offers the order in turns, to one matching professional at a time, in a fixed order (lowest own price, shortest lead time, fair rotation). A turn lasts 45 working minutes. If the turn holder does not accept, or passes the turn (pass_turn, signed, no penalty), the turn moves at once to the next matching professional. After each round HumanPush builds the queue again and records it; at most 2 turns per professional per order. Every start, end and pass of a turn is in the evidence file. This goes on until someone accepts, or the company cancels (free before acceptance). If nobody accepts the order within 72 hours after payment, the order lapses and everything goes back. Those 72 hours run through weekends and holidays.",
+   "hash": "9ea764f10d7a21af"
   },
   {
    "id": "llms-states",
@@ -845,8 +845,8 @@
    "url": "https://humanpush.nl/llms.txt",
    "lang": "en",
    "source": "llms",
-   "text": "100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register. HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.",
-   "hash": "4ffacf29baf30673"
+   "text": "100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders. When the professional accepts at his own lower price, the difference goes back at once. If nobody accepts the order within 72 hours after payment, the order lapses and everything goes back. Those 72 hours run through weekends and holidays. Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back. No cancelling after delivery. The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again. Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%. The register reports the professional as suspended or deregistered before delivery: everything back; he is not paid. Dispute: only for an objective error (deadline_gemist, bewijs_ontbreekt, registerstatus_ongeldig, formaat_onjuist), within 72 hours. The system detects it itself and refunds everything automatically. Nobody judges the content: if the company disagrees with the content, the professional is paid after 72 hours and the company goes to the professional or to the complaints or disciplinary procedure of the professional's register. HumanPush cannot show its own service worked: everything back, and HumanPush pays the professional from its own reserve. The professional is paid after acceptance, or after 72 hours without a valid dispute. HumanPush keeps the handling fee only when an order succeeds.",
+   "hash": "6e81482901d222a2"
   },
   {
    "id": "llms-proof",
@@ -858,33 +858,6 @@
    "hash": "3884073d00ccb6c2"
   },
   {
-   "id": "pagina-hoe-het-werkt-via",
-   "title": "Wie doet wat",
-   "url": "https://humanpush.nl/hoe-het-werkt#via",
-   "lang": "nl",
-   "source": "pagina",
-   "text": "Wie doet wat. Het bedrijf en zijn agent. Kiest de dienst en geeft de stukken en de uiterste datum. Betaalt vooraf en keurt goed. Kiest nooit zelf een persoon. De professional. Doet het vakwerk en tekent met zijn passkey. Staat voor de inhoud in, onder zijn eigen beroepsregels. Tekent altijd zelf; een agent kan niet voor hem tekenen. HumanPush. Let op het proces: in het register, op tijd, getekend, niet veranderd. Regelt de betaling en het dossier. Oordeelt niet over de inhoud van het werk. Wat HumanPush wel en niet controleert. In het openbare register. Op tijd. Een stuk met een vaste uitkomst. Getekend met de passkey van de professional die aannam. De vingerafdruk klopt. De inhoud. HumanPush oordeelt niet over de inhoud. Dossier · opdracht HP-0001 (voorbeeld)DienstToets schadevaststelling · NIVRE Besteldma 10:02 agent van het bedrijf Betaaldma 10:05 via betaallink Registercheckma 10:31 NIVRE-register · geldig Aangenomenma 10:31 Professional B · ✓ passkey Opgeleverdwo 15:12 Professional B · ✓ passkey Vingerafdruk9f3a…e17d Geaccepteerdwo 16:40 bedrijf Uitbetaaldwo 16:40 Professional B Elke regel is getekend en verwijst naar de vorige.",
-   "hash": "e26b7355b05fa4e4"
-  },
-  {
-   "id": "pagina-hoe-het-werkt-controle",
-   "title": "Wat HumanPush controleert, en wat niet",
-   "url": "https://humanpush.nl/hoe-het-werkt#controle",
-   "lang": "nl",
-   "source": "pagina",
-   "text": "Wat HumanPush wel en niet controleert. In het openbare register. Op tijd. Een stuk met een vaste uitkomst. Getekend met de passkey van de professional die aannam. De vingerafdruk klopt. De inhoud. HumanPush oordeelt niet over de inhoud.",
-   "hash": "40a8a70119da417b"
-  },
-  {
-   "id": "pagina-hoe-het-werkt-grenzen",
-   "title": "Wat het dossier aantoont, en wat niet",
-   "url": "https://humanpush.nl/hoe-het-werkt#grenzen",
-   "lang": "nl",
-   "source": "pagina",
-   "text": "Wat het dossier aantoont, en wat niet. Het dossier legt drie dingen vast: Wie en welke registratie. Dat de professional bij aannemen in het openbare register van zijn beroep stond, met bron en datum van de check. Wat hij beoordeelde. Welke stukken hij heeft ontvangen en, in zijn rapport, welke methode hij gebruikte. (Voor zover de dienstkaart dat als verplicht onderdeel vraagt.). Dat het stuk niet is veranderd. Wie wanneer welke versie aannam en opleverde, met een digitale vingerafdruk. Wat het niet aantoont: Dat de inhoud juist is. Daarvoor staat de professional zelf in, onder de regels van zijn register. Is het bedrijf het oneens met de inhoud, dan gaat het naar de professional of naar de klacht- of tuchtregeling van het register. Dat de professional geschikt is voor élke opdracht binnen zijn vak. De registercheck toont alleen de inschrijving; de professional verklaart bij aannemen zelf dat de opdracht binnen zijn deskundigheid valt. Dat het een gekwalificeerde elektronische handtekening is. De handtekening met een passkey bewijst dat deze professional dit stuk heeft goedgekeurd. Het is geen gekwalificeerde elektronische handtekening (QES) in de zin van de Europese eIDAS-verordening en heeft dus niet automatisch dezelfde werking als een handgeschreven handtekening. Dat een AI-besluit hiermee in orde is. Een getekend oordeel helpt bij betekenisvolle menselijke tussenkomst, maar wie beslist blijft de opdrachtgever. Bekijk een voorbeeld-dossier",
-   "hash": "0e795c39557aebb8"
-  },
-  {
    "id": "pagina-hoe-het-werkt-status",
    "title": "Wat werkt al, en wat nog niet",
    "url": "https://humanpush.nl/hoe-het-werkt#status",
@@ -894,31 +867,13 @@
    "hash": "b2dc3d33f8aa41a4"
   },
   {
-   "id": "pagina-hoe-het-werkt-aannemen",
-   "title": "Aannemen",
-   "url": "https://humanpush.nl/hoe-het-werkt#aannemen",
-   "lang": "nl",
-   "source": "pagina",
-   "text": "Aanbieden en aannemen. Na de betaling wordt de opdracht aangeboden aan één passende professional tegelijk. Elke aangeboden opdracht staat 45 minuten binnen werktijd open. Neemt de professional niet aan, of geeft hij de opdracht door, dan gaat de opdracht meteen naar de volgende passende professional. Na elke ronde maakt HumanPush de volgorde opnieuw; elke professional krijgt een opdracht hooguit 2 keer aangeboden. Dat gaat door tot de opdracht is toegewezen aan een professional, of tot het bedrijf annuleert (vóór de aanname kost dat niets). Kan niemand meer op tijd leveren, of neemt niemand aan binnen 3 werkdagen, dan krijgt het bedrijf alles terug. Vlak voor een aanname controleren we het register van de professional opnieuw.",
-   "hash": "0e5c441519eed852"
-  },
-  {
-   "id": "pagina-hoe-het-werkt-werkuren",
-   "title": "Wat is werktijd?",
-   "url": "https://humanpush.nl/hoe-het-werkt#werkuren",
-   "lang": "nl",
-   "source": "pagina",
-   "text": "Wat is werktijd? Maandag tot en met vrijdag, 09:00 tot 17:00 uur Nederlandse tijd, zonder Nederlandse feestdagen. Buiten werktijd staat de klok stil. Voorbeeld (fictief): betaalt het bedrijf maandag om 10:00, dan staat de opdracht tot 10:45 open voor de eerste professional. Betaalt het bedrijf vrijdag om 16:30, dan staat hij tot maandag 09:15 open. Het vangnet van 3 werkdagen: betaalt het bedrijf maandag om 10:00 en neemt niemand aan, dan krijgt het uiterlijk donderdag om 10:00 alles terug. De 72 uur voor bezwaar zijn gewone klokuren.",
-   "hash": "79b7f9b77b9d151b"
-  },
-  {
    "id": "pagina-bedrijven-hoe",
    "title": "Als het misgaat",
    "url": "https://humanpush.nl/bedrijven#hoe",
    "lang": "nl",
    "source": "pagina",
-   "text": "Als het misgaat. Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: de professional levert later dan de uiterste datum, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je alles terug. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Professionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00. Niemand neemt de opdracht aanProfessionals nemen de opdracht niet aan, of niemand kan leveren binnen de gestelde termijn, en dan krijg je alles terug. Besteld op maandag om 10:00, dan uiterlijk donderdag om 10:00. Alles terug. Er mist verplicht bewijs, of het bestand is verkeerdHet stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Meld het binnen 72 uur na oplevering. Dan krijg je alles terug. Alles terug. De professional trekt zich terug of levert later dan de uiterste datumJe kunt opnieuw bestellen. Alles terug. Je annuleert vóór iemand de opdracht heeft aangenomen Alles terug. Je annuleert na aanname, vóór de opleveringDe professional houdt 25% van zijn prijs. De rest gaat terug. Rest terugde professional houdt 25%. Je bent het niet eens met het oordeel van de professionalWij beslissen daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Praat met de professional, of ga naar de klachtroute van zijn register. Geen terugbetalingvia ons. Donker = alles terugGoud = gedeeltelijkGrijs = niet via HumanPush De volledige regel bij een objectieve fout. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt.",
-   "hash": "b657bdd09fb888ce"
+   "text": "Als het misgaat. Gaat er iets mis dat het systeem kan meten? Bijvoorbeeld: de professional levert later dan de uiterste datum, er mist iets verplicht, de registratie was niet geldig of het formaat klopt niet. Dan krijg je alles terug. Meld het binnen 72 uur na oplevering. Over de inhoud van een oordeel beslissen wij niet. Dat blijft tussen jou en de professional. Neemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijg je alles terug. Betaal je vrijdag om 15:00, dan uiterlijk maandag om 15:00. Niemand neemt de opdracht aanNeemt niemand de opdracht binnen 72 uur na betaling aan, dan vervalt hij en krijg je alles terug. Betaal je vrijdag om 15:00, dan uiterlijk maandag om 15:00. Alles terug. Er mist verplicht bewijs, of het bestand is verkeerdHet stuk is opgeleverd, maar er mist verplicht bewijs of het bestand klopt niet. Het systeem stelt dit zelf vast. Meld het binnen 72 uur na oplevering. Dan krijg je alles terug. Alles terug. De professional trekt zich terug of levert later dan de uiterste datumJe kunt opnieuw bestellen. Alles terug. Je annuleert vóór iemand de opdracht heeft aangenomen Alles terug. Je annuleert na aanname, vóór de opleveringDe professional houdt 25% van zijn prijs. De rest gaat terug. Rest terugde professional houdt 25%. Je bent het niet eens met het oordeel van de professionalWij beslissen daar niet over. Een bezwaar kan alleen bij een fout die het systeem meet. Praat met de professional, of ga naar de klachtroute van zijn register. Geen terugbetalingvia ons. Donker = alles terugGoud = gedeeltelijkGrijs = niet via HumanPush De volledige regel bij een objectieve fout. Het systeem laat geen oplevering toe waarin een verplicht onderdeel ontbreekt; mist er na oplevering toch iets, dan is dat een objectieve fout en krijg je alles terug. De klachtroute per register staat op de dienstkaart. De wet eist dat niet altijd; HumanPush levert het oordeel wanneer de situatie daarom vraagt.",
+   "hash": "67ec96572076696f"
   },
   {
    "id": "pagina-professionals-humanpush-scherm",

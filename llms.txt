@@ -73,7 +73,7 @@ Professionals use v1_passkey_register (to register a passkey on their own device
 - After payment HumanPush offers the order in turns, to one matching professional at a time, in a fixed order (lowest own price, shortest lead time, fair rotation).
 - A turn lasts 45 working minutes. If the turn holder does not accept, or passes the turn (pass_turn, signed, no penalty), the turn moves at once to the next matching professional.
 - After each round HumanPush builds the queue again and records it; at most 2 turns per professional per order. Every start, end and pass of a turn is in the evidence file.
-- This goes on until someone accepts, or the company cancels (free before acceptance). If no matching professional can deliver on time any more, or nobody accepts within 3 working days, everything goes back.
+- This goes on until someone accepts, or the company cancels (free before acceptance). If nobody accepts the order within 72 hours after payment, the order lapses and everything goes back. Those 72 hours run through weekends and holidays.
 
 ## States
 
@@ -90,7 +90,7 @@ Reasons include not_paid, no_accept, cancelled, withdrawn, late, returned_confli
 
 - 100% upfront, within 30 minutes. HumanPush handling fee: 5% of the professional's price (including his VAT, if any); the fee itself excludes VAT, plus 21% VAT on the fee; you prepay max_price + 5% + VAT on the fee; the difference is refunded when a cheaper professional accepts. No subscription, no minimum, no other components. A change applies only to new orders.
 - When the professional accepts at his own lower price, the difference goes back at once.
-- If nobody accepts (nobody can deliver on time any more, or 3 working days passed), everything goes back.
+- If nobody accepts the order within 72 hours after payment, the order lapses and everything goes back. Those 72 hours run through weekends and holidays.
 - Cancel before acceptance: everything back. After acceptance and before delivery: the professional keeps 25% of his fee, the rest goes back. No cancelling after delivery.
 - The professional withdraws or delivers late: everything back. No replacement and no extension after acceptance; you may order again.
 - Conflict of interest, only for a service with a mandatory conflict check (now patent attorneys): the professional returns the order before delivery; everything back, no 25%.
@@ -110,6 +110,7 @@ Reasons include not_paid, no_accept, cancelled, withdrawn, late, returned_confli
 
 - [Website (Dutch)](https://humanpush.nl)
 - [How it works (Dutch)](https://humanpush.nl/hoe-het-werkt)
+- [More detail (Dutch)](https://humanpush.nl/meer-weten)
 - [For agent builders (Dutch)](https://humanpush.nl/agents)
 - [For companies (Dutch)](https://humanpush.nl/bedrijven)
 - [Questions (Dutch)](https://humanpush.nl/veelgestelde-vragen)

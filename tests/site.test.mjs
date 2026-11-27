@@ -48,13 +48,13 @@ test('geen bezoekersteller of andere externe scripts: "we verzamelen geen gegeve
 });
 
 
-test('het garantieblok staat alleen op /hoe-het-werkt; elders één regel met link', () => {
+test('het garantieblok staat alleen op /meer-weten; elders één regel met link', () => {
   for (const f of PAGES) {
     const has = read(f).includes('class="guarantees"');
-    assert.equal(has, f === 'hoe-het-werkt.html', f);
+    assert.equal(has, f === 'meer-weten.html', f);
   }
   for (const f of ['index.html', 'agents.html', 'bedrijven.html', 'professionals.html', 'veelgestelde-vragen.html']) {
-    assert.match(read(f), /<a href="\/hoe-het-werkt#garanties">Lees wat HumanPush garandeert<\/a>/, f);
+    assert.match(read(f), /<a href="\/meer-weten#garanties">Lees wat HumanPush garandeert<\/a>/, f);
   }
 });
 
@@ -153,5 +153,5 @@ test('voorbeeld-dossier: fictief, gestempeld, en de sha256 in de JSON is de echt
   assert.doesNotMatch(JSON.stringify(d), /NL\d{2}[A-Z]{4}\d{6,}|\b(?!00000000\b)\d{8}\b/, 'geen echte KvK- of rekeningnummers');
   const b = read('bedrijven.html');
   assert.match(b, /id="voorbeeld-dossier"[\s\S]*href="\/voorbeeld\/rapport-voorbeeld\.pdf"[\s\S]*href="\/voorbeeld\/dossier-voorbeeld\.json"[\s\S]*shasum -a 256 rapport-voorbeeld\.pdf[\s\S]*VOORBEELD – niet verifieerbaar/);
-  assert.match(read('hoe-het-werkt.html'), /id="grenzen"[\s\S]*?<a href="\/bedrijven#voorbeeld-dossier">Bekijk een voorbeeld-dossier<\/a>/);
+  assert.match(read('meer-weten.html'), /id="grenzen"[\s\S]*?<a class="btn btn-primary" href="\/bedrijven#voorbeeld-dossier">Bekijk een voorbeeld-dossier<\/a>/);
 });
